@@ -4,6 +4,8 @@
 
 Accessible React components from **CodeCPS Technologies**.
 
+**Documentation:** https://code-cps-ui-library.vercel.app
+
 `@codecps/ui` is the shared component library for CodeCPS products. It gives every
 project the same buttons, forms, overlays and navigation, built once, tested once,
 and styled with the CodeCPS design system.
