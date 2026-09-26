@@ -3,6 +3,10 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import { routes } from "./routes.jsx";
+// Load the library's stylesheet the way apps do. The CSS import inside src/index.js
+// isn't enough: package.json marks that file side-effect free, so production builds
+// skip it (and its stylesheet) when only its re-exports are used.
+import "@codecps/ui/styles.css";
 import "./styles/docs.css";
 
 const container = document.getElementById("root");

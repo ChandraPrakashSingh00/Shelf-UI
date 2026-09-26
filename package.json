@@ -56,7 +56,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "docs:dev": "vite --config docs/vite.config.js",
-    "docs:build": "vite build --config docs/vite.config.js",
+    "docs:build": "vite build --config docs/vite.config.js && node scripts/verify-docs.mjs",
     "docs:preview": "vite preview --config docs/vite.config.js",
     "prepublishOnly": "npm run lint && npm run test && npm run build"
   },

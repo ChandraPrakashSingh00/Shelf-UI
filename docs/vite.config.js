@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 
 const docsRoot = fileURLToPath(new URL(".", import.meta.url));
 const libraryEntry = fileURLToPath(new URL("../src/index.js", import.meta.url));
+const libraryStyles = fileURLToPath(new URL("../src/styles/index.css", import.meta.url));
 
 // Documentation site. It renders the library straight from `src/`, so the docs
 // always show the current components (run with `npm run docs:dev`).
@@ -17,7 +18,10 @@ export default defineConfig(({ command }) => {
     base: process.env.DOCS_BASE_PATH || "/",
     plugins: [react()],
     resolve: {
-      alias: [{ find: /^@codecps\/ui$/, replacement: libraryEntry }],
+      alias: [
+        { find: /^@codecps\/ui$/, replacement: libraryEntry },
+        { find: /^@codecps\/ui\/styles\.css$/, replacement: libraryStyles },
+      ],
     },
     build: {
       outDir: "dist",
