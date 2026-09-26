@@ -1,0 +1,58 @@
+.cps-toast-viewport {
+  position: fixed;
+  z-index: var(--cps-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(24rem, calc(100vw - 2rem));
+  /* The viewport spans an area of the page; only the toasts take clicks. */
+  pointer-events: none;
+}
+
+.cps-toast-viewport > * {
+  pointer-events: auto;
+}
+
+/* Newest toast sits closest to the screen edge. */
+.cps-toast-viewport--top-left,
+.cps-toast-viewport--top-center,
+.cps-toast-viewport--top-right {
+  top: 1rem;
+  flex-direction: column-reverse;
+}
+
+.cps-toast-viewport--bottom-left,
+.cps-toast-viewport--bottom-center,
+.cps-toast-viewport--bottom-right {
+  bottom: 1rem;
+}
+
+.cps-toast-viewport--top-left,
+.cps-toast-viewport--bottom-left {
+  left: 1rem;
+}
+
+.cps-toast-viewport--top-right,
+.cps-toast-viewport--bottom-right {
+  right: 1rem;
+}
+
+.cps-toast-viewport--top-center,
+.cps-toast-viewport--bottom-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* A toast is an Alert on a neutral surface; the icon carries the tone. */
+.cps-toast {
+  border-color: var(--cps-color-border);
+  background-color: var(--cps-color-surface);
+  box-shadow: var(--cps-shadow-lg);
+  animation: cps-slide-up var(--cps-duration-normal) var(--cps-easing);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-toast {
+    animation: none;
+  }
+}

@@ -1,0 +1,19 @@
+/* Scoped to library elements only — CodeCPS UI never resets the host page. */
+:where([class^="cps-"], [class*=" cps-"]),
+:where([class^="cps-"], [class*=" cps-"])::before,
+:where([class^="cps-"], [class*=" cps-"])::after {
+  box-sizing: border-box;
+}
+
+@keyframes cps-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes cps-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

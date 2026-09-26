@@ -1,0 +1,20 @@
+/*
+ * Single stylesheet entry, emitted as `@codecps/ui/styles.css`.
+ * Each component keeps its CSS in its own folder; register new files here.
+ */
+@import "./tokens.css";
+@import "./base.css";
+
+@import "../primitives/Spinner.css";
+@import "../primitives/IconButton.css";
+
+@import "../components/Button/Button.css";
+@import "../components/Input/Input.css";
+@import "../components/Card/Card.css";
+@import "../components/Badge/Badge.css";
+@import "../components/Alert/Alert.css";
+@import "../components/Modal/Modal.css";
+@import "../components/Dropdown/Dropdown.css";
+@import "../components/Tabs/Tabs.css";
+@import "../components/Navbar/Navbar.css";
+@import "../components/Toast/Toast.css";

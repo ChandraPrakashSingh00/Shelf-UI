@@ -1,0 +1,11 @@
+# Keep LF line endings in the repository and working tree on every OS, so
+# Windows checkouts (core.autocrlf=true) don't rewrite files to CRLF.
+* text=auto eol=lf
+
+*.svg text eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.tgz binary

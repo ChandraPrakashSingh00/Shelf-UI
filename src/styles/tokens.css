@@ -1,0 +1,158 @@
+/*
+ * CodeCPS UI design tokens.
+ * Every component reads these variables, so overriding a `--cps-*` variable on
+ * :root re-themes the library. Tokens that reference other tokens (e.g.
+ * --cps-color-info) resolve where they are declared: when overriding tokens on
+ * a nested container, set those aliases there too.
+ */
+
+:root,
+[data-cps-theme="light"] {
+  /* Brand */
+  --cps-brand-blue: #086ffd;
+  --cps-brand-dark: #191b1f;
+  --cps-brand-white: #ffffff;
+
+  /* Primary */
+  --cps-color-primary: var(--cps-brand-blue);
+  --cps-color-primary-hover: #0762e0;
+  --cps-color-primary-active: #0655c2;
+  --cps-color-primary-subtle: #eef5ff;
+  --cps-color-primary-border: #c7ddff;
+  --cps-color-primary-text: #0552bd;
+  --cps-color-on-primary: var(--cps-brand-white);
+
+  /* Surfaces & text */
+  --cps-color-bg: var(--cps-brand-white);
+  --cps-color-surface: var(--cps-brand-white);
+  --cps-color-surface-muted: #f5f7fa;
+  --cps-color-surface-hover: #eceff4;
+  --cps-color-text: var(--cps-brand-dark);
+  --cps-color-text-muted: #5b6270;
+  --cps-color-text-subtle: #6b7280;
+  --cps-color-border: #e2e6ec;
+  --cps-color-border-strong: #c8ced8;
+  --cps-color-overlay: rgba(25, 27, 31, 0.55);
+  --cps-color-focus: var(--cps-brand-blue);
+  --cps-focus-ring-soft: rgba(8, 111, 253, 0.2);
+
+  /* Status */
+  --cps-color-info: var(--cps-color-primary);
+  --cps-color-info-subtle: var(--cps-color-primary-subtle);
+  --cps-color-info-border: var(--cps-color-primary-border);
+  --cps-color-info-text: var(--cps-color-primary-text);
+
+  --cps-color-success: #16a34a;
+  --cps-color-success-subtle: #effbf3;
+  --cps-color-success-border: #bfe9cf;
+  --cps-color-success-text: #15803d;
+
+  --cps-color-warning: #d97706;
+  --cps-color-warning-subtle: #fff8eb;
+  --cps-color-warning-border: #fbdfa6;
+  --cps-color-warning-text: #b45309;
+
+  --cps-color-danger: #dc2626;
+  --cps-color-danger-hover: #c81f1f;
+  --cps-color-danger-active: #b21b1b;
+  --cps-color-danger-subtle: #fef2f2;
+  --cps-color-danger-border: #f9caca;
+  --cps-color-danger-text: #b91c1c;
+
+  --cps-color-neutral: #5b6270;
+  --cps-color-neutral-subtle: #f2f4f7;
+  --cps-color-neutral-border: #dde1e7;
+  --cps-color-neutral-text: #3f4552;
+
+  /* Typography */
+  --cps-font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --cps-font-size-xs: 0.75rem;
+  --cps-font-size-sm: 0.875rem;
+  --cps-font-size-md: 1rem;
+  --cps-font-size-lg: 1.125rem;
+  --cps-font-weight-regular: 400;
+  --cps-font-weight-medium: 500;
+  --cps-font-weight-semibold: 600;
+  --cps-line-height-tight: 1.25;
+  --cps-line-height-normal: 1.5;
+
+  /* Shape */
+  --cps-radius-sm: 6px;
+  --cps-radius-md: 8px;
+  --cps-radius-lg: 12px;
+  --cps-radius-full: 9999px;
+
+  /* Elevation */
+  --cps-shadow-sm: 0 1px 2px rgba(25, 27, 31, 0.06);
+  --cps-shadow-md: 0 4px 12px rgba(25, 27, 31, 0.08), 0 1px 3px rgba(25, 27, 31, 0.06);
+  --cps-shadow-lg: 0 16px 40px rgba(25, 27, 31, 0.16), 0 2px 6px rgba(25, 27, 31, 0.08);
+
+  /* Controls */
+  --cps-control-height-sm: 2rem;
+  --cps-control-height-md: 2.5rem;
+  --cps-control-height-lg: 3rem;
+
+  /* Motion */
+  --cps-duration-fast: 120ms;
+  --cps-duration-normal: 200ms;
+  --cps-easing: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layers */
+  --cps-z-dropdown: 1000;
+  --cps-z-navbar: 1100;
+  --cps-z-modal: 1300;
+  --cps-z-toast: 1400;
+}
+
+[data-cps-theme="light"] {
+  color-scheme: light;
+}
+
+[data-cps-theme="dark"] {
+  color-scheme: dark;
+
+  --cps-color-primary-hover: #2680ff;
+  --cps-color-primary-active: #4a94ff;
+  --cps-color-primary-subtle: rgba(8, 111, 253, 0.16);
+  --cps-color-primary-border: rgba(8, 111, 253, 0.42);
+  --cps-color-primary-text: #6aa9ff;
+
+  --cps-color-bg: var(--cps-brand-dark);
+  --cps-color-surface: #1f2226;
+  --cps-color-surface-muted: #26292f;
+  --cps-color-surface-hover: #2e3239;
+  --cps-color-text: #f3f5f8;
+  --cps-color-text-muted: #a7adb9;
+  --cps-color-text-subtle: #8b919d;
+  --cps-color-border: #30343b;
+  --cps-color-border-strong: #444952;
+  --cps-color-overlay: rgba(0, 0, 0, 0.6);
+  --cps-color-focus: #4a94ff;
+  --cps-focus-ring-soft: rgba(74, 148, 255, 0.28);
+
+  --cps-color-success: #22c55e;
+  --cps-color-success-subtle: rgba(34, 197, 94, 0.14);
+  --cps-color-success-border: rgba(34, 197, 94, 0.35);
+  --cps-color-success-text: #4ade80;
+
+  --cps-color-warning: #f59e0b;
+  --cps-color-warning-subtle: rgba(245, 158, 11, 0.14);
+  --cps-color-warning-border: rgba(245, 158, 11, 0.35);
+  --cps-color-warning-text: #fbbf24;
+
+  --cps-color-danger-hover: #e53e3e;
+  --cps-color-danger-active: #ef5350;
+  --cps-color-danger-subtle: rgba(239, 68, 68, 0.14);
+  --cps-color-danger-border: rgba(239, 68, 68, 0.38);
+  --cps-color-danger-text: #f87171;
+
+  --cps-color-neutral: #a7adb9;
+  --cps-color-neutral-subtle: rgba(167, 173, 185, 0.12);
+  --cps-color-neutral-border: rgba(167, 173, 185, 0.28);
+  --cps-color-neutral-text: #d1d5db;
+
+  --cps-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --cps-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --cps-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+}

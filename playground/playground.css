@@ -1,0 +1,91 @@
+/* Page chrome for the local playground only — not part of the library. */
+body {
+  margin: 0;
+  background-color: var(--cps-color-bg);
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+}
+
+.pg-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--cps-radius-sm);
+  background-color: var(--cps-color-primary);
+}
+
+.pg-search {
+  width: 14rem;
+}
+
+.pg-main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.pg-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.pg-hero h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  line-height: var(--cps-line-height-tight);
+}
+
+.pg-hero p {
+  margin: 0;
+  color: var(--cps-color-text-muted);
+}
+
+.pg-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--cps-color-border);
+  scroll-margin-top: 4rem;
+}
+
+.pg-section__title {
+  margin: 0;
+  font-size: var(--cps-font-size-lg);
+}
+
+.pg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.pg-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pg-muted {
+  color: var(--cps-color-text-muted);
+  font-size: var(--cps-font-size-sm);
+}
+
+@media (max-width: 767.98px) {
+  .pg-search {
+    width: 100%;
+  }
+
+  .pg-main {
+    padding-inline: 1rem;
+  }
+}

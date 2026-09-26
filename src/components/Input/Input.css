@@ -1,0 +1,121 @@
+.cps-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+  font-family: var(--cps-font-sans);
+  color: var(--cps-color-text);
+}
+
+.cps-field__label {
+  font-size: var(--cps-font-size-sm);
+  font-weight: var(--cps-font-weight-medium);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-field__required {
+  margin-left: 0.25rem;
+  color: var(--cps-color-danger-text);
+}
+
+.cps-field__message {
+  margin: 0;
+  font-size: var(--cps-font-size-xs);
+  line-height: var(--cps-line-height-normal);
+  color: var(--cps-color-text-muted);
+}
+
+.cps-field--invalid .cps-field__message {
+  color: var(--cps-color-danger-text);
+}
+
+/* The wrapper draws the box so icons can sit inside it. */
+.cps-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--cps-input-height);
+  padding: 0 0.75rem;
+  border: 1px solid var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-md);
+  background-color: var(--cps-color-surface);
+  transition:
+    border-color var(--cps-duration-fast) var(--cps-easing),
+    box-shadow var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-input:hover {
+  border-color: var(--cps-color-text-subtle);
+}
+
+.cps-input:focus-within {
+  border-color: var(--cps-color-primary);
+  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+}
+
+.cps-input__control {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--cps-input-font-size);
+}
+
+.cps-input__control::placeholder {
+  color: var(--cps-color-text-subtle);
+  opacity: 1;
+}
+
+.cps-input__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--cps-color-text-subtle);
+  font-size: 1.1em;
+}
+
+.cps-field--invalid .cps-input {
+  border-color: var(--cps-color-danger);
+}
+
+.cps-field--invalid .cps-input:focus-within {
+  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+}
+
+.cps-field--disabled .cps-input {
+  border-color: var(--cps-color-border);
+  background-color: var(--cps-color-surface-muted);
+  cursor: not-allowed;
+}
+
+.cps-field--disabled .cps-input__control {
+  cursor: not-allowed;
+  color: var(--cps-color-text-subtle);
+}
+
+/* Sizes */
+.cps-field--sm {
+  --cps-input-height: var(--cps-control-height-sm);
+  --cps-input-font-size: var(--cps-font-size-sm);
+}
+
+.cps-field--md {
+  --cps-input-height: var(--cps-control-height-md);
+  --cps-input-font-size: var(--cps-font-size-sm);
+}
+
+.cps-field--lg {
+  --cps-input-height: var(--cps-control-height-lg);
+  --cps-input-font-size: var(--cps-font-size-md);
+}
+
+/* Box-shadow is dropped in forced-colors mode; keep focus visible. */
+@media (forced-colors: active) {
+  .cps-input:focus-within {
+    outline: 2px solid CanvasText;
+  }
+}

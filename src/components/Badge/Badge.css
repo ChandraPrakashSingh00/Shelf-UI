@@ -1,0 +1,57 @@
+.cps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: var(--cps-badge-height);
+  padding: 0 var(--cps-badge-padding-x);
+  border: 1px solid var(--cps-badge-border);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-badge-bg);
+  color: var(--cps-badge-fg);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-xs);
+  font-weight: var(--cps-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.cps-badge--sm {
+  --cps-badge-height: 1.25rem;
+  --cps-badge-padding-x: 0.375rem;
+}
+
+.cps-badge--md {
+  --cps-badge-height: 1.5rem;
+  --cps-badge-padding-x: 0.625rem;
+}
+
+.cps-badge--primary {
+  --cps-badge-bg: var(--cps-color-primary-subtle);
+  --cps-badge-border: var(--cps-color-primary-border);
+  --cps-badge-fg: var(--cps-color-primary-text);
+}
+
+.cps-badge--success {
+  --cps-badge-bg: var(--cps-color-success-subtle);
+  --cps-badge-border: var(--cps-color-success-border);
+  --cps-badge-fg: var(--cps-color-success-text);
+}
+
+.cps-badge--warning {
+  --cps-badge-bg: var(--cps-color-warning-subtle);
+  --cps-badge-border: var(--cps-color-warning-border);
+  --cps-badge-fg: var(--cps-color-warning-text);
+}
+
+.cps-badge--danger {
+  --cps-badge-bg: var(--cps-color-danger-subtle);
+  --cps-badge-border: var(--cps-color-danger-border);
+  --cps-badge-fg: var(--cps-color-danger-text);
+}
+
+.cps-badge--neutral {
+  --cps-badge-bg: var(--cps-color-neutral-subtle);
+  --cps-badge-border: var(--cps-color-neutral-border);
+  --cps-badge-fg: var(--cps-color-neutral-text);
+}
