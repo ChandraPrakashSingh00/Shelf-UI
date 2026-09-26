@@ -50,7 +50,9 @@ export function ChangelogPage() {
                 {release.sections.map((section) => (
                   <div key={section.title} className="docs-release__section">
                     <h3 className="docs-release__section-title">
-                      <Badge variant={SECTION_VARIANTS[section.title] ?? "neutral"}>{section.title}</Badge>
+                      <Badge variant={SECTION_VARIANTS[section.title] ?? "neutral"}>
+                        {section.title}
+                      </Badge>
                     </h3>
                     <ul className="docs-list">
                       {section.items.map((item) => (

@@ -29,7 +29,11 @@ export default function ToastVariants() {
       <Button
         variant="secondary"
         onClick={() =>
-          toast({ variant: "warning", title: "Usage at 90%", message: "Upgrade to avoid rate limits." })
+          toast({
+            variant: "warning",
+            title: "Usage at 90%",
+            message: "Upgrade to avoid rate limits.",
+          })
         }
       >
         Warning

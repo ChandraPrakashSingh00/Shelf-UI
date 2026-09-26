@@ -15,8 +15,8 @@ beforeEach(() => {
   document.documentElement.dataset.cpsTheme = "light";
 });
 
-function renderAt(path) {
-  const router = createMemoryRouter(routes, { initialEntries: [path] });
+function renderAt(path, { basename } = {}) {
+  const router = createMemoryRouter(routes, { initialEntries: [path], basename });
   const user = userEvent.setup();
   render(<RouterProvider router={router} />);
   return { router, user };
@@ -25,9 +25,25 @@ function renderAt(path) {
 describe("pages", () => {
   it("renders the home page inside the site header and footer", async () => {
     renderAt("/");
-    expect(await screen.findByRole("heading", { level: 1, name: /component library/i })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { level: 1, name: /component library/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Main" })).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toHaveTextContent("CodeCPS Technologies");
+  });
+
+  it("works under a sub-path, as on GitHub Pages", async () => {
+    const { user } = renderAt("/CodeCPS-UI-Library-/components/button", {
+      basename: "/CodeCPS-UI-Library-",
+    });
+    expect(await screen.findByRole("heading", { level: 1, name: "Button" })).toBeInTheDocument();
+
+    const header = screen.getByRole("navigation", { name: "Main" });
+    const homeLink = within(header).getByRole("link", { name: "Home" });
+    expect(homeLink).toHaveAttribute("href", "/CodeCPS-UI-Library-");
+
+    await user.click(within(header).getByRole("link", { name: "Changelog" }));
+    expect(await screen.findByRole("heading", { level: 1, name: "Changelog" })).toBeInTheDocument();
   });
 
   it.each(componentDocs.map((doc) => [doc.name, doc]))(
@@ -49,11 +65,31 @@ describe("pages", () => {
     ["/docs/installation", "Installation"],
     ["/docs", "Installation"],
     ["/changelog", "Changelog"],
+    ["/about", "About CodeCPS UI"],
     ["/components/unknown", "Page not found"],
     ["/no-such-page", "Page not found"],
   ])("renders %s", async (path, heading) => {
     renderAt(path);
     expect(await screen.findByRole("heading", { level: 1, name: heading })).toBeInTheDocument();
+  });
+
+  it("links to the source code on GitHub from the header, footer and About page", async () => {
+    renderAt("/about");
+    await screen.findByRole("heading", { level: 1, name: "About CodeCPS UI" });
+
+    const repo = "https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-";
+    const header = screen.getByRole("navigation", { name: "Main" });
+    expect(within(header).getByRole("link", { name: "GitHub repository" })).toHaveAttribute(
+      "href",
+      repo,
+    );
+    const footer = screen.getByRole("navigation", { name: "Footer" });
+    expect(within(footer).getByRole("link", { name: "GitHub" })).toHaveAttribute("href", repo);
+    expect(screen.getByRole("link", { name: "View on GitHub" })).toHaveAttribute("href", repo);
+    expect(screen.getByRole("link", { name: "Open an issue" })).toHaveAttribute(
+      "href",
+      `${repo}/issues`,
+    );
   });
 
   it("lists every component in the sidebar", async () => {
@@ -74,7 +110,7 @@ describe("pages", () => {
     renderAt("/changelog");
     expect(await screen.findByRole("heading", { level: 2, name: "v0.1.0" })).toBeInTheDocument();
     expect(screen.getByText("Latest")).toBeInTheDocument();
-    expect(screen.getByText("Added")).toBeInTheDocument();
+    expect(screen.getAllByText("Added")).not.toHaveLength(0);
   });
 });
 

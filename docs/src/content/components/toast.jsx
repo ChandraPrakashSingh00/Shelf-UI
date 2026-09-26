@@ -123,9 +123,24 @@ export const toastDoc = {
           default: '"bottom-right"',
           description: "Where toasts stack on the screen.",
         },
-        { name: "limit", type: "number", default: "5", description: "Maximum visible toasts; the oldest are removed first." },
-        { name: "defaultDuration", type: "number", default: "5000", description: "Auto-dismiss delay (ms) for toasts that don't set one." },
-        { name: "label", type: "string", default: '"Notifications"', description: "Accessible name of the notifications region." },
+        {
+          name: "limit",
+          type: "number",
+          default: "5",
+          description: "Maximum visible toasts; the oldest are removed first.",
+        },
+        {
+          name: "defaultDuration",
+          type: "number",
+          default: "5000",
+          description: "Auto-dismiss delay (ms) for toasts that don't set one.",
+        },
+        {
+          name: "label",
+          type: "string",
+          default: '"Notifications"',
+          description: "Accessible name of the notifications region.",
+        },
         { name: "children", type: "node", required: true, description: "Your app." },
       ],
     },
@@ -133,7 +148,11 @@ export const toastDoc = {
       title: "useToast()",
       description: "Returns the toast API. Must be called inside `ToastProvider`.",
       props: [
-        { name: "toast", type: "function(options)", description: "Shows a toast and returns its id." },
+        {
+          name: "toast",
+          type: "function(options)",
+          description: "Shows a toast and returns its id.",
+        },
         { name: "dismiss", type: "function(id)", description: "Removes one toast." },
         { name: "dismissAll", type: "function", description: "Removes every toast." },
       ],
@@ -142,34 +161,67 @@ export const toastDoc = {
       title: "Toast options",
       description: "What you pass to `toast()`.",
       props: [
-        { name: "variant", type: '"info" | "success" | "warning" | "error"', default: '"info"', description: "Tone of the toast." },
+        {
+          name: "variant",
+          type: '"info" | "success" | "warning" | "error"',
+          default: '"info"',
+          description: "Tone of the toast.",
+        },
         { name: "title", type: "node", description: "Short summary, shown in bold." },
         { name: "message", type: "node", description: "Supporting text." },
         {
           name: "duration",
           type: "number",
-          description: "Milliseconds until it dismisses itself. `Infinity` keeps it until dismissed. Defaults to the provider's `defaultDuration`.",
+          description:
+            "Milliseconds until it dismisses itself. `Infinity` keeps it until dismissed. Defaults to the provider's `defaultDuration`.",
         },
         { name: "action", type: "node", description: "An action, such as an Undo button." },
-        { name: "id", type: "string", description: "Custom id. Reusing one replaces that toast instead of adding another." },
+        {
+          name: "id",
+          type: "string",
+          description: "Custom id. Reusing one replaces that toast instead of adding another.",
+        },
       ],
     },
     {
       title: "Toast",
-      description: "The toast itself, for rendering outside the provider. Accepts `<div>` attributes.",
+      description:
+        "The toast itself, for rendering outside the provider. Accepts `<div>` attributes.",
       props: [
-        { name: "variant", type: '"info" | "success" | "warning" | "error"', default: '"info"', description: "Tone of the toast." },
+        {
+          name: "variant",
+          type: '"info" | "success" | "warning" | "error"',
+          default: '"info"',
+          description: "Tone of the toast.",
+        },
         { name: "title", type: "node", description: "Short summary." },
         { name: "message", type: "node", description: "Supporting text." },
-        { name: "duration", type: "number", default: "5000", description: "Milliseconds until `onDismiss` is called. `Infinity` disables it." },
-        { name: "onDismiss", type: "function", description: "Shows a dismiss button; also called when the timer runs out." },
+        {
+          name: "duration",
+          type: "number",
+          default: "5000",
+          description: "Milliseconds until `onDismiss` is called. `Infinity` disables it.",
+        },
+        {
+          name: "onDismiss",
+          type: "function",
+          description: "Shows a dismiss button; also called when the timer runs out.",
+        },
         { name: "action", type: "node", description: "An action under the text." },
-        { name: "dismissLabel", type: "string", default: '"Dismiss"', description: "Accessible name of the dismiss button." },
+        {
+          name: "dismissLabel",
+          type: "string",
+          default: '"Dismiss"',
+          description: "Accessible name of the dismiss button.",
+        },
       ],
     },
   ],
   keyboard: [
-    { keys: ["Tab"], description: "Reaches the toast's buttons. The timer pauses while focus is inside the toast." },
+    {
+      keys: ["Tab"],
+      description: "Reaches the toast's buttons. The timer pauses while focus is inside the toast.",
+    },
   ],
   accessibility: [
     'Success and info toasts use the polite `role="status"`; errors and warnings use `role="alert"` and are announced right away.',

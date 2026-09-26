@@ -32,6 +32,8 @@ describe("searchEntries", () => {
   it("shows installation and every component for an empty query", () => {
     const results = searchEntries(searchIndex, "   ");
     expect(results[0]?.title).toBe("Installation");
-    expect(results.slice(1, 11).map((entry) => entry.section)).toEqual(Array(10).fill("Components"));
+    expect(results.slice(1, 11).map((entry) => entry.section)).toEqual(
+      Array(10).fill("Components"),
+    );
   });
 });

@@ -1,5 +1,5 @@
 import { componentDocs } from "./components/index.js";
-import { changelogGuide, guideSections, installationGuide } from "./guides.js";
+import { aboutGuide, changelogGuide, guideSections, installationGuide } from "./guides.js";
 
 const guideEntry = (guide) => ({
   id: `guide:${guide.href}`,
@@ -30,6 +30,7 @@ export const searchIndex = [
   })),
   ...guideSections.map(guideEntry),
   guideEntry(changelogGuide),
+  guideEntry(aboutGuide),
   ...componentDocs.flatMap((doc) =>
     doc.examples.map((example) => ({
       id: `example:${doc.slug}:${example.id}`,

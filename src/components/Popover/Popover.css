@@ -1,0 +1,114 @@
+.cps-popover {
+  position: relative;
+  display: inline-block;
+}
+
+.cps-popover__content {
+  --cps-popover-offset: 0.5rem;
+
+  position: absolute;
+  z-index: var(--cps-z-dropdown);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  /* Grows with its content between the min and max widths, whatever the trigger's width. */
+  width: max-content;
+  min-width: min(14rem, calc(100vw - 2rem));
+  max-width: min(22rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid var(--cps-color-border);
+  border-radius: var(--cps-radius-lg);
+  background-color: var(--cps-color-surface);
+  box-shadow: var(--cps-shadow-md);
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+  text-align: start;
+  animation: cps-fade-in var(--cps-duration-fast) var(--cps-easing);
+}
+
+/* The panel itself is only focused as a fallback when it has no controls. */
+.cps-popover__content:focus {
+  outline: none;
+}
+
+/* Sides */
+.cps-popover__content--bottom {
+  top: calc(100% + var(--cps-popover-offset));
+}
+
+.cps-popover__content--top {
+  bottom: calc(100% + var(--cps-popover-offset));
+}
+
+.cps-popover__content--left {
+  right: calc(100% + var(--cps-popover-offset));
+}
+
+.cps-popover__content--right {
+  left: calc(100% + var(--cps-popover-offset));
+}
+
+/* Alignment along the trigger's edge */
+.cps-popover__content--top.cps-popover__content--start,
+.cps-popover__content--bottom.cps-popover__content--start {
+  inset-inline-start: 0;
+}
+
+.cps-popover__content--top.cps-popover__content--end,
+.cps-popover__content--bottom.cps-popover__content--end {
+  inset-inline-end: 0;
+}
+
+.cps-popover__content--top.cps-popover__content--center,
+.cps-popover__content--bottom.cps-popover__content--center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cps-popover__content--left.cps-popover__content--start,
+.cps-popover__content--right.cps-popover__content--start {
+  top: 0;
+}
+
+.cps-popover__content--left.cps-popover__content--end,
+.cps-popover__content--right.cps-popover__content--end {
+  bottom: 0;
+}
+
+.cps-popover__content--left.cps-popover__content--center,
+.cps-popover__content--right.cps-popover__content--center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cps-popover__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cps-popover__title {
+  margin: 0;
+  font-size: var(--cps-font-size-md);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+}
+
+/* Keeps the header as tall as the title; `auto` pushes it right without a title. */
+.cps-popover__close {
+  margin: -0.375rem -0.5rem -0.375rem auto;
+}
+
+.cps-popover__body {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-popover__content {
+    animation: none;
+  }
+}

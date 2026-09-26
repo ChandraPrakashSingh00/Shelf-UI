@@ -1,0 +1,30 @@
+/*
+ * The spinning SVG comes from the internal `.cps-spinner` primitive, which also
+ * slows the animation down when the user prefers reduced motion.
+ */
+
+/* Zero specificity: any class (or `style`) that sets `color` recolors the spinner. */
+:where(.cps-spinner-status) {
+  color: var(--cps-color-primary);
+}
+
+.cps-spinner-status {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: var(--cps-spinner-status-size);
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.cps-spinner-status--sm {
+  --cps-spinner-status-size: 1rem;
+}
+
+.cps-spinner-status--md {
+  --cps-spinner-status-size: 1.5rem;
+}
+
+.cps-spinner-status--lg {
+  --cps-spinner-status-size: 2.25rem;
+}

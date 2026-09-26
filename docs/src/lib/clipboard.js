@@ -10,7 +10,8 @@ export async function copyText(text) {
   }
 
   // Fallback for insecure contexts, where the async Clipboard API is missing.
-  const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  const previousFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
   const textarea = document.createElement("textarea");
   textarea.value = text;
   textarea.setAttribute("readonly", "");
@@ -18,7 +19,7 @@ export async function copyText(text) {
   textarea.style.opacity = "0";
   document.body.append(textarea);
   textarea.select();
-  let copied = false;
+  let copied;
   try {
     copied = document.execCommand("copy");
   } catch {

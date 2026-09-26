@@ -5,7 +5,9 @@ const SITE_NAME = "CodeCPS UI";
 /** Sets `document.title` for the current page. */
 export function useDocumentTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME} — React components by CodeCPS`;
+    document.title = title
+      ? `${title} · ${SITE_NAME}`
+      : `${SITE_NAME} — React components by CodeCPS`;
   }, [title]);
 }
 

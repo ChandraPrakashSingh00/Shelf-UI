@@ -27,7 +27,16 @@ export const navbarDoc = {
   summary: "Responsive site header with a brand, links and actions.",
   description:
     "The header for sites and apps: brand, primary links and actions like search or sign in. When it's narrower than 768px, the links and actions collapse behind a menu button. Use `asChild` to render your router's links.",
-  keywords: ["header", "navigation", "nav", "menu", "app bar", "top bar", "hamburger", "responsive"],
+  keywords: [
+    "header",
+    "navigation",
+    "nav",
+    "menu",
+    "app bar",
+    "top bar",
+    "hamburger",
+    "responsive",
+  ],
   imports: ["Navbar"],
   Thumbnail: NavbarThumbnail,
   examples: [
@@ -58,11 +67,34 @@ export const navbarDoc = {
       description:
         "Renders a `<header>` containing a `<nav>`. Other props go to the `<header>`. Also exported parts: `NavbarBrand`, `NavbarMenu`, `NavbarLinks`, `NavbarLink`, `NavbarActions`.",
       props: [
-        { name: "sticky", type: "boolean", default: "false", description: "Sticks to the top of the viewport while scrolling." },
-        { name: "label", type: "string", default: '"Main"', description: "Accessible name of the `<nav>` landmark." },
-        { name: "menuOpen", type: "boolean", description: "Controlled open state of the collapsed menu." },
-        { name: "defaultMenuOpen", type: "boolean", default: "false", description: "Initial menu state when uncontrolled." },
-        { name: "onMenuOpenChange", type: "function(open)", description: "Called when the menu opens or closes." },
+        {
+          name: "sticky",
+          type: "boolean",
+          default: "false",
+          description: "Sticks to the top of the viewport while scrolling.",
+        },
+        {
+          name: "label",
+          type: "string",
+          default: '"Main"',
+          description: "Accessible name of the `<nav>` landmark.",
+        },
+        {
+          name: "menuOpen",
+          type: "boolean",
+          description: "Controlled open state of the collapsed menu.",
+        },
+        {
+          name: "defaultMenuOpen",
+          type: "boolean",
+          default: "false",
+          description: "Initial menu state when uncontrolled.",
+        },
+        {
+          name: "onMenuOpenChange",
+          type: "function(open)",
+          description: "Called when the menu opens or closes.",
+        },
       ],
     },
     {
@@ -80,7 +112,8 @@ export const navbarDoc = {
     },
     {
       title: "Navbar.Menu",
-      description: "Holds `Navbar.Links` and `Navbar.Actions`, and renders the menu button used when collapsed.",
+      description:
+        "Holds `Navbar.Links` and `Navbar.Actions`, and renders the menu button used when collapsed.",
       props: [
         {
           name: "toggleLabel",
@@ -92,10 +125,16 @@ export const navbarDoc = {
     },
     {
       title: "Navbar.Link",
-      description: "Renders `<li><a></a></li>`; use it inside `Navbar.Links`. Choosing a link closes the collapsed menu.",
+      description:
+        "Renders `<li><a></a></li>`; use it inside `Navbar.Links`. Choosing a link closes the collapsed menu.",
       props: [
         { name: "href", type: "string", description: "Link target." },
-        { name: "active", type: "boolean", default: "false", description: 'Marks the current page (`aria-current="page"`).' },
+        {
+          name: "active",
+          type: "boolean",
+          default: "false",
+          description: 'Marks the current page (`aria-current="page"`).',
+        },
         {
           name: "asChild",
           type: "boolean",
@@ -107,7 +146,10 @@ export const navbarDoc = {
   ],
   keyboard: [
     { keys: ["Tab"], description: "Moves through the brand, links and actions in order." },
-    { keys: ["Enter", "Space"], description: "On the menu button: opens or closes the collapsed menu." },
+    {
+      keys: ["Enter", "Space"],
+      description: "On the menu button: opens or closes the collapsed menu.",
+    },
     { keys: ["Escape"], description: "Closes the open menu and returns focus to the menu button." },
   ],
   accessibility: [

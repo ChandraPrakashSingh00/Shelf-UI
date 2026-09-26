@@ -131,7 +131,12 @@ export const buttonDoc = {
           default: '"primary"',
           description: "Visual style.",
         },
-        { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Height, padding and font size." },
+        {
+          name: "size",
+          type: '"sm" | "md" | "lg"',
+          default: '"md"',
+          description: "Height, padding and font size.",
+        },
         {
           name: "loading",
           type: "boolean",
@@ -139,14 +144,24 @@ export const buttonDoc = {
           description:
             "Shows a spinner and ignores clicks. The button stays focusable and is marked `aria-busy` and `aria-disabled`.",
         },
-        { name: "disabled", type: "boolean", default: "false", description: "Disables the button (native `disabled`)." },
+        {
+          name: "disabled",
+          type: "boolean",
+          default: "false",
+          description: "Disables the button (native `disabled`).",
+        },
         {
           name: "leftIcon",
           type: "node",
           description: "Decorative icon before the label. Replaced by the spinner while loading.",
         },
         { name: "rightIcon", type: "node", description: "Decorative icon after the label." },
-        { name: "fullWidth", type: "boolean", default: "false", description: "Stretches the button to its container's width." },
+        {
+          name: "fullWidth",
+          type: "boolean",
+          default: "false",
+          description: "Stretches the button to its container's width.",
+        },
         {
           name: "asChild",
           type: "boolean",
@@ -158,7 +173,8 @@ export const buttonDoc = {
           name: "type",
           type: '"button" | "submit" | "reset"',
           default: '"button"',
-          description: "Native button type. Defaults to `button`, so it never submits a form by accident.",
+          description:
+            "Native button type. Defaults to `button`, so it never submits a form by accident.",
         },
         { name: "children", type: "node", description: "The button's label." },
       ],

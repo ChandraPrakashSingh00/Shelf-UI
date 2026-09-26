@@ -98,7 +98,11 @@ export const cardDoc = {
           description: "Visual style.",
         },
         { name: "title", type: "node", description: "Shorthand for a header with `Card.Title`." },
-        { name: "description", type: "node", description: "Shorthand for `Card.Description` in the header." },
+        {
+          name: "description",
+          type: "node",
+          description: "Shorthand for `Card.Description` in the header.",
+        },
         { name: "footer", type: "node", description: "Shorthand for `Card.Footer`." },
         {
           name: "children",
@@ -123,9 +127,7 @@ export const cardDoc = {
       title: "Card.Header, Card.Description, Card.Content, Card.Footer",
       description:
         "Layout parts. `Card.Description` renders a `<p>`, the others a `<div>`; all accept their element's native attributes. Also exported as `CardHeader`, `CardDescription`, `CardContent` and `CardFooter`.",
-      props: [
-        { name: "children", type: "node", description: "Content of the part." },
-      ],
+      props: [{ name: "children", type: "node", description: "Content of the part." }],
     },
   ],
   accessibility: [

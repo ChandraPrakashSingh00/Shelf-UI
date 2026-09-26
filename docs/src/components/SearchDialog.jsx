@@ -31,7 +31,9 @@ function SearchPanel({ onClose }) {
   const activeEntry = results[activeIndex];
 
   useEffect(() => {
-    document.getElementById(`${listboxId}-option-${activeIndex}`)?.scrollIntoView?.({ block: "nearest" });
+    document
+      .getElementById(`${listboxId}-option-${activeIndex}`)
+      ?.scrollIntoView?.({ block: "nearest" });
   }, [listboxId, activeIndex]);
 
   const openEntry = (entry) => {

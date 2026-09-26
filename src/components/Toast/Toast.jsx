@@ -63,7 +63,9 @@ export const Toast = forwardRef(function Toast(
 
   const handleBlur = (event) => {
     // Stay paused while focus moves between controls inside the toast.
-    if (!(event.relatedTarget instanceof Node && event.currentTarget.contains(event.relatedTarget))) {
+    if (!(
+      event.relatedTarget instanceof Node && event.currentTarget.contains(event.relatedTarget)
+    )) {
       setFocused(false);
     }
   };

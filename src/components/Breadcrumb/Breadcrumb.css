@@ -1,0 +1,65 @@
+.cps-breadcrumb {
+  /* Longer labels are cut off with an ellipsis. */
+  --cps-breadcrumb-item-max-width: 16rem;
+
+  color: var(--cps-color-text-muted);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+}
+
+.cps-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Can shrink below its label's width, so a label wider than the line truncates. */
+.cps-breadcrumb__item {
+  display: flex;
+  min-width: 0;
+}
+
+/* The full label stays in the DOM, so screen readers still read all of it. */
+.cps-breadcrumb__link,
+.cps-breadcrumb__current {
+  min-width: 0;
+  max-width: var(--cps-breadcrumb-item-max-width);
+  padding-block: 0.125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cps-breadcrumb__link {
+  border-radius: var(--cps-radius-sm);
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-breadcrumb__link:hover {
+  color: var(--cps-color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cps-breadcrumb__link:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+.cps-breadcrumb__current {
+  color: var(--cps-color-text);
+}
+
+.cps-breadcrumb__separator {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--cps-color-text-subtle);
+}

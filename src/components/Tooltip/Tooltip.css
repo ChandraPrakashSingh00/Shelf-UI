@@ -1,0 +1,32 @@
+/* Positioned with `position: fixed` (inline style) by useFloatingPosition. */
+.cps-tooltip {
+  z-index: var(--cps-z-tooltip);
+  /* Its size must not depend on where it's placed, so it can be measured anywhere. */
+  width: max-content;
+  max-width: min(18rem, calc(100vw - 1rem));
+  padding: 0.375rem 0.625rem;
+  border-radius: var(--cps-radius-sm);
+  background-color: var(--cps-color-text);
+  box-shadow: var(--cps-shadow-md);
+  color: var(--cps-color-bg);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-xs);
+  font-weight: var(--cps-font-weight-medium);
+  line-height: var(--cps-line-height-normal);
+  text-align: start;
+  overflow-wrap: break-word;
+  animation: cps-fade-in var(--cps-duration-fast) var(--cps-easing);
+}
+
+/* Forced colors replace the inverted background; keep the bubble's edge visible. */
+@media (forced-colors: active) {
+  .cps-tooltip {
+    border: 1px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-tooltip {
+    animation: none;
+  }
+}

@@ -43,7 +43,9 @@ export function PropsTable({ group }) {
                 <td>
                   <code className="docs-table__type">{prop.type}</code>
                 </td>
-                <td>{prop.default ? <code>{prop.default}</code> : <span aria-label="None">—</span>}</td>
+                <td>
+                  {prop.default ? <code>{prop.default}</code> : <span aria-label="None">—</span>}
+                </td>
                 <td>
                   <InlineMarkdown text={prop.description} />
                 </td>

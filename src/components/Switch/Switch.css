@@ -1,0 +1,167 @@
+.cps-switch {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  min-width: 0;
+  font-family: var(--cps-font-sans);
+  color: var(--cps-color-text);
+}
+
+/* Sizes: track size and label size. The thumb fills the track's height. */
+.cps-switch--sm {
+  --cps-switch-width: 1.75rem;
+  --cps-switch-height: 1rem;
+  --cps-switch-font-size: var(--cps-font-size-xs);
+}
+
+.cps-switch--md {
+  --cps-switch-width: 2.25rem;
+  --cps-switch-height: 1.25rem;
+  --cps-switch-font-size: var(--cps-font-size-sm);
+}
+
+/* As tall as the label's first line, so the track lines up with it. */
+.cps-switch__control {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: calc(var(--cps-switch-font-size) * var(--cps-line-height-normal));
+}
+
+/* The real checkbox sits invisibly on top of the track and receives clicks and focus. */
+.cps-switch__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.cps-switch__track {
+  display: flex;
+  align-items: center;
+  width: var(--cps-switch-width);
+  height: var(--cps-switch-height);
+  padding: 1px;
+  /* Invisible here; forced-colors mode gives it a color so the track stays visible. */
+  border: 1px solid transparent;
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-text-subtle);
+  transition: background-color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-switch__thumb {
+  width: calc(var(--cps-switch-height) - 4px);
+  height: calc(var(--cps-switch-height) - 4px);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-on-primary);
+  box-shadow: var(--cps-shadow-sm);
+  transition: transform var(--cps-duration-normal) var(--cps-easing);
+}
+
+.cps-switch__input:enabled:hover + .cps-switch__track {
+  background-color: var(--cps-color-text-muted);
+}
+
+.cps-switch__input:checked + .cps-switch__track {
+  background-color: var(--cps-color-primary);
+}
+
+.cps-switch__input:enabled:checked:hover + .cps-switch__track {
+  background-color: var(--cps-color-primary-hover);
+}
+
+.cps-switch__input:checked + .cps-switch__track .cps-switch__thumb {
+  transform: translateX(calc(var(--cps-switch-width) - var(--cps-switch-height)));
+}
+
+.cps-switch__input:checked:dir(rtl) + .cps-switch__track .cps-switch__thumb {
+  transform: translateX(calc(var(--cps-switch-height) - var(--cps-switch-width)));
+}
+
+.cps-switch__input:focus-visible + .cps-switch__track {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+.cps-switch__input:disabled {
+  cursor: not-allowed;
+}
+
+.cps-switch__input:disabled + .cps-switch__track {
+  opacity: 0.5;
+}
+
+.cps-switch__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.cps-switch__label {
+  font-size: var(--cps-switch-font-size);
+  line-height: var(--cps-line-height-normal);
+  cursor: pointer;
+}
+
+.cps-switch__description {
+  margin: 0;
+  font-size: var(--cps-font-size-xs);
+  line-height: var(--cps-line-height-normal);
+  color: var(--cps-color-text-muted);
+}
+
+.cps-switch--disabled .cps-switch__label {
+  color: var(--cps-color-text-subtle);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-switch__track,
+  .cps-switch__thumb {
+    transition: none;
+  }
+}
+
+/* The on/off state is shown by backgrounds, which forced-colors mode drops. */
+@media (forced-colors: active) {
+  .cps-switch__track {
+    border-color: CanvasText;
+  }
+
+  .cps-switch__thumb {
+    background-color: CanvasText;
+  }
+
+  .cps-switch__input:checked + .cps-switch__track,
+  .cps-switch__input:enabled:checked:hover + .cps-switch__track {
+    border-color: Highlight;
+    background-color: Highlight;
+  }
+
+  .cps-switch__input:checked + .cps-switch__track .cps-switch__thumb {
+    background-color: HighlightText;
+  }
+
+  .cps-switch__input:disabled + .cps-switch__track {
+    border-color: GrayText;
+    opacity: 1;
+  }
+
+  .cps-switch__input:disabled + .cps-switch__track .cps-switch__thumb {
+    background-color: GrayText;
+  }
+
+  .cps-switch__input:disabled:checked + .cps-switch__track {
+    background-color: GrayText;
+  }
+
+  .cps-switch__input:disabled:checked + .cps-switch__track .cps-switch__thumb {
+    background-color: Canvas;
+  }
+}

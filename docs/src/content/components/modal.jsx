@@ -107,7 +107,8 @@ export const modalDoc = {
     {
       id: "confirm",
       title: "Confirmation",
-      description: "Ask before destructive actions. Keep the title a question and label buttons with verbs.",
+      description:
+        "Ask before destructive actions. Keep the title a question and label buttons with verbs.",
       Component: Basic,
       code: basicCode,
     },
@@ -127,30 +128,66 @@ export const modalDoc = {
       description:
         "Other props (such as `className` or `aria-label`) go to the dialog panel. The modal renders in a portal on `document.body`.",
       props: [
-        { name: "open", type: "boolean", required: true, description: "Whether the modal is shown." },
+        {
+          name: "open",
+          type: "boolean",
+          required: true,
+          description: "Whether the modal is shown.",
+        },
         {
           name: "onClose",
           type: "function",
           required: true,
-          description: "Called on Escape, an overlay click or the close button. Set `open` to `false` here.",
+          description:
+            "Called on Escape, an overlay click or the close button. Set `open` to `false` here.",
         },
         {
           name: "title",
           type: "node",
           description: "Heading, and the dialog's accessible name. Without it, pass `aria-label`.",
         },
-        { name: "description", type: "node", description: "Supporting text; the dialog's accessible description." },
+        {
+          name: "description",
+          type: "node",
+          description: "Supporting text; the dialog's accessible description.",
+        },
         { name: "children", type: "node", description: "Body content." },
         { name: "footer", type: "node", description: "Actions area, typically buttons." },
-        { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Maximum width." },
-        { name: "closeOnOverlayClick", type: "boolean", default: "true", description: "Close when the backdrop is clicked." },
-        { name: "closeOnEscape", type: "boolean", default: "true", description: "Close when Escape is pressed." },
-        { name: "hideCloseButton", type: "boolean", default: "false", description: "Hide the × button in the header." },
-        { name: "closeLabel", type: "string", default: '"Close"', description: "Accessible name of the close button." },
+        {
+          name: "size",
+          type: '"sm" | "md" | "lg"',
+          default: '"md"',
+          description: "Maximum width.",
+        },
+        {
+          name: "closeOnOverlayClick",
+          type: "boolean",
+          default: "true",
+          description: "Close when the backdrop is clicked.",
+        },
+        {
+          name: "closeOnEscape",
+          type: "boolean",
+          default: "true",
+          description: "Close when Escape is pressed.",
+        },
+        {
+          name: "hideCloseButton",
+          type: "boolean",
+          default: "false",
+          description: "Hide the × button in the header.",
+        },
+        {
+          name: "closeLabel",
+          type: "string",
+          default: '"Close"',
+          description: "Accessible name of the close button.",
+        },
         {
           name: "initialFocusRef",
           type: "ref",
-          description: "Ref (from `useRef`) of the element to focus on open. Defaults to an `autoFocus` element or the first focusable element.",
+          description:
+            "Ref (from `useRef`) of the element to focus on open. Defaults to an `autoFocus` element or the first focusable element.",
         },
       ],
     },
@@ -158,7 +195,8 @@ export const modalDoc = {
   keyboard: [
     {
       keys: ["Tab", "Shift + Tab"],
-      description: "Moves focus between the dialog's controls. Focus wraps around and never leaves the dialog.",
+      description:
+        "Moves focus between the dialog's controls. Focus wraps around and never leaves the dialog.",
     },
     { keys: ["Escape"], description: "Closes the dialog, unless `closeOnEscape` is `false`." },
   ],

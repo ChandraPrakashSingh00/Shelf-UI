@@ -32,10 +32,16 @@ describe("parseChangelog", () => {
       {
         version: "Unreleased",
         date: null,
-        sections: [{ title: "Fixed", items: ["Fixed focus in a nested `Modal` when both close at once."] }],
+        sections: [
+          { title: "Fixed", items: ["Fixed focus in a nested `Modal` when both close at once."] },
+        ],
       },
       // The empty "Removed" section is dropped.
-      { version: "1.0.0", date: "2026-10-01", sections: [{ title: "Added", items: ["One", "Two"] }] },
+      {
+        version: "1.0.0",
+        date: "2026-10-01",
+        sections: [{ title: "Added", items: ["One", "Two"] }],
+      },
     ]);
   });
 

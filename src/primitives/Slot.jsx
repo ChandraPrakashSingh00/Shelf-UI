@@ -17,7 +17,11 @@ export function Slot({ children, ...slotProps }) {
 
   for (const [name, slotValue] of Object.entries(slotProps)) {
     const childValue = childProps[name];
-    if (isHandlerName(name) && typeof slotValue === "function" && typeof childValue === "function") {
+    if (
+      isHandlerName(name) &&
+      typeof slotValue === "function" &&
+      typeof childValue === "function"
+    ) {
       merged[name] = (...args) => {
         childValue(...args);
         slotValue(...args);

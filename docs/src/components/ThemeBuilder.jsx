@@ -85,7 +85,11 @@ export function ThemeBuilder() {
               />
             ))}
             <label className="docs-color-input">
-              <input type="color" value={primary} onChange={(event) => setPrimary(event.target.value)} />
+              <input
+                type="color"
+                value={primary}
+                onChange={(event) => setPrimary(event.target.value)}
+              />
               Custom
             </label>
           </div>

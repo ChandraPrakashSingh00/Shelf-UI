@@ -32,7 +32,8 @@ function useSearchShortcut(openSearch) {
       const isTyping =
         target instanceof HTMLElement &&
         (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
-      const isModifierShortcut = event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
+      const isModifierShortcut =
+        event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey);
 
       if (isModifierShortcut || (event.key === "/" && !isTyping)) {
         event.preventDefault();

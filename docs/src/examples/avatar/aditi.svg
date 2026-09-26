@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <rect width="96" height="96" fill="#dce9ff" />
+  <g transform="matrix(1.12 0 0 1.12 -5.76 -11.52)">
+    <path d="M27 46c0-15 9.5-26 21-26s21 11 21 26v28c-5 3-12 4.5-21 4.5S32 77 27 74z" fill="#2b1b16" />
+    <path d="M14 96c0-15 13-25 34-25s34 10 34 25z" fill="#086ffd" />
+    <path d="M42 55h12v14l-6 8.5-6-8.5z" fill="#b97a57" />
+    <ellipse cx="48" cy="43" rx="14" ry="16.5" fill="#c98b67" />
+    <path d="M33.4 42C33.4 30 40 22.4 48.6 22.4c8.4 0 14.6 7 15 17.3-6.8-1.4-12.4-5-15.8-10.3-2.8 6-8 10.6-14.4 12.6z" fill="#2b1b16" />
+  </g>
+</svg>

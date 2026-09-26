@@ -65,7 +65,11 @@ export const tabsDoc = {
           type: "string",
           description: "Initially selected tab (uncontrolled). Defaults to the first enabled tab.",
         },
-        { name: "onValueChange", type: "function(value)", description: "Called with the newly selected tab's value." },
+        {
+          name: "onValueChange",
+          type: "function(value)",
+          description: "Called with the newly selected tab's value.",
+        },
       ],
     },
     {
@@ -83,8 +87,18 @@ export const tabsDoc = {
       title: "Tabs.Tab",
       description: "A `<button>`; also exported as `Tab`.",
       props: [
-        { name: "value", type: "string", required: true, description: "Identifies the tab and its panel." },
-        { name: "disabled", type: "boolean", default: "false", description: "Prevents selecting the tab." },
+        {
+          name: "value",
+          type: "string",
+          required: true,
+          description: "Identifies the tab and its panel.",
+        },
+        {
+          name: "disabled",
+          type: "boolean",
+          default: "false",
+          description: "Prevents selecting the tab.",
+        },
         { name: "children", type: "node", description: "The tab's label." },
       ],
     },
@@ -92,15 +106,25 @@ export const tabsDoc = {
       title: "Tabs.Panel",
       description: "Also exported as `TabPanel`.",
       props: [
-        { name: "value", type: "string", required: true, description: "Value of the tab that shows this panel." },
-        { name: "children", type: "node", description: "Panel content, mounted only while the panel is selected." },
+        {
+          name: "value",
+          type: "string",
+          required: true,
+          description: "Value of the tab that shows this panel.",
+        },
+        {
+          name: "children",
+          type: "node",
+          description: "Panel content, mounted only while the panel is selected.",
+        },
       ],
     },
   ],
   keyboard: [
     {
       keys: ["→", "←"],
-      description: "Moves to the next or previous tab and selects it, skipping disabled tabs and wrapping around.",
+      description:
+        "Moves to the next or previous tab and selects it, skipping disabled tabs and wrapping around.",
     },
     { keys: ["Home", "End"], description: "Moves to the first or last tab and selects it." },
     { keys: ["Tab"], description: "Moves focus from the selected tab into its panel." },

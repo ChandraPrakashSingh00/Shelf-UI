@@ -129,8 +129,12 @@ export function Dropdown({
         "aria-haspopup": "menu",
         "aria-expanded": open,
         "aria-controls": open ? menuId : undefined,
+        // composeEventHandlers only calls these handlers when the event fires,
+        // never during render, so the refs they touch are not read while rendering.
+        /* eslint-disable react-hooks/refs */
         onClick: composeEventHandlers(trigger.props.onClick, handleTriggerClick),
         onKeyDown: composeEventHandlers(trigger.props.onKeyDown, handleTriggerKeyDown),
+        /* eslint-enable react-hooks/refs */
       })}
 
       {open && (

@@ -109,7 +109,9 @@ export function InstallationPage() {
         </h2>
         <ul className="docs-list">
           <li>React and React DOM 18 or 19.</li>
-          <li>A bundler that understands ES modules and CSS imports, such as Vite, Next.js or webpack.</li>
+          <li>
+            A bundler that understands ES modules and CSS imports, such as Vite, Next.js or webpack.
+          </li>
         </ul>
 
         <h2 id="install" className="docs-h2">
@@ -134,8 +136,8 @@ export function InstallationPage() {
           Import the styles
         </h2>
         <p className="docs-text">
-          Import the stylesheet once, in your app's entry file (for example <code>main.jsx</code>). It holds
-          the design tokens and the styles for every component, about 4 kB gzipped.
+          Import the stylesheet once, in your app's entry file (for example <code>main.jsx</code>).
+          It holds the design tokens and the styles for every component, about 4 kB gzipped.
         </p>
         <CodeBlock code={'import "@codecps/ui/styles.css";'} />
 
@@ -157,7 +159,8 @@ export function InstallationPage() {
           Set up toasts
         </h2>
         <p className="docs-text">
-          To show toasts with <code>useToast()</code>, wrap your app in <code>ToastProvider</code> once:
+          To show toasts with <code>useToast()</code>, wrap your app in <code>ToastProvider</code>{" "}
+          once:
         </p>
         <CodeBlock code={toastCode} />
 
@@ -165,9 +168,9 @@ export function InstallationPage() {
           Wrap a component
         </h2>
         <p className="docs-text">
-          Most components pass the props they don't use on to their underlying element (<code>Button</code>{" "}
-          accepts every native <code>&lt;button&gt;</code> attribute, for example), so your own wrappers can
-          spread props through and keep the full API:
+          Most components pass the props they don't use on to their underlying element (
+          <code>Button</code> accepts every native <code>&lt;button&gt;</code> attribute, for
+          example), so your own wrappers can spread props through and keep the full API:
         </p>
         <CodeBlock code={wrapperCode} title="SubmitButton.jsx" />
 
@@ -176,23 +179,25 @@ export function InstallationPage() {
         </h2>
         <p className="docs-text">
           Colors, radii, font sizes and control heights are CSS custom properties prefixed with{" "}
-          <code>--cps-</code>. Override them on <code>:root</code> to theme the whole app. Try it: pick a color
-          and copy the CSS.
+          <code>--cps-</code>. Override them on <code>:root</code> to theme the whole app. Try it:
+          pick a color and copy the CSS.
         </p>
         <ThemeBuilder />
         <p className="docs-text">
-          The full list of tokens is in <code>src/styles/tokens.css</code>. You can also set tokens on a single
-          container; tokens defined in terms of others (like <code>--cps-color-info</code>, which follows the
-          primary color) then need to be set there too.
+          The full list of tokens is in <code>src/styles/tokens.css</code>. You can also set tokens
+          on a single container; tokens defined in terms of others (like{" "}
+          <code>--cps-color-info</code>, which follows the primary color) then need to be set there
+          too.
         </p>
 
         <h2 id="dark-mode" className="docs-h2">
           Dark mode
         </h2>
         <p className="docs-text">
-          Add <code>data-cps-theme="dark"</code> to the <code>&lt;html&gt;</code> element. Setting it on{" "}
-          <code>&lt;html&gt;</code> (not a nested element) makes sure modals and toasts, which render into{" "}
-          <code>document.body</code>, use the same theme. This site's toggle in the header works this way.
+          Add <code>data-cps-theme="dark"</code> to the <code>&lt;html&gt;</code> element. Setting
+          it on <code>&lt;html&gt;</code> (not a nested element) makes sure modals and toasts, which
+          render into <code>document.body</code>, use the same theme. This site's toggle in the
+          header works this way.
         </p>
         <CodeBlock code={darkModeCode} />
 
@@ -200,8 +205,9 @@ export function InstallationPage() {
           Next.js
         </h2>
         <p className="docs-text">
-          CodeCPS UI works with the App Router. Every module ships with <code>"use client"</code>, so you can
-          render components from Server Components. Import the styles in your root layout:
+          CodeCPS UI works with the App Router. Every module ships with <code>"use client"</code>,
+          so you can render components from Server Components. Import the styles in your root
+          layout:
         </p>
         <CodeBlock code={nextLayoutCode} title="app/layout.js" />
         <p className="docs-text">

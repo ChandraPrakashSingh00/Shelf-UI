@@ -1,0 +1,112 @@
+.cps-progress {
+  --cps-progress-color: var(--cps-color-primary);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-progress__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cps-progress__label {
+  min-width: 0;
+  font-weight: var(--cps-font-weight-medium);
+}
+
+.cps-progress__value {
+  flex-shrink: 0;
+  /* Stays on the right when there is no label. */
+  margin-inline-start: auto;
+  color: var(--cps-color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.cps-progress__track {
+  position: relative;
+  height: var(--cps-progress-thickness);
+  overflow: hidden;
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-surface-hover);
+}
+
+.cps-progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--cps-progress-color);
+  transition: width var(--cps-duration-normal) var(--cps-easing);
+}
+
+/* Sizes: bar thickness */
+.cps-progress--sm {
+  --cps-progress-thickness: 0.25rem;
+}
+
+.cps-progress--md {
+  --cps-progress-thickness: 0.5rem;
+}
+
+.cps-progress--lg {
+  --cps-progress-thickness: 0.75rem;
+}
+
+/* Variants (primary uses the default above) */
+.cps-progress--success {
+  --cps-progress-color: var(--cps-color-success);
+}
+
+.cps-progress--warning {
+  --cps-progress-color: var(--cps-color-warning);
+}
+
+.cps-progress--danger {
+  --cps-progress-color: var(--cps-color-danger);
+}
+
+/* Indeterminate: a short bar slides across the track. */
+.cps-progress--indeterminate .cps-progress__bar {
+  width: 40%;
+  animation: cps-progress-slide calc(var(--cps-duration-normal) * 7.5) var(--cps-easing) infinite;
+}
+
+@keyframes cps-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(250%);
+  }
+}
+
+/* The sliding bar still conveys "working", so slow it down rather than stop it. */
+@media (prefers-reduced-motion: reduce) {
+  .cps-progress__bar {
+    transition: none;
+  }
+
+  .cps-progress--indeterminate .cps-progress__bar {
+    animation-duration: calc(var(--cps-duration-normal) * 20);
+  }
+}
+
+/* Backgrounds are dropped in forced-colors mode; keep the track and bar visible. */
+@media (forced-colors: active) {
+  .cps-progress__track {
+    outline: 1px solid CanvasText;
+  }
+
+  .cps-progress__bar {
+    forced-color-adjust: none;
+    background-color: Highlight;
+  }
+}

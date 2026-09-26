@@ -13,6 +13,13 @@ export const changelogGuide = {
   keywords: ["release", "releases", "version", "versions", "history", "what's new"],
 };
 
+export const aboutGuide = {
+  title: "About",
+  href: "/about",
+  description: "What CodeCPS UI is, its principles, status, license and where to find the source.",
+  keywords: ["about", "codecps", "github", "source", "license", "contributing", "status"],
+};
+
 export const guideSections = [
   {
     title: "Theming",

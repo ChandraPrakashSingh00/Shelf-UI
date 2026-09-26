@@ -1,5 +1,5 @@
 /** Internal 24×24 stroke icons. Decorative by default (`aria-hidden`). */
-function createIcon(displayName, paths) {
+export function createIcon(displayName, paths) {
   function Icon(props) {
     return (
       <svg
@@ -27,6 +27,30 @@ function createIcon(displayName, paths) {
 export const CloseIcon = createIcon("CloseIcon", <path d="M18 6 6 18M6 6l12 12" />);
 
 export const MenuIcon = createIcon("MenuIcon", <path d="M4 6h16M4 12h16M4 18h16" />);
+
+export const ChevronDownIcon = createIcon("ChevronDownIcon", <path d="m6 9 6 6 6-6" />);
+
+export const ChevronUpIcon = createIcon("ChevronUpIcon", <path d="m18 15-6-6-6 6" />);
+
+export const ChevronLeftIcon = createIcon("ChevronLeftIcon", <path d="m15 18-6-6 6-6" />);
+
+export const ChevronRightIcon = createIcon("ChevronRightIcon", <path d="m9 18 6-6-6-6" />);
+
+export const CheckIcon = createIcon("CheckIcon", <path d="M20 6 9 17l-5-5" />);
+
+export const MinusIcon = createIcon("MinusIcon", <path d="M5 12h14" />);
+
+export const PauseIcon = createIcon("PauseIcon", <path d="M9 5v14M15 5v14" />);
+
+export const PlayIcon = createIcon("PlayIcon", <path d="M7 4.5v15L19 12 7 4.5Z" />);
+
+export const UserIcon = createIcon(
+  "UserIcon",
+  <>
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+  </>,
+);
 
 export const InfoIcon = createIcon(
   "InfoIcon",

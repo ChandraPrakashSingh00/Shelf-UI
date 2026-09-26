@@ -1,0 +1,121 @@
+/*
+ * The box draws the Input look. The native <select> spans all of it, so a click
+ * anywhere opens it, and its padding keeps the text clear of the icon and chevron.
+ */
+.cps-select {
+  --cps-select-icon-size: 1.1rem;
+  --cps-select-chevron-size: 1rem;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--cps-input-height);
+  border: 1px solid var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-md);
+  background-color: var(--cps-color-surface);
+  transition:
+    border-color var(--cps-duration-fast) var(--cps-easing),
+    box-shadow var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-select:hover {
+  border-color: var(--cps-color-text-subtle);
+}
+
+.cps-select:focus-within {
+  border-color: var(--cps-color-primary);
+  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+}
+
+.cps-select__control {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding-block: 0;
+  /* 0.75rem edge + chevron + 0.5rem gap */
+  padding-inline: 0.75rem calc(1.25rem + var(--cps-select-chevron-size));
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--cps-input-font-size);
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.cps-select--with-icon .cps-select__control {
+  padding-inline-start: calc(1.25rem + var(--cps-select-icon-size));
+}
+
+/* While the placeholder option is selected, show it in the placeholder color. */
+.cps-select__control:has(> .cps-select__placeholder:checked) {
+  color: var(--cps-color-text-subtle);
+}
+
+/* The browser draws the open list; keep its options readable in both themes. */
+.cps-select__control option,
+.cps-select__control optgroup {
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-text);
+}
+
+.cps-select__control option:disabled {
+  color: var(--cps-color-text-subtle);
+}
+
+.cps-select__icon,
+.cps-select__chevron {
+  position: absolute;
+  top: 50%;
+  color: var(--cps-color-text-subtle);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.cps-select__icon {
+  inset-inline-start: 0.75rem;
+  display: inline-flex;
+  font-size: var(--cps-select-icon-size);
+}
+
+.cps-select__chevron {
+  inset-inline-end: 0.75rem;
+  display: block;
+  width: var(--cps-select-chevron-size);
+  height: var(--cps-select-chevron-size);
+}
+
+.cps-field--invalid .cps-select {
+  border-color: var(--cps-color-danger);
+}
+
+.cps-field--invalid .cps-select:focus-within {
+  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+}
+
+.cps-field--disabled .cps-select {
+  border-color: var(--cps-color-border);
+  background-color: var(--cps-color-surface-muted);
+}
+
+.cps-select__control:disabled {
+  color: var(--cps-color-text-subtle);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Box-shadow is dropped in forced-colors mode; keep focus visible. */
+@media (forced-colors: active) {
+  .cps-select:focus-within {
+    outline: 2px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-select {
+    transition: none;
+  }
+}

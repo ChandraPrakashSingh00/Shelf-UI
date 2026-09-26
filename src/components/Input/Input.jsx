@@ -39,7 +39,9 @@ export const Input = forwardRef(function Input(
 
   const hasError = error != null && error !== false && error !== "";
   const message = hasError && error !== true ? error : helperText;
-  const describedBy = [ariaDescribedBy, message != null ? messageId : null].filter(Boolean).join(" ");
+  const describedBy = [ariaDescribedBy, message != null ? messageId : null]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div

@@ -112,13 +112,27 @@ export const alertDoc = {
         { name: "title", type: "node", description: "Short summary, shown in bold." },
         { name: "description", type: "node", description: "Supporting text." },
         { name: "icon", type: "node", description: "Replaces the status icon. `null` hides it." },
-        { name: "action", type: "node", description: "Actions under the text, e.g. a small `Button`." },
-        { name: "onDismiss", type: "function", description: "Shows a dismiss button that calls this handler." },
-        { name: "dismissLabel", type: "string", default: '"Dismiss"', description: "Accessible name of the dismiss button." },
+        {
+          name: "action",
+          type: "node",
+          description: "Actions under the text, e.g. a small `Button`.",
+        },
+        {
+          name: "onDismiss",
+          type: "function",
+          description: "Shows a dismiss button that calls this handler.",
+        },
+        {
+          name: "dismissLabel",
+          type: "string",
+          default: '"Dismiss"',
+          description: "Accessible name of the dismiss button.",
+        },
         {
           name: "role",
           type: "string",
-          description: '`"alert"` for errors and warnings, `"status"` otherwise. Override if needed.',
+          description:
+            '`"alert"` for errors and warnings, `"status"` otherwise. Override if needed.',
         },
         { name: "children", type: "node", description: "Extra content below the description." },
       ],

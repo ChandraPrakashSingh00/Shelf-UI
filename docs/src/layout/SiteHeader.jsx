@@ -1,15 +1,25 @@
 import { Badge, Button, Navbar } from "@codecps/ui";
 import { Link, useLocation } from "react-router";
 import packageJson from "../../../package.json";
-import { Logo, SearchIcon } from "../components/icons.jsx";
+import { GitHubIcon, Logo, SearchIcon } from "../components/icons.jsx";
 import { ThemeToggle } from "../components/ThemeToggle.jsx";
+import { repositoryUrl } from "../content/site.js";
 import { isApplePlatform } from "../lib/document.js";
 
 const primaryLinks = [
   { to: "/", label: "Home", isActive: (pathname) => pathname === "/" },
-  { to: "/components", label: "Components", isActive: (pathname) => pathname.startsWith("/components") },
-  { to: "/docs/installation", label: "Documentation", isActive: (pathname) => pathname.startsWith("/docs") },
+  {
+    to: "/components",
+    label: "Components",
+    isActive: (pathname) => pathname.startsWith("/components"),
+  },
+  {
+    to: "/docs/installation",
+    label: "Documentation",
+    isActive: (pathname) => pathname.startsWith("/docs"),
+  },
   { to: "/changelog", label: "Changelog", isActive: (pathname) => pathname === "/changelog" },
+  { to: "/about", label: "About", isActive: (pathname) => pathname === "/about" },
 ];
 
 export function SiteHeader({ onOpenSearch }) {
@@ -22,7 +32,7 @@ export function SiteHeader({ onOpenSearch }) {
         <Link to="/">
           <Logo className="docs-logo" />
           CodeCPS UI
-          <Badge variant="primary" size="sm">
+          <Badge variant="primary" size="sm" className="docs-header__version">
             v{packageJson.version}
           </Badge>
         </Link>
@@ -48,7 +58,17 @@ export function SiteHeader({ onOpenSearch }) {
             <kbd className="docs-kbd">{shortcut}</kbd>
           </button>
           <ThemeToggle />
-          <Button asChild size="sm">
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className="docs-icon-button docs-header__github"
+          >
+            <a href={repositoryUrl} target="_blank" rel="noreferrer" aria-label="GitHub repository">
+              <GitHubIcon />
+            </a>
+          </Button>
+          <Button asChild size="sm" className="docs-header__get-started">
             <Link to="/docs/installation">Get Started</Link>
           </Button>
         </Navbar.Actions>

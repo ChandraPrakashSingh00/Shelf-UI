@@ -9,7 +9,12 @@ function ControlField({ control, value, onChange }) {
   if (control.type === "boolean") {
     return (
       <label className="docs-control docs-control--checkbox" htmlFor={id}>
-        <input id={id} type="checkbox" checked={value === true} onChange={(e) => onChange(e.target.checked)} />
+        <input
+          id={id}
+          type="checkbox"
+          checked={value === true}
+          onChange={(e) => onChange(e.target.checked)}
+        />
         {control.label}
       </label>
     );

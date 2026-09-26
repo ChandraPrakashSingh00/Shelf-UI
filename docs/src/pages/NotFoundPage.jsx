@@ -8,7 +8,8 @@ export function NotFoundContent() {
       <p className="docs-eyebrow">404</p>
       <h1 className="docs-h1">Page not found</h1>
       <p className="docs-lead">
-        The page you're looking for doesn't exist or has moved. Try search (Ctrl K) or head back home.
+        The page you're looking for doesn't exist or has moved. Try search (Ctrl K) or head back
+        home.
       </p>
       <div className="docs-empty__actions">
         <Button asChild>
@@ -47,7 +48,7 @@ export function RouteError() {
       <p className="docs-lead">{message}</p>
       <div className="docs-empty__actions">
         <Button asChild>
-          <a href="/">Reload the docs</a>
+          <a href={import.meta.env.BASE_URL}>Reload the docs</a>
         </Button>
       </div>
     </main>

@@ -107,7 +107,8 @@ export const inputDoc = {
     {
       id: "icons",
       title: "With an icon",
-      description: "Icons are decorative. Without a visible label, name the field with `aria-label`.",
+      description:
+        "Icons are decorative. Without a visible label, name the field with `aria-label`.",
       Component: Icons,
       code: iconsCode,
     },
@@ -136,7 +137,12 @@ export const inputDoc = {
           description:
             "Error message. Replaces `helperText`, highlights the field and sets `aria-invalid`. Pass `true` to mark the field invalid without a message.",
         },
-        { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Height and font size." },
+        {
+          name: "size",
+          type: '"sm" | "md" | "lg"',
+          default: '"md"',
+          description: "Height and font size.",
+        },
         {
           name: "required",
           type: "boolean",
@@ -144,14 +150,27 @@ export const inputDoc = {
           description: "Native `required`, plus an asterisk after the label.",
         },
         { name: "disabled", type: "boolean", default: "false", description: "Disables the field." },
-        { name: "leftIcon", type: "node", description: "Decorative icon inside the field, before the text." },
-        { name: "rightIcon", type: "node", description: "Decorative icon inside the field, after the text." },
+        {
+          name: "leftIcon",
+          type: "node",
+          description: "Decorative icon inside the field, before the text.",
+        },
+        {
+          name: "rightIcon",
+          type: "node",
+          description: "Decorative icon inside the field, after the text.",
+        },
         {
           name: "className",
           type: "string",
-          description: "Class for the field wrapper (label, input and message). `style` goes there too.",
+          description:
+            "Class for the field wrapper (label, input and message). `style` goes there too.",
         },
-        { name: "inputClassName", type: "string", description: "Class for the `<input>` element itself." },
+        {
+          name: "inputClassName",
+          type: "string",
+          description: "Class for the `<input>` element itself.",
+        },
       ],
     },
   ],

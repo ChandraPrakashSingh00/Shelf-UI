@@ -8,8 +8,8 @@
   --docs-max-width: 88rem;
   --docs-sidebar-width: 14.5rem;
   --docs-toc-width: 12rem;
-  --docs-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
+  --docs-font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --docs-radius-inner: calc(var(--cps-radius-lg) - 1px);
 
   --docs-code-bg: var(--cps-brand-dark);
@@ -193,6 +193,36 @@ pre {
   .docs-icon-button {
     width: 100%;
     height: 2.5rem;
+  }
+}
+
+/* Between the collapse point (768px) and wide screens the inline header has
+   more items than fit, so it drops the least important ones as it narrows.
+   Everything is still reachable: search with Ctrl/⌘ K or the icon, "Get
+   Started" via Documentation, GitHub in the footer and on the About page. */
+@container cps-navbar (min-width: 768px) and (max-width: 1239.98px) {
+  .docs-search-trigger {
+    justify-content: center;
+    width: 2.25rem;
+    padding: 0;
+  }
+
+  .docs-search-trigger__text,
+  .docs-search-trigger .docs-kbd {
+    display: none;
+  }
+}
+
+@container cps-navbar (min-width: 768px) and (max-width: 1023.98px) {
+  .docs-header__get-started {
+    display: none;
+  }
+}
+
+@container cps-navbar (min-width: 768px) and (max-width: 899.98px) {
+  .docs-header__version,
+  .docs-header__github {
+    display: none;
   }
 }
 
@@ -906,6 +936,12 @@ pre {
   background: none;
   color: var(--cps-color-text);
   font-size: 0.8125rem;
+  white-space: normal;
+}
+
+/* Keep descriptions readable instead of letting long types squeeze them. */
+.docs-table td:last-child {
+  min-width: 15rem;
 }
 
 .docs-table__required {
@@ -1445,6 +1481,14 @@ pre {
   margin-top: 2rem;
 }
 
+/* A row of buttons inside an article, e.g. on the About page. */
+.docs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
 /* Changelog */
 .docs-releases {
   margin: 2.5rem 0 0;
@@ -1523,7 +1567,8 @@ pre {
 
 .docs-footer__links {
   display: flex;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }
 
 .docs-footer__links a {

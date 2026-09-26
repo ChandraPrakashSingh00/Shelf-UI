@@ -8,7 +8,9 @@ import "./styles/docs.css";
 const container = document.getElementById("root");
 if (!container) throw new Error("#root element not found");
 
-const router = createBrowserRouter(routes);
+// The site may be served from a sub-path (e.g. /<repo>/ on GitHub Pages).
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+const router = createBrowserRouter(routes, { basename });
 
 createRoot(container).render(
   <StrictMode>

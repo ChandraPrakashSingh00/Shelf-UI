@@ -33,7 +33,7 @@ const features = [
   },
   {
     title: "Lightweight",
-    text: "No runtime dependencies besides React. Tree-shakeable ES modules and a ~4 kB stylesheet.",
+    text: "No runtime dependencies besides React. Tree-shakeable ES modules and a ~9 kB stylesheet.",
     Icon: FeatherIcon,
   },
   {
@@ -48,7 +48,17 @@ const features = [
   },
 ];
 
-const highlighted = ["button", "input", "modal", "dropdown", "tabs", "toast"];
+const highlighted = [
+  "button",
+  "input",
+  "slider",
+  "modal",
+  "drawer",
+  "carousel",
+  "dropdown",
+  "tabs",
+  "toast",
+];
 
 const deployments = [
   { name: "codecps-web", time: "2m ago", status: "success", label: "Ready" },
@@ -66,7 +76,10 @@ function Showcase() {
 
   return (
     <div className="docs-showcase">
-      <Card title="Create a project" description="Everything on this panel is a live CodeCPS UI component.">
+      <Card
+        title="Create a project"
+        description="Everything on this panel is a live CodeCPS UI component."
+      >
         <form className="docs-showcase__form" onSubmit={createProject}>
           <Input label="Project name" defaultValue="codecps-web" required />
           <Input
@@ -141,8 +154,8 @@ export function HomePage() {
           The React component library for <span>CodeCPS</span> products
         </h1>
         <p className="docs-hero__lead">
-          Accessible, themeable components, so every CodeCPS product looks consistent and works
-          for everyone.
+          Accessible, themeable components, so every CodeCPS product looks consistent and works for
+          everyone.
         </p>
         <div className="docs-hero__actions">
           <Button asChild size="lg">
@@ -159,7 +172,9 @@ export function HomePage() {
         <h2 id="showcase-title" className="docs-h2 docs-home__heading">
           Built from real components
         </h2>
-        <p className="docs-home__intro">Try it: submit the form, switch tabs, or tab through with the keyboard.</p>
+        <p className="docs-home__intro">
+          Try it: submit the form, switch tabs, or tab through with the keyboard.
+        </p>
         <Showcase />
       </section>
 
@@ -201,7 +216,9 @@ export function HomePage() {
       <section className="docs-container docs-home__section">
         <div className="docs-cta">
           <h2 className="docs-cta__title">Start building</h2>
-          <p className="docs-cta__text">Install the package, import the styles, and render your first component.</p>
+          <p className="docs-cta__text">
+            Install the package, import the styles, and render your first component.
+          </p>
           <Button asChild size="lg">
             <Link to="/docs/installation">Read the installation guide</Link>
           </Button>

@@ -51,7 +51,9 @@ describe("Tabs", () => {
     await user.click(tab("Activity"));
 
     expect(tab("Activity")).toHaveAttribute("aria-selected", "true");
-    expect(screen.getByRole("tabpanel", { name: "Activity" })).toHaveTextContent("Activity content");
+    expect(screen.getByRole("tabpanel", { name: "Activity" })).toHaveTextContent(
+      "Activity content",
+    );
     expect(screen.queryByText("Overview content")).not.toBeInTheDocument();
   });
 

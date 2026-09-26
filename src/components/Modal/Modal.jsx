@@ -70,7 +70,11 @@ function ModalDialog({
     pressStartedOnOverlay.current = event.target === event.currentTarget;
   };
   const handleOverlayClick = (event) => {
-    if (closeOnOverlayClick && pressStartedOnOverlay.current && event.target === event.currentTarget) {
+    if (
+      closeOnOverlayClick &&
+      pressStartedOnOverlay.current &&
+      event.target === event.currentTarget
+    ) {
       onClose();
     }
   };

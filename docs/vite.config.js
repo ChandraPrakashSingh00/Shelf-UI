@@ -13,6 +13,8 @@ export default defineConfig(({ command }) => {
 
   return {
     root: docsRoot,
+    // GitHub Pages serves the site from /<repo>/; CI sets DOCS_BASE_PATH to that.
+    base: process.env.DOCS_BASE_PATH || "/",
     plugins: [react()],
     resolve: {
       alias: [{ find: /^@codecps\/ui$/, replacement: libraryEntry }],

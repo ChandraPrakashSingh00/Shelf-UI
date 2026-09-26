@@ -113,6 +113,7 @@ export const NavbarMenu = forwardRef(function NavbarMenu(
         id={menuId}
         data-state={menuOpen ? "open" : "closed"}
         className={cx("cps-navbar__menu", className)}
+        // eslint-disable-next-line react-hooks/refs -- handleKeyDown runs on keydown, not during render
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       />
     </>

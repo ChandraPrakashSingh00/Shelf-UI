@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { NavLink } from "react-router";
 import { componentDocs } from "../content/components/index.js";
-import { changelogGuide, installationGuide } from "../content/guides.js";
+import { aboutGuide, changelogGuide, installationGuide } from "../content/guides.js";
 
 export function SidebarNav() {
   const id = useId();
@@ -12,7 +12,7 @@ export function SidebarNav() {
         Getting started
       </p>
       <ul aria-labelledby={`${id}-start`}>
-        {[installationGuide, changelogGuide].map((guide) => (
+        {[installationGuide, changelogGuide, aboutGuide].map((guide) => (
           <li key={guide.href}>
             <NavLink to={guide.href} className="docs-sidebar-nav__link">
               {guide.title}

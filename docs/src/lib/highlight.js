@@ -1,5 +1,6 @@
 const STRING = String.raw`"(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*'`;
 
+// prettier-ignore
 const JSX_KEYWORDS = [
   "import", "from", "export", "default", "const", "let", "var", "function", "return",
   "if", "else", "for", "of", "in", "new", "extends", "as", "async", "await", "typeof",

@@ -13,8 +13,39 @@ body {
   background-color: var(--cps-color-primary);
 }
 
+/*
+ * Between the collapsed mobile menu (below 768px) and the width where every
+ * category link fits, the links scroll sideways instead of widening the page.
+ */
+@container cps-navbar (min-width: 768px) and (max-width: 1099.98px) {
+  .pg-navbar .cps-navbar__links {
+    min-width: 0;
+    /* Room for the links' focus outlines inside the scrolling list. */
+    padding: 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .pg-navbar .cps-navbar__links > li {
+    flex-shrink: 0;
+  }
+
+  .pg-navbar .cps-navbar__link {
+    white-space: nowrap;
+  }
+
+  .pg-navbar .cps-navbar__actions {
+    flex-shrink: 0;
+  }
+
+  .pg-navbar__badge {
+    display: none;
+  }
+}
+
 .pg-search {
-  width: 14rem;
+  max-width: 24rem;
+  margin-bottom: 1.5rem;
 }
 
 .pg-main {
@@ -80,12 +111,33 @@ body {
   font-size: var(--cps-font-size-sm);
 }
 
-@media (max-width: 767.98px) {
-  .pg-search {
-    width: 100%;
-  }
+.pg-narrow {
+  max-width: 40rem;
+}
 
+.pg-slide {
+  display: grid;
+  place-items: center;
+  min-height: 11rem;
+  padding: 1.5rem 4.5rem;
+  background-color: var(--cps-color-primary-subtle);
+  color: var(--cps-color-primary-text);
+  font-size: 1.25rem;
+  font-weight: var(--cps-font-weight-semibold);
+  text-align: center;
+}
+
+@media (max-width: 767.98px) {
   .pg-main {
     padding-inline: 1rem;
   }
+}
+
+.pg-hero code {
+  padding: 0.1em 0.375em;
+  border: 1px solid var(--cps-color-border);
+  border-radius: var(--cps-radius-sm);
+  background-color: var(--cps-color-surface-muted);
+  color: var(--cps-color-text);
+  font-size: 0.9em;
 }

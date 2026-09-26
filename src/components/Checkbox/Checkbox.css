@@ -1,0 +1,176 @@
+.cps-checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 100%;
+  vertical-align: top;
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-checkbox-font-size);
+  line-height: var(--cps-line-height-normal);
+  color: var(--cps-color-text);
+}
+
+/* Sizes */
+.cps-checkbox--sm {
+  --cps-checkbox-size: 0.875rem;
+  --cps-checkbox-font-size: var(--cps-font-size-xs);
+}
+
+.cps-checkbox--md {
+  --cps-checkbox-size: 1rem;
+  --cps-checkbox-font-size: var(--cps-font-size-sm);
+}
+
+/* As big as the box, and centered on the first line of the label. */
+.cps-checkbox__control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--cps-checkbox-size);
+  height: var(--cps-checkbox-size);
+  margin-block: calc((1em * var(--cps-line-height-normal) - var(--cps-checkbox-size)) / 2);
+}
+
+/* The real checkbox: invisible, but it's what gets clicked and focused. */
+.cps-checkbox__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.cps-checkbox__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--cps-color-text-subtle);
+  border-radius: calc(var(--cps-radius-sm) / 1.5);
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-on-primary);
+  transition:
+    background-color var(--cps-duration-fast) var(--cps-easing),
+    border-color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-checkbox__icon {
+  width: 75%;
+  height: 75%;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity var(--cps-duration-fast) var(--cps-easing),
+    transform var(--cps-duration-fast) var(--cps-easing);
+}
+
+/* States, lowest priority first; `:where()` keeps hover from outranking the others. */
+.cps-checkbox__input:where(:enabled:hover) + .cps-checkbox__box {
+  border-color: var(--cps-color-primary);
+}
+
+.cps-checkbox--invalid .cps-checkbox__input + .cps-checkbox__box {
+  border-color: var(--cps-color-danger);
+}
+
+.cps-checkbox__input:checked + .cps-checkbox__box,
+.cps-checkbox--indeterminate .cps-checkbox__input + .cps-checkbox__box {
+  border-color: var(--cps-color-primary);
+  background-color: var(--cps-color-primary);
+}
+
+.cps-checkbox__input:where(:enabled:hover):checked + .cps-checkbox__box,
+.cps-checkbox--indeterminate .cps-checkbox__input:where(:enabled:hover) + .cps-checkbox__box {
+  border-color: var(--cps-color-primary-hover);
+  background-color: var(--cps-color-primary-hover);
+}
+
+.cps-checkbox__input:checked + .cps-checkbox__box .cps-checkbox__icon,
+.cps-checkbox--indeterminate .cps-checkbox__icon {
+  opacity: 1;
+  transform: none;
+}
+
+.cps-checkbox__input:focus-visible + .cps-checkbox__box {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+.cps-checkbox__input:disabled {
+  cursor: not-allowed;
+}
+
+.cps-checkbox__input:disabled + .cps-checkbox__box {
+  opacity: 0.5;
+}
+
+.cps-checkbox__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.cps-checkbox__label {
+  cursor: pointer;
+}
+
+.cps-checkbox__required {
+  margin-inline-start: 0.25rem;
+  color: var(--cps-color-danger-text);
+}
+
+.cps-checkbox__description,
+.cps-checkbox__error {
+  margin: 0;
+  font-size: var(--cps-font-size-xs);
+}
+
+.cps-checkbox__description {
+  color: var(--cps-color-text-muted);
+}
+
+.cps-checkbox__error {
+  color: var(--cps-color-danger-text);
+}
+
+.cps-checkbox--disabled .cps-checkbox__text {
+  opacity: 0.5;
+}
+
+.cps-checkbox--disabled .cps-checkbox__label {
+  cursor: not-allowed;
+}
+
+/* Backgrounds are replaced in forced-colors mode: use system colors for the states. */
+@media (forced-colors: active) {
+  .cps-checkbox .cps-checkbox__input:checked + .cps-checkbox__box,
+  .cps-checkbox--indeterminate .cps-checkbox__input + .cps-checkbox__box {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .cps-checkbox__input:disabled + .cps-checkbox__box {
+    border-color: GrayText;
+  }
+
+  .cps-checkbox .cps-checkbox__input:disabled:checked + .cps-checkbox__box,
+  .cps-checkbox--indeterminate .cps-checkbox__input:disabled + .cps-checkbox__box {
+    border-color: GrayText;
+    background-color: GrayText;
+    color: Canvas;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-checkbox__box,
+  .cps-checkbox__icon {
+    transition: none;
+  }
+}

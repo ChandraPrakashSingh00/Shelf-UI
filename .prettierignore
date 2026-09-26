@@ -1,0 +1,7 @@
+# Build output and generated files
+dist/
+coverage/
+package-lock.json
+
+# Markdown is formatted by hand (tables, changelog parsed by the docs site)
+*.md

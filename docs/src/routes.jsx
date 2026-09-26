@@ -1,6 +1,7 @@
 import { Navigate } from "react-router";
 import { DocsLayout } from "./layout/DocsLayout.jsx";
 import { SiteLayout } from "./layout/SiteLayout.jsx";
+import { AboutPage } from "./pages/AboutPage.jsx";
 import { ChangelogPage } from "./pages/ChangelogPage.jsx";
 import { ComponentPage } from "./pages/ComponentPage.jsx";
 import { ComponentsPage } from "./pages/ComponentsPage.jsx";
@@ -23,6 +24,7 @@ export const routes = [
           { path: "components", element: <ComponentsPage /> },
           { path: "components/:slug", element: <ComponentPage /> },
           { path: "changelog", element: <ChangelogPage /> },
+          { path: "about", element: <AboutPage /> },
         ],
       },
       { path: "*", element: <NotFoundPage /> },

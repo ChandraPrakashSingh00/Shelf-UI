@@ -5,7 +5,11 @@ import { Badge } from "./Badge.jsx";
 describe("Badge", () => {
   it("renders its content with the neutral variant by default", () => {
     render(<Badge>Draft</Badge>);
-    expect(screen.getByText("Draft")).toHaveClass("cps-badge", "cps-badge--neutral", "cps-badge--md");
+    expect(screen.getByText("Draft")).toHaveClass(
+      "cps-badge",
+      "cps-badge--neutral",
+      "cps-badge--md",
+    );
   });
 
   it.each(["primary", "success", "warning", "danger", "neutral"])(

@@ -1,13 +1,30 @@
+import { accordionDoc } from "./accordion.jsx";
 import { alertDoc } from "./alert.jsx";
+import { avatarDoc } from "./avatar.jsx";
 import { badgeDoc } from "./badge.jsx";
+import { breadcrumbDoc } from "./breadcrumb.jsx";
 import { buttonDoc } from "./button.jsx";
 import { cardDoc } from "./card.jsx";
+import { carouselDoc } from "./carousel.jsx";
+import { checkboxDoc } from "./checkbox.jsx";
+import { drawerDoc } from "./drawer.jsx";
 import { dropdownDoc } from "./dropdown.jsx";
 import { inputDoc } from "./input.jsx";
 import { modalDoc } from "./modal.jsx";
 import { navbarDoc } from "./navbar.jsx";
+import { paginationDoc } from "./pagination.jsx";
+import { popoverDoc } from "./popover.jsx";
+import { progressDoc } from "./progress.jsx";
+import { radioGroupDoc } from "./radio-group.jsx";
+import { selectDoc } from "./select.jsx";
+import { skeletonDoc } from "./skeleton.jsx";
+import { sliderDoc } from "./slider.jsx";
+import { spinnerDoc } from "./spinner.jsx";
+import { switchDoc } from "./switch.jsx";
 import { tabsDoc } from "./tabs.jsx";
+import { textareaDoc } from "./textarea.jsx";
 import { toastDoc } from "./toast.jsx";
+import { tooltipDoc } from "./tooltip.jsx";
 
 /**
  * Every documented component, in alphabetical order. Each doc is an object with:
@@ -30,16 +47,33 @@ import { toastDoc } from "./toast.jsx";
  * - `accessibility`: notes (inline markdown).
  */
 export const componentDocs = [
+  accordionDoc,
   alertDoc,
+  avatarDoc,
   badgeDoc,
+  breadcrumbDoc,
   buttonDoc,
   cardDoc,
+  carouselDoc,
+  checkboxDoc,
+  drawerDoc,
   dropdownDoc,
   inputDoc,
   modalDoc,
   navbarDoc,
+  paginationDoc,
+  popoverDoc,
+  progressDoc,
+  radioGroupDoc,
+  selectDoc,
+  skeletonDoc,
+  sliderDoc,
+  spinnerDoc,
+  switchDoc,
   tabsDoc,
+  textareaDoc,
   toastDoc,
+  tooltipDoc,
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export const categoryOrder = [
