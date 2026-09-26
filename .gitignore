@@ -4,5 +4,6 @@ coverage/
 *.tgz
 *.log
 .DS_Store
+.vercel/
 .vscode/*
 !.vscode/extensions.json

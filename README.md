@@ -626,9 +626,15 @@ the current code. Each component page is generated from
   update its row there (and the comment above the component) in the same change.
 
 `npm run docs:build` outputs a static site in `docs/dist/`. It's a single-page app, so configure
-your host to serve `index.html` for every path (for example, a rewrite rule on Vercel or
-Netlify; on GitHub Pages, CI copies it to `404.html`). To serve it from a sub-path, set
+your host to serve `index.html` for every path (for example, a rewrite rule on Netlify; on
+GitHub Pages, CI copies it to `404.html`). To serve it from a sub-path, set
 `DOCS_BASE_PATH` when building, e.g. `DOCS_BASE_PATH=/my-repo/ npm run docs:build`.
+
+**Vercel.** [`vercel.json`](vercel.json) configures the docs deployment: it builds with
+`npm run docs:build`, serves `docs/dist/`, and rewrites every path to `index.html`. It also
+turns off Vercel's framework detection, which would otherwise pick up the root
+`vite.config.js` and build the library instead of the docs. Import the repository in Vercel
+and keep the Root Directory at the repository root.
 
 ### Build output
 
