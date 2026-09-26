@@ -58,7 +58,9 @@ jobs:
     name: Deploy docs
     needs: docs-build
     runs-on: ubuntu-latest
+    # Job-level permissions replace the workflow's, so list every one this job needs.
     permissions:
+      contents: read
       pages: write
       id-token: write
     concurrency:
