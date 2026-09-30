@@ -1,5 +1,6 @@
 // Fails the docs build if its stylesheet is missing the library's styles. Dev
 // servers inject CSS from JavaScript, so a production-only loss goes unnoticed.
+
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
