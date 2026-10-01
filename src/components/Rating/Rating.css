@@ -1,0 +1,193 @@
+/* Rating: stars filled with the warning (amber) color, empty stars in a border tone. */
+.cps-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cps-rating-gap);
+  max-width: 100%;
+  vertical-align: middle;
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-rating-font-size);
+  line-height: var(--cps-line-height-tight);
+  color: var(--cps-color-text);
+}
+
+/* Sizes: star size, spacing and the read-only text next to the stars. */
+.cps-rating--sm {
+  --cps-rating-size: 1rem;
+  --cps-rating-gap: 0.125rem;
+  --cps-rating-font-size: var(--cps-font-size-xs);
+}
+
+.cps-rating--md {
+  --cps-rating-size: 1.5rem;
+  --cps-rating-gap: 0.25rem;
+  --cps-rating-font-size: var(--cps-font-size-sm);
+}
+
+.cps-rating--lg {
+  --cps-rating-size: 2rem;
+  --cps-rating-gap: 0.25rem;
+  --cps-rating-font-size: var(--cps-font-size-md);
+}
+
+.cps-rating__stars {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: calc(var(--cps-rating-gap) / 2);
+}
+
+.cps-rating__star {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: var(--cps-rating-size);
+  height: var(--cps-rating-size);
+  border-radius: var(--cps-radius-sm);
+}
+
+.cps-rating__icon {
+  display: block;
+  width: var(--cps-rating-size);
+  height: var(--cps-rating-size);
+  fill: currentColor;
+}
+
+.cps-rating__icon--empty {
+  color: var(--cps-color-border-strong);
+}
+
+.cps-rating__icon--filled {
+  color: var(--cps-color-warning);
+}
+
+/* The filled star, clipped from the start for fractions. */
+.cps-rating__fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cps-rating__fill .cps-rating__icon {
+  max-width: none;
+}
+
+.cps-rating__value {
+  font-weight: var(--cps-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.cps-rating__count {
+  font-variant-numeric: tabular-nums;
+  color: var(--cps-color-text-muted);
+}
+
+/* Interactive: a <fieldset> of radios. Reset its native border, padding and min-width. */
+.cps-rating-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--cps-font-sans);
+  color: var(--cps-color-text);
+}
+
+/* The legend sits outside the flex layout, so it's spaced with padding. */
+.cps-rating-field__label {
+  padding: 0 0 0.375rem;
+}
+
+.cps-rating-field--invalid .cps-rating-field__message {
+  color: var(--cps-color-danger-text);
+}
+
+.cps-rating__item {
+  position: relative;
+  display: inline-flex;
+  /* A larger target than the star itself. */
+  padding: 0.125rem;
+  border-radius: var(--cps-radius-sm);
+  cursor: pointer;
+}
+
+/* The real radio sits invisibly on top of the star and receives clicks and focus. */
+.cps-rating__input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.cps-rating__item .cps-rating__star {
+  transition: transform var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-rating__item:hover > .cps-rating__input:enabled + .cps-rating__star {
+  transform: scale(1.12);
+}
+
+.cps-rating__input:focus-visible + .cps-rating__star {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+.cps-rating-field--invalid .cps-rating__icon--empty {
+  color: var(--cps-color-danger-border);
+}
+
+.cps-rating-field--disabled .cps-rating__item,
+.cps-rating-field--disabled .cps-rating__input {
+  cursor: not-allowed;
+}
+
+.cps-rating-field--disabled .cps-rating__star {
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-rating__item .cps-rating__star {
+    transition: none;
+  }
+
+  .cps-rating__item:hover > .cps-rating__input:enabled + .cps-rating__star {
+    transform: none;
+  }
+}
+
+/* Fills are flattened in forced-colors mode: outline empty stars, fill the others. */
+@media (forced-colors: active) {
+  .cps-rating__star {
+    forced-color-adjust: none;
+  }
+
+  .cps-rating__icon--empty {
+    color: CanvasText;
+    fill: Canvas;
+  }
+
+  .cps-rating__icon--filled {
+    color: CanvasText;
+    fill: CanvasText;
+  }
+
+  .cps-rating__input:focus-visible + .cps-rating__star {
+    outline-color: Highlight;
+  }
+
+  .cps-rating-field--disabled .cps-rating__icon {
+    color: GrayText;
+  }
+
+  .cps-rating-field--disabled .cps-rating__icon--filled {
+    fill: GrayText;
+  }
+}

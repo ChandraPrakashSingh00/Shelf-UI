@@ -1,0 +1,116 @@
+.cps-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  min-width: 0;
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+}
+
+.cps-stat--card {
+  padding: var(--cps-stat-padding);
+  border: 1px solid var(--cps-color-border);
+  border-radius: var(--cps-radius-lg);
+  background-color: var(--cps-color-surface);
+}
+
+/* Sizes */
+.cps-stat--sm {
+  --cps-stat-padding: 1rem;
+  --cps-stat-value-size: 1.375rem;
+  --cps-stat-icon-size: var(--cps-control-height-sm);
+}
+
+.cps-stat--md {
+  --cps-stat-padding: 1.25rem;
+  --cps-stat-value-size: 1.75rem;
+  --cps-stat-icon-size: var(--cps-control-height-md);
+}
+
+.cps-stat__list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  margin: 0;
+}
+
+.cps-stat__list > dd {
+  margin: 0;
+}
+
+.cps-stat__label {
+  color: var(--cps-color-text-muted);
+  font-weight: var(--cps-font-weight-medium);
+}
+
+.cps-stat__value {
+  font-size: var(--cps-stat-value-size);
+  font-weight: var(--cps-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--cps-line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.cps-stat__change {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.25rem;
+  color: var(--cps-color-text-muted);
+  font-size: var(--cps-font-size-xs);
+}
+
+.cps-stat__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  font-weight: var(--cps-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.cps-stat__change--positive .cps-stat__trend {
+  color: var(--cps-color-success-text);
+}
+
+.cps-stat__change--negative .cps-stat__trend {
+  color: var(--cps-color-danger-text);
+}
+
+.cps-stat__trend-icon {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+.cps-stat__description {
+  color: var(--cps-color-text-muted);
+  font-size: var(--cps-font-size-xs);
+}
+
+.cps-stat__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--cps-stat-icon-size);
+  height: var(--cps-stat-icon-size);
+  border-radius: var(--cps-radius-md);
+  background-color: var(--cps-color-primary-subtle);
+  color: var(--cps-color-primary-text);
+  font-size: calc(var(--cps-stat-icon-size) / 2);
+}
+
+/* As tall as the value it stands in for: a text skeleton takes 1.5em, the value 1.25em. */
+.cps-stat__skeleton {
+  font-size: calc(var(--cps-stat-value-size) * 1.25 / 1.5);
+}
+
+/* The icon's tinted square disappears in forced-colors mode: outline it instead. */
+@media (forced-colors: active) {
+  .cps-stat__icon {
+    border: 1px solid CanvasText;
+  }
+}

@@ -32,12 +32,36 @@ import {
   useToast,
 } from "@codecps/ui";
 import packageJson from "../package.json";
+import { AlertDialogDemo } from "./demos/AlertDialogDemo.jsx";
+import { BannerDemo } from "./demos/BannerDemo.jsx";
+import { CalendarDemo } from "./demos/CalendarDemo.jsx";
+import { ComboboxDemo } from "./demos/ComboboxDemo.jsx";
+import { CommandPaletteDemo } from "./demos/CommandPaletteDemo.jsx";
+import { DatePickerDemo } from "./demos/DatePickerDemo.jsx";
+import { DescriptionListDemo } from "./demos/DescriptionListDemo.jsx";
+import { DividerDemo } from "./demos/DividerDemo.jsx";
+import { EmptyStateDemo } from "./demos/EmptyStateDemo.jsx";
+import { FileUploadDemo } from "./demos/FileUploadDemo.jsx";
+import { IconButtonDemo } from "./demos/IconButtonDemo.jsx";
+import { KbdDemo } from "./demos/KbdDemo.jsx";
+import { LinkDemo } from "./demos/LinkDemo.jsx";
+import { NumberInputDemo } from "./demos/NumberInputDemo.jsx";
+import { PinInputDemo } from "./demos/PinInputDemo.jsx";
+import { RatingDemo } from "./demos/RatingDemo.jsx";
+import { SidebarDemo } from "./demos/SidebarDemo.jsx";
+import { StatDemo } from "./demos/StatDemo.jsx";
+import { StepperDemo } from "./demos/StepperDemo.jsx";
+import { TableDemo } from "./demos/TableDemo.jsx";
+import { TagDemo } from "./demos/TagDemo.jsx";
+import { TimelineDemo } from "./demos/TimelineDemo.jsx";
+import { ToggleGroupDemo } from "./demos/ToggleGroupDemo.jsx";
 
 const repositoryUrl = packageJson.repository.url.replace(/^git\+/, "").replace(/\.git$/, "");
 
 // Section titles, in page order; the search box filters by these.
 const SECTION_TITLES = [
   "Button",
+  "IconButton",
   "Input",
   "Textarea",
   "Select",
@@ -45,23 +69,45 @@ const SECTION_TITLES = [
   "RadioGroup",
   "Switch",
   "Slider",
+  "Combobox",
+  "Calendar",
+  "DatePicker",
+  "NumberInput",
+  "PinInput",
+  "FileUpload",
+  "Rating",
+  "ToggleGroup",
   "Card",
   "Badge",
   "Avatar",
   "Carousel",
+  "Table",
+  "Tag",
+  "Divider",
+  "Stat",
+  "Timeline",
+  "EmptyState",
+  "DescriptionList",
+  "Kbd",
   "Alert",
   "Progress",
   "Skeleton",
   "Spinner",
+  "Banner",
   "Modal",
   "Drawer",
   "Popover",
   "Tooltip",
   "Dropdown",
+  "AlertDialog",
+  "CommandPalette",
   "Tabs",
   "Accordion",
   "Breadcrumb",
   "Pagination",
+  "Stepper",
+  "Sidebar",
+  "Link",
   "Toast",
 ];
 
@@ -656,6 +702,10 @@ export function App() {
             </div>
           </Section>
 
+          <Section id="icon-button" title="IconButton">
+            <IconButtonDemo />
+          </Section>
+
           <Section id="input" title="Input">
             <div className="pg-grid">
               <Input label="Email" placeholder="Enter your email" type="email" required />
@@ -692,6 +742,38 @@ export function App() {
 
           <Section id="slider" title="Slider">
             <SliderDemo />
+          </Section>
+
+          <Section id="combobox" title="Combobox">
+            <ComboboxDemo />
+          </Section>
+
+          <Section id="calendar" title="Calendar">
+            <CalendarDemo />
+          </Section>
+
+          <Section id="date-picker" title="DatePicker">
+            <DatePickerDemo />
+          </Section>
+
+          <Section id="number-input" title="NumberInput">
+            <NumberInputDemo />
+          </Section>
+
+          <Section id="pin-input" title="PinInput">
+            <PinInputDemo />
+          </Section>
+
+          <Section id="file-upload" title="FileUpload">
+            <FileUploadDemo />
+          </Section>
+
+          <Section id="rating" title="Rating">
+            <RatingDemo />
+          </Section>
+
+          <Section id="toggle-group" title="ToggleGroup">
+            <ToggleGroupDemo />
           </Section>
 
           <Section id="card" title="Card">
@@ -739,6 +821,38 @@ export function App() {
 
           <Section id="carousel" title="Carousel">
             <CarouselDemo />
+          </Section>
+
+          <Section id="table" title="Table">
+            <TableDemo />
+          </Section>
+
+          <Section id="tag" title="Tag">
+            <TagDemo />
+          </Section>
+
+          <Section id="divider" title="Divider">
+            <DividerDemo />
+          </Section>
+
+          <Section id="stat" title="Stat">
+            <StatDemo />
+          </Section>
+
+          <Section id="timeline" title="Timeline">
+            <TimelineDemo />
+          </Section>
+
+          <Section id="empty-state" title="EmptyState">
+            <EmptyStateDemo />
+          </Section>
+
+          <Section id="description-list" title="DescriptionList">
+            <DescriptionListDemo />
+          </Section>
+
+          <Section id="kbd" title="Kbd">
+            <KbdDemo />
           </Section>
 
           <Section id="alert" title="Alert">
@@ -794,6 +908,10 @@ export function App() {
             </div>
           </Section>
 
+          <Section id="banner" title="Banner">
+            <BannerDemo />
+          </Section>
+
           <Section id="modal" title="Modal">
             <div className="pg-row">
               <Button onClick={() => setModalOpen(true)}>Open modal</Button>
@@ -846,6 +964,14 @@ export function App() {
             </div>
           </Section>
 
+          <Section id="alert-dialog" title="AlertDialog">
+            <AlertDialogDemo />
+          </Section>
+
+          <Section id="command-palette" title="CommandPalette">
+            <CommandPaletteDemo />
+          </Section>
+
           <Section id="tabs" title="Tabs">
             <Tabs defaultValue="overview">
               <Tabs.List aria-label="Project">
@@ -895,6 +1021,18 @@ export function App() {
 
           <Section id="pagination" title="Pagination">
             <PaginationDemo />
+          </Section>
+
+          <Section id="stepper" title="Stepper">
+            <StepperDemo />
+          </Section>
+
+          <Section id="sidebar" title="Sidebar">
+            <SidebarDemo />
+          </Section>
+
+          <Section id="link" title="Link">
+            <LinkDemo />
           </Section>
 
           <Section id="toast" title="Toast">

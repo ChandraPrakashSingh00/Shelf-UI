@@ -58,10 +58,11 @@ function ModalDialog({
   useScrollLock();
 
   const handleKeyDown = (event) => {
-    if (event.key !== "Escape" || !closeOnEscape) return;
-    // Keep an outer modal open when a nested one handles Escape.
+    if (event.key !== "Escape") return;
+    // Escape belongs to the topmost dialog: an outer one stays open even when
+    // this one ignores Escape (`closeOnEscape={false}`).
     event.stopPropagation();
-    onClose();
+    if (closeOnEscape) onClose();
   };
 
   // Only close when the press both started and ended on the overlay, so

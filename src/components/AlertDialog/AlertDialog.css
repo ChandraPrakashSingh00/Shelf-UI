@@ -1,0 +1,96 @@
+/*
+ * The overlay and the panel reuse Modal's classes (`cps-modal-overlay`, `cps-modal`,
+ * `cps-modal--sm|md`), so both dialogs look and animate the same.
+ */
+.cps-alert-dialog {
+  --cps-alert-dialog-accent: var(--cps-color-danger);
+  --cps-alert-dialog-accent-bg: var(--cps-color-danger-subtle);
+}
+
+.cps-alert-dialog--primary {
+  --cps-alert-dialog-accent: var(--cps-color-primary);
+  --cps-alert-dialog-accent-bg: var(--cps-color-primary-subtle);
+}
+
+.cps-alert-dialog__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 0;
+  padding: 1.5rem 1.5rem 0;
+  overflow-y: auto;
+}
+
+.cps-alert-dialog__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-alert-dialog-accent-bg);
+  color: var(--cps-alert-dialog-accent);
+  font-size: 1.25rem;
+}
+
+.cps-alert-dialog__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+/* Lines the first line of the title up with the middle of the icon. */
+.cps-alert-dialog__icon + .cps-alert-dialog__content {
+  padding-top: 0.5rem;
+}
+
+.cps-alert-dialog__title {
+  margin: 0;
+  font-size: var(--cps-font-size-lg);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+  overflow-wrap: break-word;
+}
+
+.cps-alert-dialog__description {
+  margin: 0;
+  color: var(--cps-color-text-muted);
+}
+
+.cps-alert-dialog__extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.cps-alert-dialog__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.cps-alert-dialog__cancel[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+  .cps-alert-dialog__body {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .cps-alert-dialog__footer {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .cps-alert-dialog__footer > .cps-button {
+    width: 100%;
+  }
+}

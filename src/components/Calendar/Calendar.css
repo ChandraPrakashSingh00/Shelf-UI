@@ -1,0 +1,200 @@
+/*
+ * Month grid: 7 equal columns of square day buttons. The width follows
+ * --cps-calendar-cell-size and shrinks with a narrow container.
+ */
+.cps-calendar {
+  --cps-calendar-cell-size: 2.25rem;
+  --cps-calendar-radius: var(--cps-radius-md);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: calc(7 * var(--cps-calendar-cell-size));
+  max-width: 100%;
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.cps-calendar__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: var(--cps-font-weight-semibold);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* `aria-disabled` keeps the button focusable when the month can't change. */
+.cps-calendar__nav[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.cps-calendar__nav[aria-disabled="true"]:hover {
+  background-color: transparent;
+  color: var(--cps-color-text-muted);
+}
+
+.cps-calendar__grid {
+  width: 100%;
+  margin: 0;
+  table-layout: fixed;
+  /* Rows are 2px apart; the range band runs unbroken along each row. */
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
+.cps-calendar__weekday {
+  height: 1.75rem;
+  padding: 0;
+  overflow: hidden;
+  color: var(--cps-color-text-subtle);
+  font-size: var(--cps-font-size-xs);
+  font-weight: var(--cps-font-weight-medium);
+  text-align: center;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.cps-calendar__cell {
+  padding: 0;
+  text-align: center;
+}
+
+.cps-calendar__day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--cps-calendar-radius);
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition:
+    background-color var(--cps-duration-fast) var(--cps-easing),
+    color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-calendar__day:hover:not(.cps-calendar__day--disabled, .cps-calendar__day--selected) {
+  background-color: var(--cps-color-surface-hover);
+}
+
+.cps-calendar__day:focus-visible {
+  position: relative;
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 1px;
+}
+
+.cps-calendar__day--outside {
+  color: var(--cps-color-text-subtle);
+}
+
+.cps-calendar__day--today {
+  border-color: var(--cps-color-primary);
+  color: var(--cps-color-primary-text);
+  font-weight: var(--cps-font-weight-semibold);
+}
+
+.cps-calendar__day--selected {
+  border-color: var(--cps-color-primary);
+  background-color: var(--cps-color-primary);
+  color: var(--cps-color-on-primary);
+  font-weight: var(--cps-font-weight-semibold);
+}
+
+.cps-calendar__day--selected:hover {
+  background-color: var(--cps-color-primary-hover);
+}
+
+.cps-calendar__day--disabled {
+  color: var(--cps-color-text-subtle);
+  text-decoration: line-through;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Range band between the start and end days, with rounded ends. */
+.cps-calendar__cell--in-range {
+  background-color: var(--cps-color-primary-subtle);
+}
+
+.cps-calendar__cell--in-range .cps-calendar__day:not(.cps-calendar__day--selected) {
+  color: var(--cps-color-primary-text);
+}
+
+.cps-calendar__cell--in-range .cps-calendar__day:hover:not(.cps-calendar__day--selected) {
+  background-color: var(--cps-color-primary-border);
+}
+
+/* While only the start is picked, a neutral band previews the range. */
+.cps-calendar__cell--in-preview {
+  background-color: var(--cps-color-surface-hover);
+}
+
+.cps-calendar__cell--range-start,
+.cps-calendar__cell--in-range:first-child,
+.cps-calendar__cell--in-preview:first-child {
+  border-start-start-radius: var(--cps-calendar-radius);
+  border-end-start-radius: var(--cps-calendar-radius);
+}
+
+.cps-calendar__cell--range-end,
+.cps-calendar__cell--in-range:last-child,
+.cps-calendar__cell--in-preview:last-child {
+  border-start-end-radius: var(--cps-calendar-radius);
+  border-end-end-radius: var(--cps-calendar-radius);
+}
+
+@media (forced-colors: active) {
+  .cps-calendar__day--selected {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .cps-calendar__cell--in-range .cps-calendar__day:not(.cps-calendar__day--selected) {
+    border-color: Highlight;
+  }
+
+  .cps-calendar__cell--in-preview .cps-calendar__day:not(.cps-calendar__day--selected) {
+    border-style: dashed;
+    border-color: Highlight;
+  }
+
+  .cps-calendar__day--today:not(.cps-calendar__day--selected) {
+    border-color: CanvasText;
+    border-width: 2px;
+  }
+
+  .cps-calendar__day--disabled,
+  .cps-calendar__day--outside {
+    color: GrayText;
+  }
+
+  .cps-calendar__day:focus-visible {
+    outline-color: CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-calendar__day {
+    transition: none;
+  }
+}

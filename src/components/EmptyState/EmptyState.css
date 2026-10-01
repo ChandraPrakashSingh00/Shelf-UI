@@ -1,0 +1,134 @@
+.cps-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cps-empty-state-gap);
+  width: 100%;
+  padding: var(--cps-empty-state-padding);
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+  text-align: center;
+}
+
+.cps-empty-state--align-start {
+  align-items: flex-start;
+  text-align: start;
+}
+
+.cps-empty-state--bordered {
+  border: 1px dashed var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-lg);
+}
+
+/* Sizes */
+.cps-empty-state--sm {
+  --cps-empty-state-padding: 1.5rem 1rem;
+  --cps-empty-state-gap: 0.75rem;
+  --cps-empty-state-icon-size: var(--cps-control-height-md);
+  --cps-empty-state-title-size: var(--cps-font-size-sm);
+}
+
+.cps-empty-state--md {
+  --cps-empty-state-padding: 2.5rem 1.5rem;
+  --cps-empty-state-gap: 1rem;
+  --cps-empty-state-icon-size: var(--cps-control-height-lg);
+  --cps-empty-state-title-size: var(--cps-font-size-md);
+}
+
+.cps-empty-state--lg {
+  --cps-empty-state-padding: 4rem 2rem;
+  --cps-empty-state-gap: 1.25rem;
+  --cps-empty-state-icon-size: calc(var(--cps-control-height-lg) * 1.33);
+  --cps-empty-state-title-size: var(--cps-font-size-lg);
+}
+
+/* Tones: the icon circle */
+.cps-empty-state--neutral {
+  --cps-empty-state-icon-bg: var(--cps-color-neutral-subtle);
+  --cps-empty-state-icon-fg: var(--cps-color-text-muted);
+}
+
+.cps-empty-state--primary {
+  --cps-empty-state-icon-bg: var(--cps-color-primary-subtle);
+  --cps-empty-state-icon-fg: var(--cps-color-primary-text);
+}
+
+.cps-empty-state--success {
+  --cps-empty-state-icon-bg: var(--cps-color-success-subtle);
+  --cps-empty-state-icon-fg: var(--cps-color-success-text);
+}
+
+.cps-empty-state--warning {
+  --cps-empty-state-icon-bg: var(--cps-color-warning-subtle);
+  --cps-empty-state-icon-fg: var(--cps-color-warning-text);
+}
+
+.cps-empty-state--danger {
+  --cps-empty-state-icon-bg: var(--cps-color-danger-subtle);
+  --cps-empty-state-icon-fg: var(--cps-color-danger-text);
+}
+
+.cps-empty-state__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--cps-empty-state-icon-size);
+  height: var(--cps-empty-state-icon-size);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-empty-state-icon-bg);
+  color: var(--cps-empty-state-icon-fg);
+  font-size: calc(var(--cps-empty-state-icon-size) / 2);
+}
+
+.cps-empty-state__image {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.cps-empty-state__image > :where(img, svg) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.cps-empty-state__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  max-width: 28rem;
+}
+
+.cps-empty-state__title {
+  margin: 0;
+  font-size: var(--cps-empty-state-title-size);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-empty-state__description {
+  margin: 0;
+  color: var(--cps-color-text-muted);
+}
+
+.cps-empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.cps-empty-state--align-start .cps-empty-state__actions {
+  justify-content: flex-start;
+}
+
+/* The tinted circle disappears in forced-colors mode: outline it instead. */
+@media (forced-colors: active) {
+  .cps-empty-state__icon {
+    border: 1px solid CanvasText;
+  }
+}

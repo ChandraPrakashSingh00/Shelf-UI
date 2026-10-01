@@ -33,7 +33,7 @@ const features = [
   },
   {
     title: "Lightweight",
-    text: "No runtime dependencies besides React. Tree-shakeable ES modules and a ~9 kB stylesheet.",
+    text: "No runtime dependencies besides React. Tree-shakeable ES modules and a ~18 kB stylesheet (gzipped).",
     Icon: FeatherIcon,
   },
   {

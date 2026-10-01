@@ -7,12 +7,14 @@ const titles = (query) => searchEntries(searchIndex, query).map((entry) => entry
 describe("searchEntries", () => {
   it("ranks the component whose name matches first", () => {
     expect(titles("button")[0]).toBe("Button");
-    expect(titles("tab")[0]).toBe("Tabs");
+    expect(titles("tabs")[0]).toBe("Tabs");
+    expect(titles("table")[0]).toBe("Table");
     expect(titles("BADGE")[0]).toBe("Badge");
   });
 
   it("finds components by keyword and by prop name", () => {
-    expect(titles("dialog")[0]).toBe("Modal");
+    expect(titles("lightbox")[0]).toBe("Modal");
+    expect(titles("dialog")).toEqual(expect.arrayContaining(["AlertDialog", "Modal"]));
     expect(titles("snackbar")[0]).toBe("Toast");
     expect(titles("helperText")).toContain("Input");
   });

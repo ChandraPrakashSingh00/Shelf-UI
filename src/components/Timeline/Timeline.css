@@ -1,0 +1,240 @@
+.cps-timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-timeline-font-size);
+  line-height: var(--cps-line-height-normal);
+}
+
+/* Sizes */
+.cps-timeline--sm {
+  --cps-timeline-dot: 1rem;
+  --cps-timeline-gap: 1rem;
+  --cps-timeline-font-size: var(--cps-font-size-xs);
+}
+
+.cps-timeline--md {
+  --cps-timeline-dot: 1.5rem;
+  --cps-timeline-gap: 1.5rem;
+  --cps-timeline-font-size: var(--cps-font-size-sm);
+}
+
+.cps-timeline__item {
+  --cps-timeline-line-color: var(--cps-color-border-strong);
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  min-width: 0;
+  padding-bottom: var(--cps-timeline-gap);
+}
+
+.cps-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* The line from this item's dot to the next one, colored once the item is complete. */
+.cps-timeline__item::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--cps-timeline-dot) + 0.25rem);
+  bottom: 0.25rem;
+  inset-inline-start: calc((var(--cps-timeline-dot) - 2px) / 2);
+  width: 2px;
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-timeline-line-color);
+}
+
+.cps-timeline__item:last-child::before {
+  display: none;
+}
+
+.cps-timeline__item--complete {
+  --cps-timeline-line-color: var(--cps-color-primary);
+}
+
+.cps-timeline__marker {
+  display: flex;
+  flex-shrink: 0;
+  width: var(--cps-timeline-dot);
+  height: var(--cps-timeline-dot);
+}
+
+.cps-timeline__dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-text-muted);
+  font-size: calc(var(--cps-timeline-dot) * 0.55);
+}
+
+.cps-timeline__item--complete .cps-timeline__dot {
+  border-color: var(--cps-color-primary);
+  background-color: var(--cps-color-primary);
+  color: var(--cps-color-on-primary);
+}
+
+.cps-timeline__item--current .cps-timeline__dot {
+  border-color: var(--cps-color-primary);
+  color: var(--cps-color-primary);
+  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+}
+
+/* A filled center, unless the item has its own icon. */
+.cps-timeline__item--current .cps-timeline__dot:not(.cps-timeline__dot--icon)::after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-primary);
+}
+
+.cps-timeline__item--error .cps-timeline__dot {
+  border-color: var(--cps-color-danger);
+  background-color: var(--cps-color-danger);
+  color: var(--cps-color-on-primary);
+}
+
+/* The first line of text is centered on the dot. */
+.cps-timeline__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  padding-top: max(0px, calc((var(--cps-timeline-dot) - 1.5em) / 2));
+}
+
+.cps-timeline__title {
+  font-weight: var(--cps-font-weight-semibold);
+}
+
+.cps-timeline__item--upcoming .cps-timeline__title {
+  color: var(--cps-color-text-muted);
+  font-weight: var(--cps-font-weight-medium);
+}
+
+.cps-timeline__item--error .cps-timeline__title {
+  color: var(--cps-color-danger-text);
+}
+
+.cps-timeline__time {
+  color: var(--cps-color-text-muted);
+  font-size: var(--cps-font-size-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.cps-timeline__description {
+  color: var(--cps-color-text-muted);
+}
+
+.cps-timeline__body {
+  margin-top: 0.375rem;
+}
+
+/*
+ * Horizontal: the items share the row, each dot above its text. The list is a
+ * size container, so narrow containers get the vertical layout instead.
+ */
+.cps-timeline--horizontal {
+  container: cps-timeline / inline-size;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cps-timeline--horizontal > .cps-timeline__item {
+  flex: 1 1 0;
+  flex-direction: column;
+  padding-bottom: 0;
+  padding-inline-end: 1rem;
+}
+
+.cps-timeline--horizontal > .cps-timeline__item:last-child {
+  padding-inline-end: 0;
+}
+
+.cps-timeline--horizontal > .cps-timeline__item::before {
+  top: calc((var(--cps-timeline-dot) - 2px) / 2);
+  bottom: auto;
+  inset-inline: calc(var(--cps-timeline-dot) + 0.25rem) 0.25rem;
+  width: auto;
+  height: 2px;
+}
+
+.cps-timeline--horizontal > .cps-timeline__item > .cps-timeline__content {
+  padding-top: 0;
+}
+
+@container cps-timeline (max-width: 36rem) {
+  .cps-timeline--horizontal > .cps-timeline__item {
+    flex-basis: 100%;
+    flex-direction: row;
+    padding-bottom: var(--cps-timeline-gap);
+    padding-inline-end: 0;
+  }
+
+  .cps-timeline--horizontal > .cps-timeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  .cps-timeline--horizontal > .cps-timeline__item::before {
+    top: calc(var(--cps-timeline-dot) + 0.25rem);
+    bottom: 0.25rem;
+    inset-inline: calc((var(--cps-timeline-dot) - 2px) / 2) auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .cps-timeline--horizontal > .cps-timeline__item > .cps-timeline__content {
+    padding-top: max(0px, calc((var(--cps-timeline-dot) - 1.5em) / 2));
+  }
+}
+
+/* Backgrounds and shadows are dropped in forced-colors mode: use system colors instead. */
+@media (forced-colors: active) {
+  .cps-timeline__item::before {
+    forced-color-adjust: none;
+    background-color: GrayText;
+  }
+
+  .cps-timeline__item--complete::before {
+    background-color: Highlight;
+  }
+
+  .cps-timeline__dot {
+    forced-color-adjust: none;
+    border-color: GrayText;
+    background-color: Canvas;
+    color: CanvasText;
+  }
+
+  .cps-timeline__item--complete .cps-timeline__dot {
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .cps-timeline__item--current .cps-timeline__dot {
+    border-color: Highlight;
+    color: Highlight;
+  }
+
+  .cps-timeline__item--current .cps-timeline__dot:not(.cps-timeline__dot--icon)::after {
+    background-color: Highlight;
+  }
+
+  .cps-timeline__item--error .cps-timeline__dot {
+    border-color: CanvasText;
+    background-color: CanvasText;
+    color: Canvas;
+  }
+}

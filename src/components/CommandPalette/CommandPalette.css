@@ -1,0 +1,230 @@
+/*
+ * Command palette: a modal search dialog near the top of the viewport, with a
+ * borderless search input, a scrolling grouped list and an optional footer.
+ */
+.cps-command-palette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--cps-z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(1rem, 12vh) 1rem 1rem;
+  background-color: var(--cps-color-overlay);
+  animation: cps-fade-in var(--cps-duration-normal) var(--cps-easing);
+}
+
+.cps-command-palette {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 36rem;
+  max-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--cps-color-border);
+  border-radius: var(--cps-radius-lg);
+  background-color: var(--cps-color-surface);
+  box-shadow: var(--cps-shadow-lg);
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+  animation: cps-slide-up var(--cps-duration-normal) var(--cps-easing);
+}
+
+/* The panel itself is only focused as a fallback. */
+.cps-command-palette:focus {
+  outline: none;
+}
+
+.cps-command-palette__search {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.625rem;
+  padding-inline: 1rem;
+  border-bottom: 1px solid var(--cps-color-border);
+}
+
+.cps-command-palette__search-icon {
+  flex-shrink: 0;
+  color: var(--cps-color-text-subtle);
+  font-size: 1.125rem;
+}
+
+.cps-command-palette__input {
+  flex: 1;
+  min-width: 0;
+  height: 3.25rem;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--cps-font-size-md);
+}
+
+.cps-command-palette__input::placeholder {
+  color: var(--cps-color-text-subtle);
+  opacity: 1;
+}
+
+.cps-command-palette__results {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: min(24rem, 60vh);
+  padding: 0.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.cps-command-palette__group + .cps-command-palette__group {
+  margin-top: 0.375rem;
+}
+
+.cps-command-palette__group-heading {
+  padding: 0.5rem 0.625rem 0.25rem;
+  color: var(--cps-color-text-subtle);
+  font-size: var(--cps-font-size-xs);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-command-palette__option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--cps-radius-md);
+  cursor: pointer;
+  scroll-margin-block: 2rem 0.5rem;
+}
+
+.cps-command-palette__option--active {
+  background-color: var(--cps-color-primary-subtle);
+  color: var(--cps-color-primary-text);
+}
+
+.cps-command-palette__option--disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cps-command-palette__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--cps-color-text-muted);
+  font-size: 1.125rem;
+}
+
+.cps-command-palette__option--active .cps-command-palette__icon {
+  color: inherit;
+}
+
+.cps-command-palette__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.cps-command-palette__label {
+  overflow: hidden;
+  font-weight: var(--cps-font-weight-medium);
+  line-height: var(--cps-line-height-tight);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cps-command-palette__description {
+  overflow: hidden;
+  color: var(--cps-color-text-muted);
+  font-size: var(--cps-font-size-xs);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cps-command-palette__option--active .cps-command-palette__description {
+  color: inherit;
+}
+
+.cps-command-palette__shortcut {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 0.25rem;
+  margin-inline-start: auto;
+}
+
+.cps-command-palette__kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  padding: 0 0.375rem;
+  border: 1px solid var(--cps-color-border);
+  border-bottom-width: 2px;
+  border-radius: var(--cps-radius-sm);
+  background-color: var(--cps-color-surface-muted);
+  color: var(--cps-color-text-muted);
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: var(--cps-font-weight-medium);
+  line-height: 1;
+}
+
+.cps-command-palette__empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  color: var(--cps-color-text-muted);
+  text-align: center;
+}
+
+.cps-command-palette__footer {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.625rem 1rem;
+  border-top: 1px solid var(--cps-color-border);
+  color: var(--cps-color-text-subtle);
+  font-size: var(--cps-font-size-xs);
+}
+
+@media (max-width: 480px) {
+  .cps-command-palette-overlay {
+    padding: 0.75rem;
+  }
+
+  .cps-command-palette__results {
+    max-height: none;
+  }
+
+  /* Hints about keys matter less on touch screens; keep the command names roomy. */
+  .cps-command-palette__shortcut {
+    display: none;
+  }
+}
+
+/* Backgrounds are dropped in forced-colors mode; keep the active option visible. */
+@media (forced-colors: active) {
+  .cps-command-palette__option--active {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .cps-command-palette__option--disabled {
+    color: GrayText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-command-palette-overlay,
+  .cps-command-palette {
+    animation: none;
+  }
+}

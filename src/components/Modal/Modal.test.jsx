@@ -121,6 +121,31 @@ describe("Modal", () => {
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
 
+  it("keeps an outer modal open when a nested one ignores Escape", async () => {
+    const closeOuter = vi.fn();
+    const closeInner = vi.fn();
+    const user = userEvent.setup();
+    const tree = (innerOpen) => (
+      <Modal open onClose={closeOuter} title="Edit product">
+        <Modal
+          open={innerOpen}
+          onClose={closeInner}
+          title="Upload in progress"
+          closeOnEscape={false}
+        />
+      </Modal>
+    );
+    const { rerender } = render(tree(false));
+    rerender(tree(true));
+    expect(screen.getByRole("dialog", { name: "Upload in progress" })).toContainElement(
+      document.activeElement,
+    );
+
+    await user.keyboard("{Escape}");
+    expect(closeInner).not.toHaveBeenCalled();
+    expect(closeOuter).not.toHaveBeenCalled();
+  });
+
   it("closes on overlay click but not on clicks inside the dialog", async () => {
     const user = await openHarness();
 

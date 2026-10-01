@@ -44,6 +44,70 @@ export const PauseIcon = createIcon("PauseIcon", <path d="M9 5v14M15 5v14" />);
 
 export const PlayIcon = createIcon("PlayIcon", <path d="M7 4.5v15L19 12 7 4.5Z" />);
 
+export const PlusIcon = createIcon("PlusIcon", <path d="M12 5v14M5 12h14" />);
+
+export const ArrowUpIcon = createIcon("ArrowUpIcon", <path d="M12 19V5M6 11l6-6 6 6" />);
+
+export const ArrowDownIcon = createIcon("ArrowDownIcon", <path d="M12 5v14M18 13l-6 6-6-6" />);
+
+export const ChevronsUpDownIcon = createIcon(
+  "ChevronsUpDownIcon",
+  <path d="m7 15 5 5 5-5M7 9l5-5 5 5" />,
+);
+
+export const SearchIcon = createIcon(
+  "SearchIcon",
+  <>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5" />
+  </>,
+);
+
+export const CalendarIcon = createIcon(
+  "CalendarIcon",
+  <>
+    <rect x="3" y="4.5" width="18" height="16.5" rx="2" />
+    <path d="M3 9.5h18M8 3v3M16 3v3" />
+  </>,
+);
+
+export const StarIcon = createIcon(
+  "StarIcon",
+  <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" />,
+);
+
+export const UploadIcon = createIcon(
+  "UploadIcon",
+  <>
+    <path d="M12 15V4M7 9l5-5 5 5" />
+    <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" />
+  </>,
+);
+
+export const FileIcon = createIcon(
+  "FileIcon",
+  <>
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" />
+    <path d="M14 3v5h5" />
+  </>,
+);
+
+export const ExternalLinkIcon = createIcon(
+  "ExternalLinkIcon",
+  <>
+    <path d="M14 4h6v6M20 4l-9 9" />
+    <path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" />
+  </>,
+);
+
+export const PanelLeftIcon = createIcon(
+  "PanelLeftIcon",
+  <>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <path d="M9 4v16" />
+  </>,
+);
+
 export const UserIcon = createIcon(
   "UserIcon",
   <>

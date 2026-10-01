@@ -1,0 +1,261 @@
+/* The container: scrolls sideways (and vertically with `maxHeight`) on small screens. */
+.cps-table {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: auto;
+  border-radius: var(--cps-radius-lg);
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-font-size-sm);
+  line-height: var(--cps-line-height-normal);
+  scrollbar-width: thin;
+}
+
+.cps-table--bordered {
+  border: 1px solid var(--cps-color-border);
+}
+
+.cps-table:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+/* Sizes: row density. */
+.cps-table--sm {
+  --cps-table-row-height: var(--cps-control-height-md);
+  --cps-table-cell-padding-y: 0.375rem;
+  --cps-table-cell-padding-x: 0.75rem;
+}
+
+.cps-table--md {
+  --cps-table-row-height: var(--cps-control-height-lg);
+  --cps-table-cell-padding-y: 0.625rem;
+  --cps-table-cell-padding-x: 1rem;
+}
+
+.cps-table__table {
+  width: 100%;
+  /* `separate` keeps the borders of a sticky header in place while scrolling. */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.cps-table__caption {
+  padding: 0.875rem var(--cps-table-cell-padding-x);
+  border-bottom: 1px solid var(--cps-color-border);
+  font-size: var(--cps-font-size-md);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+  text-align: start;
+}
+
+.cps-table__cell {
+  height: var(--cps-table-row-height);
+  padding: var(--cps-table-cell-padding-y) var(--cps-table-cell-padding-x);
+  border-bottom: 1px solid var(--cps-color-border);
+  font-weight: var(--cps-font-weight-regular);
+  text-align: start;
+  vertical-align: middle;
+}
+
+/* Row headers read like the rest of the row, only slightly stronger. */
+.cps-table__body th.cps-table__cell {
+  font-weight: var(--cps-font-weight-medium);
+}
+
+.cps-table__cell--align-center {
+  text-align: center;
+}
+
+.cps-table__cell--align-end {
+  text-align: end;
+}
+
+.cps-table__cell--numeric {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cps-table__cell--select {
+  width: 1%;
+  padding-inline-end: 0;
+  line-height: 0;
+}
+
+.cps-table__cell--select .cps-checkbox {
+  vertical-align: middle;
+}
+
+/* Header */
+.cps-table__header {
+  height: auto;
+  border-bottom-color: var(--cps-color-border-strong);
+  background-color: var(--cps-color-surface-muted);
+  color: var(--cps-color-text-muted);
+  font-weight: var(--cps-font-weight-semibold);
+  line-height: var(--cps-line-height-tight);
+  white-space: nowrap;
+}
+
+/*
+ * Keyboard focus scrolls a control into view below the sticky header, not under
+ * it. A body row is at least as tall as the one-line header, so its height is enough.
+ */
+.cps-table--sticky-header {
+  scroll-padding-top: var(--cps-table-row-height);
+}
+
+/* Above the rows' checkbox inputs, which have `z-index: 1`. */
+.cps-table--sticky-header .cps-table__header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.cps-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  max-width: 100%;
+  margin: -0.25rem -0.375rem;
+  padding: 0.25rem 0.375rem;
+  border: 0;
+  border-radius: var(--cps-radius-sm);
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--cps-duration-fast) var(--cps-easing),
+    color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-table__sort:hover {
+  background-color: var(--cps-color-surface-hover);
+  color: var(--cps-color-text);
+}
+
+/* Inset, so the scrolling container doesn't clip it. */
+.cps-table__sort:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: -2px;
+}
+
+.cps-table__header[aria-sort] .cps-table__sort {
+  color: var(--cps-color-text);
+}
+
+.cps-table__sort-icon {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+
+.cps-table__sort-icon--inactive {
+  opacity: 0.45;
+  transition: opacity var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-table__sort:hover .cps-table__sort-icon--inactive,
+.cps-table__sort:focus-visible .cps-table__sort-icon--inactive {
+  opacity: 1;
+}
+
+/* Body rows */
+.cps-table__body .cps-table__row {
+  transition: background-color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-table--striped .cps-table__body .cps-table__row:nth-child(even) {
+  background-color: var(--cps-color-surface-muted);
+}
+
+.cps-table--hoverable
+  .cps-table__body
+  .cps-table__row:where(:not(.cps-table__row--empty, .cps-table__row--placeholder)):hover {
+  background-color: var(--cps-color-surface-hover);
+}
+
+/* After striping and hover, with the same specificity, so a selected row stays highlighted. */
+.cps-table .cps-table__body .cps-table__row.cps-table__row--selected {
+  background-color: var(--cps-color-primary-subtle);
+}
+
+/* The outer border already closes the table. */
+.cps-table--bordered:not(.cps-table--has-footer) .cps-table__body .cps-table__row:last-child > * {
+  border-bottom: 0;
+}
+
+.cps-table__empty {
+  height: auto;
+  padding: 2rem var(--cps-table-cell-padding-x);
+  color: var(--cps-color-text-muted);
+  text-align: center;
+}
+
+.cps-table__skeleton {
+  max-width: 8rem;
+}
+
+.cps-table__cell--align-end .cps-table__skeleton {
+  margin-inline-start: auto;
+}
+
+.cps-table__cell--align-center .cps-table__skeleton {
+  margin-inline: auto;
+}
+
+.cps-table__checkbox-skeleton.cps-skeleton--rectangular {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: calc(var(--cps-radius-sm) / 1.5);
+  vertical-align: middle;
+}
+
+.cps-table--loading .cps-table__body {
+  opacity: 0.55;
+  transition: opacity var(--cps-duration-normal) var(--cps-easing);
+}
+
+.cps-table--loading .cps-table__body:has(.cps-table__row--placeholder) {
+  opacity: 1;
+}
+
+/* Footer, e.g. totals */
+.cps-table__foot .cps-table__cell {
+  border-top: 1px solid var(--cps-color-border-strong);
+  border-bottom: 0;
+  background-color: var(--cps-color-surface-muted);
+  font-weight: var(--cps-font-weight-semibold);
+}
+
+.cps-table__status {
+  top: 0;
+  inset-inline-start: 0;
+}
+
+/* Background colors are dropped in forced-colors mode: outline the selected rows. */
+@media (forced-colors: active) {
+  .cps-table .cps-table__body .cps-table__row--selected {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .cps-table__header {
+    border-bottom-color: CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-table__sort,
+  .cps-table__sort-icon--inactive,
+  .cps-table__body .cps-table__row,
+  .cps-table--loading .cps-table__body {
+    transition: none;
+  }
+}

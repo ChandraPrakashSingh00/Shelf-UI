@@ -97,6 +97,11 @@ describe("Button", () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it("keeps an aria-disabled passed by the caller", () => {
+    render(<Button aria-disabled="true">Cancel</Button>);
+    expect(screen.getByRole("button", { name: "Cancel" })).toHaveAttribute("aria-disabled", "true");
+  });
+
   it("keeps keyboard focus when it switches to loading, and ignores activation", async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();

@@ -1,0 +1,260 @@
+.cps-stepper {
+  --cps-stepper-indicator-size: 2rem;
+  --cps-stepper-font-size: var(--cps-font-size-sm);
+  /* Moves the first line of text down to the middle of the circle. */
+  --cps-stepper-text-offset: 0.4rem;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--cps-color-text);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-stepper-font-size);
+  line-height: var(--cps-line-height-tight);
+}
+
+.cps-stepper--sm {
+  --cps-stepper-indicator-size: 1.5rem;
+  --cps-stepper-font-size: var(--cps-font-size-xs);
+  --cps-stepper-text-offset: 0.3rem;
+}
+
+.cps-stepper__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cps-stepper__trigger {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  min-width: 0;
+  color: inherit;
+  text-align: start;
+}
+
+.cps-stepper__trigger--button {
+  /* Room for the focus ring without shifting the layout. */
+  margin: -0.25rem;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: var(--cps-radius-md);
+  background: none;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+.cps-stepper__trigger--button:hover .cps-stepper__title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cps-stepper__trigger--button:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 0;
+}
+
+.cps-stepper__indicator {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--cps-stepper-indicator-size);
+  height: var(--cps-stepper-indicator-size);
+  border: 2px solid var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-text-muted);
+  font-weight: var(--cps-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  transition:
+    background-color var(--cps-duration-normal) var(--cps-easing),
+    border-color var(--cps-duration-normal) var(--cps-easing),
+    color var(--cps-duration-normal) var(--cps-easing);
+}
+
+.cps-stepper__indicator svg {
+  font-size: 1.2em;
+}
+
+.cps-stepper__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  padding-top: var(--cps-stepper-text-offset);
+  overflow-wrap: break-word;
+}
+
+.cps-stepper__title {
+  color: var(--cps-color-text-muted);
+  font-weight: var(--cps-font-weight-medium);
+}
+
+.cps-stepper__optional,
+.cps-stepper__description {
+  color: var(--cps-color-text-subtle);
+  font-size: var(--cps-font-size-xs);
+  line-height: var(--cps-line-height-normal);
+}
+
+.cps-stepper__connector {
+  border-color: var(--cps-color-border);
+  transition: border-color var(--cps-duration-normal) var(--cps-easing);
+}
+
+.cps-stepper__connector--complete {
+  border-color: var(--cps-color-primary);
+}
+
+/* Statuses */
+.cps-stepper__step--complete .cps-stepper__indicator {
+  border-color: var(--cps-color-primary);
+  background-color: var(--cps-color-primary);
+  color: var(--cps-color-on-primary);
+}
+
+.cps-stepper__step--current .cps-stepper__indicator {
+  border-color: var(--cps-color-primary);
+  background-color: var(--cps-color-primary-subtle);
+  color: var(--cps-color-primary-text);
+}
+
+.cps-stepper__step--error .cps-stepper__indicator {
+  border-color: var(--cps-color-danger);
+  background-color: var(--cps-color-danger);
+  color: var(--cps-brand-white);
+}
+
+.cps-stepper__step--complete .cps-stepper__title,
+.cps-stepper__step--current .cps-stepper__title {
+  color: var(--cps-color-text);
+}
+
+.cps-stepper__step--current .cps-stepper__title {
+  font-weight: var(--cps-font-weight-semibold);
+}
+
+.cps-stepper__step--error .cps-stepper__title {
+  color: var(--cps-color-danger-text);
+}
+
+/* Horizontal: steps share the width; a line after each step fills the gap. It
+   adapts to its own width (a container query below), not just the viewport, so it
+   also fits narrow panels. Vertical steppers size to their content instead. */
+.cps-stepper--horizontal {
+  container: cps-stepper / inline-size;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cps-stepper--horizontal .cps-stepper__step {
+  flex: 1 1 0;
+}
+
+.cps-stepper--horizontal .cps-stepper__step:last-child {
+  flex: 0 1 auto;
+}
+
+.cps-stepper--horizontal .cps-stepper__connector {
+  flex: 1 1 1rem;
+  min-width: 1rem;
+  margin: calc(var(--cps-stepper-indicator-size) / 2 - 1px) 0.75rem 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+}
+
+/* Vertical: a line runs down from each circle to the next one. */
+.cps-stepper--vertical {
+  flex-direction: column;
+}
+
+.cps-stepper--vertical .cps-stepper__step {
+  padding-bottom: 1.5rem;
+}
+
+.cps-stepper--vertical .cps-stepper__step:last-child {
+  padding-bottom: 0;
+}
+
+.cps-stepper--vertical .cps-stepper__connector {
+  position: absolute;
+  top: calc(var(--cps-stepper-indicator-size) + 0.25rem);
+  bottom: 0.25rem;
+  inset-inline-start: calc(var(--cps-stepper-indicator-size) / 2 - 1px);
+  border-inline-start-width: 2px;
+  border-inline-start-style: solid;
+}
+
+/* Narrow horizontal steppers show the numbers and only the current step's title.
+   The other titles stay in the page, visually hidden, for screen readers. */
+@container cps-stepper (max-width: 36rem) {
+  .cps-stepper--horizontal .cps-stepper__step:not([aria-current="step"]) .cps-stepper__text,
+  .cps-stepper--horizontal .cps-stepper__optional,
+  .cps-stepper--horizontal .cps-stepper__description {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* The current step takes the room it needs; a long title is truncated. */
+  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"] {
+    min-width: 0;
+  }
+
+  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"]:not(:last-child) {
+    flex: 1 1 auto;
+  }
+
+  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"] .cps-stepper__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cps-stepper--horizontal .cps-stepper__connector {
+    min-width: 0.75rem;
+    margin-inline: 0.375rem;
+  }
+
+  .cps-stepper--horizontal .cps-stepper__trigger {
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-stepper__indicator,
+  .cps-stepper__connector {
+    transition: none;
+  }
+}
+
+/* Forced colors drop background colors: keep completed and current steps distinct. */
+@media (forced-colors: active) {
+  .cps-stepper__step--complete .cps-stepper__indicator,
+  .cps-stepper__step--error .cps-stepper__indicator {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .cps-stepper__step--current .cps-stepper__indicator {
+    border-color: Highlight;
+  }
+
+  .cps-stepper__connector--complete {
+    border-color: Highlight;
+  }
+}

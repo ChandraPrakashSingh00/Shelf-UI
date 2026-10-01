@@ -5,3 +5,4 @@ export { useIsClient } from "./useIsClient.js";
 export { useOnClickOutside } from "./useOnClickOutside.js";
 export { usePrefersReducedMotion } from "./usePrefersReducedMotion.js";
 export { useScrollLock } from "./useScrollLock.js";
+export { useToday } from "./useToday.js";

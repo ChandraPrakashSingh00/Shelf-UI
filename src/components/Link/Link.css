@@ -1,0 +1,59 @@
+/* Visited links keep the same color, so a list of links looks consistent. */
+.cps-link {
+  --cps-link-color: var(--cps-color-primary-text);
+  --cps-link-color-hover: var(--cps-color-primary-text);
+
+  border-radius: var(--cps-radius-sm);
+  color: var(--cps-link-color);
+  text-decoration-line: none;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition:
+    color var(--cps-duration-fast) var(--cps-easing),
+    text-decoration-color var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-link:hover {
+  color: var(--cps-link-color-hover);
+}
+
+.cps-link:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 2px;
+}
+
+/* Variants */
+.cps-link--muted {
+  --cps-link-color: var(--cps-color-text-muted);
+  --cps-link-color-hover: var(--cps-color-text);
+}
+
+.cps-link--inherit,
+.cps-link--inherit:hover {
+  color: inherit;
+}
+
+/* Underline */
+.cps-link--underline-always,
+.cps-link--underline-hover:hover {
+  text-decoration-line: underline;
+}
+
+.cps-link--underline-always:hover {
+  text-decoration-thickness: 0.125em;
+}
+
+/* External icon: sized to the text, after a no-break space. */
+.cps-link__icon {
+  display: inline-block;
+  width: 0.875em;
+  height: 0.875em;
+  vertical-align: -0.075em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-link {
+    transition: none;
+  }
+}

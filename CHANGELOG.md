@@ -7,6 +7,21 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Added
+
+- 23 new components, for 50 in total. Each one has a documentation page with a live preview, examples, an API reference and keyboard and accessibility notes, plus a playground demo.
+- Actions: `IconButton`, an icon-only button with a required `label`, an optional tooltip and a toggle (`pressed`) mode.
+- Forms: `Combobox` (searchable single select, with server-side search), `Calendar` and `DatePicker` (single dates and ranges, `min` / `max`, disabled days, presets), `NumberInput`, `PinInput` (one-time codes), `FileUpload` (drag and drop with validation), `Rating` and `ToggleGroup` (with `ToggleGroupItem`). They submit with their form through `name`, and reset with it.
+- Data display: `Table` (sorting, row selection, loading and empty states), `Tag`, `Divider`, `Stat`, `Timeline` (with `TimelineItem`), `EmptyState`, `DescriptionList` (with `DescriptionListItem`) and `Kbd`.
+- Feedback: `Banner`, a full-width announcement bar.
+- Overlays: `AlertDialog`, a confirmation dialog that can wait for an async `onConfirm`, and `CommandPalette`, a Ctrl + K (⌘ K) command menu.
+- Navigation: `Stepper`, `Sidebar` (collapsible to an icon rail, with sections, groups and router link support) and `Link`.
+
+### Fixed
+
+- `Button` no longer drops an `aria-disabled` passed to it while it isn't loading.
+- `Modal` and `Drawer` with `closeOnEscape={false}` no longer let Escape close a dialog they're nested in.
+
 ## [0.1.0] - 2026-09-30
 
 ### Added

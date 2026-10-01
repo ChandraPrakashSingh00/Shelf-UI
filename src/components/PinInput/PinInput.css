@@ -1,0 +1,92 @@
+/* PinInput: a row of single-character boxes inside the shared field layout. */
+.cps-pin-input-field.cps-field--sm {
+  --cps-pin-input-font-size: var(--cps-font-size-md);
+}
+
+.cps-pin-input-field.cps-field--md {
+  --cps-pin-input-font-size: var(--cps-font-size-lg);
+}
+
+.cps-pin-input-field.cps-field--lg {
+  --cps-pin-input-font-size: 1.375rem;
+}
+
+.cps-pin-input {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+/* Square boxes that shrink on narrow screens rather than overflow. */
+.cps-pin-input__box {
+  flex: 0 1 var(--cps-input-height);
+  width: var(--cps-input-height);
+  min-width: 0;
+  height: var(--cps-input-height);
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--cps-color-border-strong);
+  border-radius: var(--cps-radius-md);
+  outline: none;
+  background-color: var(--cps-color-surface);
+  color: var(--cps-color-text);
+  font: inherit;
+  font-size: var(--cps-pin-input-font-size);
+  font-weight: var(--cps-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: center;
+  caret-color: var(--cps-color-primary);
+  transition:
+    border-color var(--cps-duration-fast) var(--cps-easing),
+    box-shadow var(--cps-duration-fast) var(--cps-easing);
+}
+
+.cps-pin-input__box::placeholder {
+  color: var(--cps-color-text-subtle);
+  font-weight: var(--cps-font-weight-regular);
+  opacity: 1;
+}
+
+.cps-pin-input__box:hover {
+  border-color: var(--cps-color-text-subtle);
+}
+
+.cps-pin-input__box[data-filled] {
+  border-color: var(--cps-color-text-subtle);
+}
+
+.cps-pin-input__box:focus {
+  border-color: var(--cps-color-primary);
+  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+}
+
+.cps-field--invalid .cps-pin-input__box {
+  border-color: var(--cps-color-danger);
+}
+
+.cps-field--invalid .cps-pin-input__box:focus {
+  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+}
+
+.cps-pin-input__box:disabled {
+  border-color: var(--cps-color-border);
+  background-color: var(--cps-color-surface-muted);
+  color: var(--cps-color-text-subtle);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-pin-input__box {
+    transition: none;
+  }
+}
+
+/* Box-shadow is dropped in forced-colors mode; keep focus visible. */
+@media (forced-colors: active) {
+  .cps-pin-input__box:focus {
+    outline: 2px solid Highlight;
+    outline-offset: 1px;
+  }
+}

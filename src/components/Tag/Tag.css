@@ -1,0 +1,141 @@
+.cps-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cps-tag-gap);
+  max-width: 100%;
+  height: var(--cps-tag-height);
+  padding: 0 var(--cps-tag-padding-x);
+  border: 1px solid var(--cps-tag-border);
+  border-radius: var(--cps-radius-full);
+  background-color: var(--cps-tag-bg);
+  color: var(--cps-tag-fg);
+  font-family: var(--cps-font-sans);
+  font-size: var(--cps-tag-font-size);
+  font-weight: var(--cps-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Sizes */
+.cps-tag--sm {
+  --cps-tag-height: 1.5rem;
+  --cps-tag-padding-x: 0.5rem;
+  --cps-tag-gap: 0.25rem;
+  --cps-tag-font-size: var(--cps-font-size-xs);
+  --cps-tag-remove-size: 1.125rem;
+}
+
+.cps-tag--md {
+  --cps-tag-height: var(--cps-control-height-sm);
+  --cps-tag-padding-x: 0.75rem;
+  --cps-tag-gap: 0.375rem;
+  --cps-tag-font-size: var(--cps-font-size-sm);
+  --cps-tag-remove-size: 1.5rem;
+}
+
+/* The remove button sits close to the rounded end. */
+.cps-tag--removable {
+  padding-inline-end: calc((var(--cps-tag-height) - var(--cps-tag-remove-size)) / 2 - 1px);
+}
+
+.cps-tag__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 1.15em;
+}
+
+/* Long text is cut off with an ellipsis; the full text stays in the DOM. */
+.cps-tag__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: var(--cps-line-height-normal);
+}
+
+.cps-tag__remove {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--cps-tag-remove-size);
+  height: var(--cps-tag-remove-size);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--cps-radius-full);
+  background-color: transparent;
+  color: inherit;
+  font-size: calc(var(--cps-tag-remove-size) * 0.65);
+  cursor: pointer;
+  transition: background-color var(--cps-duration-fast) var(--cps-easing);
+}
+
+/* A larger hit area than the visible circle, for touch. */
+.cps-tag__remove::after {
+  content: "";
+  position: absolute;
+  inset: -0.25rem;
+}
+
+.cps-tag__remove:hover:not(:disabled) {
+  background-color: var(--cps-tag-border);
+}
+
+.cps-tag__remove:focus-visible {
+  outline: 2px solid var(--cps-color-focus);
+  outline-offset: 1px;
+}
+
+.cps-tag__remove:disabled {
+  cursor: not-allowed;
+}
+
+.cps-tag--disabled {
+  opacity: 0.55;
+}
+
+/* Variants: the Badge palette. */
+.cps-tag--neutral {
+  --cps-tag-bg: var(--cps-color-neutral-subtle);
+  --cps-tag-border: var(--cps-color-neutral-border);
+  --cps-tag-fg: var(--cps-color-neutral-text);
+}
+
+.cps-tag--primary {
+  --cps-tag-bg: var(--cps-color-primary-subtle);
+  --cps-tag-border: var(--cps-color-primary-border);
+  --cps-tag-fg: var(--cps-color-primary-text);
+}
+
+.cps-tag--success {
+  --cps-tag-bg: var(--cps-color-success-subtle);
+  --cps-tag-border: var(--cps-color-success-border);
+  --cps-tag-fg: var(--cps-color-success-text);
+}
+
+.cps-tag--warning {
+  --cps-tag-bg: var(--cps-color-warning-subtle);
+  --cps-tag-border: var(--cps-color-warning-border);
+  --cps-tag-fg: var(--cps-color-warning-text);
+}
+
+.cps-tag--danger {
+  --cps-tag-bg: var(--cps-color-danger-subtle);
+  --cps-tag-border: var(--cps-color-danger-border);
+  --cps-tag-fg: var(--cps-color-danger-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cps-tag__remove {
+    transition: none;
+  }
+}
+
+/* Forced colors drop the hover tint: outline the hovered remove button instead. */
+@media (forced-colors: active) {
+  .cps-tag__remove:hover:not(:disabled) {
+    outline: 1px solid ButtonText;
+  }
+}
