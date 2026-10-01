@@ -132,7 +132,7 @@ export const AccordionItem = forwardRef(function AccordionItem(
         {children}
       </div>
     </div>
-  ); 
+  );
 });
 
 /**
