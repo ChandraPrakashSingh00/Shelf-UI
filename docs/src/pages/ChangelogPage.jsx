@@ -1,7 +1,8 @@
 import { Badge } from "@codecps/ui";
 import changelogSource from "../../../CHANGELOG.md?raw";
 import { InlineMarkdown } from "../components/InlineMarkdown.jsx";
-import { PageHeader } from "../layout/PageParts.jsx";
+import { changelogPage } from "../content/docsPages.js";
+import { DocsPageNav, PageHeader } from "../layout/PageParts.jsx";
 import { parseChangelog } from "../lib/changelog.js";
 import { useDocumentTitle } from "../lib/document.js";
 
@@ -26,7 +27,6 @@ export function ChangelogPage() {
   return (
     <article className="docs-article">
       <PageHeader
-        eyebrow="Releases"
         title="Changelog"
         lead="Every notable change to `@codecps/ui`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and versions follow [Semantic Versioning](https://semver.org)."
       />
@@ -68,6 +68,7 @@ export function ChangelogPage() {
           );
         })}
       </ol>
+      <DocsPageNav page={changelogPage} />
     </article>
   );
 }

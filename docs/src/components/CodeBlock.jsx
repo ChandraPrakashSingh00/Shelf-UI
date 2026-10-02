@@ -3,7 +3,11 @@ import { copyText } from "../lib/clipboard.js";
 import { tokenize } from "../lib/highlight.js";
 import { CheckIcon, CopyIcon } from "./icons.jsx";
 
-function CopyButton({ text }) {
+/**
+ * Copies `text` and announces it. `label` names the button for assistive tech;
+ * `children` replaces the visible "Copy" text.
+ */
+export function CopyButton({ text, label = "Copy code", className, children = "Copy" }) {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -16,12 +20,12 @@ function CopyButton({ text }) {
     <>
       <button
         type="button"
-        className="docs-copy"
-        aria-label="Copy code"
+        className={["docs-copy", className].filter(Boolean).join(" ")}
+        aria-label={label}
         onClick={async () => setCopied(await copyText(text))}
       >
         {copied ? <CheckIcon /> : <CopyIcon />}
-        <span aria-hidden="true">{copied ? "Copied" : "Copy"}</span>
+        <span aria-hidden="true">{copied ? "Copied" : children}</span>
       </button>
       {/* Always rendered, so the announcement is picked up when it changes. */}
       <span role="status" className="docs-visually-hidden">

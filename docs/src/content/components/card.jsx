@@ -19,7 +19,7 @@ function CardThumbnail() {
 export const cardDoc = {
   slug: "card",
   name: "Card",
-  category: "Data display",
+  category: "Layout",
   summary: "Groups related content and actions on a surface.",
   description:
     "A surface for grouping related content, like a plan, a project or a settings section. Compose it from `Card.Header`, `Card.Title`, `Card.Description`, `Card.Content` and `Card.Footer`, or use the `title`, `description` and `footer` shorthand.",

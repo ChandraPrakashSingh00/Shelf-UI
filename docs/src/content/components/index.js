@@ -52,7 +52,7 @@ import { tooltipDoc } from "./tooltip.jsx";
 /**
  * Every documented component, in alphabetical order. Each doc is an object with:
  *
- * - `slug`, `name` and `category` (one of `categoryOrder`).
+ * - `slug`, `name` and `category` (the `name` of one of `categories`).
  * - `summary`: one sentence for cards and search results.
  * - `description`: lead paragraph on the component page (inline markdown).
  * - `keywords`: extra search terms.
@@ -122,14 +122,49 @@ export const componentDocs = [
   tooltipDoc,
 ].sort((a, b) => a.name.localeCompare(b.name));
 
-export const categoryOrder = [
-  "Actions",
-  "Forms",
-  "Data display",
-  "Feedback",
-  "Overlays",
-  "Navigation",
+/** Component categories, in display order. `slug` is used in URLs (`/components?category=forms`). */
+export const categories = [
+  { name: "Actions", slug: "actions", description: "Buttons and menus that trigger an action." },
+  {
+    name: "Forms",
+    slug: "forms",
+    description: "Inputs, pickers and choices that submit with a form.",
+  },
+  {
+    name: "Data display",
+    slug: "data-display",
+    description: "Tables, stats, tags and lists for data.",
+  },
+  {
+    name: "Layout",
+    slug: "layout",
+    description: "Cards, dividers and accordions that structure a page.",
+  },
+  { name: "Media", slug: "media", description: "Avatars and carousels for people and images." },
+  {
+    name: "Feedback",
+    slug: "feedback",
+    description: "Alerts, banners, toasts and loading states.",
+  },
+  { name: "Overlays", slug: "overlays", description: "Dialogs, drawers, popovers and tooltips." },
+  {
+    name: "Navigation",
+    slug: "navigation",
+    description: "Navbars, tabs, breadcrumbs and pagination.",
+  },
 ];
+
+export function getCategory(slug) {
+  return categories.find((category) => category.slug === slug);
+}
+
+export function getCategoryByName(name) {
+  return categories.find((category) => category.name === name);
+}
+
+export function getComponentsInCategory(name) {
+  return componentDocs.filter((doc) => doc.category === name);
+}
 
 export function getComponentDoc(slug) {
   return componentDocs.find((doc) => doc.slug === slug);

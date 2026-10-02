@@ -24,7 +24,7 @@ function AccordionThumbnail() {
 export const accordionDoc = {
   slug: "accordion",
   name: "Accordion",
-  category: "Navigation",
+  category: "Layout",
   summary: "Stacked sections that expand and collapse to show their content.",
   description:
     "A vertical stack of headers that each show or hide a section of content, like the answers in an FAQ or the groups of a long settings page. Compose it from `Accordion.Item`s; by default one item is open at a time, and `multiple` lets several stay open.",

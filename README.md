@@ -822,8 +822,8 @@ focused. Pass `duration: Infinity` to keep one open until it is dismissed.
 ## Theming
 
 All colors, radii, font sizes and control heights are CSS custom properties prefixed with
-`--cps-`. Override them on `:root` to theme the whole app. The docs site's Installation page
-has a live theme builder that generates this CSS for you.
+`--cps-`. Override them on `:root` to theme the whole app. The docs site's Theming page has a
+live theme builder that generates this CSS for you.
 
 ```css
 :root {

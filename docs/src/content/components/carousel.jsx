@@ -40,7 +40,7 @@ function CarouselThumbnail() {
 export const carouselDoc = {
   slug: "carousel",
   name: "Carousel",
-  category: "Data display",
+  category: "Media",
   summary: "Shows a set of slides one at a time, with arrows, dots and optional auto-play.",
   description:
     "A slideshow for images or content, like product screenshots or announcements. People move between slides with the arrows, the dots or a swipe; with `autoPlay`, slides also advance on their own, with a button to stop them. Compose it from `Carousel.Slide` elements.",

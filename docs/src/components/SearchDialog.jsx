@@ -3,7 +3,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { searchIndex } from "../content/searchIndex.js";
 import { searchEntries } from "../lib/search.js";
-import { SearchIcon } from "./icons.jsx";
+import { ArrowRightIcon, SearchIcon } from "./icons.jsx";
 
 /** Command-palette search (⌘K / Ctrl+K) following the ARIA combobox pattern. */
 export function SearchDialog({ open, onClose }) {
@@ -29,6 +29,7 @@ function SearchPanel({ onClose }) {
   const listboxId = useId();
   const optionId = (index) => `${listboxId}-option-${index}`;
   const activeEntry = results[activeIndex];
+  const trimmedQuery = query.trim();
 
   useEffect(() => {
     document
@@ -102,6 +103,20 @@ function SearchPanel({ onClose }) {
           </p>
         )}
       </div>
+
+      {trimmedQuery && (
+        <button
+          type="button"
+          className="docs-search__all"
+          onClick={() => {
+            onClose();
+            navigate(`/search?q=${encodeURIComponent(trimmedQuery)}`);
+          }}
+        >
+          See all results for “{trimmedQuery}”
+          <ArrowRightIcon />
+        </button>
+      )}
 
       <div className="docs-search__footer" aria-hidden="true">
         <span>

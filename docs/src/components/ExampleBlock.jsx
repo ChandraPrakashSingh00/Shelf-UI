@@ -8,8 +8,9 @@ const PREVIEW_WIDTHS = {
   mobile: { label: "Mobile", maxWidth: "375px" },
 };
 
+/** Demo links point at "#…" placeholders; this keeps them from moving the docs page. */
 // Runs in the bubble phase, after the example's own click handlers.
-function preventPlaceholderNavigation(event) {
+export function preventPlaceholderNavigation(event) {
   if (event.target instanceof Element && event.target.closest('a[href^="#"]')) {
     event.preventDefault();
   }

@@ -33,7 +33,7 @@ function AvatarThumbnail() {
 export const avatarDoc = {
   slug: "avatar",
   name: "Avatar",
-  category: "Data display",
+  category: "Media",
   summary: "Picture of a person or workspace, with initials when there's no image.",
   description:
     "Shows a profile picture, and falls back to initials (or an icon) when there's no image or it fails to load. Stack several in an `AvatarGroup` to show who's on a project, with a “+N” for the rest.",

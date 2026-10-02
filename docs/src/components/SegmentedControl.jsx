@@ -1,11 +1,11 @@
 import { useId } from "react";
 
 /** A radio group styled as a row of pills. Native radios keep keyboard support (← →). */
-export function SegmentedControl({ legend, options, value, onChange, getLabel }) {
+export function SegmentedControl({ legend, options, value, onChange, getLabel, className }) {
   const name = useId();
 
   return (
-    <fieldset className="docs-control docs-segmented">
+    <fieldset className={["docs-control docs-segmented", className].filter(Boolean).join(" ")}>
       <legend>{legend}</legend>
       <div className="docs-segmented__options">
         {options.map((option) => (

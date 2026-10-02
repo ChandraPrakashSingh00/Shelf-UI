@@ -15,3 +15,10 @@ export function useDocumentTitle(title) {
 export function isApplePlatform() {
   return typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.userAgent);
 }
+
+const dateFormat = new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" });
+
+/** Formats an ISO date (YYYY-MM-DD) like "Oct 2, 2026", the same in every time zone. */
+export function formatDate(isoDate) {
+  return dateFormat.format(new Date(`${isoDate}T00:00:00Z`));
+}

@@ -24,18 +24,32 @@ describe("searchEntries", () => {
     expect(titles("button qwerty")).toEqual([]);
   });
 
-  it("finds guide sections and examples", () => {
+  it("finds docs pages, guide sections, articles and examples", () => {
     expect(titles("dark")[0]).toBe("Dark mode");
     expect(titles("nextjs")[0]).toBe("Next.js");
+    expect(titles("tailwind")[0]).toBe("Tailwind CSS");
+    expect(titles("tokens")).toContain("Design tokens");
+    expect(searchEntries(searchIndex, "sign-in")[0]).toMatchObject({
+      category: "Blog",
+      href: "/blog/sign-in-screen-with-vite",
+    });
     const example = searchEntries(searchIndex, "validation")[0];
     expect(example).toMatchObject({ section: "Input", href: "/components/input#validation" });
   });
 
-  it("shows installation and every component for an empty query", () => {
+  it("shows getting started and every component for an empty query", () => {
     const results = searchEntries(searchIndex, "   ");
-    expect(results[0]?.title).toBe("Installation");
-    expect(results.slice(1, 11).map((entry) => entry.section)).toEqual(
+    expect(results.slice(0, 2).map((entry) => entry.title)).toEqual([
+      "Introduction",
+      "Installation",
+    ]);
+    expect(results.slice(2, 12).map((entry) => entry.section)).toEqual(
       Array(10).fill("Components"),
     );
+  });
+
+  it("gives every entry a category for the search page filters", () => {
+    expect(searchIndex.every((entry) => typeof entry.category === "string")).toBe(true);
+    expect(searchEntries(searchIndex, "button")[0]?.category).toBe("Actions");
   });
 });

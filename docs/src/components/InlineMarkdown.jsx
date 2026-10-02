@@ -1,6 +1,11 @@
+import { Link } from "react-router";
+
 const INLINE = /`([^`]+)`|\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
 
-/** Renders the inline markdown used in docs content: `code`, **bold** and [links](url). */
+/**
+ * Renders the inline markdown used in docs content: `code`, **bold** and
+ * [links](url). Links starting with "/" are router links within the site.
+ */
 export function InlineMarkdown({ text }) {
   const nodes = [];
   let cursor = 0;
@@ -17,9 +22,15 @@ export function InlineMarkdown({ text }) {
     } else if (linkText !== undefined && href !== undefined) {
       const external = /^https?:\/\//.test(href);
       nodes.push(
-        <a key={index} href={href} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
-          {linkText}
-        </a>,
+        href.startsWith("/") ? (
+          <Link key={index} to={href}>
+            {linkText}
+          </Link>
+        ) : (
+          <a key={index} href={href} {...(external ? { target: "_blank", rel: "noreferrer" } : {})}>
+            {linkText}
+          </a>
+        ),
       );
     }
     cursor = index + whole.length;

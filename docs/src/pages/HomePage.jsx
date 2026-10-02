@@ -1,139 +1,125 @@
-import { Alert, Badge, Button, Card, Input, Tabs, useToast } from "@codecps/ui";
+import { Button, Kbd } from "@codecps/ui";
 import { Link } from "react-router";
-import packageJson from "../../../package.json";
-import { CodeBlock } from "../components/CodeBlock.jsx";
+import { CodeBlock, CopyButton } from "../components/CodeBlock.jsx";
 import { ComponentCard } from "../components/ComponentCard.jsx";
+import { HeroShowcase } from "../components/HeroShowcase.jsx";
 import {
   AccessibleIcon,
   ArrowRightIcon,
-  CodeIcon,
   FeatherIcon,
   LayersIcon,
+  MoonIcon,
   PaletteIcon,
-  ServerIcon,
+  SparklesIcon,
+  SunIcon,
 } from "../components/icons.jsx";
-import { componentDocs } from "../content/components/index.js";
+import { StatList } from "../components/StatList.jsx";
+import { componentDocs, getComponentDoc } from "../content/components/index.js";
+import { packageName, version } from "../content/site.js";
 import { useDocumentTitle } from "../lib/document.js";
 
-const features = [
+const popularSlugs = ["button", "card", "input", "modal", "dropdown", "table"];
+
+const installCommand = `npm install ${packageName}`;
+
+const swatches = ["#086ffd", "#7c3aed", "#0f766e", "#e11d48", "#ea580c"];
+
+const steps = [
   {
-    title: "Accessible by default",
-    text: "Keyboard support, focus management and ARIA wiring follow the WAI-ARIA Authoring Practices.",
-    Icon: AccessibleIcon,
+    title: "Install the package",
+    text: "Add CodeCPS UI to any React 18 or 19 project.",
+    code: installCommand,
+    language: "bash",
+    fileName: "terminal",
   },
   {
-    title: "Simple to use",
-    text: "Plain JavaScript and JSX with sensible defaults. Every prop is documented, with examples to copy.",
-    Icon: CodeIcon,
+    title: "Import the styles",
+    text: "Load the stylesheet once, in your app's entry file.",
+    code: `import "${packageName}/styles.css";`,
+    language: "jsx",
+    fileName: "main.jsx",
   },
   {
-    title: "Themeable",
-    text: "Design tokens are CSS variables. Override a few to match a brand, or switch to dark mode.",
-    Icon: PaletteIcon,
-  },
-  {
-    title: "Lightweight",
-    text: "No runtime dependencies besides React. Tree-shakeable ES modules and a ~18 kB stylesheet (gzipped).",
-    Icon: FeatherIcon,
-  },
-  {
-    title: "Framework-ready",
-    text: "SSR-safe, with “use client” built in for the Next.js App Router.",
-    Icon: ServerIcon,
-  },
-  {
-    title: "One design language",
-    text: "The same components across CodeCPS products, from marketing sites to dashboards.",
-    Icon: LayersIcon,
+    title: "Use a component",
+    text: "Import components by name and render them.",
+    code: `import { Button } from "${packageName}";\n\n<Button>Get started</Button>`,
+    language: "jsx",
+    fileName: "App.jsx",
   },
 ];
 
-const highlighted = [
-  "button",
-  "input",
-  "slider",
-  "modal",
-  "drawer",
-  "carousel",
-  "dropdown",
-  "tabs",
-  "toast",
-];
-
-const deployments = [
-  { name: "codecps-web", time: "2m ago", status: "success", label: "Ready" },
-  { name: "codecps-api", time: "8m ago", status: "warning", label: "Building" },
-  { name: "codecps-docs", time: "1h ago", status: "danger", label: "Failed" },
-];
-
-function Showcase() {
-  const { toast } = useToast();
-
-  const createProject = (event) => {
-    event.preventDefault();
-    toast({ variant: "success", title: "Project created", message: "It's ready to deploy." });
-  };
-
+function Features() {
   return (
-    <div className="docs-showcase">
-      <Card
-        title="Create a project"
-        description="Everything on this panel is a live CodeCPS UI component."
-      >
-        <form className="docs-showcase__form" onSubmit={createProject}>
-          <Input label="Project name" defaultValue="codecps-web" required />
-          <Input
-            label="Repository"
-            defaultValue="github.com/codecps/web"
-            helperText="We'll deploy every push to main."
-          />
-          <div className="docs-showcase__actions">
-            <Button type="submit">Create project</Button>
-            <Button type="reset" variant="ghost">
-              Reset
-            </Button>
-          </div>
-        </form>
-      </Card>
-      <div className="docs-showcase__column">
-        <Alert
-          variant="warning"
-          title="Usage at 90%"
-          description="Upgrade before the end of the month to avoid rate limits."
-        />
-        <Card>
-          <Tabs defaultValue="deployments">
-            <Tabs.List aria-label="Project activity">
-              <Tabs.Tab value="deployments">Deployments</Tabs.Tab>
-              <Tabs.Tab value="domains">Domains</Tabs.Tab>
-            </Tabs.List>
-            <Tabs.Panel value="deployments">
-              <ul className="docs-showcase__list">
-                {deployments.map((deployment) => (
-                  <li key={deployment.name}>
-                    <span>
-                      <strong>{deployment.name}</strong>
-                      <span className="docs-muted"> · {deployment.time}</span>
-                    </span>
-                    <Badge variant={deployment.status}>{deployment.label}</Badge>
-                  </li>
-                ))}
-              </ul>
-            </Tabs.Panel>
-            <Tabs.Panel value="domains">
-              <ul className="docs-showcase__list">
-                <li>
-                  codecps.com <Badge variant="success">Valid</Badge>
-                </li>
-                <li>
-                  docs.codecps.com <Badge variant="neutral">Pending DNS</Badge>
-                </li>
-              </ul>
-            </Tabs.Panel>
-          </Tabs>
-        </Card>
-      </div>
-    </div>
+    <ul className="docs-bento">
+      <li className="docs-bento__card docs-bento__card--wide">
+        <span className="docs-icon-tile">
+          <AccessibleIcon />
+        </span>
+        <h3 className="docs-bento__title">Accessible by default</h3>
+        <p className="docs-bento__text">
+          Keyboard support, focus management and ARIA wiring follow the WAI-ARIA Authoring
+          Practices, and every component page documents its keys.
+        </p>
+        <div className="docs-bento__keys" aria-hidden="true">
+          <Kbd>Tab</Kbd>
+          <Kbd keys={["Shift", "Tab"]} />
+          <Kbd>Enter</Kbd>
+          <Kbd>Esc</Kbd>
+          <Kbd>←</Kbd>
+          <Kbd>→</Kbd>
+        </div>
+      </li>
+      <li className="docs-bento__card">
+        <span className="docs-icon-tile">
+          <MoonIcon />
+        </span>
+        <h3 className="docs-bento__title">Light and dark themes</h3>
+        <p className="docs-bento__text">One attribute on {"<html>"} switches the whole app.</p>
+        <div className="docs-bento__themes" aria-hidden="true">
+          <span className="docs-bento__theme docs-bento__theme--light">
+            <SunIcon />
+          </span>
+          <span className="docs-bento__theme docs-bento__theme--dark">
+            <MoonIcon />
+          </span>
+        </div>
+      </li>
+      <li className="docs-bento__card">
+        <span className="docs-icon-tile">
+          <PaletteIcon />
+        </span>
+        <h3 className="docs-bento__title">Design tokens</h3>
+        <p className="docs-bento__text">Override a few CSS variables to match any brand.</p>
+        <div className="docs-bento__swatches" aria-hidden="true">
+          {swatches.map((color) => (
+            <span key={color} style={{ backgroundColor: color }} />
+          ))}
+        </div>
+      </li>
+      <li className="docs-bento__card">
+        <span className="docs-icon-tile">
+          <FeatherIcon />
+        </span>
+        <h3 className="docs-bento__title">Lightweight</h3>
+        <p className="docs-bento__text">No runtime dependencies besides React.</p>
+        <p className="docs-bento__metric">
+          ~19 kB <span>of CSS, gzipped</span>
+        </p>
+      </li>
+      <li className="docs-bento__card">
+        <span className="docs-icon-tile">
+          <LayersIcon />
+        </span>
+        <h3 className="docs-bento__title">Framework-ready</h3>
+        <p className="docs-bento__text">SSR-safe, with “use client” for the App Router.</p>
+        <ul className="docs-bento__chips" aria-label="Works with">
+          <li>Vite</li>
+          <li>Next.js</li>
+          <li>React 18</li>
+          <li>React 19</li>
+        </ul>
+      </li>
+    </ul>
   );
 }
 
@@ -142,86 +128,124 @@ export function HomePage() {
 
   return (
     <div className="docs-home">
-      <section className="docs-hero docs-container">
-        <Link to="/changelog" className="docs-hero__release">
-          <Badge variant="primary" size="sm">
-            New
-          </Badge>
-          v{packageJson.version}: the first release is here
-          <ArrowRightIcon />
-        </Link>
-        <h1 className="docs-hero__title">
-          The React component library for <span>CodeCPS</span> products
-        </h1>
-        <p className="docs-hero__lead">
-          Accessible, themeable components, so every CodeCPS product looks consistent and works for
-          everyone.
-        </p>
-        <div className="docs-hero__actions">
-          <Button asChild size="lg">
-            <Link to="/docs/installation">Get started</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <Link to="/components">Browse components</Link>
-          </Button>
+      <section className="docs-hero" aria-labelledby="hero-title">
+        <div className="docs-container docs-hero__inner">
+          <Link to="/changelog" className="docs-hero__pill">
+            <span className="docs-hero__pill-version">v{version}</span>
+            Modern React Component Library
+            <ArrowRightIcon className="docs-hero__pill-arrow" />
+          </Link>
+          <h1 id="hero-title" className="docs-hero__title">
+            Build Beautiful UIs <br className="docs-hero__break" />
+            Faster with <span>CodeCPS UI</span>
+          </h1>
+          <p className="docs-hero__lead">
+            A modern, accessible React component library with {componentDocs.length} components,
+            light and dark themes, and design tokens you can make your own.
+          </p>
+          <div className="docs-hero__actions">
+            <Button asChild size="lg">
+              <Link to="/components">
+                Browse Components <ArrowRightIcon />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="/docs">View Documentation</Link>
+            </Button>
+          </div>
+          <div className="docs-hero__install">
+            <code>
+              <span className="docs-hero__prompt" aria-hidden="true">
+                $
+              </span>{" "}
+              {installCommand}
+            </code>
+            <CopyButton
+              text={installCommand}
+              label="Copy install command"
+              className="docs-copy--light"
+            />
+          </div>
         </div>
-        <CodeBlock code="npm install @codecps/ui" language="bash" className="docs-hero__install" />
+        <div className="docs-container">
+          <HeroShowcase />
+        </div>
       </section>
 
-      <section className="docs-container docs-home__section" aria-labelledby="showcase-title">
-        <h2 id="showcase-title" className="docs-h2 docs-home__heading">
-          Built from real components
-        </h2>
-        <p className="docs-home__intro">
-          Try it: submit the form, switch tabs, or tab through with the keyboard.
-        </p>
-        <Showcase />
+      <section className="docs-stats">
+        <div className="docs-container">
+          <StatList />
+        </div>
       </section>
 
-      <section className="docs-container docs-home__section" aria-labelledby="features-title">
-        <h2 id="features-title" className="docs-h2 docs-home__heading">
-          Why CodeCPS UI
-        </h2>
-        <ul className="docs-features">
-          {features.map(({ title, text, Icon }) => (
-            <li key={title} className="docs-feature">
-              <span className="docs-feature__icon">
-                <Icon />
-              </span>
-              <h3 className="docs-feature__title">{title}</h3>
-              <p className="docs-feature__text">{text}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="docs-container docs-home__section" aria-labelledby="components-title">
-        <div className="docs-home__section-header">
-          <h2 id="components-title" className="docs-h2 docs-home__heading">
-            Components
+      <section className="docs-container docs-section" aria-labelledby="features-title">
+        <div className="docs-section__header docs-section__header--center">
+          <p className="docs-section__eyebrow">
+            <SparklesIcon /> Why CodeCPS UI
+          </p>
+          <h2 id="features-title" className="docs-section__title">
+            Everything you need, nothing you don't
           </h2>
+          <p className="docs-section__lead">
+            Components that look good out of the box and work for everyone who uses them.
+          </p>
+        </div>
+        <Features />
+      </section>
+
+      <section className="docs-container docs-section" aria-labelledby="popular-title">
+        <div className="docs-section__header">
+          <div>
+            <h2 id="popular-title" className="docs-section__title">
+              Popular Components
+            </h2>
+            <p className="docs-section__lead">Start with our most used and loved components.</p>
+          </div>
           <Link to="/components" className="docs-arrow-link">
-            All {componentDocs.length} components <ArrowRightIcon />
+            View all {componentDocs.length} components <ArrowRightIcon />
           </Link>
         </div>
-        <div className="docs-grid">
-          {componentDocs
-            .filter((doc) => highlighted.includes(doc.slug))
-            .map((doc) => (
-              <ComponentCard key={doc.slug} doc={doc} />
-            ))}
+        <div className="docs-card-grid">
+          {popularSlugs.map((slug) => (
+            <ComponentCard key={slug} doc={getComponentDoc(slug)} />
+          ))}
         </div>
       </section>
 
-      <section className="docs-container docs-home__section">
-        <div className="docs-cta">
-          <h2 className="docs-cta__title">Start building</h2>
-          <p className="docs-cta__text">
-            Install the package, import the styles, and render your first component.
+      <section className="docs-container docs-section" aria-labelledby="steps-title">
+        <div className="docs-section__header docs-section__header--center">
+          <h2 id="steps-title" className="docs-section__title">
+            Start building in minutes
+          </h2>
+          <p className="docs-section__lead">
+            Three steps from an empty project to your first screen.
           </p>
-          <Button asChild size="lg">
-            <Link to="/docs/installation">Read the installation guide</Link>
-          </Button>
+        </div>
+        <ol className="docs-home-steps">
+          {steps.map((step) => (
+            <li key={step.title} className="docs-home-step">
+              <h3 className="docs-home-step__title">{step.title}</h3>
+              <p className="docs-home-step__text">{step.text}</p>
+              <CodeBlock code={step.code} language={step.language} title={step.fileName} />
+            </li>
+          ))}
+        </ol>
+        <p className="docs-home-steps__more">
+          <Link to="/docs/installation" className="docs-arrow-link">
+            Read the full installation guide <ArrowRightIcon />
+          </Link>
+        </p>
+      </section>
+
+      <section className="docs-container docs-section docs-section--last">
+        <div className="docs-cta">
+          <h2 className="docs-cta__title">Ready to build something amazing?</h2>
+          <p className="docs-cta__text">
+            Explore {componentDocs.length} components and start building your next project today.
+          </p>
+          <Link to="/components" className="docs-cta__button">
+            Browse All Components <ArrowRightIcon />
+          </Link>
         </div>
       </section>
     </div>

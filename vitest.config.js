@@ -14,6 +14,8 @@ export default defineConfig({
     environment: "jsdom",
     include: ["src/**/*.test.{js,jsx}", "docs/src/**/*.test.{js,jsx}"],
     setupFiles: ["./test/setup.js"],
+    // CSS imports are empty in tests, but the docs read the design tokens' source (`?raw`).
+    css: { include: [/src[\\/]styles[\\/]tokens\.css/] },
     clearMocks: true,
     restoreMocks: true,
   },

@@ -1,9 +1,8 @@
-import { Badge, Button, Navbar } from "@codecps/ui";
+import { Button, Navbar } from "@codecps/ui";
 import { Link, useLocation } from "react-router";
-import packageJson from "../../../package.json";
-import { GitHubIcon, Logo, SearchIcon } from "../components/icons.jsx";
+import { SearchIcon } from "../components/icons.jsx";
+import { BrandLogo } from "../components/Logo.jsx";
 import { ThemeToggle } from "../components/ThemeToggle.jsx";
-import { repositoryUrl } from "../content/site.js";
 import { isApplePlatform } from "../lib/document.js";
 
 const primaryLinks = [
@@ -14,11 +13,11 @@ const primaryLinks = [
     isActive: (pathname) => pathname.startsWith("/components"),
   },
   {
-    to: "/docs/installation",
-    label: "Documentation",
-    isActive: (pathname) => pathname.startsWith("/docs"),
+    to: "/docs",
+    label: "Docs",
+    isActive: (pathname) => pathname.startsWith("/docs") || pathname === "/changelog",
   },
-  { to: "/changelog", label: "Changelog", isActive: (pathname) => pathname === "/changelog" },
+  { to: "/blog", label: "Blog", isActive: (pathname) => pathname.startsWith("/blog") },
   { to: "/about", label: "About", isActive: (pathname) => pathname === "/about" },
 ];
 
@@ -29,12 +28,8 @@ export function SiteHeader({ onOpenSearch }) {
   return (
     <Navbar sticky className="docs-header">
       <Navbar.Brand asChild>
-        <Link to="/">
-          <Logo className="docs-logo" />
-          CodeCPS UI
-          <Badge variant="primary" size="sm" className="docs-header__version">
-            v{packageJson.version}
-          </Badge>
+        <Link to="/" aria-label="CodeCPS UI home">
+          <BrandLogo />
         </Link>
       </Navbar.Brand>
       <Navbar.Menu>
@@ -48,27 +43,19 @@ export function SiteHeader({ onOpenSearch }) {
         <Navbar.Actions>
           <button
             type="button"
-            className="docs-search-trigger"
+            className="docs-header__search"
             aria-label="Search documentation"
             aria-keyshortcuts="Control+K Meta+K"
+            title={`Search (${shortcut})`}
             onClick={onOpenSearch}
           >
             <SearchIcon />
-            <span className="docs-search-trigger__text">Search docs…</span>
-            <kbd className="docs-kbd">{shortcut}</kbd>
+            <span className="docs-header__search-text" aria-hidden="true">
+              Search
+            </span>
           </button>
           <ThemeToggle />
-          <Button
-            asChild
-            variant="ghost"
-            size="sm"
-            className="docs-icon-button docs-header__github"
-          >
-            <a href={repositoryUrl} target="_blank" rel="noreferrer" aria-label="GitHub repository">
-              <GitHubIcon />
-            </a>
-          </Button>
-          <Button asChild size="sm" className="docs-header__get-started">
+          <Button asChild size="sm" className="docs-header__cta">
             <Link to="/docs/installation">Get Started</Link>
           </Button>
         </Navbar.Actions>

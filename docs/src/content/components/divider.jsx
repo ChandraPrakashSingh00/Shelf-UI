@@ -44,7 +44,7 @@ function ButtonShape() {
 export const dividerDoc = {
   slug: "divider",
   name: "Divider",
-  category: "Data display",
+  category: "Layout",
   summary: "Line that separates content, horizontally or vertically, with an optional label.",
   description:
     "A thin line between groups of content — the rows of an order summary, the stats in a dashboard header, or the two ways to log in with an “OR” label in the middle. Without a label it's a real separator (`<hr>`); with a label, the text stays readable by screen readers.",

@@ -1,22 +1,28 @@
 import { Button } from "@codecps/ui";
 import { Link, isRouteErrorResponse, useRouteError } from "react-router";
-import { useDocumentTitle } from "../lib/document.js";
+import { Astronaut } from "../components/Astronaut.jsx";
+import { isApplePlatform, useDocumentTitle } from "../lib/document.js";
 
 export function NotFoundContent() {
+  const shortcut = isApplePlatform() ? "⌘ K" : "Ctrl K";
+
   return (
-    <div className="docs-empty">
-      <p className="docs-eyebrow">404</p>
-      <h1 className="docs-h1">Page not found</h1>
-      <p className="docs-lead">
-        The page you're looking for doesn't exist or has moved. Try search (Ctrl K) or head back
+    <div className="docs-404">
+      <Astronaut className="docs-404__art" />
+      <p className="docs-404__code" aria-hidden="true">
+        404
+      </p>
+      <h1 className="docs-404__title">Page Not Found</h1>
+      <p className="docs-404__text">
+        The page you're looking for doesn't exist or has moved. Try search ({shortcut}) or head back
         home.
       </p>
-      <div className="docs-empty__actions">
+      <div className="docs-404__actions">
         <Button asChild>
-          <Link to="/">Back to home</Link>
+          <Link to="/">Go Back Home</Link>
         </Button>
         <Button asChild variant="outline">
-          <Link to="/components">Browse components</Link>
+          <Link to="/components">Browse Components</Link>
         </Button>
       </div>
     </div>
@@ -42,11 +48,10 @@ export function RouteError() {
       : "Unknown error";
 
   return (
-    <main className="docs-container docs-empty">
-      <p className="docs-eyebrow">Error</p>
-      <h1 className="docs-h1">Something went wrong</h1>
-      <p className="docs-lead">{message}</p>
-      <div className="docs-empty__actions">
+    <main className="docs-container docs-404">
+      <h1 className="docs-404__title">Something went wrong</h1>
+      <p className="docs-404__text">{message}</p>
+      <div className="docs-404__actions">
         <Button asChild>
           <a href={import.meta.env.BASE_URL}>Reload the docs</a>
         </Button>
