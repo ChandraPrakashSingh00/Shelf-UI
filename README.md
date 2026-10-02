@@ -4,7 +4,7 @@
 
 Accessible React components from **CodeCPS Technologies**.
 
-**Documentation:** https://code-cps-ui-library.vercel.app
+**Documentation:** https://www.ui.codecpstechnologies.in
 
 `@codecps/ui` is the shared component library for CodeCPS products. It gives every
 project the same buttons, forms, overlays and navigation, built once, tested once,
@@ -19,7 +19,7 @@ and styled with the CodeCPS design system.
   plus a single stylesheet (~18 kB gzipped).
 - **Framework-friendly.** SSR-safe, and ships `"use client"` for the Next.js App Router.
 
-> Status: `0.1.0` (pre-release). The API may still change before `1.0`.
+> Status: `0.2.0` (pre-release). The API may still change before `1.0`.
 
 ## Installation
 

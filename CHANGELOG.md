@@ -5,7 +5,7 @@ All notable changes to `@codecps/ui` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.0] - 2026-10-02
 
 ### Added
 
@@ -16,6 +16,10 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Feedback: `Banner`, a full-width announcement bar.
 - Overlays: `AlertDialog`, a confirmation dialog that can wait for an async `onConfirm`, and `CommandPalette`, a Ctrl + K (⌘ K) command menu.
 - Navigation: `Stepper`, `Sidebar` (collapsible to an icon rail, with sections, groups and router link support) and `Link`.
+
+### Changed
+
+- The documentation site moved to https://www.ui.codecpstechnologies.in.
 
 ### Fixed
 

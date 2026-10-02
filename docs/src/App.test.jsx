@@ -108,7 +108,7 @@ describe("pages", () => {
 
   it("renders the changelog from CHANGELOG.md", async () => {
     renderAt("/changelog");
-    expect(await screen.findByRole("heading", { level: 2, name: "v0.1.0" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 2, name: "v0.2.0" })).toBeInTheDocument();
     expect(screen.getByText("Latest")).toBeInTheDocument();
     expect(screen.getAllByText("Added")).not.toHaveLength(0);
   });
