@@ -6,9 +6,10 @@ import { cx } from "../../utils/cx.js";
  * points to the root element, which receives the remaining props.
  *
  * Without a label, a horizontal divider is an `<hr>` and a vertical one a
- * `<div role="separator" aria-orientation="vertical">`, which stretches to the
- * height of a flex row. With a label, it's a `<div>` whose label is plain text
- * that screen readers read; the lines are drawn with CSS.
+ * `<span role="separator" aria-orientation="vertical">`, which stretches to the
+ * height of a flex row and, being inline, can also sit between links inside a
+ * `<p>`. With a label, it's a `<div>` whose label is plain text that screen
+ * readers read; the lines are drawn with CSS.
  *
  * - `orientation`: "horizontal" (default) or "vertical".
  * - `label`: text (or other content) in the middle of the line, e.g. "OR".
@@ -60,7 +61,7 @@ export const Divider = forwardRef(function Divider(
   }
 
   return (
-    <div
+    <span
       role={decorative ? undefined : "separator"}
       aria-orientation={decorative ? undefined : "vertical"}
       {...rest}

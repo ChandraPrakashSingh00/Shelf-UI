@@ -25,7 +25,7 @@ beforeEach(() => {
 
 const Icon = () => <svg data-testid="icon" />;
 
-function AdminSidebar(props) {
+function AdminSidebar({ onLogout, ...props }) {
   return (
     <Sidebar label="Admin" {...props}>
       <Sidebar.Header>
@@ -48,7 +48,7 @@ function AdminSidebar(props) {
       </Sidebar.Content>
       <Sidebar.Footer>
         <Sidebar.Section>
-          <Sidebar.Item icon={<Icon />} onClick={props.onLogout}>
+          <Sidebar.Item icon={<Icon />} onClick={onLogout}>
             Log out
           </Sidebar.Item>
         </Sidebar.Section>

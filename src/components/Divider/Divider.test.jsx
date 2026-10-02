@@ -17,10 +17,10 @@ describe("Divider", () => {
     expect(divider).not.toHaveAttribute("aria-hidden");
   });
 
-  it("renders a vertical separator as a div with aria-orientation", () => {
+  it("renders a vertical separator as a span with aria-orientation, so it can sit in a <p>", () => {
     render(<Divider orientation="vertical" />);
     const divider = screen.getByRole("separator");
-    expect(divider.tagName).toBe("DIV");
+    expect(divider.tagName).toBe("SPAN");
     expect(divider).toHaveAttribute("aria-orientation", "vertical");
     expect(divider).toHaveClass("cps-divider--vertical");
   });

@@ -156,7 +156,7 @@ export const dividerDoc = {
     {
       title: "Divider",
       description:
-        'Renders an `<hr>` (horizontal), a `<div role="separator">` (vertical) or, with a `label`, a `<div>`. Accepts native attributes; the `ref` points to the root element.',
+        'Renders an `<hr>` (horizontal), a `<span role="separator">` (vertical, so it can also sit inside a `<p>`) or, with a `label`, a `<div>`. Accepts native attributes; the `ref` points to the root element.',
       props: [
         {
           name: "orientation",
