@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
 
   return {
     root: docsRoot,
-    // GitHub Pages serves the site from /<repo>/; CI sets DOCS_BASE_PATH to that.
+    // Set DOCS_BASE_PATH to serve the site from a sub-path, e.g. /<repo>/ on GitHub Pages.
     base: process.env.DOCS_BASE_PATH || "/",
     plugins: [react()],
     resolve: {

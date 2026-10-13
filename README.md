@@ -960,9 +960,8 @@ development runtime.
 ### Continuous integration
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push and pull request:
-lint, format check, tests, the library build and the docs build. On `main`, once those pass,
-it also publishes the docs site to GitHub Pages. That needs a one-time setting: repository
-**Settings → Pages → Source: GitHub Actions**.
+lint, format check, tests, the library build and the docs build. The docs site itself is
+deployed by Vercel (see [Documentation site](#documentation-site)).
 
 ### Project structure
 
@@ -987,7 +986,7 @@ docs/                  # documentation site (not published)
 playground/            # scratch page for quick experiments (`npm run playground`)
 scripts/verify-dist.mjs # checks the build output before it can be published
 test/setup.js          # test environment setup
-.github/workflows/     # CI and the docs deployment to GitHub Pages
+.github/workflows/     # CI: lint, format, tests and builds
 eslint.config.js       # lint rules
 .prettierrc.json       # formatting (Prettier, 100-character lines)
 vite.config.js         # library build and playground dev server
@@ -1007,9 +1006,9 @@ the current code. Each component page is generated from
   update its row there (and the comment above the component) in the same change.
 
 `npm run docs:build` outputs a static site in `docs/dist/`. It's a single-page app, so configure
-your host to serve `index.html` for every path (for example, a rewrite rule on Netlify; on
-GitHub Pages, CI copies it to `404.html`). To serve it from a sub-path, set
-`DOCS_BASE_PATH` when building, e.g. `DOCS_BASE_PATH=/my-repo/ npm run docs:build`.
+your host to serve `index.html` for every path (for example, a rewrite rule on Netlify, or a
+copy named `404.html` on GitHub Pages). To serve it from a sub-path, set `DOCS_BASE_PATH`
+when building, e.g. `DOCS_BASE_PATH=/my-repo/ npm run docs:build`.
 
 **Vercel.** [`vercel.json`](vercel.json) configures the docs deployment: it builds with
 `npm run docs:build`, serves `docs/dist/`, and rewrites every path to `index.html`. It also
