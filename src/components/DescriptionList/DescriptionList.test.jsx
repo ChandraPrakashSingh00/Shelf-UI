@@ -60,21 +60,21 @@ describe("DescriptionList", () => {
       />,
     );
     const [name, address] = container.firstChild.children;
-    expect(name).not.toHaveClass("cps-description-list__item--full");
-    expect(address).toHaveClass("cps-description-list__item--full");
+    expect(name).not.toHaveClass("shelf-description-list__item--full");
+    expect(address).toHaveClass("shelf-description-list__item--full");
   });
 
   it("applies layout, columns, size, divided and align classes with defaults", () => {
     const { container, rerender } = render(<DescriptionList items={summary} />);
     const list = container.firstChild;
     expect(list).toHaveClass(
-      "cps-description-list",
-      "cps-description-list--horizontal",
-      "cps-description-list--columns-1",
-      "cps-description-list--md",
+      "shelf-description-list",
+      "shelf-description-list--horizontal",
+      "shelf-description-list--columns-1",
+      "shelf-description-list--md",
     );
-    expect(list).not.toHaveClass("cps-description-list--divided");
-    expect(list).not.toHaveClass("cps-description-list--align-end");
+    expect(list).not.toHaveClass("shelf-description-list--divided");
+    expect(list).not.toHaveClass("shelf-description-list--align-end");
 
     rerender(
       <DescriptionList
@@ -87,17 +87,17 @@ describe("DescriptionList", () => {
       />,
     );
     expect(list).toHaveClass(
-      "cps-description-list--vertical",
-      "cps-description-list--columns-3",
-      "cps-description-list--sm",
-      "cps-description-list--divided",
-      "cps-description-list--align-end",
+      "shelf-description-list--vertical",
+      "shelf-description-list--columns-3",
+      "shelf-description-list--sm",
+      "shelf-description-list--divided",
+      "shelf-description-list--align-end",
     );
   });
 
   it("falls back to one column for unsupported column counts", () => {
     const { container } = render(<DescriptionList items={summary} columns={7} />);
-    expect(container.firstChild).toHaveClass("cps-description-list--columns-1");
+    expect(container.firstChild).toHaveClass("shelf-description-list--columns-1");
   });
 
   it("sets the term width as a CSS variable, keeping the style prop", () => {
@@ -105,11 +105,11 @@ describe("DescriptionList", () => {
       <DescriptionList items={summary} termWidth={160} style={{ marginTop: 8 }} />,
     );
     const list = container.firstChild;
-    expect(list.style.getPropertyValue("--cps-description-list-term-width")).toBe("160px");
+    expect(list.style.getPropertyValue("--shelf-description-list-term-width")).toBe("160px");
     expect(list).toHaveStyle({ marginTop: "8px" });
 
     rerender(<DescriptionList items={summary} termWidth="10rem" />);
-    expect(list.style.getPropertyValue("--cps-description-list-term-width")).toBe("10rem");
+    expect(list.style.getPropertyValue("--shelf-description-list-term-width")).toBe("10rem");
   });
 
   it("forwards refs, className and other props to the list and its items", () => {
@@ -128,7 +128,7 @@ describe("DescriptionList", () => {
     expect(list).toHaveClass("custom");
     expect(list).toHaveAttribute("id", "order-summary");
     expect(itemRef.current).toBe(list.firstChild);
-    expect(itemRef.current).toHaveClass("cps-description-list__item", "total");
+    expect(itemRef.current).toHaveClass("shelf-description-list__item", "total");
     expect(itemRef.current).toHaveAttribute("data-row", "total");
   });
 

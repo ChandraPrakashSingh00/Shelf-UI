@@ -1,4 +1,4 @@
-import { Spinner } from "@codecps/ui";
+import { Spinner } from "@shelf-ui/react";
 
 export default function SpinnerSizes() {
   return (

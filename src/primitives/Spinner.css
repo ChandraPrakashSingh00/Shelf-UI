@@ -1,9 +1,9 @@
-.cps-spinner {
+.shelf-spinner {
   flex-shrink: 0;
-  animation: cps-spin 0.8s linear infinite;
+  animation: shelf-spin 0.8s linear infinite;
 }
 
-@keyframes cps-spin {
+@keyframes shelf-spin {
   to {
     transform: rotate(360deg);
   }
@@ -11,7 +11,7 @@
 
 /* The spinner still conveys "busy", so slow it down rather than stop it. */
 @media (prefers-reduced-motion: reduce) {
-  .cps-spinner {
+  .shelf-spinner {
     animation-duration: 1.6s;
   }
 }

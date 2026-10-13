@@ -1,9 +1,9 @@
-import { Button, Navbar } from "@codecps/ui";
+import { Button, Navbar } from "@shelf-ui/react";
 
 export default function NavbarBasic() {
   return (
     <Navbar>
-      <Navbar.Brand href="#home">CodeCPS</Navbar.Brand>
+      <Navbar.Brand href="#home">Acme</Navbar.Brand>
       <Navbar.Menu>
         <Navbar.Links>
           <Navbar.Link href="#home" active>

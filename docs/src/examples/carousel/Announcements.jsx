@@ -1,4 +1,4 @@
-import { Badge, Button, Carousel } from "@codecps/ui";
+import { Badge, Button, Carousel } from "@shelf-ui/react";
 import { useId } from "react";
 
 const announcements = [
@@ -19,7 +19,7 @@ const announcements = [
   {
     id: "summit",
     tag: "Event",
-    title: "CodeCPS Summit 2026 in Bengaluru",
+    title: "Acme Summit 2026 in Bengaluru",
     text: "Two days of talks and hands-on workshops on 14–15 November. Early-bird passes close soon.",
     action: "Book your seat",
   },
@@ -41,14 +41,14 @@ export default function CarouselAnnouncements() {
               gap: 12,
               minHeight: 240,
               padding: "32px 72px",
-              background: "var(--cps-color-primary-subtle)",
+              background: "var(--shelf-color-primary-subtle)",
             }}
           >
             <Badge variant="primary">{item.tag}</Badge>
             <h3 id={`${id}-${item.id}`} style={{ margin: 0, fontSize: 22, lineHeight: 1.3 }}>
               {item.title}
             </h3>
-            <p style={{ margin: 0, maxWidth: 420, color: "var(--cps-color-text-muted)" }}>
+            <p style={{ margin: 0, maxWidth: 420, color: "var(--shelf-color-text-muted)" }}>
               {item.text}
             </p>
             <Button size="sm">{item.action}</Button>

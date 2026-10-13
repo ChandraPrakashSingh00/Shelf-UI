@@ -1,4 +1,4 @@
-import { Calendar } from "@codecps/ui";
+import { Calendar } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/calendar/Basic.jsx";
 import basicCode from "../../examples/calendar/Basic.jsx?raw";
@@ -26,19 +26,19 @@ function thumbnailDayStyle(day) {
   if (day === 16 || day === 21) {
     return {
       ...base,
-      backgroundColor: "var(--cps-color-primary)",
-      color: "var(--cps-color-on-primary)",
+      backgroundColor: "var(--shelf-color-primary)",
+      color: "var(--shelf-color-on-primary)",
       fontWeight: 600,
     };
   }
   if (day > 16 && day < 21) {
     return {
       ...base,
-      backgroundColor: "var(--cps-color-primary-subtle)",
-      color: "var(--cps-color-primary-text)",
+      backgroundColor: "var(--shelf-color-primary-subtle)",
+      color: "var(--shelf-color-primary-text)",
     };
   }
-  if (day === 6) return { ...base, boxShadow: "inset 0 0 0 1px var(--cps-color-primary)" };
+  if (day === 6) return { ...base, boxShadow: "inset 0 0 0 1px var(--shelf-color-primary)" };
   return base;
 }
 
@@ -49,12 +49,12 @@ function CalendarThumbnail() {
       style={{
         width: 172,
         padding: 8,
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-surface)",
-        boxShadow: "var(--cps-shadow-sm)",
-        color: "var(--cps-color-text)",
-        fontFamily: "var(--cps-font-sans)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-surface)",
+        boxShadow: "var(--shelf-shadow-sm)",
+        color: "var(--shelf-color-text)",
+        fontFamily: "var(--shelf-font-sans)",
         fontSize: 9,
         textAlign: "center",
       }}
@@ -70,13 +70,13 @@ function CalendarThumbnail() {
           lineHeight: "13px",
         }}
       >
-        <span style={{ color: "var(--cps-color-text-subtle)" }}>‹</span>
+        <span style={{ color: "var(--shelf-color-text-subtle)" }}>‹</span>
         October 2026
-        <span style={{ color: "var(--cps-color-text-subtle)" }}>›</span>
+        <span style={{ color: "var(--shelf-color-text-subtle)" }}>›</span>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", rowGap: 1 }}>
         {THUMBNAIL_WEEKDAYS.map((weekday, index) => (
-          <span key={index} style={{ color: "var(--cps-color-text-subtle)", lineHeight: "12px" }}>
+          <span key={index} style={{ color: "var(--shelf-color-text-subtle)", lineHeight: "12px" }}>
             {weekday}
           </span>
         ))}

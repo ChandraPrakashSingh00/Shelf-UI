@@ -17,12 +17,12 @@ describe("tokenize", () => {
 
   it("highlights keywords, strings, JSX tags and attributes", () => {
     const tokens = tokenize(
-      'import { Button } from "@codecps/ui";\n<Button variant="primary" loading>Save</Button>',
+      'import { Button } from "@shelf-ui/react";\n<Button variant="primary" loading>Save</Button>',
       "jsx",
     );
 
     expect(typesOf(tokens, "import")).toEqual(["keyword"]);
-    expect(typesOf(tokens, '"@codecps/ui"')).toEqual(["string"]);
+    expect(typesOf(tokens, '"@shelf-ui/react"')).toEqual(["string"]);
     // Imported name, opening tag, closing tag (after text).
     expect(typesOf(tokens, "Button")).toEqual(["type", "tag", "tag"]);
     expect(typesOf(tokens, "variant")).toEqual(["attr"]);
@@ -57,16 +57,16 @@ describe("tokenize", () => {
 
   it("highlights CSS custom properties, colors and functions", () => {
     const tokens = tokenize(
-      ":root {\n  --cps-color-primary: #086ffd;\n  --cps-color-primary-hover: color-mix(in srgb, #086ffd 88%, black);\n}",
+      ":root {\n  --shelf-color-primary: #086ffd;\n  --shelf-color-primary-hover: color-mix(in srgb, #086ffd 88%, black);\n}",
       "css",
     );
-    expect(typesOf(tokens, "--cps-color-primary")).toEqual(["property"]);
+    expect(typesOf(tokens, "--shelf-color-primary")).toEqual(["property"]);
     expect(typesOf(tokens, "#086ffd")).toEqual(["number", "number"]);
     expect(typesOf(tokens, "color-mix")).toEqual(["function"]);
   });
 
   it("highlights package manager commands and comments in shell snippets", () => {
-    const tokens = tokenize("npm install @codecps/ui # add the package", "bash");
+    const tokens = tokenize("npm install @shelf-ui/react # add the package", "bash");
     expect(tokens[0]).toEqual({ type: "function", value: "npm" });
     expect(tokens.at(-1)).toEqual({ type: "comment", value: "# add the package" });
   });

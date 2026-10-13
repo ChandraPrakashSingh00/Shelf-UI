@@ -1,4 +1,4 @@
-import { Avatar } from "@codecps/ui";
+import { Avatar } from "@shelf-ui/react";
 
 function BotIcon() {
   return (
@@ -26,7 +26,7 @@ export default function AvatarFallbacks() {
       {/* This image fails to load, so the initials show instead */}
       <Avatar src="/missing.png" name="Kavya Reddy" />
       {/* Custom fallback content */}
-      <Avatar name="CodeCPS Deploy Bot" fallback={<BotIcon />} />
+      <Avatar name="Acme Deploy Bot" fallback={<BotIcon />} />
       {/* No name either: a decorative user icon */}
       <Avatar />
     </>

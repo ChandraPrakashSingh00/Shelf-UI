@@ -28,9 +28,9 @@ describe("ToggleGroup", () => {
 
     const group = screen.getByRole("group", { name: "Size" });
     expect(group).toHaveClass(
-      "cps-toggle-group",
-      "cps-toggle-group--md",
-      "cps-toggle-group--outline",
+      "shelf-toggle-group",
+      "shelf-toggle-group--md",
+      "shelf-toggle-group--outline",
     );
     expect(screen.getByText("Size")).toBeVisible();
     for (const name of ["S", "M", "L", "XL", "XXL"]) {
@@ -262,7 +262,7 @@ describe("ToggleGroup", () => {
 
     it("uses ↑ ↓ in the vertical orientation", async () => {
       const { user } = renderSizes({ orientation: "vertical" });
-      expect(screen.getByRole("group")).toHaveClass("cps-toggle-group--vertical");
+      expect(screen.getByRole("group")).toHaveClass("shelf-toggle-group--vertical");
 
       await user.tab();
       await user.keyboard("{ArrowDown}");
@@ -364,9 +364,9 @@ describe("ToggleGroup", () => {
   it("applies size, variant and fullWidth classes", () => {
     renderSizes({ size: "lg", variant: "ghost", fullWidth: true });
     expect(screen.getByRole("group")).toHaveClass(
-      "cps-toggle-group--lg",
-      "cps-toggle-group--ghost",
-      "cps-toggle-group--full-width",
+      "shelf-toggle-group--lg",
+      "shelf-toggle-group--ghost",
+      "shelf-toggle-group--full-width",
     );
   });
 
@@ -391,10 +391,10 @@ describe("ToggleGroup", () => {
 
     const group = screen.getByRole("group", { name: "View" });
     expect(groupRef.current).toBe(group);
-    expect(group).toHaveClass("cps-toggle-group", "toolbar");
+    expect(group).toHaveClass("shelf-toggle-group", "toolbar");
     expect(group).toHaveAttribute("data-testid", "view");
     expect(itemRef.current).toBe(item("Grid view"));
-    expect(item("Grid view")).toHaveClass("cps-toggle-group__item", "custom");
+    expect(item("Grid view")).toHaveClass("shelf-toggle-group__item", "custom");
 
     await user.click(item("Grid view"));
     expect(onClick).toHaveBeenCalledTimes(1);

@@ -1,4 +1,4 @@
-import { Button, Input } from "@codecps/ui";
+import { Button, Input } from "@shelf-ui/react";
 import { useId, useState } from "react";
 import { CodeBlock } from "./CodeBlock.jsx";
 import { SegmentedControl } from "./SegmentedControl.jsx";

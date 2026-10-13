@@ -1,4 +1,4 @@
-import { Checkbox } from "@codecps/ui";
+import { Checkbox } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/checkbox/Basic.jsx";
 import basicCode from "../../examples/checkbox/Basic.jsx?raw";

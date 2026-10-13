@@ -39,7 +39,7 @@ describe("formatJsx", () => {
 describe("withImport", () => {
   it("prefixes the snippet with the named imports", () => {
     expect(withImport(["Button", "Card"], "<Card />")).toBe(
-      'import { Button, Card } from "@codecps/ui";\n\n<Card />',
+      'import { Button, Card } from "@shelf-ui/react";\n\n<Card />',
     );
   });
 });

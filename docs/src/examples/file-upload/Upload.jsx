@@ -1,4 +1,4 @@
-import { Alert, Button, FileUpload, Progress } from "@codecps/ui";
+import { Alert, Button, FileUpload, Progress } from "@shelf-ui/react";
 import { useEffect, useState } from "react";
 
 export default function FileUploadUpload() {

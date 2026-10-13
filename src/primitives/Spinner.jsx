@@ -4,7 +4,7 @@ import { cx } from "../utils/cx.js";
 export function Spinner({ className }) {
   return (
     <svg
-      className={cx("cps-spinner", className)}
+      className={cx("shelf-spinner", className)}
       viewBox="0 0 24 24"
       width="1em"
       height="1em"

@@ -1,4 +1,4 @@
-import { Sidebar } from "@codecps/ui";
+import { Sidebar } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AdminLayout from "../../examples/sidebar/AdminLayout.jsx";
 import adminLayoutCode from "../../examples/sidebar/AdminLayout.jsx?raw";
@@ -40,9 +40,9 @@ const frameStyle = {
   display: "flex",
   width: "100%",
   overflow: "hidden",
-  border: "1px solid var(--cps-color-border)",
-  borderRadius: "var(--cps-radius-lg)",
-  backgroundColor: "var(--cps-color-bg)",
+  border: "1px solid var(--shelf-color-border)",
+  borderRadius: "var(--shelf-radius-lg)",
+  backgroundColor: "var(--shelf-color-bg)",
 };
 
 const compactItem = { minHeight: 28, paddingBlock: 4 };
@@ -82,8 +82,8 @@ function SidebarThumbnail() {
             style={{
               width: `${width}%`,
               height: 8,
-              borderRadius: "var(--cps-radius-full)",
-              backgroundColor: "var(--cps-color-surface-hover)",
+              borderRadius: "var(--shelf-radius-full)",
+              backgroundColor: "var(--shelf-color-surface-hover)",
             }}
           />
         ))}
@@ -129,7 +129,7 @@ function PlaygroundSidebar(values) {
           </Sidebar.Section>
         </Sidebar.Content>
       </Sidebar>
-      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--cps-color-text-muted)" }}>
+      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--shelf-color-text-muted)" }}>
         Page content
       </p>
     </div>
@@ -143,7 +143,7 @@ function playgroundCode(values) {
   const title = (text) => (values.sectionTitles ? ` title="${text}"` : "");
   const badge = values.badges ? " badge={12}" : "";
 
-  return `import { Sidebar } from "@codecps/ui";
+  return `import { Sidebar } from "@shelf-ui/react";
 
 <Sidebar ${rootProps.join(" ")}>
   <Sidebar.Header>

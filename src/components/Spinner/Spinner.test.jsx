@@ -9,15 +9,15 @@ describe("Spinner", () => {
 
     const status = screen.getByRole("status");
     expect(status).toHaveTextContent("Loading…");
-    expect(status).toHaveClass("cps-spinner-status", "cps-spinner-status--md");
-    expect(screen.getByText("Loading…")).toHaveClass("cps-visually-hidden");
+    expect(status).toHaveClass("shelf-spinner-status", "shelf-spinner-status--md");
+    expect(screen.getByText("Loading…")).toHaveClass("shelf-visually-hidden");
   });
 
   it("reuses the decorative spinner icon, hidden from screen readers", () => {
     render(<Spinner />);
 
     const icon = screen.getByRole("status").querySelector("svg");
-    expect(icon).toHaveClass("cps-spinner");
+    expect(icon).toHaveClass("shelf-spinner");
     expect(icon).toHaveAttribute("aria-hidden", "true");
   });
 
@@ -33,18 +33,18 @@ describe("Spinner", () => {
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(spinner).not.toHaveAttribute("role");
     expect(spinner).toHaveAttribute("aria-hidden", "true");
-    expect(spinner.querySelector(".cps-visually-hidden")).toBeNull();
+    expect(spinner.querySelector(".shelf-visually-hidden")).toBeNull();
     expect(spinner.querySelector("svg")).toBeInTheDocument();
   });
 
   it.each(["sm", "md", "lg"])("applies the %s size", (size) => {
     render(<Spinner size={size} />);
-    expect(screen.getByRole("status")).toHaveClass(`cps-spinner-status--${size}`);
+    expect(screen.getByRole("status")).toHaveClass(`shelf-spinner-status--${size}`);
   });
 
   it("does not use the internal primitive's class on its root", () => {
     render(<Spinner />);
-    expect(screen.getByRole("status")).not.toHaveClass("cps-spinner");
+    expect(screen.getByRole("status")).not.toHaveClass("shelf-spinner");
   });
 
   it("forwards the ref and native attributes, and merges className", () => {
@@ -53,7 +53,7 @@ describe("Spinner", () => {
 
     const status = screen.getByRole("status");
     expect(ref.current).toBe(status);
-    expect(status).toHaveClass("cps-spinner-status", "custom");
+    expect(status).toHaveClass("shelf-spinner-status", "custom");
     expect(status).toHaveAttribute("id", "logs-spinner");
     expect(status.style.color).toBe("white");
   });

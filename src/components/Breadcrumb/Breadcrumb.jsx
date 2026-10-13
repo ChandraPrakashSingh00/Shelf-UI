@@ -11,12 +11,12 @@ const BreadcrumbRoot = forwardRef(function Breadcrumb(
   const items = Children.toArray(children).filter(isValidElement);
 
   return (
-    <nav aria-label={label} {...rest} ref={ref} className={cx("cps-breadcrumb", className)}>
-      <ol className="cps-breadcrumb__list">
+    <nav aria-label={label} {...rest} ref={ref} className={cx("shelf-breadcrumb", className)}>
+      <ol className="shelf-breadcrumb__list">
         {items.map((item, index) => (
           <Fragment key={item.key}>
             {index > 0 && (
-              <li className="cps-breadcrumb__separator" aria-hidden="true">
+              <li className="shelf-breadcrumb__separator" aria-hidden="true">
                 {separator}
               </li>
             )}
@@ -47,7 +47,7 @@ export const BreadcrumbItem = forwardRef(function BreadcrumbItem(
   const itemProps = {
     "aria-current": current ? "page" : undefined,
     ...rest,
-    className: cx(current ? "cps-breadcrumb__current" : "cps-breadcrumb__link", className),
+    className: cx(current ? "shelf-breadcrumb__current" : "shelf-breadcrumb__link", className),
   };
 
   let content;
@@ -55,7 +55,7 @@ export const BreadcrumbItem = forwardRef(function BreadcrumbItem(
   else if (current) content = <span {...itemProps} ref={ref} />;
   else content = <a {...itemProps} ref={ref} href={href} />;
 
-  return <li className="cps-breadcrumb__item">{content}</li>;
+  return <li className="shelf-breadcrumb__item">{content}</li>;
 });
 
 /**
@@ -72,7 +72,7 @@ export const BreadcrumbItem = forwardRef(function BreadcrumbItem(
  * <Breadcrumb>
  *   <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
  *   <Breadcrumb.Item href="/projects">Projects</Breadcrumb.Item>
- *   <Breadcrumb.Item current>codecps-web</Breadcrumb.Item>
+ *   <Breadcrumb.Item current>storefront-web</Breadcrumb.Item>
  * </Breadcrumb>
  */
 export const Breadcrumb = Object.assign(BreadcrumbRoot, { Item: BreadcrumbItem });

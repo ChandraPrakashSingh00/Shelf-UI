@@ -1,4 +1,4 @@
-import { Combobox } from "@codecps/ui";
+import { Combobox } from "@shelf-ui/react";
 
 const cities = [
   "Ahmedabad",

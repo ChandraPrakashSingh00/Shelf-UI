@@ -40,15 +40,19 @@ describe("Banner", () => {
   it("applies the primary variant and centered alignment by default", () => {
     render(<Banner>Message</Banner>);
     const region = screen.getByRole("region");
-    expect(region).toHaveClass("cps-banner", "cps-banner--primary", "cps-banner--align-center");
-    expect(region).not.toHaveClass("cps-banner--sticky");
+    expect(region).toHaveClass(
+      "shelf-banner",
+      "shelf-banner--primary",
+      "shelf-banner--align-center",
+    );
+    expect(region).not.toHaveClass("shelf-banner--sticky");
   });
 
   it.each(["info", "success", "warning", "danger", "neutral"])(
     "applies the %s variant class",
     (variant) => {
       render(<Banner variant={variant}>Message</Banner>);
-      expect(screen.getByRole("region")).toHaveClass(`cps-banner--${variant}`);
+      expect(screen.getByRole("region")).toHaveClass(`shelf-banner--${variant}`);
     },
   );
 
@@ -58,20 +62,23 @@ describe("Banner", () => {
         Message
       </Banner>,
     );
-    expect(screen.getByRole("region")).toHaveClass("cps-banner--align-start", "cps-banner--sticky");
+    expect(screen.getByRole("region")).toHaveClass(
+      "shelf-banner--align-start",
+      "shelf-banner--sticky",
+    );
   });
 
   it("shows a decorative default icon for status variants only", () => {
     const { container, rerender } = render(<Banner variant="warning">COD unavailable</Banner>);
-    const icon = container.querySelector(".cps-banner__icon");
+    const icon = container.querySelector(".shelf-banner__icon");
     expect(icon).toHaveAttribute("aria-hidden", "true");
     expect(icon?.querySelector("svg")).not.toBeNull();
 
     rerender(<Banner variant="primary">Sale</Banner>);
-    expect(container.querySelector(".cps-banner__icon")).toBeNull();
+    expect(container.querySelector(".shelf-banner__icon")).toBeNull();
 
     rerender(<Banner variant="neutral">Note</Banner>);
-    expect(container.querySelector(".cps-banner__icon")).toBeNull();
+    expect(container.querySelector(".shelf-banner__icon")).toBeNull();
   });
 
   it("renders a custom icon, and hides the default one with icon={null}", () => {
@@ -85,19 +92,19 @@ describe("Banner", () => {
         No icon
       </Banner>,
     );
-    expect(container.querySelector(".cps-banner__icon")).toBeNull();
+    expect(container.querySelector(".shelf-banner__icon")).toBeNull();
   });
 
   it("renders the action after the message", () => {
     render(<Banner action={<a href="/sale">Shop now</a>}>Flat 50% off</Banner>);
     const link = screen.getByRole("link", { name: "Shop now" });
-    expect(link.closest(".cps-banner__action")).not.toBeNull();
+    expect(link.closest(".shelf-banner__action")).not.toBeNull();
   });
 
   it("has no dismiss button without onDismiss", () => {
     render(<Banner>Message</Banner>);
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
-    expect(screen.getByRole("region")).not.toHaveClass("cps-banner--dismissible");
+    expect(screen.getByRole("region")).not.toHaveClass("shelf-banner--dismissible");
   });
 
   it("calls onDismiss from the dismiss button, with a configurable label", async () => {
@@ -105,7 +112,7 @@ describe("Banner", () => {
     const onDismiss = vi.fn();
     const { rerender } = render(<Banner onDismiss={onDismiss}>Message</Banner>);
 
-    expect(screen.getByRole("region")).toHaveClass("cps-banner--dismissible");
+    expect(screen.getByRole("region")).toHaveClass("shelf-banner--dismissible");
     await user.click(screen.getByRole("button", { name: "Dismiss" }));
     expect(onDismiss).toHaveBeenCalledTimes(1);
 
@@ -137,7 +144,7 @@ describe("Banner", () => {
     );
     const region = screen.getByRole("region");
     expect(ref.current).toBe(region);
-    expect(region).toHaveClass("cps-banner", "promo");
+    expect(region).toHaveClass("shelf-banner", "promo");
     expect(region).toHaveAttribute("id", "promo-banner");
     expect(region).toHaveAttribute("data-campaign", "diwali");
   });

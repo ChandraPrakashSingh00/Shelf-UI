@@ -1,14 +1,14 @@
-# CodeCPS UI
+# Shelf UI
 
-[![CI](https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-/actions/workflows/ci.yml/badge.svg)](https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-/actions/workflows/ci.yml)
+[![CI](https://github.com/ChandraPrakashSingh00/shelf-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/ChandraPrakashSingh00/shelf-ui/actions/workflows/ci.yml)
 
-Accessible React components from **CodeCPS Technologies**.
+Off-the-shelf, accessible React components, made to fit your brand.
 
-**Documentation:** https://www.ui.codecpstechnologies.in
+`@shelf-ui/react` gives every project the same buttons, forms, overlays and navigation,
+built once, tested once, and styled with design tokens you can make your own.
 
-`@codecps/ui` is the shared component library for CodeCPS products. It gives every
-project the same buttons, forms, overlays and navigation, built once, tested once,
-and styled with the CodeCPS design system.
+To browse the documentation site locally, with live previews of every component, run
+`npm install` and `npm run dev` in this repository.
 
 - **Accessible by default.** Keyboard navigation, focus management and ARIA wiring
   follow the WAI-ARIA Authoring Practices.
@@ -19,12 +19,12 @@ and styled with the CodeCPS design system.
   plus a single stylesheet (~18 kB gzipped).
 - **Framework-friendly.** SSR-safe, and ships `"use client"` for the Next.js App Router.
 
-> Status: `0.2.0` (pre-release). The API may still change before `1.0`.
+> Status: `0.3.0` (pre-release). The API may still change before `1.0`.
 
 ## Installation
 
 ```bash
-npm install @codecps/ui
+npm install @shelf-ui/react
 ```
 
 React and React DOM **18 or 19** are peer dependencies.
@@ -35,7 +35,7 @@ Import the stylesheet once, in your app's entry file (for example `main.jsx`, or
 `app/layout.js` in Next.js):
 
 ```jsx
-import "@codecps/ui/styles.css";
+import "@shelf-ui/react/styles.css";
 ```
 
 Components use the [Inter](https://fonts.google.com/specimen/Inter) font when it is
@@ -44,7 +44,7 @@ available and fall back to the system UI font. Load Inter in your app for the in
 ## Basic usage
 
 ```jsx
-import { Button, Card, Input } from "@codecps/ui";
+import { Button, Card, Input } from "@shelf-ui/react";
 
 export function App() {
   return (
@@ -531,7 +531,7 @@ separator (`separator="then"` for sequences like G then O).
 ### Progress, Skeleton and Spinner
 
 ```jsx
-<Progress label="Deploying codecps-web" value={62} showValue />
+<Progress label="Deploying storefront-web" value={62} showValue />
 <Progress label="Preparing your workspace…" />
 
 <div aria-busy={loading}>
@@ -703,7 +703,7 @@ import { Link } from "react-router";
   <Breadcrumb.Item asChild>
     <Link to="/projects">Projects</Link>
   </Breadcrumb.Item>
-  <Breadcrumb.Item current>codecps-web</Breadcrumb.Item>
+  <Breadcrumb.Item current>storefront-web</Breadcrumb.Item>
 </Breadcrumb>
 
 <Pagination totalPages={Math.ceil(projects.length / 10)} page={page} onPageChange={setPage} />
@@ -721,7 +721,7 @@ import { Link } from "react-router";
 
 <Navbar sticky>
   <Navbar.Brand asChild>
-    <Link to="/">CodeCPS UI</Link>
+    <Link to="/">Shelf UI</Link>
   </Navbar.Brand>
   <Navbar.Menu>
     <Navbar.Links>
@@ -796,7 +796,7 @@ says "(opens in a new tab)" to screen readers. Use `asChild` for router links.
 ### Toast
 
 ```jsx
-import { ToastProvider, useToast } from "@codecps/ui";
+import { ToastProvider, useToast } from "@shelf-ui/react";
 
 function Root() {
   return (
@@ -822,36 +822,36 @@ focused. Pass `duration: Infinity` to keep one open until it is dismissed.
 ## Theming
 
 All colors, radii, font sizes and control heights are CSS custom properties prefixed with
-`--cps-`. Override them on `:root` to theme the whole app. The docs site's Theming page has a
+`--shelf-`. Override them on `:root` to theme the whole app. The docs site's Theming page has a
 live theme builder that generates this CSS for you.
 
 ```css
 :root {
-  --cps-color-primary: #086ffd;
-  --cps-radius-md: 10px;
-  --cps-font-sans: "Inter", system-ui, sans-serif;
+  --shelf-color-primary: #0f766e;
+  --shelf-radius-md: 10px;
+  --shelf-font-sans: "Inter", system-ui, sans-serif;
 }
 ```
 
 | Token                                          | Default                  | Used for                           |
 | ---------------------------------------------- | ------------------------ | ---------------------------------- |
-| `--cps-color-primary`                          | `#086FFD` (CodeCPS blue) | Primary buttons, links, focus      |
-| `--cps-color-text`                             | `#191B1F` (CodeCPS dark) | Body text                          |
-| `--cps-color-bg`, `--cps-color-surface`        | `#FFFFFF`                | Page and component backgrounds     |
-| `--cps-radius-sm` / `-md` / `-lg`              | 6px / 8px / 12px         | Corner radius                      |
-| `--cps-control-height-sm` / `-md` / `-lg`      | 32px / 40px / 48px       | Button and input heights           |
-| `--cps-font-sans`                              | Inter, system fonts      | All component text                 |
+| `--shelf-color-primary`                          | `#6938EF` (Shelf violet) | Primary buttons, links, focus      |
+| `--shelf-color-text`                             | `#16122B` (Shelf ink)    | Body text                          |
+| `--shelf-color-bg`, `--shelf-color-surface`        | `#FFFFFF`                | Page and component backgrounds     |
+| `--shelf-radius-sm` / `-md` / `-lg`              | 6px / 8px / 12px         | Corner radius                      |
+| `--shelf-control-height-sm` / `-md` / `-lg`      | 32px / 40px / 48px       | Button and input heights           |
+| `--shelf-font-sans`                              | Inter, system fonts      | All component text                 |
 
 See [`src/styles/tokens.css`](src/styles/tokens.css) for the full list. You can also set
 tokens on a single container, but tokens defined in terms of others (like
-`--cps-color-info`, which follows `--cps-color-primary`) must then be set on that container too.
+`--shelf-color-info`, which follows `--shelf-color-primary`) must then be set on that container too.
 
-**Dark mode.** Add `data-cps-theme="dark"` to the `<html>` element. Setting it on `<html>`
+**Dark mode.** Add `data-shelf-theme="dark"` to the `<html>` element. Setting it on `<html>`
 (rather than a nested container) makes sure modals and toasts, which render into
 `document.body`, use the same theme.
 
 ```html
-<html data-cps-theme="dark"></html>
+<html data-shelf-theme="dark"></html>
 ```
 
 ## Accessibility
@@ -1050,8 +1050,8 @@ publishing, run `npm pack` and install the generated `.tgz` file there.
 
 **Conventions**
 
-- Style with design tokens (`var(--cps-…)`). Don't hard-code colors.
-- Class names use the `cps-` prefix with BEM-style modifiers (`cps-button--primary`).
+- Style with design tokens (`var(--shelf-…)`). Don't hard-code colors.
+- Class names use the `shelf-` prefix with BEM-style modifiers (`shelf-button--primary`).
 - Forward refs to the main DOM element, spread remaining props onto it, and merge `className`
   with `cx`.
 - Prefer native HTML semantics. Add ARIA only when HTML can't express the behaviour.
@@ -1075,4 +1075,4 @@ publishing, run `npm pack` and install the generated `.tgz` file there.
 
 ## License
 
-[MIT](LICENSE) © CodeCPS Technologies
+[MIT](LICENSE) © Shelf UI contributors

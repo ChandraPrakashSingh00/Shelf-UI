@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 
 export default function ButtonSizes() {
   return (

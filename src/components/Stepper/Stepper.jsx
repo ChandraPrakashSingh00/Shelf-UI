@@ -65,9 +65,9 @@ export const Stepper = forwardRef(function Stepper(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-stepper",
-        `cps-stepper--${orientation}`,
-        `cps-stepper--${size}`,
+        "shelf-stepper",
+        `shelf-stepper--${orientation}`,
+        `shelf-stepper--${size}`,
         className,
       )}
     >
@@ -83,23 +83,23 @@ export const Stepper = forwardRef(function Stepper(
 
         const content = (
           <>
-            <span className="cps-stepper__indicator" aria-hidden="true">
+            <span className="shelf-stepper__indicator" aria-hidden="true">
               {indicator}
             </span>
             {/* The visually hidden commas make screen readers pause between the parts. */}
-            <span className="cps-stepper__text">
-              <span className="cps-stepper__title">{step.title}</span>
+            <span className="shelf-stepper__text">
+              <span className="shelf-stepper__title">{step.title}</span>
               {step.optional && (
-                <span className="cps-stepper__optional">
-                  <span className="cps-visually-hidden">,</span> {optionalLabel}
+                <span className="shelf-stepper__optional">
+                  <span className="shelf-visually-hidden">,</span> {optionalLabel}
                 </span>
               )}
               {step.description != null && (
-                <span className="cps-stepper__description">
-                  <span className="cps-visually-hidden">,</span> {step.description}
+                <span className="shelf-stepper__description">
+                  <span className="shelf-visually-hidden">,</span> {step.description}
                 </span>
               )}
-              <span className="cps-visually-hidden">, {labels[status]}</span>
+              <span className="shelf-visually-hidden">, {labels[status]}</span>
             </span>
           </>
         );
@@ -109,27 +109,27 @@ export const Stepper = forwardRef(function Stepper(
             key={step.id ?? index}
             aria-current={position === "current" ? "step" : undefined}
             className={cx(
-              "cps-stepper__step",
-              `cps-stepper__step--${status}`,
-              position === "current" && status === "error" && "cps-stepper__step--current",
+              "shelf-stepper__step",
+              `shelf-stepper__step--${status}`,
+              position === "current" && status === "error" && "shelf-stepper__step--current",
             )}
           >
             {clickable ? (
               <button
                 type="button"
-                className="cps-stepper__trigger cps-stepper__trigger--button"
+                className="shelf-stepper__trigger shelf-stepper__trigger--button"
                 onClick={() => onStepClick(index)}
               >
                 {content}
               </button>
             ) : (
-              <span className="cps-stepper__trigger">{content}</span>
+              <span className="shelf-stepper__trigger">{content}</span>
             )}
             {!isLast && (
               <span
                 className={cx(
-                  "cps-stepper__connector",
-                  position === "complete" && "cps-stepper__connector--complete",
+                  "shelf-stepper__connector",
+                  position === "complete" && "shelf-stepper__connector--complete",
                 )}
                 aria-hidden="true"
               />

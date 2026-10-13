@@ -1,4 +1,4 @@
-import { AlertDialog, Button } from "@codecps/ui";
+import { AlertDialog, Button } from "@shelf-ui/react";
 import { useState } from "react";
 
 // Stands in for your API call.

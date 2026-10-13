@@ -19,9 +19,7 @@ export function DocsLayout() {
           <Breadcrumbs items={breadcrumbs} />
           {/* The page's own title is its h1, so this band title isn't a heading. */}
           <p className="docs-page-hero__title">Documentation</p>
-          <p className="docs-page-hero__lead">
-            Everything you need to get started with CodeCPS UI.
-          </p>
+          <p className="docs-page-hero__lead">Everything you need to get started with Shelf UI.</p>
         </div>
       </div>
       <div className="docs-container docs-layout">

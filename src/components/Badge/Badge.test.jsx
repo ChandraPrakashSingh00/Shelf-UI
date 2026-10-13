@@ -6,9 +6,9 @@ describe("Badge", () => {
   it("renders its content with the neutral variant by default", () => {
     render(<Badge>Draft</Badge>);
     expect(screen.getByText("Draft")).toHaveClass(
-      "cps-badge",
-      "cps-badge--neutral",
-      "cps-badge--md",
+      "shelf-badge",
+      "shelf-badge--neutral",
+      "shelf-badge--md",
     );
   });
 
@@ -16,7 +16,7 @@ describe("Badge", () => {
     "applies the %s variant",
     (variant) => {
       render(<Badge variant={variant}>Status</Badge>);
-      expect(screen.getByText("Status")).toHaveClass(`cps-badge--${variant}`);
+      expect(screen.getByText("Status")).toHaveClass(`shelf-badge--${variant}`);
     },
   );
 
@@ -27,6 +27,6 @@ describe("Badge", () => {
       </Badge>,
     );
     const badge = screen.getByLabelText("3 unread notifications");
-    expect(badge).toHaveClass("cps-badge--sm");
+    expect(badge).toHaveClass("shelf-badge--sm");
   });
 });

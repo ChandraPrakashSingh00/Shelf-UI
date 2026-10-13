@@ -87,7 +87,7 @@ const SidebarRoot = forwardRef(function Sidebar(
   ref,
 ) {
   const generatedId = useId();
-  const sidebarId = id ?? `cps-sidebar-${generatedId}`;
+  const sidebarId = id ?? `shelf-sidebar-${generatedId}`;
   const [collapsed, setCollapsed] = useControllableState({
     value: collapsedProp,
     defaultValue: defaultCollapsed,
@@ -107,10 +107,10 @@ const SidebarRoot = forwardRef(function Sidebar(
         ref={ref}
         id={sidebarId}
         data-state={collapsed ? "collapsed" : "expanded"}
-        className={cx("cps-sidebar", collapsed && "cps-sidebar--collapsed", className)}
+        className={cx("shelf-sidebar", collapsed && "shelf-sidebar--collapsed", className)}
         style={{
-          "--cps-sidebar-width": toCssLength(width),
-          "--cps-sidebar-collapsed-width": toCssLength(collapsedWidth),
+          "--shelf-sidebar-width": toCssLength(width),
+          "--shelf-sidebar-collapsed-width": toCssLength(collapsedWidth),
           ...style,
         }}
       >
@@ -122,17 +122,17 @@ const SidebarRoot = forwardRef(function Sidebar(
 
 /** Top area for the brand and the `Sidebar.Toggle`. Renders a `<div>`. */
 export const SidebarHeader = forwardRef(function SidebarHeader({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-sidebar__header", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-sidebar__header", className)} />;
 });
 
 /** Scrolling middle area that holds the `Sidebar.Section`s. Renders a `<div>`. */
 export const SidebarContent = forwardRef(function SidebarContent({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-sidebar__content", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-sidebar__content", className)} />;
 });
 
 /** Bottom area for the signed-in user, settings or help. Renders a `<div>`. */
 export const SidebarFooter = forwardRef(function SidebarFooter({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-sidebar__footer", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-sidebar__footer", className)} />;
 });
 
 /**
@@ -156,14 +156,14 @@ export const SidebarSection = forwardRef(function SidebarSection(
       aria-labelledby={hasTitle ? titleId : undefined}
       {...rest}
       ref={ref}
-      className={cx("cps-sidebar__section", className)}
+      className={cx("shelf-sidebar__section", className)}
     >
       {hasTitle && (
-        <div id={titleId} className="cps-sidebar__section-title">
+        <div id={titleId} className="shelf-sidebar__section-title">
           {title}
         </div>
       )}
-      <ul className="cps-sidebar__list">{children}</ul>
+      <ul className="shelf-sidebar__list">{children}</ul>
     </div>
   );
 });
@@ -214,15 +214,15 @@ export const SidebarItem = forwardRef(function SidebarItem(
   const renderContent = (labelContent) => (
     <>
       {hasContent(icon) && (
-        <span className="cps-sidebar__icon" aria-hidden="true">
+        <span className="shelf-sidebar__icon" aria-hidden="true">
           {icon}
         </span>
       )}
-      <span className="cps-sidebar__label">{labelContent}</span>
+      <span className="shelf-sidebar__label">{labelContent}</span>
       {hasContent(badge) && (
         <>
           {/* Keeps the label and the badge apart in the accessible name. */}{" "}
-          <span className={cx("cps-sidebar__badge", isCount && "cps-sidebar__badge--count")}>
+          <span className={cx("shelf-sidebar__badge", isCount && "shelf-sidebar__badge--count")}>
             {badge}
           </span>
         </>
@@ -242,7 +242,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
   const ownProps = {
     ...rest,
     "aria-current": active ? "page" : undefined,
-    className: cx("cps-sidebar__item", className),
+    className: cx("shelf-sidebar__item", className),
     onClick: handleClick,
   };
 
@@ -282,7 +282,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
     tooltip !== undefined ? tooltip : typeof label === "function" ? null : hiddenText(label);
 
   return (
-    <li className="cps-sidebar__list-item">
+    <li className="shelf-sidebar__list-item">
       {/* Always wrapped, so collapsing never remounts the element (and drops focus). */}
       <Tooltip
         ref={ref}
@@ -330,7 +330,7 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
     defaultValue: defaultOpen,
     onChange: onOpenChange,
   });
-  const listId = `cps-sidebar-group-${useId()}`;
+  const listId = `shelf-sidebar-group-${useId()}`;
   const expanded = open && !collapsed;
 
   const handleClick = () => {
@@ -344,26 +344,26 @@ export const SidebarGroup = forwardRef(function SidebarGroup(
   };
 
   return (
-    <li {...rest} ref={ref} className={cx("cps-sidebar__group", className)}>
+    <li {...rest} ref={ref} className={cx("shelf-sidebar__group", className)}>
       <Tooltip content={hiddenText(label)} side="right" disabled={!collapsed}>
         <button
           type="button"
-          className="cps-sidebar__item cps-sidebar__group-trigger"
+          className="shelf-sidebar__item shelf-sidebar__group-trigger"
           aria-expanded={expanded}
           aria-controls={listId}
           disabled={disabled}
           onClick={handleClick}
         >
           {hasContent(icon) && (
-            <span className="cps-sidebar__icon" aria-hidden="true">
+            <span className="shelf-sidebar__icon" aria-hidden="true">
               {icon}
             </span>
           )}
-          <span className="cps-sidebar__label">{label}</span>
-          <ChevronDownIcon className="cps-sidebar__chevron" />
+          <span className="shelf-sidebar__label">{label}</span>
+          <ChevronDownIcon className="shelf-sidebar__chevron" />
         </button>
       </Tooltip>
-      <ul id={listId} className="cps-sidebar__sublist" hidden={!expanded}>
+      <ul id={listId} className="shelf-sidebar__sublist" hidden={!expanded}>
         {children}
       </ul>
     </li>
@@ -399,7 +399,7 @@ export const SidebarToggle = forwardRef(function SidebarToggle(
       label={collapsed ? expandLabel : collapseLabel}
       aria-expanded={!collapsed}
       aria-controls={sidebarId}
-      className={cx("cps-sidebar__toggle", className)}
+      className={cx("shelf-sidebar__toggle", className)}
       onClick={composeEventHandlers(onClick, () => setCollapsed(!collapsed))}
     >
       {children ?? <PanelLeftIcon />}

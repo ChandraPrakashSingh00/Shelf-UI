@@ -2,130 +2,135 @@
  * A size container, so the columns and the horizontal layout adapt to the space
  * the list actually has (a card, a drawer, a page), not to the viewport.
  */
-.cps-description-list {
-  --cps-description-list-columns: 1;
-  --cps-description-list-column-gap: 2rem;
-  container: cps-description-list / inline-size;
+.shelf-description-list {
+  --shelf-description-list-columns: 1;
+  --shelf-description-list-column-gap: 2rem;
+  container: shelf-description-list / inline-size;
   display: flex;
   flex-wrap: wrap;
-  column-gap: var(--cps-description-list-column-gap);
+  column-gap: var(--shelf-description-list-column-gap);
   width: 100%;
   margin: 0;
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-description-list-font-size);
-  line-height: var(--cps-line-height-normal);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-description-list-font-size);
+  line-height: var(--shelf-line-height-normal);
 }
 
-.cps-description-list--columns-2 {
-  --cps-description-list-columns: 2;
+.shelf-description-list--columns-2 {
+  --shelf-description-list-columns: 2;
 }
 
-.cps-description-list--columns-3 {
-  --cps-description-list-columns: 3;
+.shelf-description-list--columns-3 {
+  --shelf-description-list-columns: 3;
 }
 
 /* Sizes */
-.cps-description-list--sm {
-  --cps-description-list-font-size: var(--cps-font-size-xs);
-  --cps-description-list-row-padding: 0.375rem;
+.shelf-description-list--sm {
+  --shelf-description-list-font-size: var(--shelf-font-size-xs);
+  --shelf-description-list-row-padding: 0.375rem;
 }
 
-.cps-description-list--md {
-  --cps-description-list-font-size: var(--cps-font-size-sm);
-  --cps-description-list-row-padding: 0.625rem;
+.shelf-description-list--md {
+  --shelf-description-list-font-size: var(--shelf-font-size-sm);
+  --shelf-description-list-row-padding: 0.625rem;
 }
 
-.cps-description-list__item {
+.shelf-description-list__item {
   flex: 0 0
     calc(
-      (100% - (var(--cps-description-list-columns) - 1) * var(--cps-description-list-column-gap)) /
-        var(--cps-description-list-columns)
+      (
+          100% - (var(--shelf-description-list-columns) - 1) *
+            var(--shelf-description-list-column-gap)
+        ) /
+        var(--shelf-description-list-columns)
     );
   min-width: 0;
-  padding-block: var(--cps-description-list-row-padding);
+  padding-block: var(--shelf-description-list-row-padding);
 }
 
-.cps-description-list__item--full {
+.shelf-description-list__item--full {
   flex-basis: 100%;
 }
 
-.cps-description-list__term {
-  color: var(--cps-color-text-muted);
-  font-weight: var(--cps-font-weight-medium);
+.shelf-description-list__term {
+  color: var(--shelf-color-text-muted);
+  font-weight: var(--shelf-font-weight-medium);
 }
 
-.cps-description-list__description {
+.shelf-description-list__description {
   min-width: 0;
   margin: 0;
   overflow-wrap: anywhere;
 }
 
 /* Horizontal: the term takes a third of the row, or `termWidth`. */
-.cps-description-list--horizontal > .cps-description-list__item {
+.shelf-description-list--horizontal > .shelf-description-list__item {
   display: grid;
-  grid-template-columns: var(--cps-description-list-term-width, minmax(0, 1fr)) minmax(0, 2fr);
+  grid-template-columns: var(--shelf-description-list-term-width, minmax(0, 1fr)) minmax(0, 2fr);
   align-items: baseline;
   column-gap: 1rem;
 }
 
-.cps-description-list--horizontal.cps-description-list--align-end
-  > .cps-description-list__item
-  > .cps-description-list__description {
+.shelf-description-list--horizontal.shelf-description-list--align-end
+  > .shelf-description-list__item
+  > .shelf-description-list__description {
   text-align: end;
 }
 
-.cps-description-list--vertical > .cps-description-list__item {
+.shelf-description-list--vertical > .shelf-description-list__item {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
 }
 
 /* Lines between rows: every item that doesn't start in the first row. */
-.cps-description-list--divided.cps-description-list--columns-1
-  > .cps-description-list__item
-  + .cps-description-list__item,
-.cps-description-list--divided.cps-description-list--columns-2
-  > .cps-description-list__item:nth-child(n + 3),
-.cps-description-list--divided.cps-description-list--columns-3
-  > .cps-description-list__item:nth-child(n + 4),
-.cps-description-list--divided > .cps-description-list__item--full:not(:first-child),
-.cps-description-list--divided > .cps-description-list__item--full ~ .cps-description-list__item {
-  border-top: 1px solid var(--cps-color-border);
+.shelf-description-list--divided.shelf-description-list--columns-1
+  > .shelf-description-list__item
+  + .shelf-description-list__item,
+.shelf-description-list--divided.shelf-description-list--columns-2
+  > .shelf-description-list__item:nth-child(n + 3),
+.shelf-description-list--divided.shelf-description-list--columns-3
+  > .shelf-description-list__item:nth-child(n + 4),
+.shelf-description-list--divided > .shelf-description-list__item--full:not(:first-child),
+.shelf-description-list--divided
+  > .shelf-description-list__item--full
+  ~ .shelf-description-list__item {
+  border-top: 1px solid var(--shelf-color-border);
 }
 
-@container cps-description-list (max-width: 52rem) {
-  .cps-description-list--columns-3 > .cps-description-list__item {
-    --cps-description-list-columns: 2;
+@container shelf-description-list (max-width: 52rem) {
+  .shelf-description-list--columns-3 > .shelf-description-list__item {
+    --shelf-description-list-columns: 2;
   }
 
-  .cps-description-list--divided.cps-description-list--columns-3
-    > .cps-description-list__item:nth-child(n + 3) {
-    border-top: 1px solid var(--cps-color-border);
+  .shelf-description-list--divided.shelf-description-list--columns-3
+    > .shelf-description-list__item:nth-child(n + 3) {
+    border-top: 1px solid var(--shelf-color-border);
   }
 }
 
-@container cps-description-list (max-width: 36rem) {
-  .cps-description-list > .cps-description-list__item {
-    --cps-description-list-columns: 1;
+@container shelf-description-list (max-width: 36rem) {
+  .shelf-description-list > .shelf-description-list__item {
+    --shelf-description-list-columns: 1;
   }
 
-  .cps-description-list--divided > .cps-description-list__item + .cps-description-list__item {
-    border-top: 1px solid var(--cps-color-border);
+  .shelf-description-list--divided > .shelf-description-list__item + .shelf-description-list__item {
+    border-top: 1px solid var(--shelf-color-border);
   }
 }
 
 /* Too narrow for side by side: the term goes above its description. */
-@container cps-description-list (max-width: 16rem) {
-  .cps-description-list--horizontal > .cps-description-list__item {
+@container shelf-description-list (max-width: 16rem) {
+  .shelf-description-list--horizontal > .shelf-description-list__item {
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
   }
 
-  .cps-description-list--horizontal.cps-description-list--align-end
-    > .cps-description-list__item
-    > .cps-description-list__description {
+  .shelf-description-list--horizontal.shelf-description-list--align-end
+    > .shelf-description-list__item
+    > .shelf-description-list__description {
     text-align: start;
   }
 }

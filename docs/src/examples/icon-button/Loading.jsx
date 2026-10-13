@@ -1,4 +1,4 @@
-import { IconButton } from "@codecps/ui";
+import { IconButton } from "@shelf-ui/react";
 import { useState } from "react";
 
 function RefreshIcon() {

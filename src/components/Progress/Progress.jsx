@@ -35,7 +35,7 @@ export const Progress = forwardRef(function Progress(
   },
   ref,
 ) {
-  const labelId = `cps-progress-${useId()}-label`;
+  const labelId = `shelf-progress-${useId()}-label`;
   const isIndeterminate = value == null;
   const current = isIndeterminate ? undefined : Math.min(Math.max(Number(value) || 0, 0), max);
   const percent = isIndeterminate || max <= 0 ? 0 : (current / max) * 100;
@@ -53,23 +53,23 @@ export const Progress = forwardRef(function Progress(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-progress",
-        `cps-progress--${size}`,
-        `cps-progress--${variant}`,
-        isIndeterminate && "cps-progress--indeterminate",
+        "shelf-progress",
+        `shelf-progress--${size}`,
+        `shelf-progress--${variant}`,
+        isIndeterminate && "shelf-progress--indeterminate",
         className,
       )}
     >
       {(hasLabel || showValueText) && (
-        <div className="cps-progress__header">
+        <div className="shelf-progress__header">
           {hasLabel && (
-            <span id={labelId} className="cps-progress__label">
+            <span id={labelId} className="shelf-progress__label">
               {label}
             </span>
           )}
           {showValueText && (
             // The progress bar already exposes its value to screen readers.
-            <span className="cps-progress__value" aria-hidden="true">
+            <span className="shelf-progress__value" aria-hidden="true">
               {valueText}
             </span>
           )}
@@ -84,10 +84,10 @@ export const Progress = forwardRef(function Progress(
         aria-valuemax={max}
         aria-valuenow={current}
         aria-valuetext={formatValue && typeof valueText === "string" ? valueText : undefined}
-        className="cps-progress__track"
+        className="shelf-progress__track"
       >
         <div
-          className="cps-progress__bar"
+          className="shelf-progress__bar"
           style={isIndeterminate ? undefined : { width: `${percent}%` }}
         />
       </div>

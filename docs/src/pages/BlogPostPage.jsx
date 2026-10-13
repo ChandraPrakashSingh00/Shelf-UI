@@ -1,4 +1,4 @@
-import { Badge } from "@codecps/ui";
+import { Badge } from "@shelf-ui/react";
 import { Link, useParams } from "react-router";
 import { BlogCover } from "../components/BlogCover.jsx";
 import { CodeBlock } from "../components/CodeBlock.jsx";
@@ -7,6 +7,7 @@ import { InlineMarkdown } from "../components/InlineMarkdown.jsx";
 import { PostCard } from "../components/PostCard.jsx";
 import { toAnchorId } from "../components/PropsTable.jsx";
 import { blogPosts, getBlogPost, readingTime } from "../content/blog.js";
+import { productName } from "../content/site.js";
 import { Breadcrumbs } from "../layout/PageParts.jsx";
 import { formatDate, useDocumentTitle } from "../lib/document.js";
 import { NotFoundContent } from "./NotFoundPage.jsx";
@@ -72,7 +73,7 @@ export function BlogPostPage() {
             <h1 className="docs-page-hero__title">{post.title}</h1>
             <p className="docs-page-hero__lead">{post.excerpt}</p>
             <p className="docs-post-meta">
-              <span>CodeCPS Team</span>
+              <span>{productName} Team</span>
               <span aria-hidden="true">·</span>
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               <span aria-hidden="true">·</span>

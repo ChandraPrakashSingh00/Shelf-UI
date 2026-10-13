@@ -82,12 +82,12 @@ export const IconButton = forwardRef(function IconButton(
   ref,
 ) {
   const classes = cx(
-    "cps-button",
-    `cps-button--${variant}`,
-    `cps-button--${size}`,
-    "cps-button--icon-only",
-    shape === "circle" && "cps-button--circle",
-    loading && !asChild && "cps-button--loading",
+    "shelf-button",
+    `shelf-button--${variant}`,
+    `shelf-button--${size}`,
+    "shelf-button--icon-only",
+    shape === "circle" && "shelf-button--circle",
+    loading && !asChild && "shelf-button--loading",
     className,
   );
   const accessibleName = label ?? ariaLabel;
@@ -127,9 +127,9 @@ export const IconButton = forwardRef(function IconButton(
         className={classes}
       >
         {loading ? (
-          <Spinner className="cps-button__icon" />
+          <Spinner className="shelf-button__icon" />
         ) : (
-          <span className="cps-button__icon" aria-hidden="true">
+          <span className="shelf-button__icon" aria-hidden="true">
             {children}
           </span>
         )}

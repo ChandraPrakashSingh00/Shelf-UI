@@ -1,4 +1,4 @@
-import { Skeleton } from "@codecps/ui";
+import { Skeleton } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import CardPlaceholder from "../../examples/skeleton/CardPlaceholder.jsx";
 import cardPlaceholderCode from "../../examples/skeleton/CardPlaceholder.jsx?raw";

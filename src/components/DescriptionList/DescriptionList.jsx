@@ -21,13 +21,13 @@ export const DescriptionListItem = forwardRef(function DescriptionListItem(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-description-list__item",
-        fullWidth && "cps-description-list__item--full",
+        "shelf-description-list__item",
+        fullWidth && "shelf-description-list__item--full",
         className,
       )}
     >
-      <dt className="cps-description-list__term">{term}</dt>
-      <dd className="cps-description-list__description">{children}</dd>
+      <dt className="shelf-description-list__term">{term}</dt>
+      <dd className="shelf-description-list__description">{children}</dd>
     </div>
   );
 });
@@ -55,17 +55,17 @@ const DescriptionListRoot = forwardRef(function DescriptionList(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-description-list",
-        `cps-description-list--${layout}`,
-        `cps-description-list--columns-${columnCount}`,
-        `cps-description-list--${size}`,
-        divided && "cps-description-list--divided",
-        align === "end" && "cps-description-list--align-end",
+        "shelf-description-list",
+        `shelf-description-list--${layout}`,
+        `shelf-description-list--columns-${columnCount}`,
+        `shelf-description-list--${size}`,
+        divided && "shelf-description-list--divided",
+        align === "end" && "shelf-description-list--align-end",
         className,
       )}
       style={
         termWidth != null
-          ? { "--cps-description-list-term-width": toCssLength(termWidth), ...style }
+          ? { "--shelf-description-list-term-width": toCssLength(termWidth), ...style }
           : style
       }
     >

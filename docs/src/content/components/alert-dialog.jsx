@@ -1,4 +1,4 @@
-import { AlertDialog, Button } from "@codecps/ui";
+import { AlertDialog, Button } from "@shelf-ui/react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AsyncConfirm from "../../examples/alert-dialog/AsyncConfirm.jsx";
@@ -47,9 +47,9 @@ function AlertDialogThumbnail() {
               justifyContent: "center",
               width: 28,
               height: 28,
-              borderRadius: "var(--cps-radius-full)",
-              backgroundColor: "var(--cps-color-danger-subtle)",
-              color: "var(--cps-color-danger)",
+              borderRadius: "var(--shelf-radius-full)",
+              backgroundColor: "var(--shelf-color-danger-subtle)",
+              color: "var(--shelf-color-danger)",
             }}
           >
             <WarningGlyph />

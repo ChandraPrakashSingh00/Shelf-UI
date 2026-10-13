@@ -1,4 +1,4 @@
-import { Button, EmptyState } from "@codecps/ui";
+import { Button, EmptyState } from "@shelf-ui/react";
 import { useState } from "react";
 
 function CloudOffIcon() {

@@ -1,4 +1,4 @@
-import { Badge, Table } from "@codecps/ui";
+import { Badge, Table } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Inventory from "../../examples/table/Inventory.jsx";
 import inventoryCode from "../../examples/table/Inventory.jsx?raw";
@@ -48,7 +48,7 @@ function TableThumbnail() {
       columns={thumbnailColumns}
       data={thumbnailOrders}
       defaultSort={{ key: "amount", direction: "desc" }}
-      style={{ maxWidth: 240, fontSize: "var(--cps-font-size-xs)" }}
+      style={{ maxWidth: 240, fontSize: "var(--shelf-font-size-xs)" }}
     />
   );
 }

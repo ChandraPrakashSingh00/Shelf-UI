@@ -1,4 +1,4 @@
-import { Button, Card } from "@codecps/ui";
+import { Button, Card } from "@shelf-ui/react";
 
 export default function CardShorthand() {
   return (

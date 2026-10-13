@@ -1,4 +1,4 @@
-import { Carousel } from "@codecps/ui";
+import { Carousel } from "@shelf-ui/react";
 
 const tips = [
   {
@@ -27,13 +27,13 @@ export default function CarouselAutoPlay() {
               gap: 8,
               minHeight: 168,
               padding: "28px 72px",
-              border: "1px solid var(--cps-color-border)",
+              border: "1px solid var(--shelf-color-border)",
               borderRadius: 12,
-              background: "var(--cps-color-surface)",
+              background: "var(--shelf-color-surface)",
             }}
           >
             <strong style={{ fontSize: 16 }}>{tip.title}</strong>
-            <span style={{ color: "var(--cps-color-text-muted)" }}>{tip.text}</span>
+            <span style={{ color: "var(--shelf-color-text-muted)" }}>{tip.text}</span>
           </div>
         </Carousel.Slide>
       ))}

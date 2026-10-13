@@ -1,4 +1,4 @@
-import { Link } from "@codecps/ui";
+import { Link } from "@shelf-ui/react";
 import { Link as RouterLink } from "react-router";
 
 export default function LinkRouterLinks() {

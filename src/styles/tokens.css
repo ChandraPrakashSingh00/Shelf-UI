@@ -1,160 +1,158 @@
 /*
- * CodeCPS UI design tokens.
- * Every component reads these variables, so overriding a `--cps-*` variable on
+ * Shelf UI design tokens.
+ * Every component reads these variables, so overriding a `--shelf-*` variable on
  * :root re-themes the library. Tokens that reference other tokens (e.g.
- * --cps-color-info) resolve where they are declared: when overriding tokens on
+ * --shelf-color-info) resolve where they are declared: when overriding tokens on
  * a nested container, set those aliases there too.
  */
 
 :root,
-[data-cps-theme="light"] {
+[data-shelf-theme="light"] {
   /* Brand */
-  --cps-brand-blue: #086ffd;
-  --cps-brand-dark: #191b1f;
-  --cps-brand-white: #ffffff;
+  --shelf-brand-primary: #6938ef;
+  --shelf-brand-dark: #0d0b1a;
+  --shelf-brand-white: #ffffff;
 
   /* Primary */
-  --cps-color-primary: var(--cps-brand-blue);
-  --cps-color-primary-hover: #0762e0;
-  --cps-color-primary-active: #0655c2;
-  --cps-color-primary-subtle: #eef5ff;
-  --cps-color-primary-border: #c7ddff;
-  --cps-color-primary-text: #0552bd;
-  --cps-color-on-primary: var(--cps-brand-white);
+  --shelf-color-primary: var(--shelf-brand-primary);
+  --shelf-color-primary-hover: #5925dc;
+  --shelf-color-primary-active: #4a1fb8;
+  --shelf-color-primary-subtle: #f4f1ff;
+  --shelf-color-primary-border: #d9d0ff;
+  --shelf-color-primary-text: #5925dc;
+  --shelf-color-on-primary: var(--shelf-brand-white);
 
   /* Surfaces & text */
-  --cps-color-bg: var(--cps-brand-white);
-  --cps-color-surface: var(--cps-brand-white);
-  --cps-color-surface-muted: #f5f7fa;
-  --cps-color-surface-hover: #eceff4;
-  --cps-color-text: var(--cps-brand-dark);
-  --cps-color-text-muted: #5b6270;
-  --cps-color-text-subtle: #6b7280;
-  --cps-color-border: #e2e6ec;
-  --cps-color-border-strong: #c8ced8;
-  --cps-color-overlay: rgba(25, 27, 31, 0.55);
-  --cps-color-focus: var(--cps-brand-blue);
-  --cps-focus-ring-soft: rgba(8, 111, 253, 0.2);
+  --shelf-color-bg: var(--shelf-brand-white);
+  --shelf-color-surface: var(--shelf-brand-white);
+  --shelf-color-surface-muted: #f8f7fc;
+  --shelf-color-surface-hover: #efedf7;
+  --shelf-color-text: #16122b;
+  --shelf-color-text-muted: #4f4a68;
+  --shelf-color-text-subtle: #6b6685;
+  --shelf-color-border: #e8e6f0;
+  --shelf-color-border-strong: #d4d0e1;
+  --shelf-color-overlay: rgba(22, 18, 43, 0.6);
+  --shelf-color-focus: var(--shelf-brand-primary);
+  --shelf-focus-ring-soft: rgba(105, 56, 239, 0.22);
 
   /* Status */
-  --cps-color-info: var(--cps-color-primary);
-  --cps-color-info-subtle: var(--cps-color-primary-subtle);
-  --cps-color-info-border: var(--cps-color-primary-border);
-  --cps-color-info-text: var(--cps-color-primary-text);
+  --shelf-color-info: var(--shelf-color-primary);
+  --shelf-color-info-subtle: var(--shelf-color-primary-subtle);
+  --shelf-color-info-border: var(--shelf-color-primary-border);
+  --shelf-color-info-text: var(--shelf-color-primary-text);
 
-  --cps-color-success: #16a34a;
-  --cps-color-success-subtle: #effbf3;
-  --cps-color-success-border: #bfe9cf;
-  --cps-color-success-text: #15803d;
+  --shelf-color-success: #079455;
+  --shelf-color-success-subtle: #ecfdf3;
+  --shelf-color-success-border: #abefc6;
+  --shelf-color-success-text: #067647;
 
-  --cps-color-warning: #d97706;
-  --cps-color-warning-subtle: #fff8eb;
-  --cps-color-warning-border: #fbdfa6;
-  --cps-color-warning-text: #b45309;
+  --shelf-color-warning: #dc6803;
+  --shelf-color-warning-subtle: #fffaeb;
+  --shelf-color-warning-border: #fedf89;
+  --shelf-color-warning-text: #b54708;
 
-  --cps-color-danger: #dc2626;
-  --cps-color-danger-hover: #c81f1f;
-  --cps-color-danger-active: #b21b1b;
-  --cps-color-danger-subtle: #fef2f2;
-  --cps-color-danger-border: #f9caca;
-  --cps-color-danger-text: #b91c1c;
+  --shelf-color-danger: #d92d20;
+  --shelf-color-danger-hover: #b42318;
+  --shelf-color-danger-active: #912018;
+  --shelf-color-danger-subtle: #fef3f2;
+  --shelf-color-danger-border: #fecdca;
+  --shelf-color-danger-text: #b42318;
 
-  --cps-color-neutral: #5b6270;
-  --cps-color-neutral-subtle: #f2f4f7;
-  --cps-color-neutral-border: #dde1e7;
-  --cps-color-neutral-text: #3f4552;
+  --shelf-color-neutral: #6b6685;
+  --shelf-color-neutral-subtle: #f3f2f8;
+  --shelf-color-neutral-border: #e8e6f0;
+  --shelf-color-neutral-text: #3f3a57;
 
   /* Typography */
-  --cps-font-sans:
+  --shelf-font-sans:
     "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif;
-  --cps-font-size-xs: 0.75rem;
-  --cps-font-size-sm: 0.875rem;
-  --cps-font-size-md: 1rem;
-  --cps-font-size-lg: 1.125rem;
-  --cps-font-weight-regular: 400;
-  --cps-font-weight-medium: 500;
-  --cps-font-weight-semibold: 600;
-  --cps-line-height-tight: 1.25;
-  --cps-line-height-normal: 1.5;
+  --shelf-font-size-xs: 0.75rem;
+  --shelf-font-size-sm: 0.875rem;
+  --shelf-font-size-md: 1rem;
+  --shelf-font-size-lg: 1.125rem;
+  --shelf-font-weight-regular: 400;
+  --shelf-font-weight-medium: 500;
+  --shelf-font-weight-semibold: 600;
+  --shelf-line-height-tight: 1.25;
+  --shelf-line-height-normal: 1.5;
 
   /* Shape */
-  --cps-radius-sm: 6px;
-  --cps-radius-md: 8px;
-  --cps-radius-lg: 12px;
-  --cps-radius-full: 9999px;
+  --shelf-radius-sm: 6px;
+  --shelf-radius-md: 8px;
+  --shelf-radius-lg: 12px;
+  --shelf-radius-full: 9999px;
 
   /* Elevation */
-  --cps-shadow-sm: 0 1px 2px rgba(25, 27, 31, 0.06);
-  --cps-shadow-md: 0 4px 12px rgba(25, 27, 31, 0.08), 0 1px 3px rgba(25, 27, 31, 0.06);
-  --cps-shadow-lg: 0 16px 40px rgba(25, 27, 31, 0.16), 0 2px 6px rgba(25, 27, 31, 0.08);
+  --shelf-shadow-sm: 0 1px 2px rgba(22, 18, 43, 0.06);
+  --shelf-shadow-md: 0 4px 12px rgba(22, 18, 43, 0.08), 0 1px 3px rgba(22, 18, 43, 0.06);
+  --shelf-shadow-lg: 0 16px 40px rgba(22, 18, 43, 0.16), 0 2px 6px rgba(22, 18, 43, 0.08);
 
   /* Controls */
-  --cps-control-height-sm: 2rem;
-  --cps-control-height-md: 2.5rem;
-  --cps-control-height-lg: 3rem;
+  --shelf-control-height-sm: 2rem;
+  --shelf-control-height-md: 2.5rem;
+  --shelf-control-height-lg: 3rem;
 
   /* Motion */
-  --cps-duration-fast: 120ms;
-  --cps-duration-normal: 200ms;
-  --cps-easing: cubic-bezier(0.2, 0, 0, 1);
+  --shelf-duration-fast: 120ms;
+  --shelf-duration-normal: 200ms;
+  --shelf-easing: cubic-bezier(0.2, 0, 0, 1);
 
   /* Layers */
-  --cps-z-dropdown: 1000;
-  --cps-z-navbar: 1100;
-  --cps-z-modal: 1300;
-  --cps-z-toast: 1400;
-  --cps-z-tooltip: 1500;
+  --shelf-z-dropdown: 1000;
+  --shelf-z-navbar: 1100;
+  --shelf-z-modal: 1300;
+  --shelf-z-toast: 1400;
+  --shelf-z-tooltip: 1500;
 }
 
-[data-cps-theme="light"] {
+[data-shelf-theme="light"] {
   color-scheme: light;
 }
 
-[data-cps-theme="dark"] {
+[data-shelf-theme="dark"] {
   color-scheme: dark;
 
-  --cps-color-primary-hover: #2680ff;
-  --cps-color-primary-active: #4a94ff;
-  --cps-color-primary-subtle: rgba(8, 111, 253, 0.16);
-  --cps-color-primary-border: rgba(8, 111, 253, 0.42);
-  --cps-color-primary-text: #6aa9ff;
+  --shelf-color-primary-hover: #7a50f5;
+  --shelf-color-primary-active: #7447f2;
+  --shelf-color-primary-subtle: rgba(105, 56, 239, 0.2);
+  --shelf-color-primary-border: rgba(155, 125, 255, 0.45);
+  --shelf-color-primary-text: #b69cff;
 
-  --cps-color-bg: var(--cps-brand-dark);
-  --cps-color-surface: #1f2226;
-  --cps-color-surface-muted: #26292f;
-  --cps-color-surface-hover: #2e3239;
-  --cps-color-text: #f3f5f8;
-  --cps-color-text-muted: #a7adb9;
-  --cps-color-text-subtle: #8b919d;
-  --cps-color-border: #30343b;
-  --cps-color-border-strong: #444952;
-  --cps-color-overlay: rgba(0, 0, 0, 0.6);
-  --cps-color-focus: #4a94ff;
-  --cps-focus-ring-soft: rgba(74, 148, 255, 0.28);
+  --shelf-color-bg: var(--shelf-brand-dark);
+  --shelf-color-surface: #15122a;
+  --shelf-color-surface-muted: #1c1834;
+  --shelf-color-surface-hover: #25203f;
+  --shelf-color-text: #f3f1fb;
+  --shelf-color-text-muted: #b1abc9;
+  --shelf-color-text-subtle: #948eac;
+  --shelf-color-border: #2c2748;
+  --shelf-color-border-strong: #3d365f;
+  --shelf-color-overlay: rgba(5, 3, 14, 0.72);
+  --shelf-color-focus: #9b7dff;
+  --shelf-focus-ring-soft: rgba(155, 125, 255, 0.32);
 
-  --cps-color-success: #22c55e;
-  --cps-color-success-subtle: rgba(34, 197, 94, 0.14);
-  --cps-color-success-border: rgba(34, 197, 94, 0.35);
-  --cps-color-success-text: #4ade80;
+  --shelf-color-success: #17b26a;
+  --shelf-color-success-subtle: rgba(23, 178, 106, 0.14);
+  --shelf-color-success-border: rgba(23, 178, 106, 0.35);
+  --shelf-color-success-text: #47cd89;
 
-  --cps-color-warning: #f59e0b;
-  --cps-color-warning-subtle: rgba(245, 158, 11, 0.14);
-  --cps-color-warning-border: rgba(245, 158, 11, 0.35);
-  --cps-color-warning-text: #fbbf24;
+  --shelf-color-warning: #f79009;
+  --shelf-color-warning-subtle: rgba(247, 144, 9, 0.14);
+  --shelf-color-warning-border: rgba(247, 144, 9, 0.35);
+  --shelf-color-warning-text: #fdb022;
 
-  --cps-color-danger-hover: #e53e3e;
-  --cps-color-danger-active: #ef5350;
-  --cps-color-danger-subtle: rgba(239, 68, 68, 0.14);
-  --cps-color-danger-border: rgba(239, 68, 68, 0.38);
-  --cps-color-danger-text: #f87171;
+  --shelf-color-danger-subtle: rgba(240, 68, 56, 0.14);
+  --shelf-color-danger-border: rgba(240, 68, 56, 0.38);
+  --shelf-color-danger-text: #f97066;
 
-  --cps-color-neutral: #a7adb9;
-  --cps-color-neutral-subtle: rgba(167, 173, 185, 0.12);
-  --cps-color-neutral-border: rgba(167, 173, 185, 0.28);
-  --cps-color-neutral-text: #d1d5db;
+  --shelf-color-neutral: #b1abc9;
+  --shelf-color-neutral-subtle: rgba(177, 171, 201, 0.12);
+  --shelf-color-neutral-border: rgba(177, 171, 201, 0.28);
+  --shelf-color-neutral-text: #dcd8ea;
 
-  --cps-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --cps-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
-  --cps-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shelf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shelf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shelf-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
 }

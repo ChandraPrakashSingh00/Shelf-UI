@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 // Keep in sync with the inline script in docs/index.html.
-const STORAGE_KEY = "cps-docs-theme";
+const STORAGE_KEY = "shelf-docs-theme";
 
 function readSavedTheme() {
   try {
@@ -13,16 +13,16 @@ function readSavedTheme() {
 }
 
 function applyTheme(theme) {
-  document.documentElement.dataset.cpsTheme = theme;
+  document.documentElement.dataset.shelfTheme = theme;
 }
 
 /**
- * The docs theme, stored on `<html data-cps-theme>`. Follows the operating
+ * The docs theme, stored on `<html data-shelf-theme>`. Follows the operating
  * system until the reader picks a theme, which is then remembered.
  */
 export function useTheme() {
   const [theme, setThemeState] = useState(() =>
-    document.documentElement.dataset.cpsTheme === "dark" ? "dark" : "light",
+    document.documentElement.dataset.shelfTheme === "dark" ? "dark" : "light",
   );
 
   const setTheme = useCallback((next) => {

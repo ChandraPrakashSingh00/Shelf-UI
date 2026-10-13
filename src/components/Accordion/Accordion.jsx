@@ -15,8 +15,8 @@ function useAccordionContext(componentName) {
 // The enabled header buttons of `root` in DOM order, leaving out those of
 // accordions nested inside its panels.
 const getEnabledTriggers = (root) =>
-  Array.from(root.querySelectorAll(".cps-accordion__trigger:not(:disabled)")).filter(
-    (trigger) => trigger.closest(".cps-accordion") === root,
+  Array.from(root.querySelectorAll(".shelf-accordion__trigger:not(:disabled)")).filter(
+    (trigger) => trigger.closest(".shelf-accordion") === root,
   );
 
 const AccordionRoot = forwardRef(function Accordion(
@@ -76,7 +76,7 @@ const AccordionRoot = forwardRef(function Accordion(
       <div
         {...rest}
         ref={ref}
-        className={cx("cps-accordion", className)}
+        className={cx("shelf-accordion", className)}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       />
     </AccordionContext.Provider>
@@ -107,19 +107,19 @@ export const AccordionItem = forwardRef(function AccordionItem(
   const Heading = `h${Math.min(Math.max(headingLevel, 2), 6)}`;
 
   return (
-    <div {...rest} ref={ref} className={cx("cps-accordion__item", className)}>
-      <Heading className="cps-accordion__heading">
+    <div {...rest} ref={ref} className={cx("shelf-accordion__item", className)}>
+      <Heading className="shelf-accordion__heading">
         <button
           type="button"
           id={triggerId}
           aria-expanded={open}
           aria-controls={panelId}
           disabled={disabled}
-          className="cps-accordion__trigger"
+          className="shelf-accordion__trigger"
           onClick={() => toggle(value)}
         >
-          <span className="cps-accordion__title">{title}</span>
-          <ChevronDownIcon className="cps-accordion__icon" />
+          <span className="shelf-accordion__title">{title}</span>
+          <ChevronDownIcon className="shelf-accordion__icon" />
         </button>
       </Heading>
       <div
@@ -127,7 +127,7 @@ export const AccordionItem = forwardRef(function AccordionItem(
         id={panelId}
         aria-labelledby={triggerId}
         hidden={!open}
-        className="cps-accordion__panel"
+        className="shelf-accordion__panel"
       >
         {children}
       </div>

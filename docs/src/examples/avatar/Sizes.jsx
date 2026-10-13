@@ -1,4 +1,4 @@
-import { Avatar } from "@codecps/ui";
+import { Avatar } from "@shelf-ui/react";
 import aditi from "./aditi.svg";
 
 const sizes = ["xs", "sm", "md", "lg", "xl"];

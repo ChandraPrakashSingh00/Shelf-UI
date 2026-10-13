@@ -1,4 +1,4 @@
-import { Button, useToast } from "@codecps/ui";
+import { Button, useToast } from "@shelf-ui/react";
 
 // useToast() needs a <ToastProvider> above it, usually once at the root of your app.
 export default function ToastVariants() {
@@ -12,7 +12,7 @@ export default function ToastVariants() {
           toast({
             variant: "success",
             title: "Project created",
-            message: "codecps-web is ready to deploy.",
+            message: "storefront-web is ready to deploy.",
           })
         }
       >
@@ -41,7 +41,7 @@ export default function ToastVariants() {
       <Button
         variant="secondary"
         onClick={() =>
-          toast({ variant: "info", title: "New version", message: "CodeCPS UI 0.2 is available." })
+          toast({ variant: "info", title: "New version", message: "Shelf UI 0.3 is available." })
         }
       >
         Info

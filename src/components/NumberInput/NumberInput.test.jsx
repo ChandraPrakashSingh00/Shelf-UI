@@ -27,9 +27,9 @@ describe("NumberInput", () => {
     expect(input).toHaveAttribute("aria-valuemax", "10");
     expect(input).not.toHaveAttribute("aria-invalid");
     expect(container.firstChild).toHaveClass(
-      "cps-field",
-      "cps-field--md",
-      "cps-number-input-field",
+      "shelf-field",
+      "shelf-field--md",
+      "shelf-number-input-field",
     );
   });
 
@@ -402,7 +402,7 @@ describe("NumberInput", () => {
     expect(spinbutton()).toBeDisabled();
     expect(increase()).toBeDisabled();
     expect(decrease()).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-field--disabled");
+    expect(container.firstChild).toHaveClass("shelf-field--disabled");
 
     rerender(
       <NumberInput label="Quantity" defaultValue={2} readOnly onValueChange={onValueChange} />,
@@ -488,9 +488,12 @@ describe("NumberInput", () => {
       <NumberInput aria-label="Quantity" variant="compact" size="sm" defaultValue={1} />,
     );
 
-    expect(container.firstChild).toHaveClass("cps-number-input-field--compact", "cps-field--sm");
-    const box = container.querySelector(".cps-number-input");
-    expect(box).toHaveClass("cps-number-input--compact");
+    expect(container.firstChild).toHaveClass(
+      "shelf-number-input-field--compact",
+      "shelf-field--sm",
+    );
+    const box = container.querySelector(".shelf-number-input");
+    expect(box).toHaveClass("shelf-number-input--compact");
     const [first, , last] = box.children;
     expect(first).toBe(decrease());
     expect(last).toBe(increase());
@@ -532,7 +535,7 @@ describe("NumberInput", () => {
     expect(input).toHaveAttribute("id", "qty");
     expect(input).toHaveAttribute("placeholder", "0");
     expect(input).toHaveAttribute("data-testid", "qty-input");
-    expect(input).toHaveClass("cps-number-input__control", "custom-input");
+    expect(input).toHaveClass("shelf-number-input__control", "custom-input");
     expect(input).not.toHaveAttribute("size");
     expect(container.firstChild).toHaveClass("custom");
     expect(container.firstChild).toHaveStyle({ maxWidth: "200px" });

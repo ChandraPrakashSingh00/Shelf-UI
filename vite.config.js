@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
     plugins: [react()],
     resolve: {
       // Lets the playground import the library exactly the way consumers do.
-      alias: [{ find: /^@codecps\/ui$/, replacement: libraryEntry }],
+      alias: [{ find: /^@shelf-ui\/react$/, replacement: libraryEntry }],
     },
     publicDir: false,
     build: {

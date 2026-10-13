@@ -1,4 +1,4 @@
-import { DatePicker } from "@codecps/ui";
+import { DatePicker } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Availability from "../../examples/date-picker/Availability.jsx";
 import availabilityCode from "../../examples/date-picker/Availability.jsx?raw";
@@ -27,8 +27,8 @@ const thumbnailWeek = (days, selected) =>
         lineHeight: "16px",
         borderRadius: 3,
         ...(day === selected && {
-          backgroundColor: "var(--cps-color-primary)",
-          color: "var(--cps-color-on-primary)",
+          backgroundColor: "var(--shelf-color-primary)",
+          color: "var(--shelf-color-on-primary)",
           fontWeight: 600,
         }),
       }}
@@ -47,12 +47,12 @@ function DatePickerThumbnail() {
           display: "grid",
           gridTemplateColumns: "repeat(7, 1fr)",
           padding: 8,
-          border: "1px solid var(--cps-color-border)",
-          borderRadius: "var(--cps-radius-lg)",
-          backgroundColor: "var(--cps-color-surface)",
-          boxShadow: "var(--cps-shadow-md)",
-          color: "var(--cps-color-text)",
-          fontFamily: "var(--cps-font-sans)",
+          border: "1px solid var(--shelf-color-border)",
+          borderRadius: "var(--shelf-radius-lg)",
+          backgroundColor: "var(--shelf-color-surface)",
+          boxShadow: "var(--shelf-shadow-md)",
+          color: "var(--shelf-color-text)",
+          fontFamily: "var(--shelf-font-sans)",
           fontSize: 9,
           textAlign: "center",
         }}

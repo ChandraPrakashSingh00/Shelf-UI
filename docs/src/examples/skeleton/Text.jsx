@@ -1,4 +1,4 @@
-import { Skeleton } from "@codecps/ui";
+import { Skeleton } from "@shelf-ui/react";
 
 export default function SkeletonText() {
   return (

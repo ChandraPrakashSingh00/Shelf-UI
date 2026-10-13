@@ -24,9 +24,9 @@ export const Kbd = forwardRef(function Kbd(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-kbd",
-        `cps-kbd--${size}`,
-        isCombination ? "cps-kbd--combination" : "cps-kbd--key",
+        "shelf-kbd",
+        `shelf-kbd--${size}`,
+        isCombination ? "shelf-kbd--combination" : "shelf-kbd--key",
         className,
       )}
     >
@@ -38,10 +38,10 @@ export const Kbd = forwardRef(function Kbd(
               {index > 0 && (
                 <>
                   {" "}
-                  <span className="cps-kbd__separator">{separator}</span>{" "}
+                  <span className="shelf-kbd__separator">{separator}</span>{" "}
                 </>
               )}
-              <kbd className="cps-kbd__key">{key}</kbd>
+              <kbd className="shelf-kbd__key">{key}</kbd>
             </Fragment>
           ))
         : children}

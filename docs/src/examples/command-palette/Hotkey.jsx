@@ -1,4 +1,4 @@
-import { Button, CommandPalette } from "@codecps/ui";
+import { Button, CommandPalette } from "@shelf-ui/react";
 import { useState } from "react";
 
 const commands = [
@@ -10,10 +10,10 @@ const commands = [
 
 const keyStyle = {
   padding: "1px 6px",
-  border: "1px solid var(--cps-color-border)",
+  border: "1px solid var(--shelf-color-border)",
   borderBottomWidth: 2,
-  borderRadius: "var(--cps-radius-sm)",
-  backgroundColor: "var(--cps-color-surface-muted)",
+  borderRadius: "var(--shelf-radius-sm)",
+  backgroundColor: "var(--shelf-color-surface-muted)",
   fontFamily: "inherit",
   fontSize: 12,
 };

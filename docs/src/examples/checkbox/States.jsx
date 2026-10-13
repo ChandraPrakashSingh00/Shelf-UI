@@ -1,4 +1,4 @@
-import { Checkbox } from "@codecps/ui";
+import { Checkbox } from "@shelf-ui/react";
 
 export default function CheckboxStates() {
   return (

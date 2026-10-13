@@ -1,4 +1,4 @@
-import { ToastProvider } from "@codecps/ui";
+import { ToastProvider } from "@shelf-ui/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Outlet, ScrollRestoration, useLocation } from "react-router";
 import { SearchDialog } from "../components/SearchDialog.jsx";

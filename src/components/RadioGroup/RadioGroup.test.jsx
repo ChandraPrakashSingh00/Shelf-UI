@@ -146,7 +146,7 @@ describe("RadioGroup", () => {
     const { user } = renderRegions({ onValueChange });
     const singapore = radio("Singapore");
     expect(singapore).toBeDisabled();
-    expect(singapore.closest(".cps-radio")).toHaveClass("cps-radio--disabled");
+    expect(singapore.closest(".shelf-radio")).toHaveClass("shelf-radio--disabled");
 
     await user.click(screen.getByText("Singapore"));
     expect(singapore).not.toBeChecked();
@@ -157,7 +157,7 @@ describe("RadioGroup", () => {
     const { user } = renderRegions({ disabled: true, defaultValue: "mumbai" });
     const group = screen.getByRole("radiogroup");
     expect(group).toBeDisabled();
-    expect(group).toHaveClass("cps-radio-group--disabled");
+    expect(group).toHaveClass("shelf-radio-group--disabled");
     for (const input of screen.getAllByRole("radio")) {
       expect(input).toBeDisabled();
     }
@@ -176,7 +176,7 @@ describe("RadioGroup", () => {
       "Pick the region closest to your users. Choose a region to continue.",
     );
     expect(group).toHaveAttribute("aria-invalid", "true");
-    expect(group).toHaveClass("cps-radio-group--invalid");
+    expect(group).toHaveClass("shelf-radio-group--invalid");
 
     rerender(<Regions error />);
     expect(group).toHaveAttribute("aria-invalid", "true");
@@ -184,7 +184,7 @@ describe("RadioGroup", () => {
 
     rerender(<Regions />);
     expect(group).not.toHaveAttribute("aria-invalid");
-    expect(group).not.toHaveClass("cps-radio-group--invalid");
+    expect(group).not.toHaveClass("shelf-radio-group--invalid");
   });
 
   it("describes a radio with its own description", () => {
@@ -208,12 +208,12 @@ describe("RadioGroup", () => {
   it("applies orientation and size", () => {
     const { rerender } = renderRegions();
     const group = screen.getByRole("radiogroup");
-    expect(group).toHaveClass("cps-radio-group--md");
-    expect(group).not.toHaveClass("cps-radio-group--horizontal");
+    expect(group).toHaveClass("shelf-radio-group--md");
+    expect(group).not.toHaveClass("shelf-radio-group--horizontal");
     expect(group).toHaveAttribute("aria-orientation", "vertical");
 
     rerender(<Regions orientation="horizontal" size="sm" />);
-    expect(group).toHaveClass("cps-radio-group--sm", "cps-radio-group--horizontal");
+    expect(group).toHaveClass("shelf-radio-group--sm", "shelf-radio-group--horizontal");
     expect(group).toHaveAttribute("aria-orientation", "horizontal");
   });
 
@@ -274,13 +274,13 @@ describe("RadioGroup", () => {
 
     const group = screen.getByRole("radiogroup");
     expect(groupRef.current).toBe(group);
-    expect(group).toHaveClass("cps-radio-group", "custom-group");
+    expect(group).toHaveClass("shelf-radio-group", "custom-group");
     expect(group).toHaveAttribute("data-testid", "plan-group");
 
     const input = radio("Pro");
     expect(radioRef.current).toBe(input);
     expect(input).toHaveAttribute("data-testid", "pro-input");
-    const option = input.closest(".cps-radio");
+    const option = input.closest(".shelf-radio");
     expect(option).toHaveClass("custom-radio");
     expect(option).toHaveStyle({ marginTop: "4px" });
   });

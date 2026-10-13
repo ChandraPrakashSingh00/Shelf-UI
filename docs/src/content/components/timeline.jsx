@@ -1,4 +1,4 @@
-import { Timeline } from "@codecps/ui";
+import { Timeline } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import ActivityLog from "../../examples/timeline/ActivityLog.jsx";
 import activityLogCode from "../../examples/timeline/ActivityLog.jsx?raw";

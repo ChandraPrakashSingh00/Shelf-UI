@@ -1,4 +1,4 @@
-import { Spinner } from "@codecps/ui";
+import { Spinner } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Centered from "../../examples/spinner/Centered.jsx";
 import centeredCode from "../../examples/spinner/Centered.jsx?raw";

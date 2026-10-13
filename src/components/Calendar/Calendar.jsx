@@ -299,7 +299,7 @@ export const Calendar = forwardRef(function Calendar(
     const iso = formatISODate(date);
     const isOutside = !isSameMonth(date, visibleMonth);
     if (isOutside && !showOutsideDays) {
-      return <td key={iso} role="gridcell" className="cps-calendar__cell" />;
+      return <td key={iso} role="gridcell" className="shelf-calendar__cell" />;
     }
 
     const disabled = isDisabled(date);
@@ -320,10 +320,11 @@ export const Calendar = forwardRef(function Calendar(
         role="gridcell"
         aria-selected={isSelected || undefined}
         className={cx(
-          "cps-calendar__cell",
-          inBand && (isPicking ? "cps-calendar__cell--in-preview" : "cps-calendar__cell--in-range"),
-          inBand && isSameDay(date, bandStart) && "cps-calendar__cell--range-start",
-          inBand && isSameDay(date, bandEnd) && "cps-calendar__cell--range-end",
+          "shelf-calendar__cell",
+          inBand &&
+            (isPicking ? "shelf-calendar__cell--in-preview" : "shelf-calendar__cell--in-range"),
+          inBand && isSameDay(date, bandStart) && "shelf-calendar__cell--range-start",
+          inBand && isSameDay(date, bandEnd) && "shelf-calendar__cell--range-end",
         )}
       >
         <button
@@ -334,11 +335,11 @@ export const Calendar = forwardRef(function Calendar(
           aria-disabled={disabled || undefined}
           data-date={iso}
           className={cx(
-            "cps-calendar__day",
-            isOutside && "cps-calendar__day--outside",
-            isToday && "cps-calendar__day--today",
-            isEndpoint && "cps-calendar__day--selected",
-            disabled && "cps-calendar__day--disabled",
+            "shelf-calendar__day",
+            isOutside && "shelf-calendar__day--outside",
+            isToday && "shelf-calendar__day--today",
+            isEndpoint && "shelf-calendar__day--selected",
+            disabled && "shelf-calendar__day--disabled",
           )}
           onClick={() => handleDayClick(date)}
           onFocus={() => setFocusedDate(date)}
@@ -354,7 +355,7 @@ export const Calendar = forwardRef(function Calendar(
     <div
       {...rest}
       ref={ref}
-      className={cx("cps-calendar", `cps-calendar--${isRange ? "range" : "single"}`, className)}
+      className={cx("shelf-calendar", `shelf-calendar--${isRange ? "range" : "single"}`, className)}
     >
       {label != null && (
         <span id={labelId} hidden>
@@ -362,23 +363,23 @@ export const Calendar = forwardRef(function Calendar(
         </span>
       )}
 
-      <div className="cps-calendar__header">
+      <div className="shelf-calendar__header">
         <IconButton
           label={previousMonthLabel}
-          className="cps-calendar__nav"
+          className="shelf-calendar__nav"
           aria-disabled={!canGoBack || undefined}
           onClick={() => canGoBack && goToMonth(-1)}
         >
           <ChevronLeftIcon />
         </IconButton>
-        <div id={titleId} className="cps-calendar__title" aria-live="polite">
+        <div id={titleId} className="shelf-calendar__title" aria-live="polite">
           {visibleMonth
             ? getDateFormatter(formatLocale, MONTH_TITLE_FORMAT).format(visibleMonth)
             : null}
         </div>
         <IconButton
           label={nextMonthLabel}
-          className="cps-calendar__nav"
+          className="shelf-calendar__nav"
           aria-disabled={!canGoForward || undefined}
           onClick={() => canGoForward && goToMonth(1)}
         >
@@ -391,7 +392,7 @@ export const Calendar = forwardRef(function Calendar(
         role="grid"
         aria-labelledby={label != null ? `${labelId} ${titleId}` : titleId}
         aria-multiselectable={isRange || undefined}
-        className="cps-calendar__grid"
+        className="shelf-calendar__grid"
         onKeyDown={handleGridKeyDown}
         onMouseLeave={isPicking ? () => setHoveredDate(null) : undefined}
       >
@@ -403,7 +404,7 @@ export const Calendar = forwardRef(function Calendar(
                 scope="col"
                 abbr={weekday.long}
                 aria-label={weekday.long}
-                className="cps-calendar__weekday"
+                className="shelf-calendar__weekday"
               >
                 {weekday.short}
               </th>
@@ -416,7 +417,7 @@ export const Calendar = forwardRef(function Calendar(
             : Array.from({ length: 6 }, (_, week) => (
                 <tr key={week}>
                   {weekdays.map((weekday) => (
-                    <td key={weekday.long} role="gridcell" className="cps-calendar__cell" />
+                    <td key={weekday.long} role="gridcell" className="shelf-calendar__cell" />
                   ))}
                 </tr>
               ))}

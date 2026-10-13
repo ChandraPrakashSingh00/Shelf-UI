@@ -30,7 +30,7 @@ import {
   ToastProvider,
   Tooltip,
   useToast,
-} from "@codecps/ui";
+} from "@shelf-ui/react";
 import packageJson from "../package.json";
 import { AlertDialogDemo } from "./demos/AlertDialogDemo.jsx";
 import { BannerDemo } from "./demos/BannerDemo.jsx";
@@ -191,7 +191,7 @@ const TEAM = [
   "Kavya Reddy",
   "Vikram Singh",
 ];
-const SHARE_LINK = "https://codecps.app/p/codecps-web";
+const SHARE_LINK = "https://example.com/p/storefront-web";
 
 function TextareaDemo() {
   const [notes, setNotes] = useState("");
@@ -297,7 +297,7 @@ function AvatarDemo() {
         <Avatar name="Rohan Mehta" size="sm" />
         <Avatar name="Sneha Iyer" />
         <Avatar src="/missing.png" name="Kavya Reddy" size="lg" />
-        <Avatar name="CodeCPS Technologies" shape="square" size="xl" />
+        <Avatar name="Acme Studio" shape="square" size="xl" />
         <Avatar />
       </div>
       <AvatarGroup max={4} label="Project members">
@@ -321,7 +321,7 @@ function ProgressDemo() {
 
   return (
     <div className="pg-stack pg-narrow">
-      <Progress label="Deploying codecps-web" value={62} showValue />
+      <Progress label="Deploying storefront-web" value={62} showValue />
       <Progress label="Backup complete" value={100} showValue variant="success" size="sm" />
       <Progress label="Preparing your workspace…" size="lg" />
       <Progress
@@ -357,7 +357,9 @@ function SkeletonDemo() {
         ) : (
           <>
             <Avatar name="Aditi Rao" />
-            <p style={{ margin: 0 }}>Aditi deployed codecps-web to production. 12 checks passed.</p>
+            <p style={{ margin: 0 }}>
+              Aditi deployed storefront-web to production. 12 checks passed.
+            </p>
           </>
         )}
       </Card>
@@ -459,10 +461,10 @@ function DrawerDemo() {
         onClose={() => setSide(null)}
         side={side ?? "right"}
         title="Project settings"
-        description="Changes apply to every deployment of codecps-web."
+        description="Changes apply to every deployment of storefront-web."
         footer={<Button onClick={() => setSide(null)}>Done</Button>}
       >
-        <Input label="Project name" defaultValue="codecps-web" />
+        <Input label="Project name" defaultValue="storefront-web" />
       </Drawer>
     </div>
   );
@@ -558,7 +560,7 @@ function ToastDemo() {
           toast({
             variant: "success",
             title: "Project created",
-            message: "codecps-web is ready to deploy.",
+            message: "storefront-web is ready to deploy.",
           })
         }
       >
@@ -590,7 +592,7 @@ function ToastDemo() {
           toast({
             variant: "info",
             title: "New version",
-            message: "CodeCPS UI 0.2 is available.",
+            message: "Shelf UI 0.3 is available.",
             duration: Infinity,
           })
         }
@@ -611,7 +613,7 @@ export function App() {
   const hasResults = SECTION_TITLES.some((title) => matchesQuery(title, query));
 
   useEffect(() => {
-    document.documentElement.dataset.cpsTheme = theme;
+    document.documentElement.dataset.shelfTheme = theme;
   }, [theme]);
 
   return (
@@ -619,7 +621,7 @@ export function App() {
       <Navbar sticky className="pg-navbar">
         <Navbar.Brand href="#top">
           <span className="pg-logo" aria-hidden="true" />
-          CodeCPS UI
+          Shelf UI
           <Badge size="sm" className="pg-navbar__badge">
             Playground
           </Badge>
@@ -660,7 +662,7 @@ export function App() {
       <main id="top" className="pg-main">
         <header className="pg-hero">
           <Badge variant="primary">v{packageJson.version}</Badge>
-          <h1>CodeCPS UI playground</h1>
+          <h1>Shelf UI playground</h1>
           <p>
             Every component on one page, for quick checks while you work on the library. The full
             documentation site, with guides, examples and API references, runs with{" "}
@@ -800,7 +802,7 @@ export function App() {
               >
                 12 successful · 1 failed
               </Card>
-              <Card variant="filled">Hello CodeCPS</Card>
+              <Card variant="filled">Hello Acme</Card>
             </div>
           </Section>
 
@@ -930,7 +932,7 @@ export function App() {
                 </>
               }
             >
-              <Input label="Project name" placeholder="codecps-web" required />
+              <Input label="Project name" placeholder="storefront-web" required />
             </Modal>
           </Section>
 
@@ -1014,7 +1016,7 @@ export function App() {
             <Breadcrumb>
               <Breadcrumb.Item href="#dashboard">Dashboard</Breadcrumb.Item>
               <Breadcrumb.Item href="#projects">Projects</Breadcrumb.Item>
-              <Breadcrumb.Item href="#codecps-web">codecps-web</Breadcrumb.Item>
+              <Breadcrumb.Item href="#storefront-web">storefront-web</Breadcrumb.Item>
               <Breadcrumb.Item current>Settings</Breadcrumb.Item>
             </Breadcrumb>
           </Section>

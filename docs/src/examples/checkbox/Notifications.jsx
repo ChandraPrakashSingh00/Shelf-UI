@@ -1,4 +1,4 @@
-import { Checkbox } from "@codecps/ui";
+import { Checkbox } from "@shelf-ui/react";
 
 const notifications = [
   {
@@ -21,7 +21,7 @@ const notifications = [
   {
     id: "product-updates",
     label: "Product updates",
-    description: "New features from the CodeCPS team, about once a month.",
+    description: "New features from the Acme team, about once a month.",
   },
 ];
 

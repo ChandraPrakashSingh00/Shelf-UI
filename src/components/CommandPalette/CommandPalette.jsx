@@ -253,9 +253,9 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
         aria-labelledby={`${id}-label`}
         aria-describedby={item.description != null ? `${id}-description` : undefined}
         className={cx(
-          "cps-command-palette__option",
-          active && "cps-command-palette__option--active",
-          item.disabled && "cps-command-palette__option--disabled",
+          "shelf-command-palette__option",
+          active && "shelf-command-palette__option--active",
+          item.disabled && "shelf-command-palette__option--disabled",
         )}
         onMouseMove={() => {
           if (!item.disabled && !active) setActiveId(item.id);
@@ -263,25 +263,25 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
         onClick={() => runItem(item)}
       >
         {item.icon != null && (
-          <span className="cps-command-palette__icon" aria-hidden="true">
+          <span className="shelf-command-palette__icon" aria-hidden="true">
             {item.icon}
           </span>
         )}
-        <span className="cps-command-palette__text">
-          <span id={`${id}-label`} className="cps-command-palette__label">
+        <span className="shelf-command-palette__text">
+          <span id={`${id}-label`} className="shelf-command-palette__label">
             {item.label}
           </span>
           {item.description != null && (
-            <span id={`${id}-description`} className="cps-command-palette__description">
+            <span id={`${id}-description`} className="shelf-command-palette__description">
               {item.description}
             </span>
           )}
         </span>
         {/* A visual hint only: the shortcut itself is up to your app. */}
         {shortcut.length > 0 && (
-          <span className="cps-command-palette__shortcut" aria-hidden="true">
+          <span className="shelf-command-palette__shortcut" aria-hidden="true">
             {shortcut.map((key, keyIndex) => (
-              <kbd key={keyIndex} className="cps-command-palette__kbd">
+              <kbd key={keyIndex} className="shelf-command-palette__kbd">
                 {key}
               </kbd>
             ))}
@@ -293,7 +293,7 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
 
   return (
     <div
-      className="cps-command-palette-overlay"
+      className="shelf-command-palette-overlay"
       onMouseDown={handleOverlayMouseDown}
       onClick={handleOverlayClick}
     >
@@ -304,11 +304,11 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
         aria-modal="true"
         aria-label={label}
         tabIndex={-1}
-        className={cx("cps-command-palette", className)}
+        className={cx("shelf-command-palette", className)}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       >
-        <div className="cps-command-palette__search">
-          <SearchIcon className="cps-command-palette__search-icon" />
+        <div className="shelf-command-palette__search">
+          <SearchIcon className="shelf-command-palette__search-icon" />
           <input
             ref={inputRef}
             type="text"
@@ -322,7 +322,7 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
             spellCheck={false}
             placeholder={placeholder}
             value={query}
-            className="cps-command-palette__input"
+            className="shelf-command-palette__input"
             onChange={(event) => {
               setQuery(event.target.value);
               setActiveId(null);
@@ -331,7 +331,7 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
           />
         </div>
 
-        <div className="cps-command-palette__results" onMouseDown={preventFocusLoss}>
+        <div className="shelf-command-palette__results" onMouseDown={preventFocusLoss}>
           {hasOptions ? (
             <div id={listboxId} role="listbox" aria-label={label}>
               {groups.map((group, groupIndex) => {
@@ -340,10 +340,14 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
                 }
                 const headingId = `${baseId}-group-${groupIndex}`;
                 return (
-                  <div key={group.name} role="presentation" className="cps-command-palette__group">
+                  <div
+                    key={group.name}
+                    role="presentation"
+                    className="shelf-command-palette__group"
+                  >
                     <div
                       id={headingId}
-                      className="cps-command-palette__group-heading"
+                      className="shelf-command-palette__group-heading"
                       aria-hidden="true"
                     >
                       {group.name}
@@ -357,16 +361,16 @@ const CommandPaletteDialog = forwardRef(function CommandPaletteDialog(
             </div>
           ) : (
             // Announced through the status region below instead.
-            <p className="cps-command-palette__empty" aria-hidden="true">
+            <p className="shelf-command-palette__empty" aria-hidden="true">
               {emptyMessage}
             </p>
           )}
         </div>
-        <span className="cps-visually-hidden" role="status">
+        <span className="shelf-visually-hidden" role="status">
           {hasOptions ? null : emptyMessage}
         </span>
 
-        {footer != null && <div className="cps-command-palette__footer">{footer}</div>}
+        {footer != null && <div className="shelf-command-palette__footer">{footer}</div>}
       </div>
     </div>
   );

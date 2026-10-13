@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@codecps/ui";
+import { Button, Tooltip } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/tooltip/Basic.jsx";
 import basicCode from "../../examples/tooltip/Basic.jsx?raw";
@@ -43,13 +43,13 @@ function TooltipThumbnail() {
       <span
         style={{
           padding: "0.375rem 0.625rem",
-          borderRadius: "var(--cps-radius-sm)",
-          backgroundColor: "var(--cps-color-text)",
-          boxShadow: "var(--cps-shadow-md)",
-          color: "var(--cps-color-bg)",
-          fontFamily: "var(--cps-font-sans)",
-          fontSize: "var(--cps-font-size-xs)",
-          fontWeight: "var(--cps-font-weight-medium)",
+          borderRadius: "var(--shelf-radius-sm)",
+          backgroundColor: "var(--shelf-color-text)",
+          boxShadow: "var(--shelf-shadow-md)",
+          color: "var(--shelf-color-bg)",
+          fontFamily: "var(--shelf-font-sans)",
+          fontSize: "var(--shelf-font-size-xs)",
+          fontWeight: "var(--shelf-font-weight-medium)",
         }}
       >
         Copy a link to this deployment

@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@codecps/ui";
+import { ToggleGroup } from "@shelf-ui/react";
 import { useState } from "react";
 
 function GridIcon() {
@@ -78,8 +78,8 @@ export default function ToggleGroupViewSwitcher() {
               justifyContent: "space-between",
               gap: 4,
               padding: 12,
-              border: "1px solid var(--cps-color-border)",
-              borderRadius: "var(--cps-radius-md)",
+              border: "1px solid var(--shelf-color-border)",
+              borderRadius: "var(--shelf-radius-md)",
               fontSize: 14,
             }}
           >

@@ -1,4 +1,4 @@
-import { Button, Input, Pagination } from "@codecps/ui";
+import { Button, Input, Pagination } from "@shelf-ui/react";
 import { Link, useSearchParams } from "react-router";
 import { SearchIcon } from "../components/icons.jsx";
 import { PostCard } from "../components/PostCard.jsx";
@@ -58,7 +58,7 @@ export function BlogPage() {
       <PageHero
         breadcrumbs={[{ label: "Blog" }]}
         title="Blog & Resources"
-        lead="Tutorials, guides, tips and release notes from the CodeCPS UI team."
+        lead="Tutorials, guides, tips and release notes from the Shelf UI team."
       />
 
       <div className="docs-container docs-blog">

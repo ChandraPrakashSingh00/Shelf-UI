@@ -1,4 +1,4 @@
-import { Pagination } from "@codecps/ui";
+import { Pagination } from "@shelf-ui/react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/pagination/Basic.jsx";

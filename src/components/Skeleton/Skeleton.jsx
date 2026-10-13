@@ -34,9 +34,9 @@ export const Skeleton = forwardRef(function Skeleton(
         ref={ref}
         aria-hidden="true"
         className={cx(
-          "cps-skeleton",
-          "cps-skeleton--lines",
-          animated && "cps-skeleton--animated",
+          "shelf-skeleton",
+          "shelf-skeleton--lines",
+          animated && "shelf-skeleton--animated",
           className,
         )}
         style={{ width: cssWidth, ...style }}
@@ -44,7 +44,7 @@ export const Skeleton = forwardRef(function Skeleton(
         {Array.from({ length: lineCount }, (_, index) => (
           <span
             key={index}
-            className="cps-skeleton__line"
+            className="shelf-skeleton__line"
             style={cssHeight === undefined ? undefined : { height: cssHeight }}
           />
         ))}
@@ -58,9 +58,9 @@ export const Skeleton = forwardRef(function Skeleton(
       ref={ref}
       aria-hidden="true"
       className={cx(
-        "cps-skeleton",
-        `cps-skeleton--${variant}`,
-        animated && "cps-skeleton--animated",
+        "shelf-skeleton",
+        `shelf-skeleton--${variant}`,
+        animated && "shelf-skeleton--animated",
         className,
       )}
       style={{ width: cssWidth, height: cssHeight, ...style }}

@@ -1,4 +1,4 @@
-import { Select } from "@codecps/ui";
+import { Select } from "@shelf-ui/react";
 
 function GlobeIcon() {
   return (

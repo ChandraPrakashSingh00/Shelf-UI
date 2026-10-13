@@ -1,4 +1,4 @@
-import { DatePicker } from "@codecps/ui";
+import { DatePicker } from "@shelf-ui/react";
 import { useState } from "react";
 
 // Pickups can be booked from tomorrow, up to 30 days ahead.

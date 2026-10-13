@@ -1,4 +1,4 @@
-import { Divider } from "@codecps/ui";
+import { Divider } from "@shelf-ui/react";
 
 const row = { display: "flex", justifyContent: "space-between", gap: 16 };
 
@@ -10,9 +10,9 @@ export default function DividerBasic() {
         width: "100%",
         maxWidth: 360,
         padding: 20,
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-surface)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-surface)",
       }}
     >
       <div style={row}>

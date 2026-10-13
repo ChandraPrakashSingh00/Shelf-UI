@@ -1,24 +1,24 @@
 {
-  "name": "@codecps/ui",
-  "version": "0.2.0",
-  "description": "CodeCPS UI — accessible React component library by CodeCPS Technologies.",
+  "name": "@shelf-ui/react",
+  "version": "0.3.0",
+  "description": "Shelf UI — off-the-shelf, accessible React components with design tokens and dark mode.",
   "keywords": [
     "react",
     "ui",
     "components",
     "design-system",
     "accessible",
-    "codecps"
+    "shelf-ui"
   ],
-  "author": "CodeCPS Technologies",
+  "author": "Shelf UI contributors",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-.git"
+    "url": "git+https://github.com/ChandraPrakashSingh00/shelf-ui.git"
   },
-  "homepage": "https://www.ui.codecpstechnologies.in",
+  "homepage": "https://github.com/ChandraPrakashSingh00/shelf-ui#readme",
   "bugs": {
-    "url": "https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-/issues"
+    "url": "https://github.com/ChandraPrakashSingh00/shelf-ui/issues"
   },
   "type": "module",
   "sideEffects": [

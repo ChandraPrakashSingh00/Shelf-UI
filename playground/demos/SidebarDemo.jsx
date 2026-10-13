@@ -1,4 +1,4 @@
-import { Avatar, Button, Drawer, Sidebar } from "@codecps/ui";
+import { Avatar, Button, Drawer, Sidebar } from "@shelf-ui/react";
 import { useState } from "react";
 
 const iconPaths = {
@@ -82,8 +82,8 @@ export function SidebarDemo() {
           display: "flex",
           height: 480,
           overflow: "hidden",
-          border: "1px solid var(--cps-color-border)",
-          borderRadius: "var(--cps-radius-lg)",
+          border: "1px solid var(--shelf-color-border)",
+          borderRadius: "var(--shelf-radius-lg)",
         }}
       >
         <Sidebar label="Admin" collapsed={collapsed} onCollapsedChange={setCollapsed}>

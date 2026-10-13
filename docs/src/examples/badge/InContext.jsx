@@ -1,9 +1,9 @@
-import { Badge } from "@codecps/ui";
+import { Badge } from "@shelf-ui/react";
 
 const deployments = [
-  { name: "codecps-web", status: "success", label: "Ready" },
-  { name: "codecps-api", status: "warning", label: "Building" },
-  { name: "codecps-docs", status: "danger", label: "Failed" },
+  { name: "storefront-web", status: "success", label: "Ready" },
+  { name: "storefront-api", status: "warning", label: "Building" },
+  { name: "storefront-docs", status: "danger", label: "Failed" },
 ];
 
 export default function BadgeInContext() {

@@ -1,10 +1,10 @@
-import { Spinner } from "@codecps/ui";
+import { Spinner } from "@shelf-ui/react";
 
 export default function SpinnerCustomLabel() {
   return (
     <>
       <Spinner label="Syncing with GitHub…" />
-      <Spinner label="Verifying payment…" style={{ color: "var(--cps-color-success)" }} />
+      <Spinner label="Verifying payment…" style={{ color: "var(--shelf-color-success)" }} />
     </>
   );
 }

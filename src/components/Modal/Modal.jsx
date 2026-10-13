@@ -84,7 +84,7 @@ function ModalDialog({
 
   return (
     <div
-      className="cps-modal-overlay"
+      className="shelf-modal-overlay"
       onMouseDown={handleOverlayMouseDown}
       onClick={handleOverlayClick}
     >
@@ -96,32 +96,32 @@ function ModalDialog({
         aria-labelledby={title != null ? titleId : undefined}
         aria-describedby={description != null ? descriptionId : undefined}
         tabIndex={-1}
-        className={cx("cps-modal", `cps-modal--${size}`, className)}
+        className={cx("shelf-modal", `shelf-modal--${size}`, className)}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       >
         {hasHeader && (
-          <div className="cps-modal__header">
-            <div className="cps-modal__heading">
+          <div className="shelf-modal__header">
+            <div className="shelf-modal__heading">
               {title != null && (
-                <h2 id={titleId} className="cps-modal__title">
+                <h2 id={titleId} className="shelf-modal__title">
                   {title}
                 </h2>
               )}
               {description != null && (
-                <p id={descriptionId} className="cps-modal__description">
+                <p id={descriptionId} className="shelf-modal__description">
                   {description}
                 </p>
               )}
             </div>
             {!hideCloseButton && (
-              <IconButton label={closeLabel} className="cps-modal__close" onClick={onClose}>
+              <IconButton label={closeLabel} className="shelf-modal__close" onClick={onClose}>
                 <CloseIcon />
               </IconButton>
             )}
           </div>
         )}
-        {children != null && <div className="cps-modal__body">{children}</div>}
-        {footer != null && <div className="cps-modal__footer">{footer}</div>}
+        {children != null && <div className="shelf-modal__body">{children}</div>}
+        {footer != null && <div className="shelf-modal__footer">{footer}</div>}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { Slider } from "./Slider.jsx";
 
-const fillOf = (slider) => slider.style.getPropertyValue("--cps-slider-fill");
+const fillOf = (slider) => slider.style.getPropertyValue("--shelf-slider-fill");
 
 describe("Slider", () => {
   it("renders a focusable range input linked to its label", async () => {
@@ -16,7 +16,7 @@ describe("Slider", () => {
     expect(slider).toHaveAttribute("min", "0");
     expect(slider).toHaveAttribute("max", "100");
     expect(slider).toHaveAttribute("step", "1");
-    expect(container.firstChild).toHaveClass("cps-field", "cps-slider", "cps-slider--md");
+    expect(container.firstChild).toHaveClass("shelf-field", "shelf-slider", "shelf-slider--md");
 
     await user.tab();
     expect(slider).toHaveFocus();
@@ -165,12 +165,12 @@ describe("Slider", () => {
   it("marks the field disabled", () => {
     const { container } = render(<Slider label="Log retention" defaultValue={7} disabled />);
     expect(screen.getByRole("slider")).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-field--disabled");
+    expect(container.firstChild).toHaveClass("shelf-field--disabled");
   });
 
   it("applies the sm size", () => {
     const { container } = render(<Slider label="Volume" size="sm" />);
-    expect(container.firstChild).toHaveClass("cps-slider--sm");
+    expect(container.firstChild).toHaveClass("shelf-slider--sm");
   });
 
   it("forwards the ref and native attributes to the input, className and style to the wrapper", () => {
@@ -192,7 +192,7 @@ describe("Slider", () => {
     expect(slider).toHaveAttribute("id", "volume");
     expect(slider).toHaveAttribute("name", "volume");
     expect(slider).toHaveAttribute("data-testid", "volume-input");
-    expect(container.firstChild).toHaveClass("cps-slider", "custom");
+    expect(container.firstChild).toHaveClass("shelf-slider", "custom");
     expect(container.firstChild).toHaveStyle({ maxWidth: "320px" });
   });
 });

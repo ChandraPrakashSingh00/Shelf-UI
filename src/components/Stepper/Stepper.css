@@ -1,32 +1,32 @@
-.cps-stepper {
-  --cps-stepper-indicator-size: 2rem;
-  --cps-stepper-font-size: var(--cps-font-size-sm);
+.shelf-stepper {
+  --shelf-stepper-indicator-size: 2rem;
+  --shelf-stepper-font-size: var(--shelf-font-size-sm);
   /* Moves the first line of text down to the middle of the circle. */
-  --cps-stepper-text-offset: 0.4rem;
+  --shelf-stepper-text-offset: 0.4rem;
 
   display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-stepper-font-size);
-  line-height: var(--cps-line-height-tight);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-stepper-font-size);
+  line-height: var(--shelf-line-height-tight);
 }
 
-.cps-stepper--sm {
-  --cps-stepper-indicator-size: 1.5rem;
-  --cps-stepper-font-size: var(--cps-font-size-xs);
-  --cps-stepper-text-offset: 0.3rem;
+.shelf-stepper--sm {
+  --shelf-stepper-indicator-size: 1.5rem;
+  --shelf-stepper-font-size: var(--shelf-font-size-xs);
+  --shelf-stepper-text-offset: 0.3rem;
 }
 
-.cps-stepper__step {
+.shelf-stepper__step {
   position: relative;
   display: flex;
   align-items: flex-start;
 }
 
-.cps-stepper__trigger {
+.shelf-stepper__trigger {
   display: flex;
   align-items: flex-start;
   gap: 0.625rem;
@@ -35,168 +35,168 @@
   text-align: start;
 }
 
-.cps-stepper__trigger--button {
+.shelf-stepper__trigger--button {
   /* Room for the focus ring without shifting the layout. */
   margin: -0.25rem;
   padding: 0.25rem;
   border: 0;
-  border-radius: var(--cps-radius-md);
+  border-radius: var(--shelf-radius-md);
   background: none;
   font: inherit;
   line-height: inherit;
   cursor: pointer;
 }
 
-.cps-stepper__trigger--button:hover .cps-stepper__title {
+.shelf-stepper__trigger--button:hover .shelf-stepper__title {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.cps-stepper__trigger--button:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-stepper__trigger--button:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 0;
 }
 
-.cps-stepper__indicator {
+.shelf-stepper__indicator {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: var(--cps-stepper-indicator-size);
-  height: var(--cps-stepper-indicator-size);
-  border: 2px solid var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-surface);
-  color: var(--cps-color-text-muted);
-  font-weight: var(--cps-font-weight-semibold);
+  width: var(--shelf-stepper-indicator-size);
+  height: var(--shelf-stepper-indicator-size);
+  border: 2px solid var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-surface);
+  color: var(--shelf-color-text-muted);
+  font-weight: var(--shelf-font-weight-semibold);
   font-variant-numeric: tabular-nums;
   line-height: 1;
   transition:
-    background-color var(--cps-duration-normal) var(--cps-easing),
-    border-color var(--cps-duration-normal) var(--cps-easing),
-    color var(--cps-duration-normal) var(--cps-easing);
+    background-color var(--shelf-duration-normal) var(--shelf-easing),
+    border-color var(--shelf-duration-normal) var(--shelf-easing),
+    color var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-stepper__indicator svg {
+.shelf-stepper__indicator svg {
   font-size: 1.2em;
 }
 
-.cps-stepper__text {
+.shelf-stepper__text {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
   min-width: 0;
-  padding-top: var(--cps-stepper-text-offset);
+  padding-top: var(--shelf-stepper-text-offset);
   overflow-wrap: break-word;
 }
 
-.cps-stepper__title {
-  color: var(--cps-color-text-muted);
-  font-weight: var(--cps-font-weight-medium);
+.shelf-stepper__title {
+  color: var(--shelf-color-text-muted);
+  font-weight: var(--shelf-font-weight-medium);
 }
 
-.cps-stepper__optional,
-.cps-stepper__description {
-  color: var(--cps-color-text-subtle);
-  font-size: var(--cps-font-size-xs);
-  line-height: var(--cps-line-height-normal);
+.shelf-stepper__optional,
+.shelf-stepper__description {
+  color: var(--shelf-color-text-subtle);
+  font-size: var(--shelf-font-size-xs);
+  line-height: var(--shelf-line-height-normal);
 }
 
-.cps-stepper__connector {
-  border-color: var(--cps-color-border);
-  transition: border-color var(--cps-duration-normal) var(--cps-easing);
+.shelf-stepper__connector {
+  border-color: var(--shelf-color-border);
+  transition: border-color var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-stepper__connector--complete {
-  border-color: var(--cps-color-primary);
+.shelf-stepper__connector--complete {
+  border-color: var(--shelf-color-primary);
 }
 
 /* Statuses */
-.cps-stepper__step--complete .cps-stepper__indicator {
-  border-color: var(--cps-color-primary);
-  background-color: var(--cps-color-primary);
-  color: var(--cps-color-on-primary);
+.shelf-stepper__step--complete .shelf-stepper__indicator {
+  border-color: var(--shelf-color-primary);
+  background-color: var(--shelf-color-primary);
+  color: var(--shelf-color-on-primary);
 }
 
-.cps-stepper__step--current .cps-stepper__indicator {
-  border-color: var(--cps-color-primary);
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+.shelf-stepper__step--current .shelf-stepper__indicator {
+  border-color: var(--shelf-color-primary);
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
 }
 
-.cps-stepper__step--error .cps-stepper__indicator {
-  border-color: var(--cps-color-danger);
-  background-color: var(--cps-color-danger);
-  color: var(--cps-brand-white);
+.shelf-stepper__step--error .shelf-stepper__indicator {
+  border-color: var(--shelf-color-danger);
+  background-color: var(--shelf-color-danger);
+  color: var(--shelf-brand-white);
 }
 
-.cps-stepper__step--complete .cps-stepper__title,
-.cps-stepper__step--current .cps-stepper__title {
-  color: var(--cps-color-text);
+.shelf-stepper__step--complete .shelf-stepper__title,
+.shelf-stepper__step--current .shelf-stepper__title {
+  color: var(--shelf-color-text);
 }
 
-.cps-stepper__step--current .cps-stepper__title {
-  font-weight: var(--cps-font-weight-semibold);
+.shelf-stepper__step--current .shelf-stepper__title {
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-stepper__step--error .cps-stepper__title {
-  color: var(--cps-color-danger-text);
+.shelf-stepper__step--error .shelf-stepper__title {
+  color: var(--shelf-color-danger-text);
 }
 
 /* Horizontal: steps share the width; a line after each step fills the gap. It
    adapts to its own width (a container query below), not just the viewport, so it
    also fits narrow panels. Vertical steppers size to their content instead. */
-.cps-stepper--horizontal {
-  container: cps-stepper / inline-size;
+.shelf-stepper--horizontal {
+  container: shelf-stepper / inline-size;
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
 }
 
-.cps-stepper--horizontal .cps-stepper__step {
+.shelf-stepper--horizontal .shelf-stepper__step {
   flex: 1 1 0;
 }
 
-.cps-stepper--horizontal .cps-stepper__step:last-child {
+.shelf-stepper--horizontal .shelf-stepper__step:last-child {
   flex: 0 1 auto;
 }
 
-.cps-stepper--horizontal .cps-stepper__connector {
+.shelf-stepper--horizontal .shelf-stepper__connector {
   flex: 1 1 1rem;
   min-width: 1rem;
-  margin: calc(var(--cps-stepper-indicator-size) / 2 - 1px) 0.75rem 0;
+  margin: calc(var(--shelf-stepper-indicator-size) / 2 - 1px) 0.75rem 0;
   border-top-width: 2px;
   border-top-style: solid;
 }
 
 /* Vertical: a line runs down from each circle to the next one. */
-.cps-stepper--vertical {
+.shelf-stepper--vertical {
   flex-direction: column;
 }
 
-.cps-stepper--vertical .cps-stepper__step {
+.shelf-stepper--vertical .shelf-stepper__step {
   padding-bottom: 1.5rem;
 }
 
-.cps-stepper--vertical .cps-stepper__step:last-child {
+.shelf-stepper--vertical .shelf-stepper__step:last-child {
   padding-bottom: 0;
 }
 
-.cps-stepper--vertical .cps-stepper__connector {
+.shelf-stepper--vertical .shelf-stepper__connector {
   position: absolute;
-  top: calc(var(--cps-stepper-indicator-size) + 0.25rem);
+  top: calc(var(--shelf-stepper-indicator-size) + 0.25rem);
   bottom: 0.25rem;
-  inset-inline-start: calc(var(--cps-stepper-indicator-size) / 2 - 1px);
+  inset-inline-start: calc(var(--shelf-stepper-indicator-size) / 2 - 1px);
   border-inline-start-width: 2px;
   border-inline-start-style: solid;
 }
 
 /* Narrow horizontal steppers show the numbers and only the current step's title.
    The other titles stay in the page, visually hidden, for screen readers. */
-@container cps-stepper (max-width: 36rem) {
-  .cps-stepper--horizontal .cps-stepper__step:not([aria-current="step"]) .cps-stepper__text,
-  .cps-stepper--horizontal .cps-stepper__optional,
-  .cps-stepper--horizontal .cps-stepper__description {
+@container shelf-stepper (max-width: 36rem) {
+  .shelf-stepper--horizontal .shelf-stepper__step:not([aria-current="step"]) .shelf-stepper__text,
+  .shelf-stepper--horizontal .shelf-stepper__optional,
+  .shelf-stepper--horizontal .shelf-stepper__description {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -209,52 +209,52 @@
   }
 
   /* The current step takes the room it needs; a long title is truncated. */
-  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"] {
+  .shelf-stepper--horizontal .shelf-stepper__step[aria-current="step"] {
     min-width: 0;
   }
 
-  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"]:not(:last-child) {
+  .shelf-stepper--horizontal .shelf-stepper__step[aria-current="step"]:not(:last-child) {
     flex: 1 1 auto;
   }
 
-  .cps-stepper--horizontal .cps-stepper__step[aria-current="step"] .cps-stepper__title {
+  .shelf-stepper--horizontal .shelf-stepper__step[aria-current="step"] .shelf-stepper__title {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
-  .cps-stepper--horizontal .cps-stepper__connector {
+  .shelf-stepper--horizontal .shelf-stepper__connector {
     min-width: 0.75rem;
     margin-inline: 0.375rem;
   }
 
-  .cps-stepper--horizontal .cps-stepper__trigger {
+  .shelf-stepper--horizontal .shelf-stepper__trigger {
     gap: 0.5rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-stepper__indicator,
-  .cps-stepper__connector {
+  .shelf-stepper__indicator,
+  .shelf-stepper__connector {
     transition: none;
   }
 }
 
 /* Forced colors drop background colors: keep completed and current steps distinct. */
 @media (forced-colors: active) {
-  .cps-stepper__step--complete .cps-stepper__indicator,
-  .cps-stepper__step--error .cps-stepper__indicator {
+  .shelf-stepper__step--complete .shelf-stepper__indicator,
+  .shelf-stepper__step--error .shelf-stepper__indicator {
     forced-color-adjust: none;
     border-color: Highlight;
     background-color: Highlight;
     color: HighlightText;
   }
 
-  .cps-stepper__step--current .cps-stepper__indicator {
+  .shelf-stepper__step--current .shelf-stepper__indicator {
     border-color: Highlight;
   }
 
-  .cps-stepper__connector--complete {
+  .shelf-stepper__connector--complete {
     border-color: Highlight;
   }
 }

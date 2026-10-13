@@ -13,7 +13,7 @@ beforeAll(() => {
 
 beforeEach(() => {
   localStorage.clear();
-  document.documentElement.dataset.cpsTheme = "light";
+  document.documentElement.dataset.shelfTheme = "light";
 });
 
 function renderAt(path, { basename } = {}) {
@@ -23,32 +23,31 @@ function renderAt(path, { basename } = {}) {
   return { router, user };
 }
 
-const repo = "https://github.com/ChandraPrakashSingh00/CodeCPS-UI-Library-";
+const repo = "https://github.com/ChandraPrakashSingh00/shelf-ui";
 
 describe("pages", () => {
   it("renders the home page inside the site header and footer", async () => {
     renderAt("/");
     expect(
-      await screen.findByRole("heading", { level: 1, name: /build beautiful uis faster/i }),
+      await screen.findByRole("heading", { level: 1, name: /off-the-shelf components/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Main" })).toBeInTheDocument();
-    expect(screen.getByRole("contentinfo")).toHaveTextContent("CodeCPS Technologies");
+    // The name links home from the header and the footer.
+    expect(screen.getAllByRole("link", { name: "Shelf UI home" })).toHaveLength(2);
+    expect(screen.getByRole("contentinfo")).toHaveTextContent("Shelf UI contributors");
     expect(
-      screen.getByRole("heading", { level: 2, name: "Popular Components" }),
+      screen.getByRole("heading", { level: 2, name: "Popular on the shelf" }),
     ).toBeInTheDocument();
   });
 
   it("works under a sub-path, as on GitHub Pages", async () => {
-    const { user } = renderAt("/CodeCPS-UI-Library-/components/button", {
-      basename: "/CodeCPS-UI-Library-",
+    const { user } = renderAt("/shelf-ui/components/button", {
+      basename: "/shelf-ui",
     });
     expect(await screen.findByRole("heading", { level: 1, name: "Button" })).toBeInTheDocument();
 
     const header = screen.getByRole("navigation", { name: "Main" });
-    expect(within(header).getByRole("link", { name: "Home" })).toHaveAttribute(
-      "href",
-      "/CodeCPS-UI-Library-",
-    );
+    expect(within(header).getByRole("link", { name: "Home" })).toHaveAttribute("href", "/shelf-ui");
 
     await user.click(within(header).getByRole("link", { name: "Docs" }));
     expect(
@@ -65,7 +64,7 @@ describe("pages", () => {
       for (const example of doc.examples) {
         expect(screen.getByRole("heading", { level: 3, name: example.title })).toBeInTheDocument();
       }
-      expect(document.title).toBe(`${doc.name} · CodeCPS UI`);
+      expect(document.title).toBe(`${doc.name} · Shelf UI`);
 
       await user.click(screen.getByRole("tab", { name: "Props" }));
       expect(screen.getByRole("heading", { level: 2, name: "API reference" })).toBeInTheDocument();
@@ -84,7 +83,8 @@ describe("pages", () => {
     ["/docs/design-tokens", "Design tokens"],
     ["/changelog", "Changelog"],
     ["/blog", "Blog & Resources"],
-    ["/blog/whats-new-in-0-2-0", "What's new in CodeCPS UI 0.2.0"],
+    ["/blog/whats-new-in-0-3-0", "What's new in Shelf UI 0.3.0"],
+    ["/blog/whats-new-in-0-2-0", "What's new in Shelf UI 0.2.0"],
     ["/search?q=button", "Search Results"],
     ["/about", "About Us"],
     ["/components/unknown", "Page Not Found"],
@@ -174,7 +174,7 @@ describe("pages", () => {
 
   it("renders the changelog from CHANGELOG.md", async () => {
     renderAt("/changelog");
-    expect(await screen.findByRole("heading", { level: 2, name: "v0.2.0" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 2, name: "v0.3.0" })).toBeInTheDocument();
     expect(screen.getByText("Latest")).toBeInTheDocument();
     expect(screen.getAllByText("Added")).not.toHaveLength(0);
   });
@@ -183,7 +183,7 @@ describe("pages", () => {
     renderAt("/docs/design-tokens");
     await screen.findByRole("heading", { level: 1, name: "Design tokens" });
     expect(screen.getByRole("heading", { level: 2, name: "Primary" })).toBeInTheDocument();
-    expect(screen.getByText("--cps-color-primary")).toBeInTheDocument();
+    expect(screen.getByText("--shelf-color-primary")).toBeInTheDocument();
   });
 });
 
@@ -281,7 +281,7 @@ describe("site features", () => {
     const categoriesNav = screen.getByRole("navigation", { name: "Article categories" });
     await user.click(within(categoriesNav).getByRole("link", { name: "Updates" }));
     expect(
-      screen.getByRole("heading", { level: 2, name: "Introducing CodeCPS UI" }),
+      screen.getByRole("heading", { level: 2, name: "Introducing Shelf UI" }),
     ).toBeInTheDocument();
     expect(
       screen.queryByRole("heading", { level: 2, name: "Five habits for accessible forms" }),
@@ -290,7 +290,7 @@ describe("site features", () => {
     await user.click(within(categoriesNav).getByRole("link", { name: "All" }));
     await user.type(screen.getByRole("searchbox", { name: "Search articles" }), "tailwind");
     expect(screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent)).toContain(
-      "Using CodeCPS UI with Tailwind CSS",
+      "Using Shelf UI with Tailwind CSS",
     );
     expect(screen.getByText("1 article")).toHaveAttribute("role", "status");
   });
@@ -322,9 +322,9 @@ describe("site features", () => {
     expect(toggle).toHaveAttribute("aria-pressed", "false");
 
     await user.click(toggle);
-    expect(document.documentElement.dataset.cpsTheme).toBe("dark");
+    expect(document.documentElement.dataset.shelfTheme).toBe("dark");
     expect(toggle).toHaveAttribute("aria-pressed", "true");
-    expect(localStorage.getItem("cps-docs-theme")).toBe("dark");
+    expect(localStorage.getItem("shelf-docs-theme")).toBe("dark");
   });
 
   it("copies code to the clipboard and announces it", async () => {
@@ -333,7 +333,7 @@ describe("site features", () => {
 
     await user.click(screen.getByRole("button", { name: "Copy install command" }));
 
-    expect(await navigator.clipboard.readText()).toBe("npm install @codecps/ui");
+    expect(await navigator.clipboard.readText()).toBe("npm install @shelf-ui/react");
     expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
   });
 
@@ -346,7 +346,7 @@ describe("site features", () => {
     await user.click(within(controls).getByRole("checkbox", { name: "Loading" }));
 
     const preview = screen.getByRole("button", { name: "Start Project" });
-    expect(preview).toHaveClass("cps-button--outline");
+    expect(preview).toHaveClass("shelf-button--outline");
     expect(preview).toHaveAttribute("aria-busy", "true");
 
     const code = document.querySelector(".docs-playground__code")?.textContent;

@@ -93,7 +93,7 @@ function DrawerPanel({
 
   return (
     <div
-      className="cps-drawer-overlay"
+      className="shelf-drawer-overlay"
       onMouseDown={handleOverlayMouseDown}
       onClick={handleOverlayClick}
     >
@@ -105,32 +105,32 @@ function DrawerPanel({
         aria-labelledby={title != null ? titleId : undefined}
         aria-describedby={description != null ? descriptionId : undefined}
         tabIndex={-1}
-        className={cx("cps-drawer", `cps-drawer--${side}`, `cps-drawer--${size}`, className)}
+        className={cx("shelf-drawer", `shelf-drawer--${side}`, `shelf-drawer--${size}`, className)}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       >
         {hasHeader && (
-          <div className="cps-drawer__header">
-            <div className="cps-drawer__heading">
+          <div className="shelf-drawer__header">
+            <div className="shelf-drawer__heading">
               {title != null && (
-                <h2 id={titleId} className="cps-drawer__title">
+                <h2 id={titleId} className="shelf-drawer__title">
                   {title}
                 </h2>
               )}
               {description != null && (
-                <p id={descriptionId} className="cps-drawer__description">
+                <p id={descriptionId} className="shelf-drawer__description">
                   {description}
                 </p>
               )}
             </div>
             {!hideCloseButton && (
-              <IconButton label={closeLabel} className="cps-drawer__close" onClick={onClose}>
+              <IconButton label={closeLabel} className="shelf-drawer__close" onClick={onClose}>
                 <CloseIcon />
               </IconButton>
             )}
           </div>
         )}
-        {children != null && <div className="cps-drawer__body">{children}</div>}
-        {footer != null && <div className="cps-drawer__footer">{footer}</div>}
+        {children != null && <div className="shelf-drawer__body">{children}</div>}
+        {footer != null && <div className="shelf-drawer__footer">{footer}</div>}
       </div>
     </div>
   );

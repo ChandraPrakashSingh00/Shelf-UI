@@ -1,4 +1,4 @@
-import { Button, Combobox } from "@codecps/ui";
+import { Button, Combobox } from "@shelf-ui/react";
 import { useState } from "react";
 
 const states = [

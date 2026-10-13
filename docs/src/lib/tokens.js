@@ -1,5 +1,5 @@
-const LIGHT_BLOCK = /:root,\s*\[data-cps-theme="light"\]\s*\{/;
-const DARK_BLOCK = /\[data-cps-theme="dark"\]\s*\{/;
+const LIGHT_BLOCK = /:root,\s*\[data-shelf-theme="light"\]\s*\{/;
+const DARK_BLOCK = /\[data-shelf-theme="dark"\]\s*\{/;
 const ENTRY = /\/\*([\s\S]*?)\*\/|(--[\w-]+)\s*:\s*([^;]+);/g;
 
 function blockBody(css, start) {

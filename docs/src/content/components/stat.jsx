@@ -1,4 +1,4 @@
-import { Stat } from "@codecps/ui";
+import { Stat } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import InCard from "../../examples/stat/InCard.jsx";
 import inCardCode from "../../examples/stat/InCard.jsx?raw";

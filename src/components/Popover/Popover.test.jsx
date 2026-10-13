@@ -10,7 +10,7 @@ import { Popover } from "./Popover.jsx";
 
 const shareContent = (
   <>
-    <Input label="Project link" defaultValue="https://codecps.app/p/codecps-web" readOnly />
+    <Input label="Project link" defaultValue="https://example.com/p/storefront-web" readOnly />
     <Button>Copy link</Button>
   </>
 );
@@ -140,7 +140,11 @@ describe("Popover", () => {
       const copyRef = useRef(null);
       return (
         <Popover trigger={<Button>Share</Button>} title="Share project" initialFocusRef={copyRef}>
-          <Input label="Project link" defaultValue="https://codecps.app/p/codecps-web" readOnly />
+          <Input
+            label="Project link"
+            defaultValue="https://example.com/p/storefront-web"
+            readOnly
+          />
           <Button ref={copyRef}>Copy link</Button>
         </Popover>
       );
@@ -219,7 +223,7 @@ describe("Popover", () => {
           open={open}
           onOpenChange={setOpen}
         >
-          <Input label="Project name" defaultValue="codecps-web" />
+          <Input label="Project name" defaultValue="storefront-web" />
           <Button onClick={() => setOpen(false)}>Save</Button>
         </Popover>
       );
@@ -299,13 +303,13 @@ describe("Popover", () => {
     const dialog = screen.getByRole("dialog");
     expect(ref.current).toBe(dialog);
     expect(dialog).toHaveClass(
-      "cps-popover__content",
-      "cps-popover__content--top",
-      "cps-popover__content--end",
+      "shelf-popover__content",
+      "shelf-popover__content--top",
+      "shelf-popover__content--end",
       "custom-popover",
     );
     expect(dialog).toHaveAttribute("data-testid", "share-panel");
-    expect(dialog.parentElement).toHaveClass("cps-popover");
+    expect(dialog.parentElement).toHaveClass("shelf-popover");
     expect(dialog.parentElement).not.toHaveClass("custom-popover");
   });
 
@@ -313,8 +317,8 @@ describe("Popover", () => {
     const { user, trigger } = renderPopover();
     await user.click(trigger);
     expect(screen.getByRole("dialog")).toHaveClass(
-      "cps-popover__content--bottom",
-      "cps-popover__content--start",
+      "shelf-popover__content--bottom",
+      "shelf-popover__content--start",
     );
   });
 

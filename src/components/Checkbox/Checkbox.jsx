@@ -44,7 +44,7 @@ export const Checkbox = forwardRef(function Checkbox(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-checkbox-${generatedId}`;
+  const inputId = id ?? `shelf-checkbox-${generatedId}`;
   const descriptionId = `${inputId}-description`;
   const errorId = `${inputId}-error`;
 
@@ -75,16 +75,16 @@ export const Checkbox = forwardRef(function Checkbox(
   return (
     <div
       className={cx(
-        "cps-checkbox",
-        `cps-checkbox--${size}`,
-        indeterminate && "cps-checkbox--indeterminate",
-        hasError && "cps-checkbox--invalid",
-        disabled && "cps-checkbox--disabled",
+        "shelf-checkbox",
+        `shelf-checkbox--${size}`,
+        indeterminate && "shelf-checkbox--indeterminate",
+        hasError && "shelf-checkbox--invalid",
+        disabled && "shelf-checkbox--disabled",
         className,
       )}
       style={style}
     >
-      <span className="cps-checkbox__control">
+      <span className="shelf-checkbox__control">
         <input
           {...rest}
           ref={ref}
@@ -96,37 +96,37 @@ export const Checkbox = forwardRef(function Checkbox(
           disabled={disabled}
           aria-invalid={hasError || undefined}
           aria-describedby={describedBy || undefined}
-          className="cps-checkbox__input"
+          className="shelf-checkbox__input"
           onChange={handleChange}
         />
-        <span className="cps-checkbox__box" aria-hidden="true">
+        <span className="shelf-checkbox__box" aria-hidden="true">
           {indeterminate ? (
-            <MinusIcon className="cps-checkbox__icon" strokeWidth={3} />
+            <MinusIcon className="shelf-checkbox__icon" strokeWidth={3} />
           ) : (
-            <CheckIcon className="cps-checkbox__icon" strokeWidth={3} />
+            <CheckIcon className="shelf-checkbox__icon" strokeWidth={3} />
           )}
         </span>
       </span>
 
       {(label != null || description != null || errorMessage != null) && (
-        <div className="cps-checkbox__text">
+        <div className="shelf-checkbox__text">
           {label != null && (
-            <label className="cps-checkbox__label" htmlFor={inputId}>
+            <label className="shelf-checkbox__label" htmlFor={inputId}>
               {label}
               {required && (
-                <span className="cps-checkbox__required" aria-hidden="true">
+                <span className="shelf-checkbox__required" aria-hidden="true">
                   *
                 </span>
               )}
             </label>
           )}
           {description != null && (
-            <p id={descriptionId} className="cps-checkbox__description">
+            <p id={descriptionId} className="shelf-checkbox__description">
               {description}
             </p>
           )}
           {errorMessage != null && (
-            <p id={errorId} className="cps-checkbox__error">
+            <p id={errorId} className="shelf-checkbox__error">
               {errorMessage}
             </p>
           )}

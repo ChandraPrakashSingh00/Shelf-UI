@@ -19,8 +19,8 @@ const peerDependencies = Object.entries(packageJson.peerDependencies);
 const setupCode = `// main.jsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ToastProvider } from "@codecps/ui";
-import "@codecps/ui/styles.css";
+import { ToastProvider } from "@shelf-ui/react";
+import "@shelf-ui/react/styles.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -38,7 +38,7 @@ export function IntroductionPage() {
     <article className="docs-article">
       <PageHeader
         title="Introduction"
-        lead={`CodeCPS UI is an accessible React component library from CodeCPS Technologies: ${componentDocs.length} components in plain JavaScript and JSX, styled with design tokens you can override. Get it running in a few minutes.`}
+        lead={`Shelf UI is an accessible, open-source React component library: ${componentDocs.length} components in plain JavaScript and JSX, styled with design tokens you can override. Get it running in a few minutes.`}
       />
 
       <h2 id="quick-install" className="docs-h2">
@@ -50,7 +50,7 @@ export function IntroductionPage() {
         Peer dependencies
       </h2>
       <p className="docs-text">
-        CodeCPS UI uses your app's React, so make sure you have these installed:
+        Shelf UI uses your app's React, so make sure you have these installed:
       </p>
       <div className="docs-table-wrap">
         <table className="docs-table docs-table--compact">
@@ -85,7 +85,7 @@ export function IntroductionPage() {
         Import styles
       </h2>
       <p className="docs-text">Add the stylesheet once, in your app's entry file:</p>
-      <CodeBlock code={'import "@codecps/ui/styles.css";'} />
+      <CodeBlock code={'import "@shelf-ui/react/styles.css";'} />
 
       <h2 id="basic-setup" className="docs-h2">
         Basic setup

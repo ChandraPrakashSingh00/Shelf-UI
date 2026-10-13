@@ -1,12 +1,12 @@
-import { Pagination } from "@codecps/ui";
+import { Pagination } from "@shelf-ui/react";
 import { useState } from "react";
 
 const PAGE_SIZE = 3;
 
 const projects = [
-  { name: "codecps-web", owner: "Aarav Sharma" },
-  { name: "codecps-api", owner: "Priya Nair" },
-  { name: "codecps-docs", owner: "Rohan Mehta" },
+  { name: "storefront-web", owner: "Aarav Sharma" },
+  { name: "storefront-api", owner: "Priya Nair" },
+  { name: "storefront-docs", owner: "Rohan Mehta" },
   { name: "billing-service", owner: "Ananya Iyer" },
   { name: "mobile-app", owner: "Vikram Singh" },
   { name: "admin-dashboard", owner: "Sneha Reddy" },

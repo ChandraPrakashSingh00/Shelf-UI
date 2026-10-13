@@ -1,4 +1,4 @@
-.cps-icon-button {
+.shelf-icon-button {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
@@ -7,22 +7,22 @@
   height: 2rem;
   padding: 0;
   border: 0;
-  border-radius: var(--cps-radius-md);
+  border-radius: var(--shelf-radius-md);
   background: transparent;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
   font-size: 1.125rem;
   cursor: pointer;
   transition:
-    background-color var(--cps-duration-fast) var(--cps-easing),
-    color var(--cps-duration-fast) var(--cps-easing);
+    background-color var(--shelf-duration-fast) var(--shelf-easing),
+    color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-icon-button:hover {
-  background-color: var(--cps-color-surface-hover);
-  color: var(--cps-color-text);
+.shelf-icon-button:hover {
+  background-color: var(--shelf-color-surface-hover);
+  color: var(--shelf-color-text);
 }
 
-.cps-icon-button:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-icon-button:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }

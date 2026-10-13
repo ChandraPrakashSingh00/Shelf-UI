@@ -75,41 +75,41 @@ export const Stat = forwardRef(function Stat(
       ref={ref}
       aria-busy={loading || undefined}
       className={cx(
-        "cps-stat",
-        `cps-stat--${variant}`,
-        `cps-stat--${size}`,
-        icon != null && "cps-stat--with-icon",
+        "shelf-stat",
+        `shelf-stat--${variant}`,
+        `shelf-stat--${size}`,
+        icon != null && "shelf-stat--with-icon",
         className,
       )}
     >
-      <dl className="cps-stat__list">
-        <dt className="cps-stat__label">{label}</dt>
-        <dd className="cps-stat__value">
+      <dl className="shelf-stat__list">
+        <dt className="shelf-stat__label">{label}</dt>
+        <dd className="shelf-stat__value">
           {loading ? (
             <>
-              <Skeleton className="cps-stat__skeleton" width="60%" />
-              <span className="cps-visually-hidden">{loadingLabel}</span>
+              <Skeleton className="shelf-stat__skeleton" width="60%" />
+              <span className="shelf-visually-hidden">{loadingLabel}</span>
             </>
           ) : (
             value
           )}
         </dd>
         {loading ? (
-          <dd className="cps-stat__change" aria-hidden="true">
+          <dd className="shelf-stat__change" aria-hidden="true">
             <Skeleton width="40%" />
           </dd>
         ) : (
           (hasChange || changeLabel != null) && (
-            <dd className={cx("cps-stat__change", tone && `cps-stat__change--${tone}`)}>
+            <dd className={cx("shelf-stat__change", tone && `shelf-stat__change--${tone}`)}>
               {hasChange && (
-                <span className="cps-stat__trend">
-                  <TrendIcon className="cps-stat__trend-icon" />
-                  <span className="cps-visually-hidden">{`${labels[trend]} `}</span>
+                <span className="shelf-stat__trend">
+                  <TrendIcon className="shelf-stat__trend-icon" />
+                  <span className="shelf-visually-hidden">{`${labels[trend]} `}</span>
                   {formatChange(change)}
                 </span>
               )}
               {changeLabel != null && (
-                <span className="cps-stat__change-label">
+                <span className="shelf-stat__change-label">
                   {hasChange && " "}
                   {changeLabel}
                 </span>
@@ -117,10 +117,10 @@ export const Stat = forwardRef(function Stat(
             </dd>
           )
         )}
-        {description != null && <dd className="cps-stat__description">{description}</dd>}
+        {description != null && <dd className="shelf-stat__description">{description}</dd>}
       </dl>
       {icon != null && (
-        <span className="cps-stat__icon" aria-hidden="true">
+        <span className="shelf-stat__icon" aria-hidden="true">
           {icon}
         </span>
       )}

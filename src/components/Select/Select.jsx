@@ -48,7 +48,7 @@ export const Select = forwardRef(function Select(
   ref,
 ) {
   const generatedId = useId();
-  const selectId = id ?? `cps-select-${generatedId}`;
+  const selectId = id ?? `shelf-select-${generatedId}`;
   const messageId = `${selectId}-message`;
 
   const hasError = error != null && error !== false && error !== "";
@@ -63,28 +63,28 @@ export const Select = forwardRef(function Select(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label className="cps-field__label" htmlFor={selectId}>
+        <label className="shelf-field__label" htmlFor={selectId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
 
-      <div className={cx("cps-select", leftIcon && "cps-select--with-icon")}>
+      <div className={cx("shelf-select", leftIcon && "shelf-select--with-icon")}>
         {leftIcon && (
-          <span className="cps-select__icon" aria-hidden="true">
+          <span className="shelf-select__icon" aria-hidden="true">
             {leftIcon}
           </span>
         )}
@@ -98,10 +98,10 @@ export const Select = forwardRef(function Select(
           defaultValue={startOnPlaceholder ? "" : defaultValue}
           aria-invalid={hasError || undefined}
           aria-describedby={describedBy || undefined}
-          className={cx("cps-select__control", selectClassName)}
+          className={cx("shelf-select__control", selectClassName)}
         >
           {placeholder != null && (
-            <option value="" disabled className="cps-select__placeholder">
+            <option value="" disabled className="shelf-select__placeholder">
               {placeholder}
             </option>
           )}
@@ -121,11 +121,11 @@ export const Select = forwardRef(function Select(
             : children}
         </select>
         {/* The select spans the whole box, so a click on the chevron still opens it. */}
-        <ChevronDownIcon className="cps-select__chevron" />
+        <ChevronDownIcon className="shelf-select__chevron" />
       </div>
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

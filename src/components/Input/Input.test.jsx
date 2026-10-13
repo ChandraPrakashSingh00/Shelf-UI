@@ -73,7 +73,7 @@ describe("Input", () => {
 
   it("applies the size to the field without leaking a native size attribute", () => {
     const { container } = render(<Input label="Name" size="lg" />);
-    expect(container.firstChild).toHaveClass("cps-field--lg");
+    expect(container.firstChild).toHaveClass("shelf-field--lg");
     expect(screen.getByLabelText("Name")).not.toHaveAttribute("size");
   });
 

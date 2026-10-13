@@ -1,4 +1,4 @@
-import { Badge, Button, Popover } from "@codecps/ui";
+import { Badge, Button, Popover } from "@shelf-ui/react";
 import { useState } from "react";
 
 const alerts = [

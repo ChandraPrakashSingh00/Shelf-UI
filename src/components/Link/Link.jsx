@@ -48,10 +48,10 @@ export const Link = forwardRef(function Link(
   ref,
 ) {
   const classes = cx(
-    "cps-link",
-    `cps-link--${variant}`,
-    `cps-link--underline-${underline}`,
-    external && "cps-link--external",
+    "shelf-link",
+    `shelf-link--${variant}`,
+    `shelf-link--underline-${underline}`,
+    external && "shelf-link--external",
     className,
   );
 
@@ -69,8 +69,8 @@ export const Link = forwardRef(function Link(
     external && (showExternalIcon || externalLabel) ? (
       <>
         {showExternalIcon ? " " : " "}
-        {showExternalIcon && <ExternalLinkIcon className="cps-link__icon" />}
-        {externalLabel ? <span className="cps-visually-hidden">{externalLabel}</span> : null}
+        {showExternalIcon && <ExternalLinkIcon className="shelf-link__icon" />}
+        {externalLabel ? <span className="shelf-visually-hidden">{externalLabel}</span> : null}
       </>
     ) : null;
 

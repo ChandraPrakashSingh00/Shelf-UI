@@ -4,7 +4,7 @@ import { customizationPage } from "../../content/docsPages.js";
 import { DocsPageNav, PageHeader } from "../../layout/PageParts.jsx";
 import { useDocumentTitle } from "../../lib/document.js";
 
-const classNameCode = `import { Button, Input } from "@codecps/ui";
+const classNameCode = `import { Button, Input } from "@shelf-ui/react";
 
 // className is added to the component's own classes, never replaces them.
 <Button className="checkout-button">Pay now</Button>
@@ -12,7 +12,7 @@ const classNameCode = `import { Button, Input } from "@codecps/ui";
 // Fields take className for the wrapper and inputClassName for the <input> itself.
 <Input label="Coupon" className="coupon-field" inputClassName="coupon-input" />`;
 
-const wrapperCode = `import { Button } from "@codecps/ui";
+const wrapperCode = `import { Button } from "@shelf-ui/react";
 
 // Pass every other prop through, so the wrapper keeps Button's full API.
 // \`type\` comes last, so callers can't override it.
@@ -20,7 +20,7 @@ export function SubmitButton(props) {
   return <Button {...props} type="submit" />;
 }`;
 
-const asChildCode = `import { Button } from "@codecps/ui";
+const asChildCode = `import { Button } from "@shelf-ui/react";
 import { Link } from "react-router";
 
 // Renders the router's <a>, styled as a button. It stays a real link.
@@ -30,7 +30,7 @@ import { Link } from "react-router";
 
 const tailwindCode = `/* src/index.css */
 @import "tailwindcss";
-@import "@codecps/ui/styles.css" layer(components);`;
+@import "@shelf-ui/react/styles.css" layer(components);`;
 
 export function CustomizationPage() {
   useDocumentTitle("Customization");

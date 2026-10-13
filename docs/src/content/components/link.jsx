@@ -1,4 +1,4 @@
-import { Link } from "@codecps/ui";
+import { Link } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import External from "../../examples/link/External.jsx";
 import externalCode from "../../examples/link/External.jsx?raw";
@@ -54,7 +54,7 @@ export const linkDoc = {
     },
     render: (values) => (
       <p style={{ margin: 0 }}>
-        Order #CPS-10428 has shipped.{" "}
+        Order #ORD-10428 has shipped.{" "}
         <Link
           href={values.external ? "https://www.indiapost.gov.in" : "#track"}
           variant={values.variant}
@@ -72,7 +72,7 @@ export const linkDoc = {
         formatJsx(
           "Link",
           {
-            href: values.external ? "https://www.indiapost.gov.in" : "/orders/CPS-10428",
+            href: values.external ? "https://www.indiapost.gov.in" : "/orders/ORD-10428",
             variant: values.variant,
             underline: values.underline,
             external: values.external,

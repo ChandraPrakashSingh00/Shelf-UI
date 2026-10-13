@@ -99,7 +99,7 @@ function FileThumbnail({ file, preview }) {
   }, [showImage, file]);
 
   return (
-    <span className="cps-file-upload__thumbnail">
+    <span className="shelf-file-upload__thumbnail">
       <FileIcon />
       {showImage && (
         <img
@@ -107,7 +107,7 @@ function FileThumbnail({ file, preview }) {
           alt=""
           decoding="async"
           hidden={!loaded}
-          className="cps-file-upload__image"
+          className="shelf-file-upload__image"
           onLoad={() => setLoaded(true)}
           onError={() => setLoaded(false)}
         />
@@ -181,7 +181,7 @@ export const FileUpload = forwardRef(function FileUpload(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-file-upload-${generatedId}`;
+  const inputId = id ?? `shelf-file-upload-${generatedId}`;
   const labelId = `${inputId}-label`;
   const browseId = `${inputId}-browse`;
   const messageId = `${inputId}-message`;
@@ -242,7 +242,7 @@ export const FileUpload = forwardRef(function FileUpload(
   const removeFile = (index) => {
     const file = files[index];
     // Focus moves to the next file's remove button, the previous one, or the input.
-    const buttons = listRef.current?.querySelectorAll(".cps-file-upload__remove") ?? [];
+    const buttons = listRef.current?.querySelectorAll(".shelf-file-upload__remove") ?? [];
     const nextFocus = buttons[index + 1] ?? buttons[index - 1] ?? inputRef.current;
     const keep = (_, itemIndex) => itemIndex !== index;
     const nextFiles = files.filter(keep);
@@ -332,27 +332,27 @@ export const FileUpload = forwardRef(function FileUpload(
   return (
     <div
       className={cx(
-        "cps-field",
-        "cps-file-upload",
-        dragging && "cps-file-upload--dragging",
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        "shelf-file-upload",
+        dragging && "shelf-file-upload--dragging",
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label id={labelId} className="cps-field__label" htmlFor={inputId}>
+        <label id={labelId} className="shelf-field__label" htmlFor={inputId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
 
-      <div className="cps-file-upload__area">
+      <div className="shelf-file-upload__area">
         <input
           {...rest}
           ref={ref}
@@ -366,22 +366,22 @@ export const FileUpload = forwardRef(function FileUpload(
           aria-labelledby={inputLabelledBy}
           aria-describedby={describedBy || undefined}
           aria-invalid={hasError || undefined}
-          className="cps-file-upload__input cps-visually-hidden"
+          className="shelf-file-upload__input shelf-visually-hidden"
           onChange={handleInputChange}
         />
         <div
-          className="cps-file-upload__dropzone"
+          className="shelf-file-upload__dropzone"
           onClick={handleZoneClick}
           onDragEnter={handleDragEnter}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
         >
-          <span className="cps-file-upload__icon" aria-hidden="true">
+          <span className="shelf-file-upload__icon" aria-hidden="true">
             <UploadIcon />
           </span>
-          <span className="cps-file-upload__text">
-            <span id={browseId} className="cps-file-upload__browse">
+          <span className="shelf-file-upload__text">
+            <span id={browseId} className="shelf-file-upload__browse">
               {browseText ?? (multiple ? "Choose files" : "Choose a file")}
             </span>{" "}
             {dropText}
@@ -390,16 +390,16 @@ export const FileUpload = forwardRef(function FileUpload(
       </div>
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}
 
       {showRejections && (
-        <ul id={rejectionsId} className="cps-file-upload__rejections">
+        <ul id={rejectionsId} className="shelf-file-upload__rejections">
           {rejections.map(({ file, errors }, index) => (
             <li key={`${file.name}-${index}`}>
-              <span className="cps-file-upload__rejected-name">{file.name}</span>:{" "}
+              <span className="shelf-file-upload__rejected-name">{file.name}</span>:{" "}
               {errors.map((rejectionError) => rejectionError.message).join(" ")}
             </li>
           ))}
@@ -407,19 +407,19 @@ export const FileUpload = forwardRef(function FileUpload(
       )}
 
       {files.length > 0 && (
-        <ul ref={listRef} className="cps-file-upload__list">
+        <ul ref={listRef} className="shelf-file-upload__list">
           {files.map((file, index) => (
-            <li key={fileKeys[index]} className="cps-file-upload__item">
+            <li key={fileKeys[index]} className="shelf-file-upload__item">
               <FileThumbnail file={file} preview={showPreview} />
-              <span className="cps-file-upload__details">
-                <span className="cps-file-upload__name" title={file.name}>
+              <span className="shelf-file-upload__details">
+                <span className="shelf-file-upload__name" title={file.name}>
                   {file.name}
                 </span>
-                <span className="cps-file-upload__size">{formatFileSize(file.size)}</span>
+                <span className="shelf-file-upload__size">{formatFileSize(file.size)}</span>
               </span>
               <IconButton
                 label={getRemoveLabel(file)}
-                className="cps-file-upload__remove"
+                className="shelf-file-upload__remove"
                 disabled={disabled}
                 onClick={() => removeFile(index)}
               >
@@ -430,7 +430,7 @@ export const FileUpload = forwardRef(function FileUpload(
         </ul>
       )}
 
-      <div className="cps-visually-hidden" aria-live="polite">
+      <div className="shelf-visually-hidden" aria-live="polite">
         {announcement}
       </div>
     </div>

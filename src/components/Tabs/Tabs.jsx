@@ -53,7 +53,7 @@ const TabsRoot = forwardRef(function Tabs(
 
   return (
     <TabsContext.Provider value={context}>
-      <div {...rest} ref={ref} className={cx("cps-tabs", className)} />
+      <div {...rest} ref={ref} className={cx("shelf-tabs", className)} />
     </TabsContext.Provider>
   );
 });
@@ -108,7 +108,7 @@ export const TabList = forwardRef(function TabList(
       {...rest}
       ref={ref}
       role="tablist"
-      className={cx("cps-tabs__list", className)}
+      className={cx("shelf-tabs__list", className)}
       onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
     />
   );
@@ -131,7 +131,7 @@ export const Tab = forwardRef(function Tab({ value, className, onClick, ...rest 
       // Roving tabindex: only the selected tab is in the page's Tab order.
       tabIndex={isSelected ? 0 : -1}
       data-value={value}
-      className={cx("cps-tabs__tab", className)}
+      className={cx("shelf-tabs__tab", className)}
       onClick={composeEventHandlers(onClick, () => select(value))}
     />
   );
@@ -153,7 +153,7 @@ export const TabPanel = forwardRef(function TabPanel({ value, className, childre
       aria-labelledby={getTabId(baseId, value)}
       hidden={!isSelected}
       tabIndex={0}
-      className={cx("cps-tabs__panel", className)}
+      className={cx("shelf-tabs__panel", className)}
     >
       {isSelected ? children : null}
     </div>

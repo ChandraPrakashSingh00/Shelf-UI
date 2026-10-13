@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@codecps/ui";
+import { Breadcrumb } from "@shelf-ui/react";
 import { Link } from "react-router";
 
 export default function BreadcrumbRouterLinks() {

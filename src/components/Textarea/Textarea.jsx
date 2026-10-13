@@ -92,7 +92,7 @@ export const Textarea = forwardRef(function Textarea(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const textareaId = id ?? `cps-textarea-${generatedId}`;
+  const textareaId = id ?? `shelf-textarea-${generatedId}`;
   const messageId = `${textareaId}-message`;
   const countId = `${textareaId}-count`;
 
@@ -186,19 +186,19 @@ export const Textarea = forwardRef(function Textarea(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label className="cps-field__label" htmlFor={textareaId}>
+        <label className="shelf-field__label" htmlFor={textareaId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
@@ -219,16 +219,16 @@ export const Textarea = forwardRef(function Textarea(
         aria-invalid={hasError || undefined}
         aria-describedby={describedBy || undefined}
         className={cx(
-          "cps-textarea",
-          autoResize ? "cps-textarea--auto-resize" : `cps-textarea--resize-${resize}`,
+          "shelf-textarea",
+          autoResize ? "shelf-textarea--auto-resize" : `shelf-textarea--resize-${resize}`,
           textareaClassName,
         )}
       />
 
       {(message != null || showCount) && (
-        <div className="cps-textarea__footer">
+        <div className="shelf-textarea__footer">
           {message != null && (
-            <p id={messageId} className="cps-field__message">
+            <p id={messageId} className="shelf-field__message">
               {message}
             </p>
           )}
@@ -236,8 +236,8 @@ export const Textarea = forwardRef(function Textarea(
             <p
               id={countId}
               className={cx(
-                "cps-textarea__count",
-                maxLength != null && length > maxLength && "cps-textarea__count--over",
+                "shelf-textarea__count",
+                maxLength != null && length > maxLength && "shelf-textarea__count--over",
               )}
             >
               {count}

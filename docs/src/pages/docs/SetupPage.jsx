@@ -6,7 +6,7 @@ import { useDocumentTitle } from "../../lib/document.js";
 const viteCode = `// src/main.jsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@codecps/ui/styles.css";
+import "@shelf-ui/react/styles.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -16,18 +16,18 @@ createRoot(document.getElementById("root")).render(
 );`;
 
 const nextLayoutCode = `// app/layout.js
-import "@codecps/ui/styles.css";
+import "@shelf-ui/react/styles.css";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-cps-theme="light">
+    <html lang="en" data-shelf-theme="light">
       <body>{children}</body>
     </html>
   );
 }`;
 
 const nextServerCode = `// app/page.js — a Server Component
-import { Card, CardContent, CardHeader, CardTitle } from "@codecps/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@shelf-ui/react";
 
 export default function Page() {
   return (
@@ -41,7 +41,7 @@ export default function Page() {
   );
 }`;
 
-const toastProviderCode = `import { ToastProvider } from "@codecps/ui";
+const toastProviderCode = `import { ToastProvider } from "@shelf-ui/react";
 
 export function Root() {
   return (
@@ -51,7 +51,7 @@ export function Root() {
   );
 }`;
 
-const toastUsageCode = `import { Button, useToast } from "@codecps/ui";
+const toastUsageCode = `import { Button, useToast } from "@shelf-ui/react";
 
 export function SaveButton() {
   const { toast } = useToast();
@@ -88,7 +88,7 @@ export function SetupPage() {
         Next.js
       </h2>
       <p className="docs-text">
-        CodeCPS UI works with the App Router. Every module ships with <code>"use client"</code>, so
+        Shelf UI works with the App Router. Every module ships with <code>"use client"</code>, so
         you can render components from Server Components. Import the styles in your root layout:
       </p>
       <CodeBlock code={nextLayoutCode} title="app/layout.js" />

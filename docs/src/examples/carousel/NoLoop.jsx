@@ -1,4 +1,4 @@
-import { Carousel } from "@codecps/ui";
+import { Carousel } from "@shelf-ui/react";
 
 const steps = [
   {
@@ -11,7 +11,7 @@ const steps = [
   },
   {
     title: "Go live",
-    text: "Every push to main deploys to production on codecps.app in about a minute.",
+    text: "Every push to main deploys to production on example.com in about a minute.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function CarouselNoLoop() {
               minHeight: 200,
               padding: "28px 72px",
               textAlign: "center",
-              background: "var(--cps-color-surface-muted)",
+              background: "var(--shelf-color-surface-muted)",
             }}
           >
             <span
@@ -40,15 +40,15 @@ export default function CarouselNoLoop() {
                 width: 36,
                 height: 36,
                 borderRadius: "50%",
-                background: "var(--cps-color-primary)",
-                color: "var(--cps-color-on-primary)",
+                background: "var(--shelf-color-primary)",
+                color: "var(--shelf-color-on-primary)",
                 fontWeight: 600,
               }}
             >
               {stepIndex + 1}
             </span>
             <strong style={{ fontSize: 16 }}>{step.title}</strong>
-            <span style={{ color: "var(--cps-color-text-muted)" }}>{step.text}</span>
+            <span style={{ color: "var(--shelf-color-text-muted)" }}>{step.text}</span>
           </div>
         </Carousel.Slide>
       ))}

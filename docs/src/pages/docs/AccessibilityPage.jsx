@@ -19,7 +19,7 @@ const handled = [
   },
   {
     title: "Visible focus",
-    text: "Every interactive element shows a focus ring for keyboard users, colored by the `--cps-color-focus` token.",
+    text: "Every interactive element shows a focus ring for keyboard users, colored by the `--shelf-color-focus` token.",
   },
   {
     title: "Reduced motion",
@@ -46,7 +46,7 @@ export function AccessibilityPage() {
     <article className="docs-article">
       <PageHeader
         title="Accessibility"
-        lead="CodeCPS UI handles the hard parts of accessible widgets, so your app starts from a solid base. Here's what the components do for you, and what's still up to you."
+        lead="Shelf UI handles the hard parts of accessible widgets, so your app starts from a solid base. Here's what the components do for you, and what's still up to you."
       />
 
       <h2 id="what-components-handle" className="docs-h2">

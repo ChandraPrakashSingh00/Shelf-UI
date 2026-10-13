@@ -1,4 +1,4 @@
-import { Banner } from "@codecps/ui";
+import { Banner } from "@shelf-ui/react";
 
 export default function BannerVariants() {
   return (

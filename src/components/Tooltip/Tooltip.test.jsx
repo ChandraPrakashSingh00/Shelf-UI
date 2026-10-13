@@ -267,7 +267,7 @@ describe("Tooltip", () => {
     expect(trigger).toHaveAttribute("data-testid", "deploy");
 
     const tooltip = screen.getByRole("tooltip");
-    expect(tooltip).toHaveClass("cps-tooltip", "custom-tooltip");
+    expect(tooltip).toHaveClass("shelf-tooltip", "custom-tooltip");
     expect(trigger).not.toHaveClass("custom-tooltip");
     expect(tooltip.parentElement).toBe(document.body);
   });

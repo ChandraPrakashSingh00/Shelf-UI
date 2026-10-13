@@ -13,7 +13,7 @@ const css = readdirSync(assetsDir)
   .join("\n");
 
 // A design token, a component and the docs' own styles.
-const expected = ["--cps-color-primary:", ".cps-button--secondary", "--docs-header-height:"];
+const expected = ["--shelf-color-primary:", ".shelf-button--secondary", "--docs-header-height:"];
 const missing = expected.filter((text) => !css.includes(text));
 
 if (missing.length > 0) {

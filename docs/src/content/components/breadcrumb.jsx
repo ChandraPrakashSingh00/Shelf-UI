@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@codecps/ui";
+import { Breadcrumb } from "@shelf-ui/react";
 import Basic from "../../examples/breadcrumb/Basic.jsx";
 import basicCode from "../../examples/breadcrumb/Basic.jsx?raw";
 import CustomSeparator from "../../examples/breadcrumb/CustomSeparator.jsx";
@@ -13,7 +13,7 @@ function BreadcrumbThumbnail() {
     <Breadcrumb label="Preview">
       <Breadcrumb.Item href="#preview">Home</Breadcrumb.Item>
       <Breadcrumb.Item href="#preview">Projects</Breadcrumb.Item>
-      <Breadcrumb.Item current>codecps-web</Breadcrumb.Item>
+      <Breadcrumb.Item current>storefront-web</Breadcrumb.Item>
     </Breadcrumb>
   );
 }
@@ -24,7 +24,7 @@ export const breadcrumbDoc = {
   category: "Navigation",
   summary: "Trail of links showing where the current page sits in the site.",
   description:
-    "A trail of links from the top of your site or app down to the current page, like Projects › codecps-web › Settings. It helps people see where they are and go back up a level. Use `asChild` to render your router's links.",
+    "A trail of links from the top of your site or app down to the current page, like Projects › storefront-web › Settings. It helps people see where they are and go back up a level. Use `asChild` to render your router's links.",
   keywords: ["breadcrumbs", "trail", "path", "hierarchy", "location", "crumbs", "navigation"],
   imports: ["Breadcrumb"],
   Thumbnail: BreadcrumbThumbnail,
@@ -56,7 +56,7 @@ export const breadcrumbDoc = {
       id: "long-trail",
       title: "Long trail",
       description:
-        "Items wrap onto more lines when space runs out, and labels wider than 16rem end in an ellipsis. Set `--cps-breadcrumb-item-max-width` to change that limit.",
+        "Items wrap onto more lines when space runs out, and labels wider than 16rem end in an ellipsis. Set `--shelf-breadcrumb-item-max-width` to change that limit.",
       Component: LongTrail,
       code: longTrailCode,
     },

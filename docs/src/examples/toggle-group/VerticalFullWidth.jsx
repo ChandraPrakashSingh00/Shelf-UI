@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@codecps/ui";
+import { ToggleGroup } from "@shelf-ui/react";
 
 export default function ToggleGroupVerticalFullWidth() {
   return (

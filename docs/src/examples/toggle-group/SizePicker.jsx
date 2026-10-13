@@ -1,4 +1,4 @@
-import { Button, ToggleGroup } from "@codecps/ui";
+import { Button, ToggleGroup } from "@shelf-ui/react";
 import { useState } from "react";
 
 const sizes = [

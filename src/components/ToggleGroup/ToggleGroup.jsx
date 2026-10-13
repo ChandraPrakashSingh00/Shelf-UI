@@ -26,8 +26,8 @@ function useToggleGroupContext() {
 // The enabled items of `root` in DOM order, leaving out those of nested groups.
 const getEnabledItems = (root) =>
   root
-    ? Array.from(root.querySelectorAll(".cps-toggle-group__item:not(:disabled)")).filter(
-        (item) => item.closest(".cps-toggle-group") === root,
+    ? Array.from(root.querySelectorAll(".shelf-toggle-group__item:not(:disabled)")).filter(
+        (item) => item.closest(".shelf-toggle-group") === root,
       )
     : [];
 
@@ -61,7 +61,7 @@ const ToggleGroupRoot = forwardRef(function ToggleGroup(
   forwardedRef,
 ) {
   const multiple = type === "multiple";
-  const labelId = `cps-toggle-group-${useId()}-label`;
+  const labelId = `shelf-toggle-group-${useId()}-label`;
   const rootRef = useRef(null);
   const ref = useMemo(() => mergeRefs(rootRef, forwardedRef), [forwardedRef]);
 
@@ -174,22 +174,22 @@ const ToggleGroupRoot = forwardRef(function ToggleGroup(
         aria-labelledby={ariaLabelledBy ?? (label != null ? labelId : undefined)}
         data-orientation={orientation}
         className={cx(
-          "cps-toggle-group",
-          `cps-toggle-group--${size}`,
-          `cps-toggle-group--${variant}`,
-          orientation === "vertical" && "cps-toggle-group--vertical",
-          fullWidth && "cps-toggle-group--full-width",
-          disabled && "cps-toggle-group--disabled",
+          "shelf-toggle-group",
+          `shelf-toggle-group--${size}`,
+          `shelf-toggle-group--${variant}`,
+          orientation === "vertical" && "shelf-toggle-group--vertical",
+          fullWidth && "shelf-toggle-group--full-width",
+          disabled && "shelf-toggle-group--disabled",
           className,
         )}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       >
         {label != null && (
-          <span id={labelId} className="cps-field__label cps-toggle-group__label">
+          <span id={labelId} className="shelf-field__label shelf-toggle-group__label">
             {label}
           </span>
         )}
-        <div className="cps-toggle-group__items">{children}</div>
+        <div className="shelf-toggle-group__items">{children}</div>
         {name != null &&
           hiddenValues.map((hiddenValue) => (
             <input
@@ -235,7 +235,7 @@ export const ToggleGroupItem = forwardRef(function ToggleGroupItem(
       tabIndex={tabIndex}
       data-value={value}
       data-state={pressed ? "on" : "off"}
-      className={cx("cps-toggle-group__item", className)}
+      className={cx("shelf-toggle-group__item", className)}
       onFocus={composeEventHandlers(onFocus, () => context.setTabStop(value))}
       onClick={composeEventHandlers(onClick, () => {
         context.setTabStop(value);

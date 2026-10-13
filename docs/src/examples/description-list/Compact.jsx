@@ -1,4 +1,4 @@
-import { DescriptionList } from "@codecps/ui";
+import { DescriptionList } from "@shelf-ui/react";
 
 export default function DescriptionListCompact() {
   return (

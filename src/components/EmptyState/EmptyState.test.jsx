@@ -35,7 +35,7 @@ describe("EmptyState", () => {
     const { container, rerender } = render(
       <EmptyState title="No results" icon={<svg data-testid="icon" />} />,
     );
-    const icon = container.querySelector(".cps-empty-state__icon");
+    const icon = container.querySelector(".shelf-empty-state__icon");
     expect(icon).toHaveAttribute("aria-hidden", "true");
     expect(icon).toContainElement(screen.getByTestId("icon"));
 
@@ -69,19 +69,19 @@ describe("EmptyState", () => {
 
   it("leaves out the optional parts when they're not given", () => {
     const { container } = render(<EmptyState title="Nothing here" />);
-    expect(container.querySelector(".cps-empty-state__icon")).not.toBeInTheDocument();
-    expect(container.querySelector(".cps-empty-state__description")).not.toBeInTheDocument();
-    expect(container.querySelector(".cps-empty-state__actions")).not.toBeInTheDocument();
+    expect(container.querySelector(".shelf-empty-state__icon")).not.toBeInTheDocument();
+    expect(container.querySelector(".shelf-empty-state__description")).not.toBeInTheDocument();
+    expect(container.querySelector(".shelf-empty-state__actions")).not.toBeInTheDocument();
   });
 
   it("applies size, variant, tone and align classes with defaults", () => {
     const { container, rerender } = render(<EmptyState title="No orders yet" />);
     expect(container.firstChild).toHaveClass(
-      "cps-empty-state",
-      "cps-empty-state--md",
-      "cps-empty-state--plain",
-      "cps-empty-state--neutral",
-      "cps-empty-state--align-center",
+      "shelf-empty-state",
+      "shelf-empty-state--md",
+      "shelf-empty-state--plain",
+      "shelf-empty-state--neutral",
+      "shelf-empty-state--align-center",
     );
 
     rerender(
@@ -94,10 +94,10 @@ describe("EmptyState", () => {
       />,
     );
     expect(container.firstChild).toHaveClass(
-      "cps-empty-state--sm",
-      "cps-empty-state--bordered",
-      "cps-empty-state--danger",
-      "cps-empty-state--align-start",
+      "shelf-empty-state--sm",
+      "shelf-empty-state--bordered",
+      "shelf-empty-state--danger",
+      "shelf-empty-state--align-start",
     );
   });
 
@@ -107,7 +107,7 @@ describe("EmptyState", () => {
       <EmptyState ref={ref} role="status" className="custom" title="No results found" />,
     );
     expect(ref.current).toBe(container.firstChild);
-    expect(screen.getByRole("status")).toHaveClass("cps-empty-state", "custom");
+    expect(screen.getByRole("status")).toHaveClass("shelf-empty-state", "custom");
     expect(screen.getByRole("status")).toHaveTextContent("No results found");
   });
 });

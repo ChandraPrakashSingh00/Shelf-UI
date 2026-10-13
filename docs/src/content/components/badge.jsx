@@ -1,4 +1,4 @@
-import { Badge } from "@codecps/ui";
+import { Badge } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import InContext from "../../examples/badge/InContext.jsx";
 import inContextCode from "../../examples/badge/InContext.jsx?raw";

@@ -51,9 +51,9 @@ describe("Timeline", () => {
       "Failed: Delivery attempt failed",
       "Upcoming: Delivered",
     ]);
-    expect(screen.getByText("Completed:")).toHaveClass("cps-visually-hidden");
-    expect(items[3]).toHaveClass("cps-timeline__item--upcoming");
-    expect(items[2]).toHaveClass("cps-timeline__item--error");
+    expect(screen.getByText("Completed:")).toHaveClass("shelf-visually-hidden");
+    expect(items[3]).toHaveClass("shelf-timeline__item--upcoming");
+    expect(items[2]).toHaveClass("shelf-timeline__item--error");
   });
 
   it("customizes or removes the status text with statusLabels", () => {
@@ -95,7 +95,7 @@ describe("Timeline", () => {
       </Timeline>,
     );
 
-    expect(screen.getByText("₹1,299 to UPI")).toHaveClass("cps-timeline__description");
+    expect(screen.getByText("₹1,299 to UPI")).toHaveClass("shelf-timeline__description");
     expect(screen.getByRole("link", { name: "View receipt" })).toBeInTheDocument();
   });
 
@@ -109,23 +109,26 @@ describe("Timeline", () => {
       </Timeline>,
     );
 
-    const dots = container.querySelectorAll(".cps-timeline__dot");
-    expect(container.querySelector(".cps-timeline__marker")).toHaveAttribute("aria-hidden", "true");
+    const dots = container.querySelectorAll(".shelf-timeline__dot");
+    expect(container.querySelector(".shelf-timeline__marker")).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
     expect(dots[0].querySelector("svg")).toBeInTheDocument();
     expect(dots[1]).toContainElement(screen.getByTestId("custom"));
     expect(dots[2]).toBeEmptyDOMElement();
     expect(dots[3]).toBeEmptyDOMElement();
-    expect(dots[0]).toHaveClass("cps-timeline__dot--icon");
-    expect(dots[3]).not.toHaveClass("cps-timeline__dot--icon");
+    expect(dots[0]).toHaveClass("shelf-timeline__dot--icon");
+    expect(dots[3]).not.toHaveClass("shelf-timeline__dot--icon");
   });
 
   it("applies orientation and size classes, defaulting to vertical and md", () => {
     const { rerender } = render(<OrderTracking />);
     const list = screen.getByRole("list");
-    expect(list).toHaveClass("cps-timeline", "cps-timeline--vertical", "cps-timeline--md");
+    expect(list).toHaveClass("shelf-timeline", "shelf-timeline--vertical", "shelf-timeline--md");
 
     rerender(<OrderTracking orientation="horizontal" size="sm" />);
-    expect(list).toHaveClass("cps-timeline--horizontal", "cps-timeline--sm");
+    expect(list).toHaveClass("shelf-timeline--horizontal", "shelf-timeline--sm");
   });
 
   it("forwards refs, className and other props to the list and its items", () => {
@@ -143,7 +146,7 @@ describe("Timeline", () => {
     expect(list).toHaveAttribute("id", "tracking");
     const item = screen.getByRole("listitem");
     expect(itemRef.current).toBe(item);
-    expect(item).toHaveClass("cps-timeline__item", "item");
+    expect(item).toHaveClass("shelf-timeline__item", "item");
     expect(item).toHaveAttribute("data-step", "1");
   });
 

@@ -39,23 +39,23 @@ export const Alert = forwardRef(function Alert(
       {...rest}
       ref={ref}
       role={role ?? (isUrgent ? "alert" : "status")}
-      className={cx("cps-alert", `cps-alert--${variant}`, className)}
+      className={cx("shelf-alert", `shelf-alert--${variant}`, className)}
     >
       {iconNode != null && iconNode !== false && (
-        <span className="cps-alert__icon" aria-hidden="true">
+        <span className="shelf-alert__icon" aria-hidden="true">
           {iconNode}
         </span>
       )}
 
-      <div className="cps-alert__body">
-        {title != null && <div className="cps-alert__title">{title}</div>}
-        {description != null && <div className="cps-alert__description">{description}</div>}
+      <div className="shelf-alert__body">
+        {title != null && <div className="shelf-alert__title">{title}</div>}
+        {description != null && <div className="shelf-alert__description">{description}</div>}
         {children}
-        {action != null && <div className="cps-alert__action">{action}</div>}
+        {action != null && <div className="shelf-alert__action">{action}</div>}
       </div>
 
       {onDismiss && (
-        <IconButton label={dismissLabel} className="cps-alert__dismiss" onClick={onDismiss}>
+        <IconButton label={dismissLabel} className="shelf-alert__dismiss" onClick={onDismiss}>
           <CloseIcon />
         </IconButton>
       )}

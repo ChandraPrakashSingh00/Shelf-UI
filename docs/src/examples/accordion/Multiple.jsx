@@ -1,4 +1,4 @@
-import { Accordion } from "@codecps/ui";
+import { Accordion } from "@shelf-ui/react";
 
 export default function AccordionMultiple() {
   return (
@@ -14,7 +14,7 @@ export default function AccordionMultiple() {
         6 variables for Production and 4 for Preview deployments.
       </Accordion.Item>
       <Accordion.Item value="domains" title="Domains">
-        codecps.com and www.codecps.com point to this project.
+        example.com and www.example.com point to this project.
       </Accordion.Item>
     </Accordion>
   );

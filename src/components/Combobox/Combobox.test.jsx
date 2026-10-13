@@ -44,7 +44,7 @@ describe("Combobox", () => {
     expect(input).toHaveAttribute("aria-controls", listbox.id);
     expect(optionNames()).toEqual(["Mumbai", "Navi Mumbai"]);
     expect(
-      Array.from(container.querySelectorAll(".cps-combobox__match")).map((match) => [
+      Array.from(container.querySelectorAll(".shelf-combobox__match")).map((match) => [
         match.textContent,
         match.parentElement.textContent,
       ]),
@@ -74,7 +74,7 @@ describe("Combobox", () => {
     await user.keyboard("{ArrowDown}");
     const options = screen.getAllByRole("option");
     expect(input).toHaveAttribute("aria-activedescendant", options[0].id);
-    expect(options[0]).toHaveClass("cps-combobox__option--active");
+    expect(options[0]).toHaveClass("shelf-combobox__option--active");
 
     await user.keyboard("{ArrowDown}{ArrowDown}");
     expect(input).toHaveAttribute("aria-activedescendant", options[3].id);
@@ -333,7 +333,7 @@ describe("Combobox", () => {
     const { user, input, container, rerender } = setup({ options: [], loading: true });
 
     expect(input).toHaveAttribute("aria-busy", "true");
-    expect(container.querySelector(".cps-combobox__spinner")).toBeInTheDocument();
+    expect(container.querySelector(".shelf-combobox__spinner")).toBeInTheDocument();
     await user.type(input, "pu");
     expect(screen.getByRole("status")).toHaveTextContent("Loading…");
     expect(screen.getByText("Loading…", { selector: "div" })).toBeInTheDocument();
@@ -631,7 +631,7 @@ describe("Combobox", () => {
     });
 
     expect(input).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-field--disabled");
+    expect(container.firstChild).toHaveClass("shelf-field--disabled");
     expect(screen.getByRole("button", { name: "Show options" })).toBeDisabled();
     expect(screen.queryByRole("button", { name: "Clear" })).not.toBeInTheDocument();
     expect(container.querySelector('input[type="hidden"]')).toBeDisabled();
@@ -666,8 +666,8 @@ describe("Combobox", () => {
     await user.keyboard("{ArrowDown}{ArrowDown}");
     expect(
       container
-        .querySelector(".cps-combobox__popup")
-        .style.getPropertyValue("--cps-combobox-max-height"),
+        .querySelector(".shelf-combobox__popup")
+        .style.getPropertyValue("--shelf-combobox-max-height"),
     ).toBe("200px");
     expect(scrollIntoView).toHaveBeenLastCalledWith({ block: "nearest" });
     delete Element.prototype.scrollIntoView;
@@ -675,7 +675,7 @@ describe("Combobox", () => {
 
   it("applies the size and hides decorative icons", () => {
     const { container } = setup({ size: "lg", leftIcon: <svg data-testid="pin" /> });
-    expect(container.firstChild).toHaveClass("cps-field", "cps-field--lg", "cps-combobox");
+    expect(container.firstChild).toHaveClass("shelf-field", "shelf-field--lg", "shelf-combobox");
     expect(screen.getByTestId("pin").parentElement).toHaveAttribute("aria-hidden", "true");
   });
 

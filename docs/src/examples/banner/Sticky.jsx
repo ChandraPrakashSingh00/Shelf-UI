@@ -1,4 +1,4 @@
-import { Banner } from "@codecps/ui";
+import { Banner } from "@shelf-ui/react";
 
 const products = [
   { name: "Cotton Kurta – Indigo", city: "Jaipur", price: "₹899" },
@@ -20,8 +20,8 @@ export default function BannerSticky() {
         width: "100%",
         height: 240,
         overflowY: "auto",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
       }}
     >
       <Banner sticky title="Free shipping this week" action={<a href="#free-shipping">Details</a>}>
@@ -36,14 +36,14 @@ export default function BannerSticky() {
               justifyContent: "space-between",
               gap: 16,
               padding: "12px 16px",
-              border: "1px solid var(--cps-color-border)",
-              borderRadius: "var(--cps-radius-md)",
+              border: "1px solid var(--shelf-color-border)",
+              borderRadius: "var(--shelf-radius-md)",
             }}
           >
             <span>
               {product.name}
               <br />
-              <small style={{ color: "var(--cps-color-text-muted)" }}>From {product.city}</small>
+              <small style={{ color: "var(--shelf-color-text-muted)" }}>From {product.city}</small>
             </span>
             <strong>{product.price}</strong>
           </li>

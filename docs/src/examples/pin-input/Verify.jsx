@@ -1,4 +1,4 @@
-import { Alert, Button, PinInput } from "@codecps/ui";
+import { Alert, Button, PinInput } from "@shelf-ui/react";
 import { useEffect, useState } from "react";
 
 // In a real app, check the code with your API. In this demo, 246810 is correct.
@@ -57,7 +57,7 @@ export default function PinInputVerify() {
         {checking != null ? "Verifying…" : ""}
       </p>
       <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 14 }}>
-        <span style={{ color: "var(--cps-color-text-muted)" }}>Didn&apos;t get it?</span>
+        <span style={{ color: "var(--shelf-color-text-muted)" }}>Didn&apos;t get it?</span>
         <Button size="sm" variant="ghost" onClick={startAgain}>
           Resend OTP
         </Button>

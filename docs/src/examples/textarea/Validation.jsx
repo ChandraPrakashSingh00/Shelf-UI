@@ -1,4 +1,4 @@
-import { Textarea } from "@codecps/ui";
+import { Textarea } from "@shelf-ui/react";
 import { useState } from "react";
 
 const MIN_LENGTH = 20;
@@ -16,7 +16,7 @@ export default function TextareaValidation() {
         onChange={(event) => setFeedback(event.target.value)}
         showCount
         maxLength={500}
-        helperText="Your feedback goes straight to the CodeCPS product team."
+        helperText="Your feedback goes straight to the Acme product team."
         error={tooShort ? `Tell us a little more: at least ${MIN_LENGTH} characters.` : undefined}
       />
     </div>

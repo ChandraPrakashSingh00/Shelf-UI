@@ -51,9 +51,9 @@ const NavbarRoot = forwardRef(function Navbar(
       <header
         {...rest}
         ref={ref}
-        className={cx("cps-navbar", sticky && "cps-navbar--sticky", className)}
+        className={cx("shelf-navbar", sticky && "shelf-navbar--sticky", className)}
       >
-        <nav className="cps-navbar__inner" aria-label={label}>
+        <nav className="shelf-navbar__inner" aria-label={label}>
           {children}
         </nav>
       </header>
@@ -70,7 +70,7 @@ export const NavbarBrand = forwardRef(function NavbarBrand(
   { asChild = false, className, ...rest },
   ref,
 ) {
-  const brandProps = { ...rest, className: cx("cps-navbar__brand", className) };
+  const brandProps = { ...rest, className: cx("shelf-navbar__brand", className) };
   return asChild ? <Slot {...brandProps} /> : <a {...brandProps} ref={ref} />;
 });
 
@@ -101,7 +101,7 @@ export const NavbarMenu = forwardRef(function NavbarMenu(
         label={toggleLabel}
         aria-expanded={menuOpen}
         aria-controls={menuId}
-        className="cps-navbar__toggle"
+        className="shelf-navbar__toggle"
         onClick={() => setMenuOpen(!menuOpen)}
         onKeyDown={handleKeyDown}
       >
@@ -112,7 +112,7 @@ export const NavbarMenu = forwardRef(function NavbarMenu(
         ref={ref}
         id={menuId}
         data-state={menuOpen ? "open" : "closed"}
-        className={cx("cps-navbar__menu", className)}
+        className={cx("shelf-navbar__menu", className)}
         // eslint-disable-next-line react-hooks/refs -- handleKeyDown runs on keydown, not during render
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       />
@@ -121,7 +121,7 @@ export const NavbarMenu = forwardRef(function NavbarMenu(
 });
 
 export const NavbarLinks = forwardRef(function NavbarLinks({ className, ...rest }, ref) {
-  return <ul {...rest} ref={ref} className={cx("cps-navbar__links", className)} />;
+  return <ul {...rest} ref={ref} className={cx("shelf-navbar__links", className)} />;
 });
 
 /**
@@ -139,19 +139,19 @@ export const NavbarLink = forwardRef(function NavbarLink(
   const linkProps = {
     ...rest,
     "aria-current": active ? "page" : undefined,
-    className: cx("cps-navbar__link", className),
+    className: cx("shelf-navbar__link", className),
     onClick: composeEventHandlers(onClick, () => setMenuOpen(false)),
   };
 
   return (
-    <li className="cps-navbar__item">
+    <li className="shelf-navbar__item">
       {asChild ? <Slot {...linkProps} /> : <a {...linkProps} ref={ref} />}
     </li>
   );
 });
 
 export const NavbarActions = forwardRef(function NavbarActions({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-navbar__actions", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-navbar__actions", className)} />;
 });
 
 /**
@@ -164,7 +164,7 @@ export const NavbarActions = forwardRef(function NavbarActions({ className, ...r
  *
  * @example
  * <Navbar sticky>
- *   <Navbar.Brand href="/">CodeCPS UI</Navbar.Brand>
+ *   <Navbar.Brand href="/">Shelf UI</Navbar.Brand>
  *   <Navbar.Menu>
  *     <Navbar.Links>
  *       <Navbar.Link href="/" active>Home</Navbar.Link>

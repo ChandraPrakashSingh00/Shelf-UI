@@ -18,7 +18,7 @@ describe("Pagination", () => {
     render(<Pagination totalPages={20} defaultPage={5} />);
 
     const nav = screen.getByRole("navigation", { name: "Pagination" });
-    expect(nav).toHaveClass("cps-pagination", "cps-pagination--md");
+    expect(nav).toHaveClass("shelf-pagination", "shelf-pagination--md");
     expect(within(nav).getByRole("list")).toBeInTheDocument();
     expect(itemTexts()).toEqual(["", "1", "…", "4", "5", "6", "…", "20", ""]);
 
@@ -155,7 +155,7 @@ describe("Pagination", () => {
 
   it.each(["sm", "md"])("applies the %s size", (size) => {
     render(<Pagination totalPages={3} size={size} />);
-    expect(screen.getByRole("navigation")).toHaveClass(`cps-pagination--${size}`);
+    expect(screen.getByRole("navigation")).toHaveClass(`shelf-pagination--${size}`);
   });
 
   it("accepts custom accessible names", () => {
@@ -247,7 +247,7 @@ describe("Pagination", () => {
 
     const nav = screen.getByRole("navigation", { name: "Invoices pages" });
     expect(ref.current).toBe(nav);
-    expect(nav).toHaveClass("cps-pagination", "custom");
+    expect(nav).toHaveClass("shelf-pagination", "custom");
     expect(nav).toHaveAttribute("data-testid", "invoices-pages");
   });
 });

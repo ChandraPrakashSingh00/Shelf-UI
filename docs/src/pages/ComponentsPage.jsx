@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { ComponentCard } from "../components/ComponentCard.jsx";
 import { CategoryIcon, ComponentIcon } from "../components/componentIcons.jsx";

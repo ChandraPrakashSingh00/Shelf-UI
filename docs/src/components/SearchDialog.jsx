@@ -1,4 +1,4 @@
-import { Input, Modal } from "@codecps/ui";
+import { Input, Modal } from "@shelf-ui/react";
 import { useEffect, useId, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { searchIndex } from "../content/searchIndex.js";

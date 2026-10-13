@@ -1,4 +1,4 @@
-import { Calendar } from "@codecps/ui";
+import { Calendar } from "@shelf-ui/react";
 import { useState } from "react";
 
 const formatDay = (date) =>

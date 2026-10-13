@@ -44,27 +44,27 @@ export const TimelineItem = forwardRef(function TimelineItem(
       {...rest}
       ref={ref}
       aria-current={status === "current" ? "step" : undefined}
-      className={cx("cps-timeline__item", `cps-timeline__item--${status}`, className)}
+      className={cx("shelf-timeline__item", `shelf-timeline__item--${status}`, className)}
     >
-      <span className="cps-timeline__marker" aria-hidden="true">
-        <span className={cx("cps-timeline__dot", glyph != null && "cps-timeline__dot--icon")}>
+      <span className="shelf-timeline__marker" aria-hidden="true">
+        <span className={cx("shelf-timeline__dot", glyph != null && "shelf-timeline__dot--icon")}>
           {glyph}
         </span>
       </span>
-      <div className="cps-timeline__content">
+      <div className="shelf-timeline__content">
         {/* So the status isn't conveyed by color alone. */}
-        {statusLabel ? <span className="cps-visually-hidden">{`${statusLabel}: `}</span> : null}
-        {title != null && <div className="cps-timeline__title">{title}</div>}
+        {statusLabel ? <span className="shelf-visually-hidden">{`${statusLabel}: `}</span> : null}
+        {title != null && <div className="shelf-timeline__title">{title}</div>}
         {time != null &&
           (dateTime ? (
-            <time className="cps-timeline__time" dateTime={dateTime}>
+            <time className="shelf-timeline__time" dateTime={dateTime}>
               {time}
             </time>
           ) : (
-            <span className="cps-timeline__time">{time}</span>
+            <span className="shelf-timeline__time">{time}</span>
           ))}
-        {description != null && <div className="cps-timeline__description">{description}</div>}
-        {children != null && <div className="cps-timeline__body">{children}</div>}
+        {description != null && <div className="shelf-timeline__description">{description}</div>}
+        {children != null && <div className="shelf-timeline__body">{children}</div>}
       </div>
     </li>
   );
@@ -85,9 +85,9 @@ const TimelineRoot = forwardRef(function Timeline(
         {...rest}
         ref={ref}
         className={cx(
-          "cps-timeline",
-          `cps-timeline--${orientation}`,
-          `cps-timeline--${size}`,
+          "shelf-timeline",
+          `shelf-timeline--${orientation}`,
+          `shelf-timeline--${size}`,
           className,
         )}
       />

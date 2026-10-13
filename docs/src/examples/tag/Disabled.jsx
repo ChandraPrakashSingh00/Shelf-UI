@@ -1,4 +1,4 @@
-import { Tag } from "@codecps/ui";
+import { Tag } from "@shelf-ui/react";
 
 export default function TagDisabled() {
   return (
@@ -11,7 +11,7 @@ export default function TagDisabled() {
           Warehouse: Chennai
         </Tag>
       </div>
-      <p style={{ margin: 0, color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+      <p style={{ margin: 0, color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
         Filters set by your store manager can't be removed.
       </p>
     </div>

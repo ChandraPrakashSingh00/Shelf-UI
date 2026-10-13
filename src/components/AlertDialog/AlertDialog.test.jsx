@@ -340,13 +340,16 @@ describe("AlertDialog", () => {
   it("styles the confirm button and icon by variant", () => {
     const { rerender } = render(<AlertDialog open onClose={vi.fn()} title="Delete?" />);
     const dialog = screen.getByRole("alertdialog");
-    expect(dialog).toHaveClass("cps-modal", "cps-modal--sm", "cps-alert-dialog--danger");
-    expect(screen.getByRole("button", { name: "Confirm" })).toHaveClass("cps-button--danger");
-    expect(dialog.querySelector(".cps-alert-dialog__icon")).toHaveAttribute("aria-hidden", "true");
+    expect(dialog).toHaveClass("shelf-modal", "shelf-modal--sm", "shelf-alert-dialog--danger");
+    expect(screen.getByRole("button", { name: "Confirm" })).toHaveClass("shelf-button--danger");
+    expect(dialog.querySelector(".shelf-alert-dialog__icon")).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
 
     rerender(<AlertDialog open onClose={vi.fn()} title="Publish?" variant="primary" size="md" />);
-    expect(dialog).toHaveClass("cps-alert-dialog--primary", "cps-modal--md");
-    expect(screen.getByRole("button", { name: "Confirm" })).toHaveClass("cps-button--primary");
+    expect(dialog).toHaveClass("shelf-alert-dialog--primary", "shelf-modal--md");
+    expect(screen.getByRole("button", { name: "Confirm" })).toHaveClass("shelf-button--primary");
   });
 
   it("renders a custom icon, or none with icon={null}", () => {
@@ -356,7 +359,7 @@ describe("AlertDialog", () => {
     expect(screen.getByTestId("bin")).toBeInTheDocument();
 
     rerender(<AlertDialog open onClose={vi.fn()} title="Delete?" icon={null} />);
-    expect(screen.getByRole("alertdialog").querySelector(".cps-alert-dialog__icon")).toBeNull();
+    expect(screen.getByRole("alertdialog").querySelector(".shelf-alert-dialog__icon")).toBeNull();
   });
 
   it("renders extra content below the description", () => {
@@ -365,7 +368,7 @@ describe("AlertDialog", () => {
         <Input label="Reason" />
       </AlertDialog>,
     );
-    expect(screen.getByLabelText("Reason").closest(".cps-alert-dialog__extra")).not.toBeNull();
+    expect(screen.getByLabelText("Reason").closest(".shelf-alert-dialog__extra")).not.toBeNull();
   });
 
   it("forwards the ref, className and other props to the dialog panel", () => {
@@ -382,7 +385,7 @@ describe("AlertDialog", () => {
     );
     const dialog = screen.getByRole("alertdialog");
     expect(ref.current).toBe(dialog);
-    expect(dialog).toHaveClass("cps-alert-dialog", "custom");
+    expect(dialog).toHaveClass("shelf-alert-dialog", "custom");
     expect(dialog).toHaveAttribute("data-testid", "panel");
   });
 

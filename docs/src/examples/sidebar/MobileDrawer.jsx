@@ -1,4 +1,4 @@
-import { Button, Drawer, Sidebar } from "@codecps/ui";
+import { Button, Drawer, Sidebar } from "@shelf-ui/react";
 import { useState } from "react";
 
 const pages = [
@@ -37,9 +37,9 @@ export default function SidebarMobileDrawer() {
         maxWidth: 375,
         height: 320,
         overflow: "hidden",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-bg)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-bg)",
       }}
     >
       <div
@@ -48,7 +48,7 @@ export default function SidebarMobileDrawer() {
           alignItems: "center",
           gap: 8,
           padding: "8px 12px",
-          borderBottom: "1px solid var(--cps-color-border)",
+          borderBottom: "1px solid var(--shelf-color-border)",
         }}
       >
         <Button variant="ghost" size="sm" aria-label="Open menu" onClick={() => setOpen(true)}>

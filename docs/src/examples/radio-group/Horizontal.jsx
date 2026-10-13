@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@codecps/ui";
+import { Radio, RadioGroup } from "@shelf-ui/react";
 
 export default function RadioGroupHorizontal() {
   return (

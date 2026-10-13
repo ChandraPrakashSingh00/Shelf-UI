@@ -1,4 +1,4 @@
-import { Button, Rating, Textarea } from "@codecps/ui";
+import { Button, Rating, Textarea } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function RatingReviewForm() {

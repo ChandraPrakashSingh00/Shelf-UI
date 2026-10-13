@@ -1,4 +1,4 @@
-import { Button, Toast, useToast } from "@codecps/ui";
+import { Button, Toast, useToast } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Position from "../../examples/toast/Position.jsx";
 import positionCode from "../../examples/toast/Position.jsx?raw";
@@ -54,7 +54,7 @@ export const toastDoc = {
     defaults: {
       variant: "success",
       title: "Project created",
-      message: "codecps-web is ready to deploy.",
+      message: "storefront-web is ready to deploy.",
       duration: "5000",
     },
     controls: {
@@ -72,7 +72,7 @@ export const toastDoc = {
         values.duration !== "5000" && `  duration: ${values.duration},`,
       ].filter(Boolean);
       return [
-        'import { useToast } from "@codecps/ui";',
+        'import { useToast } from "@shelf-ui/react";',
         "",
         "const { toast } = useToast();",
         "",

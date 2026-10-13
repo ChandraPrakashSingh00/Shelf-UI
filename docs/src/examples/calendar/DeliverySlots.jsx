@@ -1,4 +1,4 @@
-import { Calendar, Card } from "@codecps/ui";
+import { Calendar, Card } from "@shelf-ui/react";
 import { useState } from "react";
 
 // Deliveries start tomorrow and can be booked up to two weeks ahead.

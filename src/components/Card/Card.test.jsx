@@ -20,7 +20,7 @@ describe("Card", () => {
 
     expect(screen.getByRole("heading", { level: 3, name: "Starter plan" })).toBeInTheDocument();
     expect(screen.getByText("For small teams")).toBeInTheDocument();
-    expect(screen.getByText("Up to 5 projects")).toHaveClass("cps-card__content");
+    expect(screen.getByText("Up to 5 projects")).toHaveClass("shelf-card__content");
     expect(screen.getByRole("button", { name: "Choose plan" })).toBeInTheDocument();
   });
 
@@ -41,18 +41,18 @@ describe("Card", () => {
     );
 
     expect(screen.getByRole("heading", { name: "Deployments" })).toBeInTheDocument();
-    expect(screen.getByText("Last 24 hours")).toHaveClass("cps-card__description");
-    expect(screen.getByText("12 successful")).toHaveClass("cps-card__content");
+    expect(screen.getByText("Last 24 hours")).toHaveClass("shelf-card__description");
+    expect(screen.getByText("12 successful")).toHaveClass("shelf-card__content");
     expect(screen.getByRole("button", { name: "View all" }).parentElement).toHaveClass(
-      "cps-card__footer",
+      "shelf-card__footer",
     );
   });
 
   it("renders plain children directly when no shorthand is used", () => {
-    render(<Card data-testid="card">Hello CodeCPS</Card>);
+    render(<Card data-testid="card">Hello Acme</Card>);
     const card = screen.getByTestId("card");
-    expect(card).toHaveTextContent("Hello CodeCPS");
-    expect(card.querySelector(".cps-card__content")).not.toBeInTheDocument();
+    expect(card).toHaveTextContent("Hello Acme");
+    expect(card.querySelector(".shelf-card__content")).not.toBeInTheDocument();
   });
 
   it("does not forward the title prop as a tooltip attribute", () => {
@@ -62,9 +62,9 @@ describe("Card", () => {
 
   it("defaults to the outlined variant and accepts others", () => {
     const { rerender } = render(<Card data-testid="card" />);
-    expect(screen.getByTestId("card")).toHaveClass("cps-card--outlined");
+    expect(screen.getByTestId("card")).toHaveClass("shelf-card--outlined");
 
     rerender(<Card data-testid="card" variant="elevated" />);
-    expect(screen.getByTestId("card")).toHaveClass("cps-card--elevated");
+    expect(screen.getByTestId("card")).toHaveClass("shelf-card--elevated");
   });
 });

@@ -1,4 +1,4 @@
-import { Carousel } from "@codecps/ui";
+import { Carousel } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Announcements from "../../examples/carousel/Announcements.jsx";
 import announcementsCode from "../../examples/carousel/Announcements.jsx?raw";
@@ -89,8 +89,8 @@ export const carouselDoc = {
                 placeItems: "center",
                 minHeight: 180,
                 padding: "24px 72px",
-                background: "var(--cps-color-primary-subtle)",
-                color: "var(--cps-color-primary-text)",
+                background: "var(--shelf-color-primary-subtle)",
+                color: "var(--shelf-color-primary-text)",
                 fontSize: 20,
                 fontWeight: 600,
               }}

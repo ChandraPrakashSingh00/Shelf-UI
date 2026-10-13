@@ -1,4 +1,4 @@
-import { Badge, Switch } from "@codecps/ui";
+import { Badge, Switch } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function SwitchControlled() {
@@ -13,7 +13,7 @@ export default function SwitchControlled() {
         onCheckedChange={setMaintenance}
       />
       <Badge variant={maintenance ? "warning" : "success"}>
-        {maintenance ? "codecps.in is offline" : "codecps.in is live"}
+        {maintenance ? "example.com is offline" : "example.com is live"}
       </Badge>
     </div>
   );

@@ -1,4 +1,4 @@
-import { FileUpload } from "@codecps/ui";
+import { FileUpload } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/file-upload/Basic.jsx";
 import basicCode from "../../examples/file-upload/Basic.jsx?raw";
@@ -19,9 +19,9 @@ const accepts = ["image/*", ".pdf", "any"];
 // A static look-alike: the real drop zone is taller than a card preview.
 function FileUploadThumbnail() {
   const box = {
-    border: "1px solid var(--cps-color-border)",
-    borderRadius: "var(--cps-radius-md)",
-    backgroundColor: "var(--cps-color-surface)",
+    border: "1px solid var(--shelf-color-border)",
+    borderRadius: "var(--shelf-radius-md)",
+    backgroundColor: "var(--shelf-color-surface)",
   };
   return (
     <div
@@ -30,9 +30,9 @@ function FileUploadThumbnail() {
         gap: 8,
         width: "100%",
         maxWidth: 220,
-        color: "var(--cps-color-text-muted)",
-        fontFamily: "var(--cps-font-sans)",
-        fontSize: "var(--cps-font-size-xs)",
+        color: "var(--shelf-color-text-muted)",
+        fontFamily: "var(--shelf-font-sans)",
+        fontSize: "var(--shelf-font-size-xs)",
       }}
     >
       <div
@@ -43,8 +43,8 @@ function FileUploadThumbnail() {
           gap: 6,
           padding: "12px 8px",
           borderStyle: "dashed",
-          borderColor: "var(--cps-color-border-strong)",
-          borderRadius: "var(--cps-radius-lg)",
+          borderColor: "var(--shelf-color-border-strong)",
+          borderRadius: "var(--shelf-radius-lg)",
           textAlign: "center",
         }}
       >
@@ -55,9 +55,9 @@ function FileUploadThumbnail() {
             justifyContent: "center",
             width: 28,
             height: 28,
-            borderRadius: "var(--cps-radius-full)",
-            backgroundColor: "var(--cps-color-primary-subtle)",
-            color: "var(--cps-color-primary-text)",
+            borderRadius: "var(--shelf-radius-full)",
+            backgroundColor: "var(--shelf-color-primary-subtle)",
+            color: "var(--shelf-color-primary-text)",
           }}
         >
           <svg
@@ -75,7 +75,7 @@ function FileUploadThumbnail() {
           </svg>
         </span>
         <span>
-          <strong style={{ color: "var(--cps-color-primary-text)" }}>Choose files</strong> or drag
+          <strong style={{ color: "var(--shelf-color-primary-text)" }}>Choose files</strong> or drag
           and drop here
         </span>
       </div>
@@ -85,13 +85,13 @@ function FileUploadThumbnail() {
             flexShrink: 0,
             width: 24,
             height: 24,
-            borderRadius: "var(--cps-radius-sm)",
+            borderRadius: "var(--shelf-radius-sm)",
             background:
-              "linear-gradient(135deg, var(--cps-color-primary-border), var(--cps-color-warning-border))",
+              "linear-gradient(135deg, var(--shelf-color-primary-border), var(--shelf-color-warning-border))",
           }}
         />
         <span style={{ display: "grid", flex: 1, minWidth: 0 }}>
-          <span style={{ color: "var(--cps-color-text)", fontWeight: 500 }}>kurta-front.jpg</span>
+          <span style={{ color: "var(--shelf-color-text)", fontWeight: 500 }}>kurta-front.jpg</span>
           <span>1.2 MB</span>
         </span>
         <span>✕</span>

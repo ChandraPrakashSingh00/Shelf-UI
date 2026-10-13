@@ -1,4 +1,4 @@
-import { Navbar } from "@codecps/ui";
+import { Navbar } from "@shelf-ui/react";
 import Basic from "../../examples/navbar/Basic.jsx";
 import basicCode from "../../examples/navbar/Basic.jsx?raw";
 import RouterLinks from "../../examples/navbar/RouterLinks.jsx";
@@ -9,7 +9,7 @@ function NavbarThumbnail() {
   return (
     <div style={{ width: "100%", maxWidth: 260 }}>
       <Navbar label="Preview">
-        <Navbar.Brand href="#preview">CodeCPS</Navbar.Brand>
+        <Navbar.Brand href="#preview">Acme</Navbar.Brand>
         <Navbar.Menu>
           <Navbar.Links>
             <Navbar.Link href="#preview">Home</Navbar.Link>

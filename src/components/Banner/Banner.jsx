@@ -61,30 +61,30 @@ export const Banner = forwardRef(function Banner(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-banner",
-        `cps-banner--${variant}`,
-        `cps-banner--align-${align}`,
-        sticky && "cps-banner--sticky",
-        onDismiss && "cps-banner--dismissible",
+        "shelf-banner",
+        `shelf-banner--${variant}`,
+        `shelf-banner--align-${align}`,
+        sticky && "shelf-banner--sticky",
+        onDismiss && "shelf-banner--dismissible",
         className,
       )}
     >
-      <div className="cps-banner__inner">
+      <div className="shelf-banner__inner">
         {hasIcon && (
-          <span className="cps-banner__icon" aria-hidden="true">
+          <span className="shelf-banner__icon" aria-hidden="true">
             {iconNode}
           </span>
         )}
-        <div className="cps-banner__message">
-          {hasTitle && <strong className="cps-banner__title">{title}</strong>}
+        <div className="shelf-banner__message">
+          {hasTitle && <strong className="shelf-banner__title">{title}</strong>}
           {hasTitle && children != null && " "}
           {children}
         </div>
-        {action != null && <div className="cps-banner__action">{action}</div>}
+        {action != null && <div className="shelf-banner__action">{action}</div>}
       </div>
 
       {onDismiss && (
-        <IconButton label={dismissLabel} className="cps-banner__dismiss" onClick={onDismiss}>
+        <IconButton label={dismissLabel} className="shelf-banner__dismiss" onClick={onDismiss}>
           <CloseIcon />
         </IconButton>
       )}

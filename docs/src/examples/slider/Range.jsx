@@ -1,4 +1,4 @@
-import { Slider } from "@codecps/ui";
+import { Slider } from "@shelf-ui/react";
 
 export default function SliderRange() {
   return (

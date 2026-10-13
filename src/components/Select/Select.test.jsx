@@ -180,7 +180,7 @@ describe("Select", () => {
     expect(screen.getByRole("button", { name: "Next" })).toHaveFocus();
 
     expect(screen.getByLabelText("Plan")).toBeDisabled();
-    expect(container.querySelectorAll(".cps-field")[1]).toHaveClass("cps-field--disabled");
+    expect(container.querySelectorAll(".shelf-field")[1]).toHaveClass("shelf-field--disabled");
   });
 
   it("applies the size to the field and hides its icons from assistive technology", () => {
@@ -194,11 +194,14 @@ describe("Select", () => {
     );
 
     const select = screen.getByRole("combobox", { name: "Region" });
-    expect(container.firstChild).toHaveClass("cps-field", "cps-field--lg");
+    expect(container.firstChild).toHaveClass("shelf-field", "shelf-field--lg");
     expect(select).not.toHaveAttribute("size");
-    expect(container.querySelector(".cps-select")).toHaveClass("cps-select--with-icon");
+    expect(container.querySelector(".shelf-select")).toHaveClass("shelf-select--with-icon");
     expect(screen.getByTestId("globe").parentElement).toHaveAttribute("aria-hidden", "true");
-    expect(container.querySelector(".cps-select__chevron")).toHaveAttribute("aria-hidden", "true");
+    expect(container.querySelector(".shelf-select__chevron")).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
   });
 
   it("forwards the ref and native attributes to the select, and submits with its form", () => {
@@ -225,9 +228,9 @@ describe("Select", () => {
     const select = screen.getByLabelText("Region");
     expect(ref.current).toBe(select);
     expect(select).toHaveAttribute("id", "region");
-    expect(select).toHaveClass("cps-select__control", "custom-select");
+    expect(select).toHaveClass("shelf-select__control", "custom-select");
 
-    const field = container.querySelector(".cps-field");
+    const field = container.querySelector(".shelf-field");
     expect(field).toHaveClass("custom-field");
     expect(field).toHaveStyle({ maxWidth: "240px" });
     expect(new FormData(screen.getByRole("form")).get("region")).toBe("sin1");

@@ -1,4 +1,4 @@
-import { Rating } from "@codecps/ui";
+import { Rating } from "@shelf-ui/react";
 import { useState } from "react";
 
 export function RatingDemo() {

@@ -8,7 +8,7 @@ function renderNavbar(props = {}) {
   const user = userEvent.setup();
   render(
     <Navbar {...props}>
-      <Navbar.Brand href="#home">CodeCPS UI</Navbar.Brand>
+      <Navbar.Brand href="#home">Shelf UI</Navbar.Brand>
       <Navbar.Menu>
         <Navbar.Links>
           <Navbar.Link href="#home" active>
@@ -35,9 +35,9 @@ describe("Navbar", () => {
   it("renders banner and navigation landmarks with a list of links", () => {
     renderNavbar();
 
-    expect(screen.getByRole("banner")).toHaveClass("cps-navbar");
+    expect(screen.getByRole("banner")).toHaveClass("shelf-navbar");
     const nav = screen.getByRole("navigation", { name: "Main" });
-    expect(nav).toContainElement(screen.getByRole("link", { name: "CodeCPS UI" }));
+    expect(nav).toContainElement(screen.getByRole("link", { name: "Shelf UI" }));
     expect(screen.getAllByRole("listitem")).toHaveLength(3);
   });
 
@@ -120,7 +120,7 @@ describe("Navbar", () => {
     const link = screen.getByRole("link", { name: "Docs" });
     expect(link).toHaveAttribute("href", "#docs");
     expect(link).toHaveAttribute("aria-current", "page");
-    expect(link).toHaveClass("cps-navbar__link", "router-link");
+    expect(link).toHaveClass("shelf-navbar__link", "router-link");
 
     await user.click(link);
     expect(onNavigate).toHaveBeenCalledTimes(1);
@@ -136,7 +136,7 @@ describe("Navbar", () => {
       label: "Documentation",
     });
 
-    expect(screen.getByRole("banner")).toHaveClass("cps-navbar--sticky");
+    expect(screen.getByRole("banner")).toHaveClass("shelf-navbar--sticky");
     expect(screen.getByRole("navigation", { name: "Documentation" })).toBeInTheDocument();
 
     await user.click(toggle);

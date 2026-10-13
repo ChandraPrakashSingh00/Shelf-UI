@@ -9,10 +9,10 @@ describe("Divider", () => {
     const divider = screen.getByRole("separator");
     expect(divider.tagName).toBe("HR");
     expect(divider).toHaveClass(
-      "cps-divider",
-      "cps-divider--horizontal",
-      "cps-divider--solid",
-      "cps-divider--spacing-md",
+      "shelf-divider",
+      "shelf-divider--horizontal",
+      "shelf-divider--solid",
+      "shelf-divider--spacing-md",
     );
     expect(divider).not.toHaveAttribute("aria-hidden");
   });
@@ -22,7 +22,7 @@ describe("Divider", () => {
     const divider = screen.getByRole("separator");
     expect(divider.tagName).toBe("SPAN");
     expect(divider).toHaveAttribute("aria-orientation", "vertical");
-    expect(divider).toHaveClass("cps-divider--vertical");
+    expect(divider).toHaveClass("shelf-divider--vertical");
   });
 
   it("keeps a label readable as plain text, outside any separator role", () => {
@@ -30,22 +30,25 @@ describe("Divider", () => {
     expect(screen.queryByRole("separator")).not.toBeInTheDocument();
 
     const label = screen.getByText("OR");
-    expect(label).toHaveClass("cps-divider__label");
-    expect(label.parentElement).toHaveClass("cps-divider--labelled", "cps-divider--label-center");
+    expect(label).toHaveClass("shelf-divider__label");
+    expect(label.parentElement).toHaveClass(
+      "shelf-divider--labelled",
+      "shelf-divider--label-center",
+    );
   });
 
   it.each(["start", "center", "end"])("positions the label at the %s", (labelPosition) => {
     render(<Divider label="More options" labelPosition={labelPosition} />);
     expect(screen.getByText("More options").parentElement).toHaveClass(
-      `cps-divider--label-${labelPosition}`,
+      `shelf-divider--label-${labelPosition}`,
     );
   });
 
   it("supports a label on a vertical divider", () => {
     render(<Divider orientation="vertical" label="OR" />);
     expect(screen.getByText("OR").parentElement).toHaveClass(
-      "cps-divider--vertical",
-      "cps-divider--labelled",
+      "shelf-divider--vertical",
+      "shelf-divider--labelled",
     );
   });
 
@@ -57,8 +60,8 @@ describe("Divider", () => {
   it("applies the dashed variant and spacing", () => {
     render(<Divider variant="dashed" spacing="lg" />);
     expect(screen.getByRole("separator")).toHaveClass(
-      "cps-divider--dashed",
-      "cps-divider--spacing-lg",
+      "shelf-divider--dashed",
+      "shelf-divider--spacing-lg",
     );
   });
 
@@ -86,7 +89,7 @@ describe("Divider", () => {
     );
 
     expect(hrRef.current).toBe(screen.getByTestId("hr"));
-    expect(screen.getByTestId("hr")).toHaveClass("cps-divider", "custom");
+    expect(screen.getByTestId("hr")).toHaveClass("shelf-divider", "custom");
     expect(divRef.current).toBe(screen.getByTestId("vertical"));
   });
 });

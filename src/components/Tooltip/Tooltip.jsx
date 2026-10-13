@@ -80,7 +80,7 @@ export const Tooltip = forwardRef(function Tooltip(
   const isOpen = open && !disabled && hasContent;
 
   const generatedId = useId();
-  const tooltipId = `cps-tooltip-${generatedId}`;
+  const tooltipId = `shelf-tooltip-${generatedId}`;
 
   const triggerRef = useRef(null);
   const tooltipRef = useRef(null);
@@ -193,7 +193,7 @@ export const Tooltip = forwardRef(function Tooltip(
             ref={tooltipRef}
             id={tooltipId}
             role="tooltip"
-            className={cx("cps-tooltip", className)}
+            className={cx("shelf-tooltip", className)}
             style={placement.style}
             data-side={placement.side}
             onPointerEnter={handleTooltipPointerEnter}

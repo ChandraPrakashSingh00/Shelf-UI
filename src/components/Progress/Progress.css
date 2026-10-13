@@ -1,84 +1,85 @@
-.cps-progress {
-  --cps-progress-color: var(--cps-color-primary);
+.shelf-progress {
+  --shelf-progress-color: var(--shelf-color-primary);
 
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-tight);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-tight);
 }
 
-.cps-progress__header {
+.shelf-progress__header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.cps-progress__label {
+.shelf-progress__label {
   min-width: 0;
-  font-weight: var(--cps-font-weight-medium);
+  font-weight: var(--shelf-font-weight-medium);
 }
 
-.cps-progress__value {
+.shelf-progress__value {
   flex-shrink: 0;
   /* Stays on the right when there is no label. */
   margin-inline-start: auto;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
   font-variant-numeric: tabular-nums;
 }
 
-.cps-progress__track {
+.shelf-progress__track {
   position: relative;
-  height: var(--cps-progress-thickness);
+  height: var(--shelf-progress-thickness);
   overflow: hidden;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-surface-hover);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-surface-hover);
 }
 
-.cps-progress__bar {
+.shelf-progress__bar {
   height: 100%;
   border-radius: inherit;
-  background-color: var(--cps-progress-color);
-  transition: width var(--cps-duration-normal) var(--cps-easing);
+  background-color: var(--shelf-progress-color);
+  transition: width var(--shelf-duration-normal) var(--shelf-easing);
 }
 
 /* Sizes: bar thickness */
-.cps-progress--sm {
-  --cps-progress-thickness: 0.25rem;
+.shelf-progress--sm {
+  --shelf-progress-thickness: 0.25rem;
 }
 
-.cps-progress--md {
-  --cps-progress-thickness: 0.5rem;
+.shelf-progress--md {
+  --shelf-progress-thickness: 0.5rem;
 }
 
-.cps-progress--lg {
-  --cps-progress-thickness: 0.75rem;
+.shelf-progress--lg {
+  --shelf-progress-thickness: 0.75rem;
 }
 
 /* Variants (primary uses the default above) */
-.cps-progress--success {
-  --cps-progress-color: var(--cps-color-success);
+.shelf-progress--success {
+  --shelf-progress-color: var(--shelf-color-success);
 }
 
-.cps-progress--warning {
-  --cps-progress-color: var(--cps-color-warning);
+.shelf-progress--warning {
+  --shelf-progress-color: var(--shelf-color-warning);
 }
 
-.cps-progress--danger {
-  --cps-progress-color: var(--cps-color-danger);
+.shelf-progress--danger {
+  --shelf-progress-color: var(--shelf-color-danger);
 }
 
 /* Indeterminate: a short bar slides across the track. */
-.cps-progress--indeterminate .cps-progress__bar {
+.shelf-progress--indeterminate .shelf-progress__bar {
   width: 40%;
-  animation: cps-progress-slide calc(var(--cps-duration-normal) * 7.5) var(--cps-easing) infinite;
+  animation: shelf-progress-slide calc(var(--shelf-duration-normal) * 7.5) var(--shelf-easing)
+    infinite;
 }
 
-@keyframes cps-progress-slide {
+@keyframes shelf-progress-slide {
   from {
     transform: translateX(-100%);
   }
@@ -90,22 +91,22 @@
 
 /* The sliding bar still conveys "working", so slow it down rather than stop it. */
 @media (prefers-reduced-motion: reduce) {
-  .cps-progress__bar {
+  .shelf-progress__bar {
     transition: none;
   }
 
-  .cps-progress--indeterminate .cps-progress__bar {
-    animation-duration: calc(var(--cps-duration-normal) * 20);
+  .shelf-progress--indeterminate .shelf-progress__bar {
+    animation-duration: calc(var(--shelf-duration-normal) * 20);
   }
 }
 
 /* Backgrounds are dropped in forced-colors mode; keep the track and bar visible. */
 @media (forced-colors: active) {
-  .cps-progress__track {
+  .shelf-progress__track {
     outline: 1px solid CanvasText;
   }
 
-  .cps-progress__bar {
+  .shelf-progress__bar {
     forced-color-adjust: none;
     background-color: Highlight;
   }

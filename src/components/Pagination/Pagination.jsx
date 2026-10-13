@@ -86,32 +86,32 @@ export const Pagination = forwardRef(function Pagination(
       aria-label={label}
       {...rest}
       ref={ref}
-      className={cx("cps-pagination", `cps-pagination--${size}`, className)}
+      className={cx("shelf-pagination", `shelf-pagination--${size}`, className)}
     >
-      <ul className="cps-pagination__list">
-        <li className="cps-pagination__item">
+      <ul className="shelf-pagination__list">
+        <li className="shelf-pagination__item">
           <button
             type="button"
             aria-label={previousLabel}
             disabled={currentPage <= 1}
-            className="cps-pagination__button"
+            className="shelf-pagination__button"
             onClick={() => step(-1)}
           >
-            <ChevronLeftIcon className="cps-pagination__icon" />
+            <ChevronLeftIcon className="shelf-pagination__icon" />
           </button>
         </li>
         {items.map((item, index) =>
           item === "ellipsis" ? (
-            <li key={`ellipsis-${index}`} className="cps-pagination__ellipsis" aria-hidden="true">
+            <li key={`ellipsis-${index}`} className="shelf-pagination__ellipsis" aria-hidden="true">
               …
             </li>
           ) : (
-            <li key={item} className="cps-pagination__item">
+            <li key={item} className="shelf-pagination__item">
               <button
                 type="button"
                 aria-label={getPageLabel(item)}
                 aria-current={item === currentPage ? "page" : undefined}
-                className="cps-pagination__button"
+                className="shelf-pagination__button"
                 onClick={() => goToPage(item)}
               >
                 {item}
@@ -119,15 +119,15 @@ export const Pagination = forwardRef(function Pagination(
             </li>
           ),
         )}
-        <li className="cps-pagination__item">
+        <li className="shelf-pagination__item">
           <button
             type="button"
             aria-label={nextLabel}
             disabled={currentPage >= pageCount}
-            className="cps-pagination__button"
+            className="shelf-pagination__button"
             onClick={() => step(1)}
           >
-            <ChevronRightIcon className="cps-pagination__icon" />
+            <ChevronRightIcon className="shelf-pagination__icon" />
           </button>
         </li>
       </ul>

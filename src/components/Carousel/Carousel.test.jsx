@@ -231,10 +231,10 @@ describe("Carousel", () => {
 
     const region = screen.getByRole("region", { name: "Plans" });
     expect(ref.current).toBe(region);
-    expect(region).toHaveClass("cps-carousel", "custom");
+    expect(region).toHaveClass("shelf-carousel", "custom");
     expect(region).toHaveAttribute("data-testid", "plans");
     expect(slideRef.current).toBe(screen.getByRole("group", { name: "Starter plan" }));
-    expect(slideRef.current).toHaveClass("cps-carousel__slide", "slide-class");
+    expect(slideRef.current).toHaveClass("shelf-carousel__slide", "slide-class");
     expect(allSlides()[1]).toHaveAttribute("aria-label", "2 of 2");
     expect(Carousel.Slide).toBe(CarouselSlide);
 

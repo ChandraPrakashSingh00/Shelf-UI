@@ -17,14 +17,14 @@ const toNumber = (value, fallback = 0) => {
 /** One star: an empty star, with a filled star clipped to `fill` (0–1) on top. */
 function Star({ fill }) {
   return (
-    <span className="cps-rating__star" aria-hidden="true">
-      <StarIcon className="cps-rating__icon cps-rating__icon--empty" />
+    <span className="shelf-rating__star" aria-hidden="true">
+      <StarIcon className="shelf-rating__icon shelf-rating__icon--empty" />
       {fill > 0 && (
         <span
-          className="cps-rating__fill"
+          className="shelf-rating__fill"
           style={fill < 1 ? { width: `${Math.round(fill * 1000) / 10}%` } : undefined}
         >
-          <StarIcon className="cps-rating__icon cps-rating__icon--filled" />
+          <StarIcon className="shelf-rating__icon shelf-rating__icon--filled" />
         </span>
       )}
     </span>
@@ -141,16 +141,16 @@ export const Rating = forwardRef(function Rating(
         aria-label={ariaLabel ?? (ariaLabelledBy ? undefined : text)}
         aria-labelledby={ariaLabelledBy}
         aria-describedby={ariaDescribedBy}
-        className={cx("cps-rating", `cps-rating--${size}`, "cps-rating--readonly", className)}
+        className={cx("shelf-rating", `shelf-rating--${size}`, "shelf-rating--readonly", className)}
         style={style}
       >
-        <span className="cps-rating__stars">
+        <span className="shelf-rating__stars">
           {stars.map((star) => (
             <Star key={star} fill={Math.min(Math.max(rating - (star - 1), 0), 1)} />
           ))}
         </span>
-        {showValue && <span className="cps-rating__value">{shownValue}</span>}
-        {countText != null && <span className="cps-rating__count">({countText})</span>}
+        {showValue && <span className="shelf-rating__value">{shownValue}</span>}
+        {countText != null && <span className="shelf-rating__count">({countText})</span>}
       </span>
     );
   }
@@ -163,7 +163,7 @@ export const Rating = forwardRef(function Rating(
   const describedBy = [ariaDescribedBy, message != null ? messageId : null]
     .filter(Boolean)
     .join(" ");
-  const groupName = name ?? `cps-rating-${baseId}`;
+  const groupName = name ?? `shelf-rating-${baseId}`;
 
   // Clearing also drops the hover preview, so the stars visibly empty.
   const clear = () => {
@@ -201,18 +201,18 @@ export const Rating = forwardRef(function Rating(
       aria-required={required || undefined}
       disabled={disabled}
       className={cx(
-        "cps-rating-field",
-        hasError && "cps-rating-field--invalid",
-        disabled && "cps-rating-field--disabled",
+        "shelf-rating-field",
+        hasError && "shelf-rating-field--invalid",
+        disabled && "shelf-rating-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <legend id={labelId} className="cps-field__label cps-rating-field__label">
+        <legend id={labelId} className="shelf-field__label shelf-rating-field__label">
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
@@ -220,14 +220,14 @@ export const Rating = forwardRef(function Rating(
       )}
 
       <span
-        className={cx("cps-rating", `cps-rating--${size}`)}
+        className={cx("shelf-rating", `shelf-rating--${size}`)}
         onMouseLeave={() => setHoverValue(null)}
         onKeyDown={handleKeyDown}
       >
         {stars.map((star) => (
           <label
             key={star}
-            className={cx("cps-rating__item", star <= shown && "cps-rating__item--active")}
+            className={cx("shelf-rating__item", star <= shown && "shelf-rating__item--active")}
             onPointerEnter={disabled ? undefined : handlePointerEnter(star)}
           >
             <input
@@ -238,18 +238,18 @@ export const Rating = forwardRef(function Rating(
               checked={star === selected}
               required={required}
               disabled={disabled}
-              className="cps-rating__input"
+              className="shelf-rating__input"
               onChange={() => setValue(star)}
               onClick={handleClick(star)}
             />
             <Star fill={star <= shown ? 1 : 0} />
-            <span className="cps-visually-hidden">{getLabel(star)}</span>
+            <span className="shelf-visually-hidden">{getLabel(star)}</span>
           </label>
         ))}
       </span>
 
       {message != null && (
-        <p id={messageId} className="cps-field__message cps-rating-field__message">
+        <p id={messageId} className="shelf-field__message shelf-rating-field__message">
           {message}
         </p>
       )}

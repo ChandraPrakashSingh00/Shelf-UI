@@ -1,4 +1,4 @@
-import { Timeline } from "@codecps/ui";
+import { Timeline } from "@shelf-ui/react";
 
 export default function TimelineHorizontal() {
   return (

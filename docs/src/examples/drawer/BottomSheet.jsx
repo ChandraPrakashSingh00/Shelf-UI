@@ -1,7 +1,7 @@
-import { Button, Drawer, Input } from "@codecps/ui";
+import { Button, Drawer, Input } from "@shelf-ui/react";
 import { useState } from "react";
 
-const previewUrl = "https://codecps-web-git-checkout.codecps.app";
+const previewUrl = "https://storefront-web-git-checkout.example.com";
 const channels = ["Email", "WhatsApp", "Slack", "Microsoft Teams"];
 
 export default function DrawerBottomSheet() {
@@ -30,7 +30,7 @@ export default function DrawerBottomSheet() {
         onClose={close}
         side="bottom"
         title="Share preview"
-        description="Anyone with the link can view this preview of codecps-web."
+        description="Anyone with the link can view this preview of storefront-web."
       >
         <div style={{ display: "grid", gap: 16, maxWidth: 560 }}>
           <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>

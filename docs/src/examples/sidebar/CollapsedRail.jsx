@@ -1,4 +1,4 @@
-import { Sidebar } from "@codecps/ui";
+import { Sidebar } from "@shelf-ui/react";
 
 const iconPaths = {
   dashboard: "M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z",
@@ -34,9 +34,9 @@ export default function SidebarCollapsedRail() {
         width: "100%",
         height: 380,
         overflow: "hidden",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-bg)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-bg)",
       }}
     >
       <Sidebar label="Seller" defaultCollapsed>
@@ -68,7 +68,7 @@ export default function SidebarCollapsedRail() {
           </Sidebar.Section>
         </Sidebar.Footer>
       </Sidebar>
-      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--cps-color-text-muted)" }}>
+      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--shelf-color-text-muted)" }}>
         Hover or focus an icon to see its label. Pressing Products expands the sidebar with the
         group open.
       </p>

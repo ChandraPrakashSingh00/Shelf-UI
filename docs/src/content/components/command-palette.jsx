@@ -1,4 +1,4 @@
-import { Button, CommandPalette } from "@codecps/ui";
+import { Button, CommandPalette } from "@shelf-ui/react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/command-palette/Basic.jsx";
@@ -48,11 +48,11 @@ function PaletteDemo(values) {
 
 const kbdStyle = {
   padding: "1px 5px",
-  border: "1px solid var(--cps-color-border)",
+  border: "1px solid var(--shelf-color-border)",
   borderBottomWidth: 2,
-  borderRadius: "var(--cps-radius-sm)",
-  backgroundColor: "var(--cps-color-surface-muted)",
-  color: "var(--cps-color-text-muted)",
+  borderRadius: "var(--shelf-radius-sm)",
+  backgroundColor: "var(--shelf-color-surface-muted)",
+  color: "var(--shelf-color-text-muted)",
   fontFamily: "inherit",
   fontSize: 10,
   lineHeight: 1.2,
@@ -72,13 +72,13 @@ function CommandPaletteThumbnail() {
         width: "100%",
         maxWidth: 230,
         overflow: "hidden",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-surface)",
-        boxShadow: "var(--cps-shadow-md)",
-        color: "var(--cps-color-text)",
-        fontFamily: "var(--cps-font-sans)",
-        fontSize: "var(--cps-font-size-xs)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-surface)",
+        boxShadow: "var(--shelf-shadow-md)",
+        color: "var(--shelf-color-text)",
+        fontFamily: "var(--shelf-font-sans)",
+        fontSize: "var(--shelf-font-size-xs)",
       }}
     >
       <div
@@ -87,8 +87,8 @@ function CommandPaletteThumbnail() {
           alignItems: "center",
           gap: 6,
           padding: "7px 10px",
-          borderBottom: "1px solid var(--cps-color-border)",
-          color: "var(--cps-color-text-subtle)",
+          borderBottom: "1px solid var(--shelf-color-border)",
+          color: "var(--shelf-color-text-subtle)",
         }}
       >
         <svg
@@ -108,7 +108,7 @@ function CommandPaletteThumbnail() {
         <span
           style={{
             padding: "2px 6px",
-            color: "var(--cps-color-text-subtle)",
+            color: "var(--shelf-color-text-subtle)",
             fontSize: 10,
             fontWeight: 600,
           }}
@@ -123,9 +123,9 @@ function CommandPaletteThumbnail() {
               alignItems: "center",
               justifyContent: "space-between",
               padding: "4px 6px",
-              borderRadius: "var(--cps-radius-sm)",
-              backgroundColor: index === 0 ? "var(--cps-color-primary-subtle)" : undefined,
-              color: index === 0 ? "var(--cps-color-primary-text)" : undefined,
+              borderRadius: "var(--shelf-radius-sm)",
+              backgroundColor: index === 0 ? "var(--shelf-color-primary-subtle)" : undefined,
+              color: index === 0 ? "var(--shelf-color-primary-text)" : undefined,
               fontWeight: 500,
             }}
           >

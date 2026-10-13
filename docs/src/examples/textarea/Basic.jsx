@@ -1,4 +1,4 @@
-import { Textarea } from "@codecps/ui";
+import { Textarea } from "@shelf-ui/react";
 
 export default function TextareaBasic() {
   return (

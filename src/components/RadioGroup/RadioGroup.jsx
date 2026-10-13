@@ -94,32 +94,32 @@ export const RadioGroup = forwardRef(function RadioGroup(
         aria-orientation={orientation}
         disabled={disabled}
         className={cx(
-          "cps-radio-group",
-          `cps-radio-group--${size}`,
-          orientation === "horizontal" && "cps-radio-group--horizontal",
-          hasError && "cps-radio-group--invalid",
-          disabled && "cps-radio-group--disabled",
+          "shelf-radio-group",
+          `shelf-radio-group--${size}`,
+          orientation === "horizontal" && "shelf-radio-group--horizontal",
+          hasError && "shelf-radio-group--invalid",
+          disabled && "shelf-radio-group--disabled",
           className,
         )}
       >
         {label != null && (
-          <legend id={labelId} className="cps-field__label cps-radio-group__label">
+          <legend id={labelId} className="shelf-field__label shelf-radio-group__label">
             {label}
             {required && (
-              <span className="cps-field__required" aria-hidden="true">
+              <span className="shelf-field__required" aria-hidden="true">
                 *
               </span>
             )}
           </legend>
         )}
         {description != null && (
-          <p id={descriptionId} className="cps-field__message">
+          <p id={descriptionId} className="shelf-field__message">
             {description}
           </p>
         )}
-        <div className="cps-radio-group__options">{children}</div>
+        <div className="shelf-radio-group__options">{children}</div>
         {errorMessage != null && (
-          <p id={errorId} className="cps-field__message cps-radio-group__error">
+          <p id={errorId} className="shelf-field__message shelf-radio-group__error">
             {errorMessage}
           </p>
         )}
@@ -158,7 +158,7 @@ export const Radio = forwardRef(function Radio(
 ) {
   const group = useRadioGroupContext();
   const generatedId = useId();
-  const inputId = id ?? `cps-radio-${generatedId}`;
+  const inputId = id ?? `shelf-radio-${generatedId}`;
   const descriptionId = `${inputId}-description`;
   const isDisabled = group.disabled || disabled;
   const isControlled = group.value !== undefined;
@@ -167,8 +167,11 @@ export const Radio = forwardRef(function Radio(
     .join(" ");
 
   return (
-    <div className={cx("cps-radio", isDisabled && "cps-radio--disabled", className)} style={style}>
-      <span className="cps-radio__control">
+    <div
+      className={cx("shelf-radio", isDisabled && "shelf-radio--disabled", className)}
+      style={style}
+    >
+      <span className="shelf-radio__control">
         <input
           {...rest}
           ref={ref}
@@ -181,20 +184,20 @@ export const Radio = forwardRef(function Radio(
           disabled={isDisabled}
           required={group.required}
           aria-describedby={describedBy || undefined}
-          className="cps-radio__input"
+          className="shelf-radio__input"
           onChange={composeEventHandlers(onChange, () => group.onValueChange?.(value))}
         />
-        <span className="cps-radio__circle" aria-hidden="true" />
+        <span className="shelf-radio__circle" aria-hidden="true" />
       </span>
       {(label != null || description != null) && (
-        <div className="cps-radio__text">
+        <div className="shelf-radio__text">
           {label != null && (
-            <label htmlFor={inputId} className="cps-radio__label">
+            <label htmlFor={inputId} className="shelf-radio__label">
               {label}
             </label>
           )}
           {description != null && (
-            <p id={descriptionId} className="cps-radio__description">
+            <p id={descriptionId} className="shelf-radio__description">
               {description}
             </p>
           )}

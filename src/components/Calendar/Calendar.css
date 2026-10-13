@@ -1,51 +1,51 @@
 /*
  * Month grid: 7 equal columns of square day buttons. The width follows
- * --cps-calendar-cell-size and shrinks with a narrow container.
+ * --shelf-calendar-cell-size and shrinks with a narrow container.
  */
-.cps-calendar {
-  --cps-calendar-cell-size: 2.25rem;
-  --cps-calendar-radius: var(--cps-radius-md);
+.shelf-calendar {
+  --shelf-calendar-cell-size: 2.25rem;
+  --shelf-calendar-radius: var(--shelf-radius-md);
 
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: calc(7 * var(--cps-calendar-cell-size));
+  width: calc(7 * var(--shelf-calendar-cell-size));
   max-width: 100%;
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-tight);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-tight);
 }
 
-.cps-calendar__header {
+.shelf-calendar__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.25rem;
 }
 
-.cps-calendar__title {
+.shelf-calendar__title {
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  font-weight: var(--cps-font-weight-semibold);
+  font-weight: var(--shelf-font-weight-semibold);
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 /* `aria-disabled` keeps the button focusable when the month can't change. */
-.cps-calendar__nav[aria-disabled="true"] {
+.shelf-calendar__nav[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.4;
 }
 
-.cps-calendar__nav[aria-disabled="true"]:hover {
+.shelf-calendar__nav[aria-disabled="true"]:hover {
   background-color: transparent;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-calendar__grid {
+.shelf-calendar__grid {
   width: 100%;
   margin: 0;
   table-layout: fixed;
@@ -54,24 +54,24 @@
   border-spacing: 0 2px;
 }
 
-.cps-calendar__weekday {
+.shelf-calendar__weekday {
   height: 1.75rem;
   padding: 0;
   overflow: hidden;
-  color: var(--cps-color-text-subtle);
-  font-size: var(--cps-font-size-xs);
-  font-weight: var(--cps-font-weight-medium);
+  color: var(--shelf-color-text-subtle);
+  font-size: var(--shelf-font-size-xs);
+  font-weight: var(--shelf-font-weight-medium);
   text-align: center;
   text-overflow: clip;
   white-space: nowrap;
 }
 
-.cps-calendar__cell {
+.shelf-calendar__cell {
   padding: 0;
   text-align: center;
 }
 
-.cps-calendar__day {
+.shelf-calendar__day {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,121 +80,121 @@
   margin: 0;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: var(--cps-calendar-radius);
+  border-radius: var(--shelf-calendar-radius);
   background-color: transparent;
   color: inherit;
   font: inherit;
   font-variant-numeric: tabular-nums;
   cursor: pointer;
   transition:
-    background-color var(--cps-duration-fast) var(--cps-easing),
-    color var(--cps-duration-fast) var(--cps-easing);
+    background-color var(--shelf-duration-fast) var(--shelf-easing),
+    color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-calendar__day:hover:not(.cps-calendar__day--disabled, .cps-calendar__day--selected) {
-  background-color: var(--cps-color-surface-hover);
+.shelf-calendar__day:hover:not(.shelf-calendar__day--disabled, .shelf-calendar__day--selected) {
+  background-color: var(--shelf-color-surface-hover);
 }
 
-.cps-calendar__day:focus-visible {
+.shelf-calendar__day:focus-visible {
   position: relative;
-  outline: 2px solid var(--cps-color-focus);
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 1px;
 }
 
-.cps-calendar__day--outside {
-  color: var(--cps-color-text-subtle);
+.shelf-calendar__day--outside {
+  color: var(--shelf-color-text-subtle);
 }
 
-.cps-calendar__day--today {
-  border-color: var(--cps-color-primary);
-  color: var(--cps-color-primary-text);
-  font-weight: var(--cps-font-weight-semibold);
+.shelf-calendar__day--today {
+  border-color: var(--shelf-color-primary);
+  color: var(--shelf-color-primary-text);
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-calendar__day--selected {
-  border-color: var(--cps-color-primary);
-  background-color: var(--cps-color-primary);
-  color: var(--cps-color-on-primary);
-  font-weight: var(--cps-font-weight-semibold);
+.shelf-calendar__day--selected {
+  border-color: var(--shelf-color-primary);
+  background-color: var(--shelf-color-primary);
+  color: var(--shelf-color-on-primary);
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-calendar__day--selected:hover {
-  background-color: var(--cps-color-primary-hover);
+.shelf-calendar__day--selected:hover {
+  background-color: var(--shelf-color-primary-hover);
 }
 
-.cps-calendar__day--disabled {
-  color: var(--cps-color-text-subtle);
+.shelf-calendar__day--disabled {
+  color: var(--shelf-color-text-subtle);
   text-decoration: line-through;
   cursor: not-allowed;
   opacity: 0.55;
 }
 
 /* Range band between the start and end days, with rounded ends. */
-.cps-calendar__cell--in-range {
-  background-color: var(--cps-color-primary-subtle);
+.shelf-calendar__cell--in-range {
+  background-color: var(--shelf-color-primary-subtle);
 }
 
-.cps-calendar__cell--in-range .cps-calendar__day:not(.cps-calendar__day--selected) {
-  color: var(--cps-color-primary-text);
+.shelf-calendar__cell--in-range .shelf-calendar__day:not(.shelf-calendar__day--selected) {
+  color: var(--shelf-color-primary-text);
 }
 
-.cps-calendar__cell--in-range .cps-calendar__day:hover:not(.cps-calendar__day--selected) {
-  background-color: var(--cps-color-primary-border);
+.shelf-calendar__cell--in-range .shelf-calendar__day:hover:not(.shelf-calendar__day--selected) {
+  background-color: var(--shelf-color-primary-border);
 }
 
 /* While only the start is picked, a neutral band previews the range. */
-.cps-calendar__cell--in-preview {
-  background-color: var(--cps-color-surface-hover);
+.shelf-calendar__cell--in-preview {
+  background-color: var(--shelf-color-surface-hover);
 }
 
-.cps-calendar__cell--range-start,
-.cps-calendar__cell--in-range:first-child,
-.cps-calendar__cell--in-preview:first-child {
-  border-start-start-radius: var(--cps-calendar-radius);
-  border-end-start-radius: var(--cps-calendar-radius);
+.shelf-calendar__cell--range-start,
+.shelf-calendar__cell--in-range:first-child,
+.shelf-calendar__cell--in-preview:first-child {
+  border-start-start-radius: var(--shelf-calendar-radius);
+  border-end-start-radius: var(--shelf-calendar-radius);
 }
 
-.cps-calendar__cell--range-end,
-.cps-calendar__cell--in-range:last-child,
-.cps-calendar__cell--in-preview:last-child {
-  border-start-end-radius: var(--cps-calendar-radius);
-  border-end-end-radius: var(--cps-calendar-radius);
+.shelf-calendar__cell--range-end,
+.shelf-calendar__cell--in-range:last-child,
+.shelf-calendar__cell--in-preview:last-child {
+  border-start-end-radius: var(--shelf-calendar-radius);
+  border-end-end-radius: var(--shelf-calendar-radius);
 }
 
 @media (forced-colors: active) {
-  .cps-calendar__day--selected {
+  .shelf-calendar__day--selected {
     forced-color-adjust: none;
     border-color: Highlight;
     background-color: Highlight;
     color: HighlightText;
   }
 
-  .cps-calendar__cell--in-range .cps-calendar__day:not(.cps-calendar__day--selected) {
+  .shelf-calendar__cell--in-range .shelf-calendar__day:not(.shelf-calendar__day--selected) {
     border-color: Highlight;
   }
 
-  .cps-calendar__cell--in-preview .cps-calendar__day:not(.cps-calendar__day--selected) {
+  .shelf-calendar__cell--in-preview .shelf-calendar__day:not(.shelf-calendar__day--selected) {
     border-style: dashed;
     border-color: Highlight;
   }
 
-  .cps-calendar__day--today:not(.cps-calendar__day--selected) {
+  .shelf-calendar__day--today:not(.shelf-calendar__day--selected) {
     border-color: CanvasText;
     border-width: 2px;
   }
 
-  .cps-calendar__day--disabled,
-  .cps-calendar__day--outside {
+  .shelf-calendar__day--disabled,
+  .shelf-calendar__day--outside {
     color: GrayText;
   }
 
-  .cps-calendar__day:focus-visible {
+  .shelf-calendar__day:focus-visible {
     outline-color: CanvasText;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-calendar__day {
+  .shelf-calendar__day {
     transition: none;
   }
 }

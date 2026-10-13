@@ -2,32 +2,32 @@
  * The box draws the Input look. The native <select> spans all of it, so a click
  * anywhere opens it, and its padding keeps the text clear of the icon and chevron.
  */
-.cps-select {
-  --cps-select-icon-size: 1.1rem;
-  --cps-select-chevron-size: 1rem;
+.shelf-select {
+  --shelf-select-icon-size: 1.1rem;
+  --shelf-select-chevron-size: 1rem;
 
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--cps-input-height);
-  border: 1px solid var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-md);
-  background-color: var(--cps-color-surface);
+  height: var(--shelf-input-height);
+  border: 1px solid var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-md);
+  background-color: var(--shelf-color-surface);
   transition:
-    border-color var(--cps-duration-fast) var(--cps-easing),
-    box-shadow var(--cps-duration-fast) var(--cps-easing);
+    border-color var(--shelf-duration-fast) var(--shelf-easing),
+    box-shadow var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-select:hover {
-  border-color: var(--cps-color-text-subtle);
+.shelf-select:hover {
+  border-color: var(--shelf-color-text-subtle);
 }
 
-.cps-select:focus-within {
-  border-color: var(--cps-color-primary);
-  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+.shelf-select:focus-within {
+  border-color: var(--shelf-color-primary);
+  box-shadow: 0 0 0 3px var(--shelf-focus-ring-soft);
 }
 
-.cps-select__control {
+.shelf-select__control {
   appearance: none;
   width: 100%;
   min-width: 0;
@@ -35,87 +35,87 @@
   margin: 0;
   padding-block: 0;
   /* 0.75rem edge + chevron + 0.5rem gap */
-  padding-inline: 0.75rem calc(1.25rem + var(--cps-select-chevron-size));
+  padding-inline: 0.75rem calc(1.25rem + var(--shelf-select-chevron-size));
   border: 0;
   outline: none;
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: var(--cps-input-font-size);
+  font-size: var(--shelf-input-font-size);
   text-overflow: ellipsis;
   cursor: pointer;
 }
 
-.cps-select--with-icon .cps-select__control {
-  padding-inline-start: calc(1.25rem + var(--cps-select-icon-size));
+.shelf-select--with-icon .shelf-select__control {
+  padding-inline-start: calc(1.25rem + var(--shelf-select-icon-size));
 }
 
 /* While the placeholder option is selected, show it in the placeholder color. */
-.cps-select__control:has(> .cps-select__placeholder:checked) {
-  color: var(--cps-color-text-subtle);
+.shelf-select__control:has(> .shelf-select__placeholder:checked) {
+  color: var(--shelf-color-text-subtle);
 }
 
 /* The browser draws the open list; keep its options readable in both themes. */
-.cps-select__control option,
-.cps-select__control optgroup {
-  background-color: var(--cps-color-surface);
-  color: var(--cps-color-text);
+.shelf-select__control option,
+.shelf-select__control optgroup {
+  background-color: var(--shelf-color-surface);
+  color: var(--shelf-color-text);
 }
 
-.cps-select__control option:disabled {
-  color: var(--cps-color-text-subtle);
+.shelf-select__control option:disabled {
+  color: var(--shelf-color-text-subtle);
 }
 
-.cps-select__icon,
-.cps-select__chevron {
+.shelf-select__icon,
+.shelf-select__chevron {
   position: absolute;
   top: 50%;
-  color: var(--cps-color-text-subtle);
+  color: var(--shelf-color-text-subtle);
   pointer-events: none;
   transform: translateY(-50%);
 }
 
-.cps-select__icon {
+.shelf-select__icon {
   inset-inline-start: 0.75rem;
   display: inline-flex;
-  font-size: var(--cps-select-icon-size);
+  font-size: var(--shelf-select-icon-size);
 }
 
-.cps-select__chevron {
+.shelf-select__chevron {
   inset-inline-end: 0.75rem;
   display: block;
-  width: var(--cps-select-chevron-size);
-  height: var(--cps-select-chevron-size);
+  width: var(--shelf-select-chevron-size);
+  height: var(--shelf-select-chevron-size);
 }
 
-.cps-field--invalid .cps-select {
-  border-color: var(--cps-color-danger);
+.shelf-field--invalid .shelf-select {
+  border-color: var(--shelf-color-danger);
 }
 
-.cps-field--invalid .cps-select:focus-within {
-  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+.shelf-field--invalid .shelf-select:focus-within {
+  box-shadow: 0 0 0 3px var(--shelf-color-danger-subtle);
 }
 
-.cps-field--disabled .cps-select {
-  border-color: var(--cps-color-border);
-  background-color: var(--cps-color-surface-muted);
+.shelf-field--disabled .shelf-select {
+  border-color: var(--shelf-color-border);
+  background-color: var(--shelf-color-surface-muted);
 }
 
-.cps-select__control:disabled {
-  color: var(--cps-color-text-subtle);
+.shelf-select__control:disabled {
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
   opacity: 1;
 }
 
 /* Box-shadow is dropped in forced-colors mode; keep focus visible. */
 @media (forced-colors: active) {
-  .cps-select:focus-within {
+  .shelf-select:focus-within {
     outline: 2px solid CanvasText;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-select {
+  .shelf-select {
     transition: none;
   }
 }

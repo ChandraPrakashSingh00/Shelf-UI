@@ -1,4 +1,4 @@
-import { Button, CommandPalette } from "@codecps/ui";
+import { Button, CommandPalette } from "@shelf-ui/react";
 import { useState } from "react";
 
 const commands = [

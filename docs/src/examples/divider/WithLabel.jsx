@@ -1,4 +1,4 @@
-import { Button, Divider, Input } from "@codecps/ui";
+import { Button, Divider, Input } from "@shelf-ui/react";
 
 export default function DividerWithLabel() {
   return (
@@ -15,7 +15,7 @@ export default function DividerWithLabel() {
       </Button>
 
       <Divider label="Delivery preferences" labelPosition="start" spacing="lg" />
-      <p style={{ margin: 0, color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+      <p style={{ margin: 0, color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
         Leave the parcel with the security guard if nobody is home.
       </p>
       <Divider label="Step 1 of 2" labelPosition="end" spacing="lg" />

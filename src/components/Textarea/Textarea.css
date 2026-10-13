@@ -1,116 +1,116 @@
 /* The textarea draws its own box, with the same look as Input. */
-.cps-textarea {
+.shelf-textarea {
   display: block;
   width: 100%;
   max-width: 100%;
-  min-height: var(--cps-input-height);
+  min-height: var(--shelf-input-height);
   margin: 0;
-  padding: var(--cps-textarea-padding-y) 0.75rem;
-  border: 1px solid var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-md);
-  background-color: var(--cps-color-surface);
+  padding: var(--shelf-textarea-padding-y) 0.75rem;
+  border: 1px solid var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-md);
+  background-color: var(--shelf-color-surface);
   color: inherit;
   font: inherit;
-  font-size: var(--cps-input-font-size);
-  line-height: var(--cps-line-height-normal);
+  font-size: var(--shelf-input-font-size);
+  line-height: var(--shelf-line-height-normal);
   transition:
-    border-color var(--cps-duration-fast) var(--cps-easing),
-    box-shadow var(--cps-duration-fast) var(--cps-easing);
+    border-color var(--shelf-duration-fast) var(--shelf-easing),
+    box-shadow var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-/* Sizes: `.cps-field--{size}` sets the font size; the padding grows with it. */
-.cps-field--sm .cps-textarea {
-  --cps-textarea-padding-y: 0.375rem;
+/* Sizes: `.shelf-field--{size}` sets the font size; the padding grows with it. */
+.shelf-field--sm .shelf-textarea {
+  --shelf-textarea-padding-y: 0.375rem;
 }
 
-.cps-field--md .cps-textarea {
-  --cps-textarea-padding-y: 0.5rem;
+.shelf-field--md .shelf-textarea {
+  --shelf-textarea-padding-y: 0.5rem;
 }
 
-.cps-field--lg .cps-textarea {
-  --cps-textarea-padding-y: 0.625rem;
+.shelf-field--lg .shelf-textarea {
+  --shelf-textarea-padding-y: 0.625rem;
 }
 
-.cps-textarea::placeholder {
-  color: var(--cps-color-text-subtle);
+.shelf-textarea::placeholder {
+  color: var(--shelf-color-text-subtle);
   opacity: 1;
 }
 
-.cps-textarea:hover {
-  border-color: var(--cps-color-text-subtle);
+.shelf-textarea:hover {
+  border-color: var(--shelf-color-text-subtle);
 }
 
-.cps-textarea:focus {
+.shelf-textarea:focus {
   outline: none;
-  border-color: var(--cps-color-primary);
-  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+  border-color: var(--shelf-color-primary);
+  box-shadow: 0 0 0 3px var(--shelf-focus-ring-soft);
 }
 
-.cps-textarea--resize-vertical {
+.shelf-textarea--resize-vertical {
   resize: vertical;
 }
 
-.cps-textarea--resize-none {
+.shelf-textarea--resize-none {
   resize: none;
 }
 
-.cps-textarea--resize-both {
+.shelf-textarea--resize-both {
   resize: both;
 }
 
 /* The height follows the content: nothing to drag, nothing to scroll. */
-.cps-textarea--auto-resize {
+.shelf-textarea--auto-resize {
   resize: none;
   overflow-y: hidden;
 }
 
-.cps-field--invalid .cps-textarea {
-  border-color: var(--cps-color-danger);
+.shelf-field--invalid .shelf-textarea {
+  border-color: var(--shelf-color-danger);
 }
 
-.cps-field--invalid .cps-textarea:focus {
-  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+.shelf-field--invalid .shelf-textarea:focus {
+  box-shadow: 0 0 0 3px var(--shelf-color-danger-subtle);
 }
 
-.cps-textarea:disabled {
-  border-color: var(--cps-color-border);
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text-subtle);
+.shelf-textarea:disabled {
+  border-color: var(--shelf-color-border);
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
 /* Helper or error message on the start side, character count on the end side. */
-.cps-textarea__footer {
+.shelf-textarea__footer {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
-.cps-textarea__count {
+.shelf-textarea__count {
   flex-shrink: 0;
   margin: 0;
   margin-inline-start: auto;
-  font-size: var(--cps-font-size-xs);
+  font-size: var(--shelf-font-size-xs);
   font-variant-numeric: tabular-nums;
-  line-height: var(--cps-line-height-normal);
-  color: var(--cps-color-text-muted);
+  line-height: var(--shelf-line-height-normal);
+  color: var(--shelf-color-text-muted);
   white-space: nowrap;
 }
 
 /* Typing stops at `maxLength`, but a value set in code can be longer. */
-.cps-textarea__count--over {
-  color: var(--cps-color-danger-text);
+.shelf-textarea__count--over {
+  color: var(--shelf-color-danger-text);
 }
 
 /* Box-shadow is dropped in forced-colors mode; keep focus visible. */
 @media (forced-colors: active) {
-  .cps-textarea:focus {
+  .shelf-textarea:focus {
     outline: 2px solid CanvasText;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-textarea {
+  .shelf-textarea {
     transition: none;
   }
 }

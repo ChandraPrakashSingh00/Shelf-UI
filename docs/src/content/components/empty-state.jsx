@@ -1,4 +1,4 @@
-import { Button, EmptyState } from "@codecps/ui";
+import { Button, EmptyState } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import EmptyCart from "../../examples/empty-state/EmptyCart.jsx";
 import emptyCartCode from "../../examples/empty-state/EmptyCart.jsx?raw";

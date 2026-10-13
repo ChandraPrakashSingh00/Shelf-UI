@@ -1,4 +1,4 @@
-import { NumberInput } from "@codecps/ui";
+import { NumberInput } from "@shelf-ui/react";
 
 export default function NumberInputBasic() {
   return (

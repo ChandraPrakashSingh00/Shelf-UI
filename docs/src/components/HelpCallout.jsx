@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import { issuesUrl, repositoryUrl } from "../content/site.js";
 import { Callout } from "./Callout.jsx";
 import { GitHubIcon, HelpIcon } from "./icons.jsx";

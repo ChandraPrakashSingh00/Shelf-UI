@@ -1,4 +1,4 @@
-import { Input } from "@codecps/ui";
+import { Input } from "@shelf-ui/react";
 import { useState } from "react";
 
 const isValidEmail = (value) => /^\S+@\S+\.\S+$/.test(value);

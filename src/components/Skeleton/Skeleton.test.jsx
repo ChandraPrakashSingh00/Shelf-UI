@@ -11,7 +11,11 @@ describe("Skeleton", () => {
 
     expect(skeleton.tagName).toBe("SPAN");
     expect(skeleton).toHaveAttribute("aria-hidden", "true");
-    expect(skeleton).toHaveClass("cps-skeleton", "cps-skeleton--text", "cps-skeleton--animated");
+    expect(skeleton).toHaveClass(
+      "shelf-skeleton",
+      "shelf-skeleton--text",
+      "shelf-skeleton--animated",
+    );
     expect(skeleton).toBeEmptyDOMElement();
   });
 
@@ -20,7 +24,7 @@ describe("Skeleton", () => {
   });
 
   it.each(["text", "circular", "rectangular"])("applies the %s variant", (variant) => {
-    expect(renderSkeleton({ variant })).toHaveClass(`cps-skeleton--${variant}`);
+    expect(renderSkeleton({ variant })).toHaveClass(`shelf-skeleton--${variant}`);
   });
 
   it("reads numbers as pixels and keeps strings as CSS lengths", () => {
@@ -46,26 +50,32 @@ describe("Skeleton", () => {
   it("renders several text lines, each sized by height", () => {
     const skeleton = renderSkeleton({ lines: 3, width: 240, height: 12 });
 
-    expect(skeleton).toHaveClass("cps-skeleton", "cps-skeleton--lines", "cps-skeleton--animated");
+    expect(skeleton).toHaveClass(
+      "shelf-skeleton",
+      "shelf-skeleton--lines",
+      "shelf-skeleton--animated",
+    );
     expect(skeleton).toHaveAttribute("aria-hidden", "true");
     expect(skeleton.style.width).toBe("240px");
 
-    const lines = skeleton.querySelectorAll(".cps-skeleton__line");
+    const lines = skeleton.querySelectorAll(".shelf-skeleton__line");
     expect(lines).toHaveLength(3);
     for (const line of lines) expect(line.style.height).toBe("12px");
   });
 
   it("renders a single line for lines={1}, and ignores lines for other variants", () => {
-    expect(renderSkeleton({ lines: 1 }).querySelector(".cps-skeleton__line")).toBeNull();
+    expect(renderSkeleton({ lines: 1 }).querySelector(".shelf-skeleton__line")).toBeNull();
 
     const circle = renderSkeleton({ variant: "circular", lines: 3 });
-    expect(circle).toHaveClass("cps-skeleton--circular");
+    expect(circle).toHaveClass("shelf-skeleton--circular");
     expect(circle).toBeEmptyDOMElement();
   });
 
   it("can turn the shimmer off", () => {
-    expect(renderSkeleton({ animated: false })).not.toHaveClass("cps-skeleton--animated");
-    expect(renderSkeleton({ lines: 2, animated: false })).not.toHaveClass("cps-skeleton--animated");
+    expect(renderSkeleton({ animated: false })).not.toHaveClass("shelf-skeleton--animated");
+    expect(renderSkeleton({ lines: 2, animated: false })).not.toHaveClass(
+      "shelf-skeleton--animated",
+    );
   });
 
   it("forwards the ref and native attributes, and merges className and style", () => {
@@ -82,7 +92,7 @@ describe("Skeleton", () => {
 
     const skeleton = container.firstElementChild;
     expect(ref.current).toBe(skeleton);
-    expect(skeleton).toHaveClass("cps-skeleton", "custom");
+    expect(skeleton).toHaveClass("shelf-skeleton", "custom");
     expect(skeleton).toHaveAttribute("data-testid", "title-placeholder");
     expect(skeleton.style.fontSize).toBe("1.5rem");
     // An explicit `style` wins over the `width` prop.

@@ -119,7 +119,7 @@ describe("Checkbox", () => {
 
     const checkbox = screen.getByRole("checkbox", { name: "All environments" });
     expect(checkbox).toBePartiallyChecked();
-    expect(container.firstChild).toHaveClass("cps-checkbox--indeterminate");
+    expect(container.firstChild).toHaveClass("shelf-checkbox--indeterminate");
 
     // A click clears the DOM property natively, but the prop still says "mixed".
     await user.click(checkbox);
@@ -127,7 +127,7 @@ describe("Checkbox", () => {
 
     rerender(<Checkbox label="All environments" indeterminate={false} />);
     expect(checkbox).not.toBePartiallyChecked();
-    expect(container.firstChild).not.toHaveClass("cps-checkbox--indeterminate");
+    expect(container.firstChild).not.toHaveClass("shelf-checkbox--indeterminate");
   });
 
   it("drives a list as a select-all checkbox", async () => {
@@ -164,7 +164,7 @@ describe("Checkbox", () => {
     expect(checkbox).toHaveAccessibleDescription(
       "Read them before continuing. You must accept the terms.",
     );
-    expect(container.firstChild).toHaveClass("cps-checkbox--invalid");
+    expect(container.firstChild).toHaveClass("shelf-checkbox--invalid");
   });
 
   it("supports error={true} and keeps a consumer-provided aria-describedby", () => {
@@ -194,7 +194,7 @@ describe("Checkbox", () => {
 
     const checkbox = screen.getByRole("checkbox", { name: "Locked setting" });
     expect(checkbox).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-checkbox--disabled");
+    expect(container.firstChild).toHaveClass("shelf-checkbox--disabled");
 
     await user.click(checkbox);
     await user.click(screen.getByText("Locked setting"));
@@ -206,11 +206,11 @@ describe("Checkbox", () => {
     const { container, rerender } = render(<Checkbox aria-label="Select row" />);
 
     const checkbox = screen.getByRole("checkbox", { name: "Select row" });
-    expect(container.firstChild).toHaveClass("cps-checkbox", "cps-checkbox--md");
+    expect(container.firstChild).toHaveClass("shelf-checkbox", "shelf-checkbox--md");
     expect(container.querySelector("label")).not.toBeInTheDocument();
 
     rerender(<Checkbox aria-label="Select row" size="sm" />);
-    expect(container.firstChild).toHaveClass("cps-checkbox--sm");
+    expect(container.firstChild).toHaveClass("shelf-checkbox--sm");
     expect(checkbox).not.toHaveAttribute("size");
   });
 
@@ -235,7 +235,7 @@ describe("Checkbox", () => {
     expect(ref.current).toBe(checkbox);
     expect(checkbox).toHaveAttribute("id", "email-alerts");
 
-    const root = container.querySelector(".cps-checkbox");
+    const root = container.querySelector(".shelf-checkbox");
     expect(root).toHaveClass("custom");
     expect(root).toHaveStyle({ marginTop: "8px" });
     expect(new FormData(screen.getByRole("form")).get("alerts")).toBe("email");

@@ -1,5 +1,5 @@
 /* The group is a <fieldset>: reset its native border, padding and min-width. */
-.cps-radio-group {
+.shelf-radio-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -7,51 +7,51 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: var(--cps-font-sans);
-  color: var(--cps-color-text);
+  font-family: var(--shelf-font-sans);
+  color: var(--shelf-color-text);
 }
 
 /* Sizes: circle, dot and label size. */
-.cps-radio-group--sm {
-  --cps-radio-size: 0.875rem;
-  --cps-radio-dot-size: 0.375rem;
-  --cps-radio-font-size: var(--cps-font-size-xs);
-  --cps-radio-gap: 0.5rem;
+.shelf-radio-group--sm {
+  --shelf-radio-size: 0.875rem;
+  --shelf-radio-dot-size: 0.375rem;
+  --shelf-radio-font-size: var(--shelf-font-size-xs);
+  --shelf-radio-gap: 0.5rem;
 }
 
-.cps-radio-group--md {
-  --cps-radio-size: 1rem;
-  --cps-radio-dot-size: 0.5rem;
-  --cps-radio-font-size: var(--cps-font-size-sm);
-  --cps-radio-gap: 0.75rem;
+.shelf-radio-group--md {
+  --shelf-radio-size: 1rem;
+  --shelf-radio-dot-size: 0.5rem;
+  --shelf-radio-font-size: var(--shelf-font-size-sm);
+  --shelf-radio-gap: 0.75rem;
 }
 
 /*
  * The legend keeps its native placement at the top of the fieldset, outside the
  * flex layout, so it is spaced with padding instead of the gap.
  */
-.cps-radio-group__label {
+.shelf-radio-group__label {
   padding: 0 0 0.375rem;
 }
 
-.cps-radio-group__options {
+.shelf-radio-group__options {
   display: flex;
   flex-direction: column;
-  gap: var(--cps-radio-gap);
+  gap: var(--shelf-radio-gap);
 }
 
-.cps-radio-group--horizontal .cps-radio-group__options {
+.shelf-radio-group--horizontal .shelf-radio-group__options {
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 1.25rem;
 }
 
-.cps-radio-group__error {
-  color: var(--cps-color-danger-text);
+.shelf-radio-group__error {
+  color: var(--shelf-color-danger-text);
 }
 
 /* One option: the circle, then its label and description. */
-.cps-radio {
+.shelf-radio {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -59,16 +59,16 @@
 }
 
 /* As tall as the label's first line, so the circle lines up with it. */
-.cps-radio__control {
+.shelf-radio__control {
   position: relative;
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  height: calc(var(--cps-radio-font-size) * var(--cps-line-height-normal));
+  height: calc(var(--shelf-radio-font-size) * var(--shelf-line-height-normal));
 }
 
 /* The real radio sits invisibly on top of the circle and receives clicks and focus. */
-.cps-radio__input {
+.shelf-radio__input {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -79,115 +79,115 @@
   cursor: pointer;
 }
 
-.cps-radio__circle {
+.shelf-radio__circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--cps-radio-size);
-  height: var(--cps-radio-size);
+  width: var(--shelf-radio-size);
+  height: var(--shelf-radio-size);
   /* Same border as Checkbox: at least 3:1 against the page, so the circle is visible. */
-  border: 1px solid var(--cps-color-text-subtle);
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-surface);
-  transition: border-color var(--cps-duration-fast) var(--cps-easing);
+  border: 1px solid var(--shelf-color-text-subtle);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-surface);
+  transition: border-color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-radio__circle::after {
+.shelf-radio__circle::after {
   content: "";
-  width: var(--cps-radio-dot-size);
-  height: var(--cps-radio-dot-size);
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-primary);
+  width: var(--shelf-radio-dot-size);
+  height: var(--shelf-radio-dot-size);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-primary);
   transform: scale(0);
-  transition: transform var(--cps-duration-fast) var(--cps-easing);
+  transition: transform var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-radio__input:enabled:not(:checked):hover + .cps-radio__circle {
-  border-color: var(--cps-color-primary);
+.shelf-radio__input:enabled:not(:checked):hover + .shelf-radio__circle {
+  border-color: var(--shelf-color-primary);
 }
 
-.cps-radio__input:checked + .cps-radio__circle {
-  border-color: var(--cps-color-primary);
+.shelf-radio__input:checked + .shelf-radio__circle {
+  border-color: var(--shelf-color-primary);
 }
 
-.cps-radio__input:checked + .cps-radio__circle::after {
+.shelf-radio__input:checked + .shelf-radio__circle::after {
   transform: scale(1);
 }
 
-.cps-radio__input:focus-visible + .cps-radio__circle {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-radio__input:focus-visible + .shelf-radio__circle {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
-.cps-radio-group--invalid .cps-radio__input:enabled:not(:checked) + .cps-radio__circle {
-  border-color: var(--cps-color-danger);
+.shelf-radio-group--invalid .shelf-radio__input:enabled:not(:checked) + .shelf-radio__circle {
+  border-color: var(--shelf-color-danger);
 }
 
-.cps-radio__input:disabled {
+.shelf-radio__input:disabled {
   cursor: not-allowed;
 }
 
-.cps-radio__input:disabled + .cps-radio__circle {
-  border-color: var(--cps-color-border);
-  background-color: var(--cps-color-surface-muted);
+.shelf-radio__input:disabled + .shelf-radio__circle {
+  border-color: var(--shelf-color-border);
+  background-color: var(--shelf-color-surface-muted);
 }
 
-.cps-radio__input:disabled:checked + .cps-radio__circle {
-  border-color: var(--cps-color-border-strong);
+.shelf-radio__input:disabled:checked + .shelf-radio__circle {
+  border-color: var(--shelf-color-border-strong);
 }
 
-.cps-radio__input:disabled + .cps-radio__circle::after {
-  background-color: var(--cps-color-text-subtle);
+.shelf-radio__input:disabled + .shelf-radio__circle::after {
+  background-color: var(--shelf-color-text-subtle);
 }
 
-.cps-radio__text {
+.shelf-radio__text {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
   min-width: 0;
 }
 
-.cps-radio__label {
-  font-size: var(--cps-radio-font-size);
-  line-height: var(--cps-line-height-normal);
+.shelf-radio__label {
+  font-size: var(--shelf-radio-font-size);
+  line-height: var(--shelf-line-height-normal);
   cursor: pointer;
 }
 
-.cps-radio__description {
+.shelf-radio__description {
   margin: 0;
-  font-size: var(--cps-font-size-xs);
-  line-height: var(--cps-line-height-normal);
-  color: var(--cps-color-text-muted);
+  font-size: var(--shelf-font-size-xs);
+  line-height: var(--shelf-line-height-normal);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-radio--disabled .cps-radio__label {
-  color: var(--cps-color-text-subtle);
+.shelf-radio--disabled .shelf-radio__label {
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-radio__circle,
-  .cps-radio__circle::after {
+  .shelf-radio__circle,
+  .shelf-radio__circle::after {
     transition: none;
   }
 }
 
 /* The dot is a background, which forced-colors mode drops: use system colors. */
 @media (forced-colors: active) {
-  .cps-radio__input:checked + .cps-radio__circle {
+  .shelf-radio__input:checked + .shelf-radio__circle {
     border-color: Highlight;
   }
 
-  .cps-radio__circle::after {
+  .shelf-radio__circle::after {
     background-color: Highlight;
   }
 
-  .cps-radio__input:disabled + .cps-radio__circle,
-  .cps-radio__input:disabled:checked + .cps-radio__circle {
+  .shelf-radio__input:disabled + .shelf-radio__circle,
+  .shelf-radio__input:disabled:checked + .shelf-radio__circle {
     border-color: GrayText;
   }
 
-  .cps-radio__input:disabled + .cps-radio__circle::after {
+  .shelf-radio__input:disabled + .shelf-radio__circle::after {
     background-color: GrayText;
   }
 }

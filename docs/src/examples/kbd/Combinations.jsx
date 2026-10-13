@@ -1,4 +1,4 @@
-import { Kbd } from "@codecps/ui";
+import { Kbd } from "@shelf-ui/react";
 
 const shortcuts = [
   { keys: ["Ctrl", "S"], action: "Save the product" },

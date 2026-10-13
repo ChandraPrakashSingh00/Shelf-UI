@@ -1,4 +1,4 @@
-import { Accordion } from "@codecps/ui";
+import { Accordion } from "@shelf-ui/react";
 import Basic from "../../examples/accordion/Basic.jsx";
 import basicCode from "../../examples/accordion/Basic.jsx?raw";
 import Controlled from "../../examples/accordion/Controlled.jsx";

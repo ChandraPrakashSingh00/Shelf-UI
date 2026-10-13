@@ -1,36 +1,36 @@
-.cps-switch {
+.shelf-switch {
   display: flex;
   align-items: flex-start;
   gap: 0.625rem;
   min-width: 0;
-  font-family: var(--cps-font-sans);
-  color: var(--cps-color-text);
+  font-family: var(--shelf-font-sans);
+  color: var(--shelf-color-text);
 }
 
 /* Sizes: track size and label size. The thumb fills the track's height. */
-.cps-switch--sm {
-  --cps-switch-width: 1.75rem;
-  --cps-switch-height: 1rem;
-  --cps-switch-font-size: var(--cps-font-size-xs);
+.shelf-switch--sm {
+  --shelf-switch-width: 1.75rem;
+  --shelf-switch-height: 1rem;
+  --shelf-switch-font-size: var(--shelf-font-size-xs);
 }
 
-.cps-switch--md {
-  --cps-switch-width: 2.25rem;
-  --cps-switch-height: 1.25rem;
-  --cps-switch-font-size: var(--cps-font-size-sm);
+.shelf-switch--md {
+  --shelf-switch-width: 2.25rem;
+  --shelf-switch-height: 1.25rem;
+  --shelf-switch-font-size: var(--shelf-font-size-sm);
 }
 
 /* As tall as the label's first line, so the track lines up with it. */
-.cps-switch__control {
+.shelf-switch__control {
   position: relative;
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  height: calc(var(--cps-switch-font-size) * var(--cps-line-height-normal));
+  height: calc(var(--shelf-switch-font-size) * var(--shelf-line-height-normal));
 }
 
 /* The real checkbox sits invisibly on top of the track and receives clicks and focus. */
-.cps-switch__input {
+.shelf-switch__input {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -41,127 +41,127 @@
   cursor: pointer;
 }
 
-.cps-switch__track {
+.shelf-switch__track {
   display: flex;
   align-items: center;
-  width: var(--cps-switch-width);
-  height: var(--cps-switch-height);
+  width: var(--shelf-switch-width);
+  height: var(--shelf-switch-height);
   padding: 1px;
   /* Invisible here; forced-colors mode gives it a color so the track stays visible. */
   border: 1px solid transparent;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-text-subtle);
-  transition: background-color var(--cps-duration-fast) var(--cps-easing);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-text-subtle);
+  transition: background-color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-switch__thumb {
-  width: calc(var(--cps-switch-height) - 4px);
-  height: calc(var(--cps-switch-height) - 4px);
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-on-primary);
-  box-shadow: var(--cps-shadow-sm);
-  transition: transform var(--cps-duration-normal) var(--cps-easing);
+.shelf-switch__thumb {
+  width: calc(var(--shelf-switch-height) - 4px);
+  height: calc(var(--shelf-switch-height) - 4px);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-on-primary);
+  box-shadow: var(--shelf-shadow-sm);
+  transition: transform var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-switch__input:enabled:hover + .cps-switch__track {
-  background-color: var(--cps-color-text-muted);
+.shelf-switch__input:enabled:hover + .shelf-switch__track {
+  background-color: var(--shelf-color-text-muted);
 }
 
-.cps-switch__input:checked + .cps-switch__track {
-  background-color: var(--cps-color-primary);
+.shelf-switch__input:checked + .shelf-switch__track {
+  background-color: var(--shelf-color-primary);
 }
 
-.cps-switch__input:enabled:checked:hover + .cps-switch__track {
-  background-color: var(--cps-color-primary-hover);
+.shelf-switch__input:enabled:checked:hover + .shelf-switch__track {
+  background-color: var(--shelf-color-primary-hover);
 }
 
-.cps-switch__input:checked + .cps-switch__track .cps-switch__thumb {
-  transform: translateX(calc(var(--cps-switch-width) - var(--cps-switch-height)));
+.shelf-switch__input:checked + .shelf-switch__track .shelf-switch__thumb {
+  transform: translateX(calc(var(--shelf-switch-width) - var(--shelf-switch-height)));
 }
 
-.cps-switch__input:checked:dir(rtl) + .cps-switch__track .cps-switch__thumb {
-  transform: translateX(calc(var(--cps-switch-height) - var(--cps-switch-width)));
+.shelf-switch__input:checked:dir(rtl) + .shelf-switch__track .shelf-switch__thumb {
+  transform: translateX(calc(var(--shelf-switch-height) - var(--shelf-switch-width)));
 }
 
-.cps-switch__input:focus-visible + .cps-switch__track {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-switch__input:focus-visible + .shelf-switch__track {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
-.cps-switch__input:disabled {
+.shelf-switch__input:disabled {
   cursor: not-allowed;
 }
 
-.cps-switch__input:disabled + .cps-switch__track {
+.shelf-switch__input:disabled + .shelf-switch__track {
   opacity: 0.5;
 }
 
-.cps-switch__text {
+.shelf-switch__text {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
   min-width: 0;
 }
 
-.cps-switch__label {
-  font-size: var(--cps-switch-font-size);
-  line-height: var(--cps-line-height-normal);
+.shelf-switch__label {
+  font-size: var(--shelf-switch-font-size);
+  line-height: var(--shelf-line-height-normal);
   cursor: pointer;
 }
 
-.cps-switch__description {
+.shelf-switch__description {
   margin: 0;
-  font-size: var(--cps-font-size-xs);
-  line-height: var(--cps-line-height-normal);
-  color: var(--cps-color-text-muted);
+  font-size: var(--shelf-font-size-xs);
+  line-height: var(--shelf-line-height-normal);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-switch--disabled .cps-switch__label {
-  color: var(--cps-color-text-subtle);
+.shelf-switch--disabled .shelf-switch__label {
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-switch__track,
-  .cps-switch__thumb {
+  .shelf-switch__track,
+  .shelf-switch__thumb {
     transition: none;
   }
 }
 
 /* The on/off state is shown by backgrounds, which forced-colors mode drops. */
 @media (forced-colors: active) {
-  .cps-switch__track {
+  .shelf-switch__track {
     border-color: CanvasText;
   }
 
-  .cps-switch__thumb {
+  .shelf-switch__thumb {
     background-color: CanvasText;
   }
 
-  .cps-switch__input:checked + .cps-switch__track,
-  .cps-switch__input:enabled:checked:hover + .cps-switch__track {
+  .shelf-switch__input:checked + .shelf-switch__track,
+  .shelf-switch__input:enabled:checked:hover + .shelf-switch__track {
     border-color: Highlight;
     background-color: Highlight;
   }
 
-  .cps-switch__input:checked + .cps-switch__track .cps-switch__thumb {
+  .shelf-switch__input:checked + .shelf-switch__track .shelf-switch__thumb {
     background-color: HighlightText;
   }
 
-  .cps-switch__input:disabled + .cps-switch__track {
+  .shelf-switch__input:disabled + .shelf-switch__track {
     border-color: GrayText;
     opacity: 1;
   }
 
-  .cps-switch__input:disabled + .cps-switch__track .cps-switch__thumb {
+  .shelf-switch__input:disabled + .shelf-switch__track .shelf-switch__thumb {
     background-color: GrayText;
   }
 
-  .cps-switch__input:disabled:checked + .cps-switch__track {
+  .shelf-switch__input:disabled:checked + .shelf-switch__track {
     background-color: GrayText;
   }
 
-  .cps-switch__input:disabled:checked + .cps-switch__track .cps-switch__thumb {
+  .shelf-switch__input:disabled:checked + .shelf-switch__track .shelf-switch__thumb {
     background-color: Canvas;
   }
 }

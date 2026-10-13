@@ -1,4 +1,4 @@
-import { Badge, Table } from "@codecps/ui";
+import { Badge, Table } from "@shelf-ui/react";
 
 const rupees = new Intl.NumberFormat("en-IN", {
   style: "currency",

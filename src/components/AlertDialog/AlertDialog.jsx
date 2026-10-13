@@ -154,7 +154,7 @@ function AlertDialogPanel({
 
   return (
     <div
-      className="cps-modal-overlay cps-alert-dialog-overlay"
+      className="shelf-modal-overlay shelf-alert-dialog-overlay"
       onMouseDown={handleOverlayMouseDown}
       onClick={handleOverlayClick}
     >
@@ -168,39 +168,39 @@ function AlertDialogPanel({
         aria-busy={busy || undefined}
         tabIndex={-1}
         className={cx(
-          "cps-modal",
-          `cps-modal--${size}`,
-          "cps-alert-dialog",
-          `cps-alert-dialog--${variant}`,
+          "shelf-modal",
+          `shelf-modal--${size}`,
+          "shelf-alert-dialog",
+          `shelf-alert-dialog--${variant}`,
           className,
         )}
         onKeyDown={composeEventHandlers(onKeyDown, handleKeyDown)}
       >
-        <div className="cps-alert-dialog__body">
+        <div className="shelf-alert-dialog__body">
           {hasIcon && (
-            <span className="cps-alert-dialog__icon" aria-hidden="true">
+            <span className="shelf-alert-dialog__icon" aria-hidden="true">
               {iconNode}
             </span>
           )}
-          <div className="cps-alert-dialog__content">
-            <h2 id={titleId} className="cps-alert-dialog__title">
+          <div className="shelf-alert-dialog__content">
+            <h2 id={titleId} className="shelf-alert-dialog__title">
               {title}
             </h2>
             {description != null && (
-              <p id={descriptionId} className="cps-alert-dialog__description">
+              <p id={descriptionId} className="shelf-alert-dialog__description">
                 {description}
               </p>
             )}
-            {children != null && <div className="cps-alert-dialog__extra">{children}</div>}
+            {children != null && <div className="shelf-alert-dialog__extra">{children}</div>}
           </div>
         </div>
-        <div className="cps-alert-dialog__footer">
+        <div className="shelf-alert-dialog__footer">
           {/* `aria-disabled` rather than `disabled` while busy, so Cancel keeps focus. */}
           <Button
             ref={cancelRef}
             variant="secondary"
             aria-disabled={busy || undefined}
-            className="cps-alert-dialog__cancel"
+            className="shelf-alert-dialog__cancel"
             onClick={busy ? undefined : onClose}
           >
             {cancelLabel}

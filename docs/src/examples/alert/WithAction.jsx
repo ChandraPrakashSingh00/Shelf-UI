@@ -1,4 +1,4 @@
-import { Alert, Button } from "@codecps/ui";
+import { Alert, Button } from "@shelf-ui/react";
 
 export default function AlertWithAction() {
   return (

@@ -28,7 +28,7 @@ export function DesignTokensPage() {
     <article className="docs-article docs-article--wide">
       <PageHeader
         title="Design tokens"
-        lead={`All ${tokenCount} \`--cps-\` custom properties, read straight from the library's stylesheet. The dark column shows the value under \`data-cps-theme="dark"\`.`}
+        lead={`All ${tokenCount} \`--shelf-\` custom properties, read straight from the library's stylesheet. The dark column shows the value under \`data-shelf-theme="dark"\`.`}
       />
       <p className="docs-text">
         Override any of them on <code>:root</code> to theme your app; see{" "}

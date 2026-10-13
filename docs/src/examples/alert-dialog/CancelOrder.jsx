@@ -1,4 +1,4 @@
-import { AlertDialog, Badge, Button, Select } from "@codecps/ui";
+import { AlertDialog, Badge, Button, Select } from "@shelf-ui/react";
 import { useState } from "react";
 
 const reasons = [
@@ -27,7 +27,7 @@ export default function AlertDialogCancelOrder() {
         </Badge>
       </p>
       {cancelled && (
-        <p style={{ margin: 0, color: "var(--cps-color-text-muted)" }}>Reason: {reason}</p>
+        <p style={{ margin: 0, color: "var(--shelf-color-text-muted)" }}>Reason: {reason}</p>
       )}
       {cancelled ? (
         <Button variant="outline" onClick={() => setCancelled(false)}>

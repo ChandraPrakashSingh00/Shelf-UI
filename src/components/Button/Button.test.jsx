@@ -35,20 +35,20 @@ describe("Button", () => {
   it("defaults to the primary variant and medium size", () => {
     render(<Button>Default</Button>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("cps-button--primary", "cps-button--md");
+    expect(button).toHaveClass("shelf-button--primary", "shelf-button--md");
   });
 
   it.each(["primary", "secondary", "outline", "ghost", "danger"])(
     "applies the %s variant",
     (variant) => {
       render(<Button variant={variant}>Label</Button>);
-      expect(screen.getByRole("button")).toHaveClass(`cps-button--${variant}`);
+      expect(screen.getByRole("button")).toHaveClass(`shelf-button--${variant}`);
     },
   );
 
   it.each(["sm", "md", "lg"])("applies the %s size", (size) => {
     render(<Button size={size}>Label</Button>);
-    expect(screen.getByRole("button")).toHaveClass(`cps-button--${size}`);
+    expect(screen.getByRole("button")).toHaveClass(`shelf-button--${size}`);
   });
 
   it("calls onClick when activated with the mouse or keyboard", async () => {
@@ -90,7 +90,7 @@ describe("Button", () => {
     const button = screen.getByRole("button", { name: "Saving" });
     expect(button).toHaveAttribute("aria-disabled", "true");
     expect(button).toHaveAttribute("aria-busy", "true");
-    expect(button.querySelector(".cps-spinner")).toBeInTheDocument();
+    expect(button.querySelector(".shelf-spinner")).toBeInTheDocument();
     expect(screen.queryByTestId("left-icon")).not.toBeInTheDocument();
 
     await userEvent.click(button);
@@ -158,7 +158,12 @@ describe("Button", () => {
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
     expect(link).toHaveAttribute("href", "/pricing");
     expect(link).not.toHaveAttribute("type");
-    expect(link).toHaveClass("cps-button", "cps-button--outline", "cps-button--lg", "custom-link");
+    expect(link).toHaveClass(
+      "shelf-button",
+      "shelf-button--outline",
+      "shelf-button--lg",
+      "custom-link",
+    );
 
     await userEvent.click(link);
     expect(onLinkClick).toHaveBeenCalledTimes(1);
@@ -175,6 +180,6 @@ describe("Button", () => {
 
     const button = screen.getByRole("button", { name: "Close panel" });
     expect(ref.current).toBe(button);
-    expect(button).toHaveClass("cps-button", "cps-button--full-width", "custom");
+    expect(button).toHaveClass("shelf-button", "shelf-button--full-width", "custom");
   });
 });

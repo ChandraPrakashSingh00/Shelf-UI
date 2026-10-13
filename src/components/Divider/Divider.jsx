@@ -36,12 +36,12 @@ export const Divider = forwardRef(function Divider(
   const vertical = orientation === "vertical";
   const hasLabel = label != null && label !== false && label !== "";
   const classes = cx(
-    "cps-divider",
-    vertical ? "cps-divider--vertical" : "cps-divider--horizontal",
-    `cps-divider--${variant}`,
-    `cps-divider--spacing-${spacing}`,
-    hasLabel && "cps-divider--labelled",
-    hasLabel && `cps-divider--label-${labelPosition}`,
+    "shelf-divider",
+    vertical ? "shelf-divider--vertical" : "shelf-divider--horizontal",
+    `shelf-divider--${variant}`,
+    `shelf-divider--spacing-${spacing}`,
+    hasLabel && "shelf-divider--labelled",
+    hasLabel && `shelf-divider--label-${labelPosition}`,
     className,
   );
   const ariaHidden = decorative || undefined;
@@ -51,7 +51,7 @@ export const Divider = forwardRef(function Divider(
   if (hasLabel) {
     return (
       <div {...rest} ref={ref} aria-hidden={ariaHidden} className={classes}>
-        <span className="cps-divider__label">{label}</span>
+        <span className="shelf-divider__label">{label}</span>
       </div>
     );
   }

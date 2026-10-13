@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, Skeleton } from "@codecps/ui";
+import { Avatar, Button, Card, Skeleton } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function SkeletonLoading() {
@@ -22,7 +22,7 @@ export default function SkeletonLoading() {
               <Avatar name="Aditi Rao" alt="" />
               <div>
                 <strong>Aditi Rao</strong>
-                <div>Deployed codecps-web to production</div>
+                <div>Deployed storefront-web to production</div>
               </div>
             </>
           )}

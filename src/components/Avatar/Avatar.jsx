@@ -66,7 +66,7 @@ export const Avatar = forwardRef(function Avatar(
         ref={imageRef}
         src={src}
         alt={isDecorative ? "" : label}
-        className="cps-avatar__image"
+        className="shelf-avatar__image"
         onError={() => setFailedSrc(src)}
       />
     );
@@ -75,7 +75,7 @@ export const Avatar = forwardRef(function Avatar(
   } else if (initials) {
     content = initials;
   } else {
-    content = <UserIcon className="cps-avatar__icon" />;
+    content = <UserIcon className="shelf-avatar__icon" />;
   }
 
   // The fallback is text or an icon, so the avatar itself carries the name.
@@ -89,10 +89,10 @@ export const Avatar = forwardRef(function Avatar(
       aria-label={namesFallback ? label : undefined}
       aria-hidden={isDecorative || undefined}
       className={cx(
-        "cps-avatar",
-        `cps-avatar--${size ?? group?.size ?? "md"}`,
-        `cps-avatar--${shape}`,
-        !showImage && "cps-avatar--fallback",
+        "shelf-avatar",
+        `shelf-avatar--${size ?? group?.size ?? "md"}`,
+        `shelf-avatar--${shape}`,
+        !showImage && "shelf-avatar--fallback",
         className,
       )}
     >
@@ -127,14 +127,14 @@ export const AvatarGroup = forwardRef(function AvatarGroup(
         ref={ref}
         role="group"
         aria-label={label ?? ariaLabel}
-        className={cx("cps-avatar-group", `cps-avatar-group--${size}`, className)}
+        className={cx("shelf-avatar-group", `shelf-avatar-group--${size}`, className)}
       >
         {avatars.slice(0, visibleCount)}
         {hiddenCount > 0 && (
           <Avatar
             alt={`${hiddenCount} more`}
             fallback={`+${hiddenCount}`}
-            className="cps-avatar-group__more"
+            className="shelf-avatar-group__more"
           />
         )}
       </span>

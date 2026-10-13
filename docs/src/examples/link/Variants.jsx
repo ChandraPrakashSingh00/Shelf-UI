@@ -1,4 +1,4 @@
-import { Link } from "@codecps/ui";
+import { Link } from "@shelf-ui/react";
 
 const footerLinks = [
   { href: "#about", label: "About us" },
@@ -38,7 +38,7 @@ export default function LinkVariants() {
       </nav>
 
       {/* Inherit takes the color of the surrounding text, e.g. inside an alert. */}
-      <p style={{ margin: 0, color: "var(--cps-color-warning-text)" }}>
+      <p style={{ margin: 0, color: "var(--shelf-color-warning-text)" }}>
         Cash on delivery isn't available for 560001.{" "}
         <Link href="#payment" variant="inherit" underline="always">
           Choose another payment method

@@ -56,16 +56,16 @@ describe("Drawer", () => {
     expect(dialog).toHaveAttribute("aria-modal", "true");
     expect(dialog).toHaveAccessibleDescription("Show only the deployments you care about.");
     expect(screen.getByRole("heading", { name: "Filter deployments" })).toBeInTheDocument();
-    expect(overlayOf(dialog)).toHaveClass("cps-drawer-overlay");
+    expect(overlayOf(dialog)).toHaveClass("shelf-drawer-overlay");
     expect(overlayOf(dialog).parentElement).toBe(document.body);
   });
 
   it("slides in from the right at the medium size by default", () => {
     render(<Drawer open onClose={vi.fn()} title="Details" />);
     expect(screen.getByRole("dialog")).toHaveClass(
-      "cps-drawer",
-      "cps-drawer--right",
-      "cps-drawer--md",
+      "shelf-drawer",
+      "shelf-drawer--right",
+      "shelf-drawer--md",
     );
   });
 
@@ -75,7 +75,10 @@ describe("Drawer", () => {
     ["bottom", "md"],
   ])("applies the %s side and %s size", (side, size) => {
     render(<Drawer open onClose={vi.fn()} title="Details" side={side} size={size} />);
-    expect(screen.getByRole("dialog")).toHaveClass(`cps-drawer--${side}`, `cps-drawer--${size}`);
+    expect(screen.getByRole("dialog")).toHaveClass(
+      `shelf-drawer--${side}`,
+      `shelf-drawer--${size}`,
+    );
   });
 
   it("moves focus to the first focusable element when opened", async () => {
@@ -200,10 +203,10 @@ describe("Drawer", () => {
 
     const dialog = screen.getByRole("dialog", { name: "Project navigation" });
     expect(ref.current).toBe(dialog);
-    expect(dialog).toHaveClass("cps-drawer", "custom");
+    expect(dialog).toHaveClass("shelf-drawer", "custom");
     expect(dialog).toHaveAttribute("data-testid", "drawer");
     expect(dialog).not.toHaveAttribute("aria-labelledby");
-    expect(dialog.querySelector(".cps-drawer__header")).not.toBeInTheDocument();
+    expect(dialog.querySelector(".shelf-drawer__header")).not.toBeInTheDocument();
     expect(dialog).toHaveTextContent("Links");
   });
 });

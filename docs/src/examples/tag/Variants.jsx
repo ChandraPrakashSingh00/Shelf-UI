@@ -1,4 +1,4 @@
-import { Tag } from "@codecps/ui";
+import { Tag } from "@shelf-ui/react";
 
 export default function TagVariants() {
   return (

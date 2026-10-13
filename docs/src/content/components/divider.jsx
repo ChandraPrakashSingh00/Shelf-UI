@@ -1,4 +1,4 @@
-import { Divider } from "@codecps/ui";
+import { Divider } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/divider/Basic.jsx";
 import basicCode from "../../examples/divider/Basic.jsx?raw";
@@ -15,7 +15,7 @@ const labelPositions = ["start", "center", "end"];
 const variants = ["solid", "dashed"];
 const spacings = ["sm", "md", "lg"];
 
-const previewText = { color: "var(--cps-color-text-muted)", fontSize: 14 };
+const previewText = { color: "var(--shelf-color-text-muted)", fontSize: 14 };
 
 function DividerThumbnail() {
   return (
@@ -33,9 +33,9 @@ function ButtonShape() {
     <div
       style={{
         height: 28,
-        border: "1px solid var(--cps-color-border-strong)",
-        borderRadius: "var(--cps-radius-md)",
-        backgroundColor: "var(--cps-color-surface)",
+        border: "1px solid var(--shelf-color-border-strong)",
+        borderRadius: "var(--shelf-radius-md)",
+        backgroundColor: "var(--shelf-color-surface)",
       }}
     />
   );

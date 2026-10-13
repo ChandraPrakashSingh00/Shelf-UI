@@ -1,17 +1,17 @@
-.cps-tabs {
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
+.shelf-tabs {
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
 }
 
-.cps-tabs__list {
+.shelf-tabs__list {
   display: flex;
   gap: 0.25rem;
   overflow-x: auto;
   scrollbar-width: none;
-  box-shadow: inset 0 -1px 0 var(--cps-color-border);
+  box-shadow: inset 0 -1px 0 var(--shelf-color-border);
 }
 
-.cps-tabs__tab {
+.shelf-tabs__tab {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
@@ -20,45 +20,45 @@
   border: 0;
   border-bottom: 2px solid transparent;
   background: transparent;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
   font: inherit;
-  font-size: var(--cps-font-size-sm);
-  font-weight: var(--cps-font-weight-medium);
+  font-size: var(--shelf-font-size-sm);
+  font-weight: var(--shelf-font-weight-medium);
   white-space: nowrap;
   cursor: pointer;
   transition:
-    color var(--cps-duration-fast) var(--cps-easing),
-    border-color var(--cps-duration-fast) var(--cps-easing);
+    color var(--shelf-duration-fast) var(--shelf-easing),
+    border-color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-tabs__tab:hover:not(:disabled) {
-  color: var(--cps-color-text);
+.shelf-tabs__tab:hover:not(:disabled) {
+  color: var(--shelf-color-text);
 }
 
-.cps-tabs__tab[aria-selected="true"] {
-  border-bottom-color: var(--cps-color-primary);
-  color: var(--cps-color-primary-text);
+.shelf-tabs__tab[aria-selected="true"] {
+  border-bottom-color: var(--shelf-color-primary);
+  color: var(--shelf-color-primary-text);
 }
 
-.cps-tabs__tab:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-tabs__tab:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: -2px;
-  border-radius: var(--cps-radius-sm);
+  border-radius: var(--shelf-radius-sm);
 }
 
-.cps-tabs__tab:disabled {
+.shelf-tabs__tab:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-.cps-tabs__panel {
+.shelf-tabs__panel {
   padding-top: 1rem;
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-normal);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-normal);
 }
 
-.cps-tabs__panel:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-tabs__panel:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
-  border-radius: var(--cps-radius-sm);
+  border-radius: var(--shelf-radius-sm);
 }

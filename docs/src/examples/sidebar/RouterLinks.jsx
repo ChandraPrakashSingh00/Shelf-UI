@@ -1,4 +1,4 @@
-import { Sidebar } from "@codecps/ui";
+import { Sidebar } from "@shelf-ui/react";
 import { NavLink } from "react-router";
 
 const pages = [
@@ -16,9 +16,9 @@ export default function SidebarRouterLinks() {
         width: "100%",
         height: 280,
         overflow: "hidden",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-bg)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-bg)",
       }}
     >
       <Sidebar label="Navigation components" width="14rem">
@@ -35,7 +35,7 @@ export default function SidebarRouterLinks() {
           </Sidebar.Section>
         </Sidebar.Content>
       </Sidebar>
-      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--cps-color-text-muted)" }}>
+      <p style={{ flex: 1, margin: 0, padding: 24, color: "var(--shelf-color-text-muted)" }}>
         These links are real: they navigate these docs.
       </p>
     </div>

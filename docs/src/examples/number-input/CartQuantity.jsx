@@ -1,4 +1,4 @@
-import { NumberInput } from "@codecps/ui";
+import { NumberInput } from "@shelf-ui/react";
 import { useState } from "react";
 
 const products = [
@@ -27,12 +27,12 @@ export default function NumberInputCartQuantity() {
             alignItems: "center",
             gap: 12,
             paddingBottom: 12,
-            borderBottom: "1px solid var(--cps-color-border)",
+            borderBottom: "1px solid var(--shelf-color-border)",
           }}
         >
           <div style={{ flex: "1 1 180px", minWidth: 0 }}>
             <div style={{ fontWeight: 500 }}>{product.name}</div>
-            <div style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+            <div style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
               {rupees(product.price)} · {product.stock} in stock
             </div>
           </div>

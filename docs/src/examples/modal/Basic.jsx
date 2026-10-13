@@ -1,4 +1,4 @@
-import { Button, Modal } from "@codecps/ui";
+import { Button, Modal } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function ModalBasic() {
@@ -14,7 +14,7 @@ export default function ModalBasic() {
         onClose={() => setOpen(false)}
         size="sm"
         title="Delete project?"
-        description="codecps-web and all of its deployments will be permanently deleted."
+        description="storefront-web and all of its deployments will be permanently deleted."
         footer={
           <>
             <Button variant="secondary" onClick={() => setOpen(false)}>

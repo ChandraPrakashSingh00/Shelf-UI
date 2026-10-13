@@ -34,9 +34,9 @@ describe("Stepper", () => {
     expect(address).not.toHaveAttribute("aria-current");
     expect(review).not.toHaveAttribute("aria-current");
 
-    expect(address).toHaveClass("cps-stepper__step--complete");
-    expect(payment).toHaveClass("cps-stepper__step--current");
-    expect(review).toHaveClass("cps-stepper__step--upcoming");
+    expect(address).toHaveClass("shelf-stepper__step--complete");
+    expect(payment).toHaveClass("shelf-stepper__step--current");
+    expect(review).toHaveClass("shelf-stepper__step--upcoming");
   });
 
   it("includes each step's status as text, so it doesn't rely on color", () => {
@@ -50,7 +50,7 @@ describe("Stepper", () => {
 
   it("shows numbers for current and upcoming steps and a check for completed ones", () => {
     render(<Stepper steps={checkout} activeStep={1} />);
-    const indicators = getSteps().map((step) => step.querySelector(".cps-stepper__indicator"));
+    const indicators = getSteps().map((step) => step.querySelector(".shelf-stepper__indicator"));
 
     expect(indicators[0]?.querySelector("svg")).not.toBeNull();
     expect(indicators[1]).toHaveTextContent("2");
@@ -63,27 +63,27 @@ describe("Stepper", () => {
     render(<Stepper steps={steps} activeStep={1} />);
     const payment = getSteps()[1];
 
-    expect(payment).toHaveClass("cps-stepper__step--error", "cps-stepper__step--current");
+    expect(payment).toHaveClass("shelf-stepper__step--error", "shelf-stepper__step--current");
     expect(payment).toHaveAttribute("aria-current", "step");
     expect(payment).toHaveTextContent("Payment, Error");
-    expect(payment.querySelector(".cps-stepper__indicator svg")).not.toBeNull();
+    expect(payment.querySelector(".shelf-stepper__indicator svg")).not.toBeNull();
   });
 
   it("colors the connectors after completed steps", () => {
     const { container } = render(<Stepper steps={checkout} activeStep={1} />);
-    const connectors = container.querySelectorAll(".cps-stepper__connector");
+    const connectors = container.querySelectorAll(".shelf-stepper__connector");
 
     // No connector after the last step.
     expect(connectors).toHaveLength(2);
-    expect(connectors[0]).toHaveClass("cps-stepper__connector--complete");
-    expect(connectors[1]).not.toHaveClass("cps-stepper__connector--complete");
+    expect(connectors[0]).toHaveClass("shelf-stepper__connector--complete");
+    expect(connectors[1]).not.toHaveClass("shelf-stepper__connector--complete");
     expect(connectors[0]).toHaveAttribute("aria-hidden", "true");
   });
 
   it("marks every step complete when activeStep is past the last step", () => {
     render(<Stepper steps={checkout} activeStep={3} />);
     for (const step of getSteps()) {
-      expect(step).toHaveClass("cps-stepper__step--complete");
+      expect(step).toHaveClass("shelf-stepper__step--complete");
       expect(step).not.toHaveAttribute("aria-current");
     }
   });
@@ -152,10 +152,10 @@ describe("Stepper", () => {
   it("applies orientation and size classes", () => {
     const { rerender } = render(<Stepper steps={checkout} activeStep={0} />);
     const list = screen.getByRole("list");
-    expect(list).toHaveClass("cps-stepper", "cps-stepper--horizontal", "cps-stepper--md");
+    expect(list).toHaveClass("shelf-stepper", "shelf-stepper--horizontal", "shelf-stepper--md");
 
     rerender(<Stepper steps={checkout} activeStep={0} orientation="vertical" size="sm" />);
-    expect(list).toHaveClass("cps-stepper--vertical", "cps-stepper--sm");
+    expect(list).toHaveClass("shelf-stepper--vertical", "shelf-stepper--sm");
   });
 
   it("uses step ids as keys without warnings, and falls back to the index", () => {
@@ -177,7 +177,7 @@ describe("Stepper", () => {
     );
     const list = screen.getByRole("list");
     expect(ref.current).toBe(list);
-    expect(list).toHaveClass("cps-stepper", "checkout-steps");
+    expect(list).toHaveClass("shelf-stepper", "checkout-steps");
     expect(list).toHaveAttribute("data-testid", "stepper");
   });
 });

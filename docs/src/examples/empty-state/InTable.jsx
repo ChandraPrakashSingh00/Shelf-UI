@@ -1,4 +1,4 @@
-import { Button, Card, EmptyState, Table } from "@codecps/ui";
+import { Button, Card, EmptyState, Table } from "@shelf-ui/react";
 
 function PackageIcon() {
   return (

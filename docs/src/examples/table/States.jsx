@@ -1,4 +1,4 @@
-import { Button, EmptyState, Table } from "@codecps/ui";
+import { Button, EmptyState, Table } from "@shelf-ui/react";
 import { useState } from "react";
 
 function ReturnIcon() {

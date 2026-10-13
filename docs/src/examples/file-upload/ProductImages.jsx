@@ -1,4 +1,4 @@
-import { FileUpload } from "@codecps/ui";
+import { FileUpload } from "@shelf-ui/react";
 
 export default function FileUploadProductImages() {
   return (

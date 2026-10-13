@@ -1,4 +1,4 @@
-import { Button, Drawer } from "@codecps/ui";
+import { Button, Drawer } from "@shelf-ui/react";
 import { useState } from "react";
 
 const sizes = ["sm", "md", "lg"];

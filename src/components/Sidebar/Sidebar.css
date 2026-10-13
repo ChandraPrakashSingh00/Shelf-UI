@@ -1,81 +1,81 @@
-.cps-sidebar {
-  --cps-sidebar-width: 16rem;
-  --cps-sidebar-collapsed-width: 4rem;
-  --cps-sidebar-padding: 0.75rem;
-  --cps-sidebar-icon-size: 1.125rem;
+.shelf-sidebar {
+  --shelf-sidebar-width: 16rem;
+  --shelf-sidebar-collapsed-width: 4rem;
+  --shelf-sidebar-padding: 0.75rem;
+  --shelf-sidebar-icon-size: 1.125rem;
 
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: var(--cps-sidebar-width);
+  width: var(--shelf-sidebar-width);
   max-width: 100%;
   /* Fills its container; give the container a height (or make the sidebar sticky). */
   height: 100%;
   min-height: 0;
   overflow: hidden;
-  border-inline-end: 1px solid var(--cps-color-border);
-  background-color: var(--cps-color-surface);
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-normal);
-  transition: width var(--cps-duration-normal) var(--cps-easing);
+  border-inline-end: 1px solid var(--shelf-color-border);
+  background-color: var(--shelf-color-surface);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-normal);
+  transition: width var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-sidebar--collapsed {
-  width: var(--cps-sidebar-collapsed-width);
+.shelf-sidebar--collapsed {
+  width: var(--shelf-sidebar-collapsed-width);
 }
 
-.cps-sidebar__header,
-.cps-sidebar__footer {
+.shelf-sidebar__header,
+.shelf-sidebar__footer {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
-  padding: var(--cps-sidebar-padding);
+  padding: var(--shelf-sidebar-padding);
 }
 
-.cps-sidebar__header {
+.shelf-sidebar__header {
   min-height: 3.75rem;
-  border-bottom: 1px solid var(--cps-color-border);
-  font-weight: var(--cps-font-weight-semibold);
+  border-bottom: 1px solid var(--shelf-color-border);
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-sidebar__footer {
+.shelf-sidebar__footer {
   flex-direction: column;
   align-items: stretch;
-  border-top: 1px solid var(--cps-color-border);
+  border-top: 1px solid var(--shelf-color-border);
 }
 
-.cps-sidebar__toggle {
+.shelf-sidebar__toggle {
   margin-inline-start: auto;
 }
 
-.cps-sidebar__content {
+.shelf-sidebar__content {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   gap: 1.25rem;
   min-height: 0;
-  padding: var(--cps-sidebar-padding);
+  padding: var(--shelf-sidebar-padding);
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
 
-.cps-sidebar__section {
+.shelf-sidebar__section {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.cps-sidebar__section-title {
+.shelf-sidebar__section-title {
   padding: 0 0.75rem;
   overflow: hidden;
-  color: var(--cps-color-text-subtle);
-  font-size: var(--cps-font-size-xs);
-  font-weight: var(--cps-font-weight-semibold);
+  color: var(--shelf-color-text-subtle);
+  font-size: var(--shelf-font-size-xs);
+  font-weight: var(--shelf-font-weight-semibold);
   letter-spacing: 0.04em;
   line-height: 1.5rem;
   text-overflow: ellipsis;
@@ -83,78 +83,78 @@
   white-space: nowrap;
 }
 
-.cps-sidebar__list,
-.cps-sidebar__sublist {
+.shelf-sidebar__list,
+.shelf-sidebar__sublist {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.cps-sidebar__list,
-.cps-sidebar__sublist:not([hidden]) {
+.shelf-sidebar__list,
+.shelf-sidebar__sublist:not([hidden]) {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
 }
 
 /* Items: links, buttons and group triggers */
-.cps-sidebar__item {
+.shelf-sidebar__item {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   width: 100%;
-  min-height: var(--cps-control-height-md);
+  min-height: var(--shelf-control-height-md);
   padding: 0.5rem 0.75rem;
   border: 0;
-  border-radius: var(--cps-radius-md);
+  border-radius: var(--shelf-radius-md);
   background-color: transparent;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
   font: inherit;
-  font-weight: var(--cps-font-weight-medium);
-  line-height: var(--cps-line-height-tight);
+  font-weight: var(--shelf-font-weight-medium);
+  line-height: var(--shelf-line-height-tight);
   text-align: start;
   text-decoration: none;
   cursor: pointer;
   transition:
-    background-color var(--cps-duration-fast) var(--cps-easing),
-    color var(--cps-duration-fast) var(--cps-easing);
+    background-color var(--shelf-duration-fast) var(--shelf-easing),
+    color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-sidebar__item:hover:not(:disabled, [aria-disabled="true"]) {
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text);
+.shelf-sidebar__item:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text);
 }
 
-.cps-sidebar__item[aria-current="page"] {
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+.shelf-sidebar__item[aria-current="page"] {
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
 }
 
-.cps-sidebar__item[aria-current="page"]:hover {
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+.shelf-sidebar__item[aria-current="page"]:hover {
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
 }
 
 /* Inset, so the ring isn't clipped by the scrolling content area. */
-.cps-sidebar__item:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-sidebar__item:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: -2px;
 }
 
-.cps-sidebar__item:disabled,
-.cps-sidebar__item[aria-disabled="true"] {
+.shelf-sidebar__item:disabled,
+.shelf-sidebar__item[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-.cps-sidebar__icon {
+.shelf-sidebar__icon {
   display: inline-flex;
   flex-shrink: 0;
-  font-size: var(--cps-sidebar-icon-size);
+  font-size: var(--shelf-sidebar-icon-size);
 }
 
-.cps-sidebar__label {
+.shelf-sidebar__label {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -162,85 +162,86 @@
   white-space: nowrap;
 }
 
-.cps-sidebar__badge {
+.shelf-sidebar__badge {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
 }
 
-.cps-sidebar__badge--count {
+.shelf-sidebar__badge--count {
   justify-content: center;
   min-width: 1.25rem;
   height: 1.25rem;
   padding: 0 0.375rem;
   /* Keeps the pill visible in forced-colors mode, where backgrounds are dropped. */
   border: 1px solid transparent;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-primary);
-  color: var(--cps-color-on-primary);
-  font-size: var(--cps-font-size-xs);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-primary);
+  color: var(--shelf-color-on-primary);
+  font-size: var(--shelf-font-size-xs);
   font-variant-numeric: tabular-nums;
-  font-weight: var(--cps-font-weight-semibold);
+  font-weight: var(--shelf-font-weight-semibold);
   line-height: 1;
 }
 
 /* Groups */
-.cps-sidebar__chevron {
+.shelf-sidebar__chevron {
   flex-shrink: 0;
   font-size: 1rem;
-  transition: transform var(--cps-duration-normal) var(--cps-easing);
+  transition: transform var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-sidebar__group-trigger[aria-expanded="true"] .cps-sidebar__chevron {
+.shelf-sidebar__group-trigger[aria-expanded="true"] .shelf-sidebar__chevron {
   transform: rotate(180deg);
 }
 
 /* A group holding the current page stands out, even while it is closed. */
-.cps-sidebar__group:has(.cps-sidebar__sublist [aria-current="page"]) > .cps-sidebar__group-trigger {
-  color: var(--cps-color-text);
+.shelf-sidebar__group:has(.shelf-sidebar__sublist [aria-current="page"])
+  > .shelf-sidebar__group-trigger {
+  color: var(--shelf-color-text);
 }
 
-.cps-sidebar__sublist {
+.shelf-sidebar__sublist {
   /* A guide line under the middle of the group's icon, and nested labels lined up
      with the group's label: 0.75rem padding + icon + 0.75rem gap in total. */
   margin-top: 0.125rem;
-  margin-inline-start: calc(0.75rem + var(--cps-sidebar-icon-size) / 2);
-  padding-inline-start: calc(var(--cps-sidebar-icon-size) / 2 - 1px);
-  border-inline-start: 1px solid var(--cps-color-border);
+  margin-inline-start: calc(0.75rem + var(--shelf-sidebar-icon-size) / 2);
+  padding-inline-start: calc(var(--shelf-sidebar-icon-size) / 2 - 1px);
+  border-inline-start: 1px solid var(--shelf-color-border);
 }
 
-.cps-sidebar__sublist .cps-sidebar__item {
-  min-height: var(--cps-control-height-sm);
+.shelf-sidebar__sublist .shelf-sidebar__item {
+  min-height: var(--shelf-control-height-sm);
   padding-block: 0.375rem;
-  font-weight: var(--cps-font-weight-regular);
+  font-weight: var(--shelf-font-weight-regular);
 }
 
 /* Collapsed: an icon rail. Labels stay in the page, visually hidden, as the
    accessible names; the tooltips show them on hover and focus. */
-.cps-sidebar--collapsed .cps-sidebar__header,
-.cps-sidebar--collapsed .cps-sidebar__footer {
+.shelf-sidebar--collapsed .shelf-sidebar__header,
+.shelf-sidebar--collapsed .shelf-sidebar__footer {
   flex-direction: column;
   align-items: center;
 }
 
 /* Items in the footer keep the rail's full width, like the ones in the content. */
-.cps-sidebar--collapsed .cps-sidebar__footer > .cps-sidebar__section {
+.shelf-sidebar--collapsed .shelf-sidebar__footer > .shelf-sidebar__section {
   align-self: stretch;
 }
 
-.cps-sidebar--collapsed .cps-sidebar__toggle {
+.shelf-sidebar--collapsed .shelf-sidebar__toggle {
   margin-inline-start: 0;
 }
 
-.cps-sidebar--collapsed .cps-sidebar__item {
+.shelf-sidebar--collapsed .shelf-sidebar__item {
   justify-content: center;
   gap: 0;
   padding-inline: 0;
 }
 
-.cps-sidebar--collapsed .cps-sidebar__label,
-.cps-sidebar--collapsed .cps-sidebar__section-title,
-.cps-sidebar--collapsed .cps-sidebar__badge:not(.cps-sidebar__badge--count) {
+.shelf-sidebar--collapsed .shelf-sidebar__label,
+.shelf-sidebar--collapsed .shelf-sidebar__section-title,
+.shelf-sidebar--collapsed .shelf-sidebar__badge:not(.shelf-sidebar__badge--count) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -252,16 +253,16 @@
   border: 0;
 }
 
-.cps-sidebar--collapsed .cps-sidebar__section + .cps-sidebar__section {
+.shelf-sidebar--collapsed .shelf-sidebar__section + .shelf-sidebar__section {
   padding-top: 1.25rem;
-  border-top: 1px solid var(--cps-color-border);
+  border-top: 1px solid var(--shelf-color-border);
 }
 
-.cps-sidebar--collapsed .cps-sidebar__chevron {
+.shelf-sidebar--collapsed .shelf-sidebar__chevron {
   display: none;
 }
 
-.cps-sidebar--collapsed .cps-sidebar__badge--count {
+.shelf-sidebar--collapsed .shelf-sidebar__badge--count {
   position: absolute;
   top: 0.125rem;
   inset-inline-end: 0.125rem;
@@ -271,31 +272,31 @@
   font-size: 0.625rem;
 }
 
-.cps-sidebar--collapsed
-  .cps-sidebar__group:has(.cps-sidebar__sublist [aria-current="page"])
-  > .cps-sidebar__group-trigger {
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+.shelf-sidebar--collapsed
+  .shelf-sidebar__group:has(.shelf-sidebar__sublist [aria-current="page"])
+  > .shelf-sidebar__group-trigger {
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-sidebar,
-  .cps-sidebar__item,
-  .cps-sidebar__chevron {
+  .shelf-sidebar,
+  .shelf-sidebar__item,
+  .shelf-sidebar__chevron {
     transition: none;
   }
 }
 
 /* Forced colors drop backgrounds: show the current page as a selected item. */
 @media (forced-colors: active) {
-  .cps-sidebar__item[aria-current="page"],
-  .cps-sidebar__item[aria-current="page"]:hover {
+  .shelf-sidebar__item[aria-current="page"],
+  .shelf-sidebar__item[aria-current="page"]:hover {
     forced-color-adjust: none;
     background-color: Highlight;
     color: HighlightText;
   }
 
-  .cps-sidebar__item:hover:not(:disabled, [aria-disabled="true"]) {
+  .shelf-sidebar__item:hover:not(:disabled, [aria-disabled="true"]) {
     outline: 1px solid CanvasText;
     outline-offset: -1px;
   }

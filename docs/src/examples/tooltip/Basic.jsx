@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@codecps/ui";
+import { Button, Tooltip } from "@shelf-ui/react";
 
 export default function TooltipBasic() {
   return (

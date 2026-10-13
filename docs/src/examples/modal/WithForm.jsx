@@ -1,4 +1,4 @@
-import { Button, Input, Modal } from "@codecps/ui";
+import { Button, Input, Modal } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function ModalWithForm() {

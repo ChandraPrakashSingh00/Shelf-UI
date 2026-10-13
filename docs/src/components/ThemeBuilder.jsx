@@ -1,4 +1,4 @@
-import { Alert, Badge, Button, Input, Tabs } from "@codecps/ui";
+import { Alert, Badge, Button, Input, Tabs } from "@shelf-ui/react";
 import { useId, useState } from "react";
 import { CodeBlock } from "./CodeBlock.jsx";
 import { SegmentedControl } from "./SegmentedControl.jsx";
@@ -10,42 +10,42 @@ const RADIUS_PRESETS = {
 };
 
 const RADIUS_OPTIONS = Object.keys(RADIUS_PRESETS);
-const SWATCHES = ["#086ffd", "#7c3aed", "#0f766e", "#e11d48", "#ea580c"];
+const SWATCHES = ["#6938ef", "#2970ff", "#0f766e", "#e11d48", "#ea580c"];
 
 /** Derives the primary palette from one color with `color-mix()`. */
 function themeTokens(primary, radius) {
   const preset = RADIUS_PRESETS[radius];
   return {
     light: {
-      "--cps-color-primary": primary,
-      "--cps-color-primary-hover": `color-mix(in srgb, ${primary} 88%, black)`,
-      "--cps-color-primary-active": `color-mix(in srgb, ${primary} 76%, black)`,
-      "--cps-color-primary-subtle": `color-mix(in srgb, ${primary} 10%, white)`,
-      "--cps-color-primary-border": `color-mix(in srgb, ${primary} 35%, white)`,
-      "--cps-color-primary-text": `color-mix(in srgb, ${primary} 78%, black)`,
-      "--cps-color-focus": primary,
-      "--cps-focus-ring-soft": `color-mix(in srgb, ${primary} 22%, transparent)`,
-      "--cps-radius-sm": preset.sm,
-      "--cps-radius-md": preset.md,
-      "--cps-radius-lg": preset.lg,
+      "--shelf-color-primary": primary,
+      "--shelf-color-primary-hover": `color-mix(in srgb, ${primary} 88%, black)`,
+      "--shelf-color-primary-active": `color-mix(in srgb, ${primary} 76%, black)`,
+      "--shelf-color-primary-subtle": `color-mix(in srgb, ${primary} 10%, white)`,
+      "--shelf-color-primary-border": `color-mix(in srgb, ${primary} 35%, white)`,
+      "--shelf-color-primary-text": `color-mix(in srgb, ${primary} 78%, black)`,
+      "--shelf-color-focus": primary,
+      "--shelf-focus-ring-soft": `color-mix(in srgb, ${primary} 22%, transparent)`,
+      "--shelf-radius-sm": preset.sm,
+      "--shelf-radius-md": preset.md,
+      "--shelf-radius-lg": preset.lg,
     },
     dark: {
-      "--cps-color-primary-subtle": `color-mix(in srgb, ${primary} 16%, transparent)`,
-      "--cps-color-primary-border": `color-mix(in srgb, ${primary} 42%, transparent)`,
-      "--cps-color-primary-text": `color-mix(in srgb, ${primary} 60%, white)`,
-      "--cps-color-focus": `color-mix(in srgb, ${primary} 70%, white)`,
+      "--shelf-color-primary-subtle": `color-mix(in srgb, ${primary} 16%, transparent)`,
+      "--shelf-color-primary-border": `color-mix(in srgb, ${primary} 42%, transparent)`,
+      "--shelf-color-primary-text": `color-mix(in srgb, ${primary} 60%, white)`,
+      "--shelf-color-focus": `color-mix(in srgb, ${primary} 70%, white)`,
     },
   };
 }
 
-// Tokens defined in terms of others (like --cps-color-info) resolve where they
+// Tokens defined in terms of others (like --shelf-color-info) resolve where they
 // are declared, so a preview scoped to one element has to redeclare them.
 // A theme set on :root, like the snippet below, doesn't need these.
 const SCOPED_ALIASES = {
-  "--cps-color-info": "var(--cps-color-primary)",
-  "--cps-color-info-subtle": "var(--cps-color-primary-subtle)",
-  "--cps-color-info-border": "var(--cps-color-primary-border)",
-  "--cps-color-info-text": "var(--cps-color-primary-text)",
+  "--shelf-color-info": "var(--shelf-color-primary)",
+  "--shelf-color-info-subtle": "var(--shelf-color-primary-subtle)",
+  "--shelf-color-info-border": "var(--shelf-color-primary-border)",
+  "--shelf-color-info-text": "var(--shelf-color-primary-text)",
 };
 
 const block = (selector, tokens) =>
@@ -55,16 +55,16 @@ const block = (selector, tokens) =>
 
 /** Live theme preview: pick a primary color and radius, copy the CSS. */
 export function ThemeBuilder() {
-  const [primary, setPrimary] = useState("#086ffd");
+  const [primary, setPrimary] = useState("#6938ef");
   const [radius, setRadius] = useState("default");
   const scopeClass = `docs-theme-${useId().replace(/[^\w-]/g, "")}`;
   const { light, dark } = themeTokens(primary, radius);
 
   const previewCss = [
     block(`.${scopeClass}`, { ...light, ...SCOPED_ALIASES }),
-    block(`[data-cps-theme="dark"] .${scopeClass}`, dark),
+    block(`[data-shelf-theme="dark"] .${scopeClass}`, dark),
   ].join("\n");
-  const snippet = [block(":root", light), block('[data-cps-theme="dark"]', dark)].join("\n\n");
+  const snippet = [block(":root", light), block('[data-shelf-theme="dark"]', dark)].join("\n\n");
 
   return (
     <div className="docs-theme-builder">

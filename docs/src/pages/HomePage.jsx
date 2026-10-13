@@ -1,8 +1,9 @@
-import { Button, Kbd } from "@codecps/ui";
+import { Button, Kbd } from "@shelf-ui/react";
 import { Link } from "react-router";
 import { CodeBlock, CopyButton } from "../components/CodeBlock.jsx";
 import { ComponentCard } from "../components/ComponentCard.jsx";
 import { HeroShowcase } from "../components/HeroShowcase.jsx";
+import { ShelfArt } from "../components/ShelfArt.jsx";
 import {
   AccessibleIcon,
   ArrowRightIcon,
@@ -15,19 +16,19 @@ import {
 } from "../components/icons.jsx";
 import { StatList } from "../components/StatList.jsx";
 import { componentDocs, getComponentDoc } from "../content/components/index.js";
-import { packageName, version } from "../content/site.js";
+import { packageName, productName, version } from "../content/site.js";
 import { useDocumentTitle } from "../lib/document.js";
 
 const popularSlugs = ["button", "card", "input", "modal", "dropdown", "table"];
 
 const installCommand = `npm install ${packageName}`;
 
-const swatches = ["#086ffd", "#7c3aed", "#0f766e", "#e11d48", "#ea580c"];
+const swatches = ["#6938ef", "#2970ff", "#0f766e", "#e11d48", "#ea580c"];
 
 const steps = [
   {
     title: "Install the package",
-    text: "Add CodeCPS UI to any React 18 or 19 project.",
+    text: `Add ${productName} to any React 18 or 19 project.`,
     code: installCommand,
     language: "bash",
     fileName: "terminal",
@@ -130,18 +131,19 @@ export function HomePage() {
     <div className="docs-home">
       <section className="docs-hero" aria-labelledby="hero-title">
         <div className="docs-container docs-hero__inner">
-          <Link to="/changelog" className="docs-hero__pill">
+          <Link to="/blog/whats-new-in-0-3-0" className="docs-hero__pill">
             <span className="docs-hero__pill-version">v{version}</span>
-            Modern React Component Library
+            New package, new look
             <ArrowRightIcon className="docs-hero__pill-arrow" />
           </Link>
           <h1 id="hero-title" className="docs-hero__title">
-            Build Beautiful UIs <br className="docs-hero__break" />
-            Faster with <span>CodeCPS UI</span>
+            Off-the-shelf components, <br className="docs-hero__break" />
+            <span>made to fit</span> your brand
           </h1>
           <p className="docs-hero__lead">
-            A modern, accessible React component library with {componentDocs.length} components,
-            light and dark themes, and design tokens you can make your own.
+            {productName} is an accessible, open-source React component library:{" "}
+            {componentDocs.length} components, light and dark themes, and design tokens that make
+            every piece your own.
           </p>
           <div className="docs-hero__actions">
             <Button asChild size="lg">
@@ -181,7 +183,7 @@ export function HomePage() {
       <section className="docs-container docs-section" aria-labelledby="features-title">
         <div className="docs-section__header docs-section__header--center">
           <p className="docs-section__eyebrow">
-            <SparklesIcon /> Why CodeCPS UI
+            <SparklesIcon /> Why {productName}
           </p>
           <h2 id="features-title" className="docs-section__title">
             Everything you need, nothing you don't
@@ -197,9 +199,9 @@ export function HomePage() {
         <div className="docs-section__header">
           <div>
             <h2 id="popular-title" className="docs-section__title">
-              Popular Components
+              Popular on the shelf
             </h2>
-            <p className="docs-section__lead">Start with our most used and loved components.</p>
+            <p className="docs-section__lead">The components teams reach for first.</p>
           </div>
           <Link to="/components" className="docs-arrow-link">
             View all {componentDocs.length} components <ArrowRightIcon />
@@ -239,13 +241,14 @@ export function HomePage() {
 
       <section className="docs-container docs-section docs-section--last">
         <div className="docs-cta">
-          <h2 className="docs-cta__title">Ready to build something amazing?</h2>
+          <h2 className="docs-cta__title">Your next screen is already on the shelf</h2>
           <p className="docs-cta__text">
-            Explore {componentDocs.length} components and start building your next project today.
+            Pick from {componentDocs.length} components and start building your next project today.
           </p>
           <Link to="/components" className="docs-cta__button">
             Browse All Components <ArrowRightIcon />
           </Link>
+          <ShelfArt className="docs-cta__shelf" />
         </div>
       </section>
     </div>

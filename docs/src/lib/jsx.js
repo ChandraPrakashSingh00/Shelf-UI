@@ -42,7 +42,7 @@ export function formatJsx(component, props, children, { defaults = {} } = {}) {
   return content ? `${openTag}>\n  ${content}\n</${component}>` : `${openTag}/>`;
 }
 
-/** Prefixes a snippet with the `@codecps/ui` import it needs. */
+/** Prefixes a snippet with the `@shelf-ui/react` import it needs. */
 export function withImport(names, code) {
-  return `import { ${names.join(", ")} } from "@codecps/ui";\n\n${code}`;
+  return `import { ${names.join(", ")} } from "@shelf-ui/react";\n\n${code}`;
 }

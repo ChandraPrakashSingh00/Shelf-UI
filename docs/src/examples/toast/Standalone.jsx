@@ -1,4 +1,4 @@
-import { Toast } from "@codecps/ui";
+import { Toast } from "@shelf-ui/react";
 
 export default function ToastStandalone() {
   return (
@@ -6,7 +6,7 @@ export default function ToastStandalone() {
       <Toast
         variant="success"
         title="Invite sent"
-        message="priya@codecps.com can now join your workspace."
+        message="priya@example.com can now join your workspace."
         duration={Infinity}
       />
     </div>

@@ -1,112 +1,112 @@
-.cps-button {
-  --cps-button-bg: var(--cps-color-primary);
-  --cps-button-bg-hover: var(--cps-color-primary-hover);
-  --cps-button-bg-active: var(--cps-color-primary-active);
-  --cps-button-fg: var(--cps-color-on-primary);
-  --cps-button-border: transparent;
+.shelf-button {
+  --shelf-button-bg: var(--shelf-color-primary);
+  --shelf-button-bg-hover: var(--shelf-color-primary-hover);
+  --shelf-button-bg-active: var(--shelf-color-primary-active);
+  --shelf-button-fg: var(--shelf-color-on-primary);
+  --shelf-button-border: transparent;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  height: var(--cps-button-height);
-  padding: 0 var(--cps-button-padding-x);
-  border: 1px solid var(--cps-button-border);
-  border-radius: var(--cps-radius-md);
-  background-color: var(--cps-button-bg);
-  color: var(--cps-button-fg);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-button-font-size);
-  font-weight: var(--cps-font-weight-semibold);
+  height: var(--shelf-button-height);
+  padding: 0 var(--shelf-button-padding-x);
+  border: 1px solid var(--shelf-button-border);
+  border-radius: var(--shelf-radius-md);
+  background-color: var(--shelf-button-bg);
+  color: var(--shelf-button-fg);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-button-font-size);
+  font-weight: var(--shelf-font-weight-semibold);
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
   transition:
-    background-color var(--cps-duration-fast) var(--cps-easing),
-    border-color var(--cps-duration-fast) var(--cps-easing),
-    color var(--cps-duration-fast) var(--cps-easing);
+    background-color var(--shelf-duration-fast) var(--shelf-easing),
+    border-color var(--shelf-duration-fast) var(--shelf-easing),
+    color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-button:hover:not(:disabled, [aria-disabled="true"]) {
-  background-color: var(--cps-button-bg-hover);
+.shelf-button:hover:not(:disabled, [aria-disabled="true"]) {
+  background-color: var(--shelf-button-bg-hover);
 }
 
-.cps-button:active:not(:disabled, [aria-disabled="true"]) {
-  background-color: var(--cps-button-bg-active);
+.shelf-button:active:not(:disabled, [aria-disabled="true"]) {
+  background-color: var(--shelf-button-bg-active);
 }
 
-.cps-button:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-button:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
-.cps-button:disabled {
+.shelf-button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-.cps-button--loading {
+.shelf-button--loading {
   cursor: progress;
   opacity: 0.75;
 }
 
-.cps-button__icon {
+.shelf-button__icon {
   display: inline-flex;
   flex-shrink: 0;
   font-size: 1.15em;
 }
 
-.cps-button--full-width {
+.shelf-button--full-width {
   width: 100%;
 }
 
 /* Sizes */
-.cps-button--sm {
-  --cps-button-height: var(--cps-control-height-sm);
-  --cps-button-padding-x: 0.75rem;
-  --cps-button-font-size: var(--cps-font-size-sm);
+.shelf-button--sm {
+  --shelf-button-height: var(--shelf-control-height-sm);
+  --shelf-button-padding-x: 0.75rem;
+  --shelf-button-font-size: var(--shelf-font-size-sm);
 }
 
-.cps-button--md {
-  --cps-button-height: var(--cps-control-height-md);
-  --cps-button-padding-x: 1rem;
-  --cps-button-font-size: var(--cps-font-size-sm);
+.shelf-button--md {
+  --shelf-button-height: var(--shelf-control-height-md);
+  --shelf-button-padding-x: 1rem;
+  --shelf-button-font-size: var(--shelf-font-size-sm);
 }
 
-.cps-button--lg {
-  --cps-button-height: var(--cps-control-height-lg);
-  --cps-button-padding-x: 1.375rem;
-  --cps-button-font-size: var(--cps-font-size-md);
+.shelf-button--lg {
+  --shelf-button-height: var(--shelf-control-height-lg);
+  --shelf-button-padding-x: 1.375rem;
+  --shelf-button-font-size: var(--shelf-font-size-md);
 }
 
 /* Variants (primary uses the defaults above) */
-.cps-button--secondary {
-  --cps-button-bg: var(--cps-color-surface-muted);
-  --cps-button-bg-hover: var(--cps-color-surface-hover);
-  --cps-button-bg-active: var(--cps-color-border);
-  --cps-button-fg: var(--cps-color-text);
+.shelf-button--secondary {
+  --shelf-button-bg: var(--shelf-color-surface-muted);
+  --shelf-button-bg-hover: var(--shelf-color-surface-hover);
+  --shelf-button-bg-active: var(--shelf-color-border);
+  --shelf-button-fg: var(--shelf-color-text);
 }
 
-.cps-button--outline {
-  --cps-button-bg: transparent;
-  --cps-button-bg-hover: var(--cps-color-primary-subtle);
-  --cps-button-bg-active: var(--cps-color-primary-subtle);
-  --cps-button-fg: var(--cps-color-primary-text);
-  --cps-button-border: var(--cps-color-primary);
+.shelf-button--outline {
+  --shelf-button-bg: transparent;
+  --shelf-button-bg-hover: var(--shelf-color-primary-subtle);
+  --shelf-button-bg-active: var(--shelf-color-primary-subtle);
+  --shelf-button-fg: var(--shelf-color-primary-text);
+  --shelf-button-border: var(--shelf-color-primary);
 }
 
-.cps-button--ghost {
-  --cps-button-bg: transparent;
-  --cps-button-bg-hover: var(--cps-color-surface-muted);
-  --cps-button-bg-active: var(--cps-color-surface-hover);
-  --cps-button-fg: var(--cps-color-text);
+.shelf-button--ghost {
+  --shelf-button-bg: transparent;
+  --shelf-button-bg-hover: var(--shelf-color-surface-muted);
+  --shelf-button-bg-active: var(--shelf-color-surface-hover);
+  --shelf-button-fg: var(--shelf-color-text);
 }
 
-.cps-button--danger {
-  --cps-button-bg: var(--cps-color-danger);
-  --cps-button-bg-hover: var(--cps-color-danger-hover);
-  --cps-button-bg-active: var(--cps-color-danger-active);
-  --cps-button-fg: var(--cps-brand-white);
+.shelf-button--danger {
+  --shelf-button-bg: var(--shelf-color-danger);
+  --shelf-button-bg-hover: var(--shelf-color-danger-hover);
+  --shelf-button-bg-active: var(--shelf-color-danger-active);
+  --shelf-button-fg: var(--shelf-brand-white);
 }

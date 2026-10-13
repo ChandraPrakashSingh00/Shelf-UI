@@ -61,7 +61,7 @@ describe("Calendar", () => {
 
     const today = dayButton("Tuesday, 6 October 2026");
     expect(today).toHaveAttribute("aria-current", "date");
-    expect(today).toHaveClass("cps-calendar__day--today");
+    expect(today).toHaveClass("shelf-calendar__day--today");
     expect(today).toHaveTextContent("6");
     expect(screen.getByRole("grid").querySelectorAll('[tabindex="0"]')).toHaveLength(1);
 
@@ -84,7 +84,7 @@ describe("Calendar", () => {
     expect(picked).toEqual(day(2026, 10, 12));
     expect(picked.getHours()).toBe(0);
     expect(cellOf("Monday, 12 October 2026")).toHaveAttribute("aria-selected", "true");
-    expect(dayButton("Monday, 12 October 2026")).toHaveClass("cps-calendar__day--selected");
+    expect(dayButton("Monday, 12 October 2026")).toHaveClass("shelf-calendar__day--selected");
     expect(cellOf("Tuesday, 6 October 2026")).not.toHaveAttribute("aria-selected");
     expect(dayButton("Monday, 12 October 2026")).toHaveAttribute("tabindex", "0");
     expect(dayButton("Tuesday, 6 October 2026")).toHaveAttribute("tabindex", "-1");
@@ -284,7 +284,7 @@ describe("Calendar", () => {
     });
     const sunday = dayButton("Sunday, 11 October 2026");
     expect(sunday).toHaveAttribute("aria-disabled", "true");
-    expect(sunday).toHaveClass("cps-calendar__day--disabled");
+    expect(sunday).toHaveClass("shelf-calendar__day--disabled");
 
     await user.click(sunday);
     expect(onValueChange).not.toHaveBeenCalled();
@@ -302,14 +302,14 @@ describe("Calendar", () => {
     const { user } = renderCalendar({ onValueChange });
 
     const outside = dayButton("Sunday, 27 September 2026");
-    expect(outside).toHaveClass("cps-calendar__day--outside");
+    expect(outside).toHaveClass("shelf-calendar__day--outside");
     expect(outside).toHaveAttribute("tabindex", "-1");
 
     await user.click(outside);
     expect(onValueChange).toHaveBeenLastCalledWith(day(2026, 9, 27));
     expect(title()).toHaveTextContent("September 2026");
     expect(dayButton("Sunday, 27 September 2026")).toHaveFocus();
-    expect(dayButton("Sunday, 27 September 2026")).not.toHaveClass("cps-calendar__day--outside");
+    expect(dayButton("Sunday, 27 September 2026")).not.toHaveClass("shelf-calendar__day--outside");
   });
 
   it("can hide the days of the neighbouring months", () => {
@@ -331,8 +331,8 @@ describe("Calendar", () => {
       expect(cellOf("Monday, 12 October 2026")).toHaveAttribute("aria-selected", "true");
 
       await user.hover(dayButton("Thursday, 15 October 2026"));
-      expect(cellOf("Tuesday, 13 October 2026")).toHaveClass("cps-calendar__cell--in-preview");
-      expect(cellOf("Thursday, 15 October 2026")).toHaveClass("cps-calendar__cell--range-end");
+      expect(cellOf("Tuesday, 13 October 2026")).toHaveClass("shelf-calendar__cell--in-preview");
+      expect(cellOf("Thursday, 15 October 2026")).toHaveClass("shelf-calendar__cell--range-end");
       expect(cellOf("Tuesday, 13 October 2026")).not.toHaveAttribute("aria-selected");
 
       await user.click(dayButton("Friday, 16 October 2026"));
@@ -348,12 +348,12 @@ describe("Calendar", () => {
           year: "numeric",
         }).format(day(2026, 10, date));
         expect(cellOf(name)).toHaveAttribute("aria-selected", "true");
-        expect(cellOf(name)).toHaveClass("cps-calendar__cell--in-range");
+        expect(cellOf(name)).toHaveClass("shelf-calendar__cell--in-range");
       }
-      expect(cellOf("Monday, 12 October 2026")).toHaveClass("cps-calendar__cell--range-start");
-      expect(dayButton("Monday, 12 October 2026")).toHaveClass("cps-calendar__day--selected");
+      expect(cellOf("Monday, 12 October 2026")).toHaveClass("shelf-calendar__cell--range-start");
+      expect(dayButton("Monday, 12 October 2026")).toHaveClass("shelf-calendar__day--selected");
       expect(dayButton("Wednesday, 14 October 2026")).not.toHaveClass(
-        "cps-calendar__day--selected",
+        "shelf-calendar__day--selected",
       );
       expect(cellOf("Saturday, 17 October 2026")).not.toHaveAttribute("aria-selected");
     });
@@ -379,9 +379,9 @@ describe("Calendar", () => {
       dayButton("Tuesday, 6 October 2026").focus();
 
       await user.keyboard("{Enter}{ArrowRight}{ArrowRight}");
-      expect(cellOf("Wednesday, 7 October 2026")).toHaveClass("cps-calendar__cell--in-preview");
+      expect(cellOf("Wednesday, 7 October 2026")).toHaveClass("shelf-calendar__cell--in-preview");
       await user.keyboard("{Enter}");
-      expect(cellOf("Wednesday, 7 October 2026")).toHaveClass("cps-calendar__cell--in-range");
+      expect(cellOf("Wednesday, 7 October 2026")).toHaveClass("shelf-calendar__cell--in-range");
       expect(cellOf("Thursday, 8 October 2026")).toHaveAttribute("aria-selected", "true");
     });
 
@@ -395,7 +395,7 @@ describe("Calendar", () => {
       );
       expect(title()).toHaveTextContent("November 2026");
       expect(cellOf("Sunday, 15 November 2026")).toHaveAttribute("aria-selected", "true");
-      expect(cellOf("Tuesday, 10 November 2026")).toHaveClass("cps-calendar__cell--range-start");
+      expect(cellOf("Tuesday, 10 November 2026")).toHaveClass("shelf-calendar__cell--range-start");
 
       unmount();
       render(
@@ -406,7 +406,7 @@ describe("Calendar", () => {
         />,
       );
       expect(cellOf("Friday, 9 October 2026")).toHaveAttribute("aria-selected", "true");
-      expect(cellOf("Friday, 9 October 2026")).not.toHaveClass("cps-calendar__cell--in-range");
+      expect(cellOf("Friday, 9 October 2026")).not.toHaveClass("shelf-calendar__cell--in-range");
     });
   });
 
@@ -491,7 +491,7 @@ describe("Calendar", () => {
       <Calendar ref={ref} locale="en-IN" className="booking" data-testid="calendar" />,
     );
     expect(ref.current).toBe(container.firstChild);
-    expect(container.firstChild).toHaveClass("cps-calendar", "cps-calendar--single", "booking");
+    expect(container.firstChild).toHaveClass("shelf-calendar", "shelf-calendar--single", "booking");
     expect(container.firstChild).toHaveAttribute("data-testid", "calendar");
   });
 

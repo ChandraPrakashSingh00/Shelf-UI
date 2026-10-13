@@ -1,4 +1,4 @@
-import { Kbd } from "@codecps/ui";
+import { Kbd } from "@shelf-ui/react";
 
 const shortcuts = [
   { keys: ["G", "O"], separator: "then", action: "Go to orders" },
@@ -16,9 +16,9 @@ export default function KbdShortcutList() {
         width: "100%",
         maxWidth: 400,
         padding: 16,
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-surface)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-surface)",
       }}
     >
       <h4 id="kbd-shortcuts-title" style={{ margin: "0 0 12px" }}>

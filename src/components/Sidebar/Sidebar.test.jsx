@@ -66,7 +66,7 @@ describe("Sidebar", () => {
         <Sidebar.Content />
       </Sidebar>,
     );
-    expect(screen.getByRole("navigation", { name: "Sidebar" })).toHaveClass("cps-sidebar");
+    expect(screen.getByRole("navigation", { name: "Sidebar" })).toHaveClass("shelf-sidebar");
   });
 
   it("renders links, a named section group and list items", () => {
@@ -83,10 +83,10 @@ describe("Sidebar", () => {
 
   it("renders a section without a title as a plain list", () => {
     render(<AdminSidebar />);
-    const footer = getNav().querySelector(".cps-sidebar__footer");
-    const section = footer?.querySelector(".cps-sidebar__section");
+    const footer = getNav().querySelector(".shelf-sidebar__footer");
+    const section = footer?.querySelector(".shelf-sidebar__section");
     expect(section).not.toHaveAttribute("role");
-    expect(section?.querySelector(".cps-sidebar__section-title")).toBeNull();
+    expect(section?.querySelector(".shelf-sidebar__section-title")).toBeNull();
   });
 
   it("marks the active item as the current page", () => {
@@ -98,7 +98,9 @@ describe("Sidebar", () => {
   it("includes the badge in the item's name, as a count pill for numbers", () => {
     render(<AdminSidebar />);
     const orders = screen.getByRole("link", { name: "Orders 12" });
-    expect(orders.querySelector(".cps-sidebar__badge")).toHaveClass("cps-sidebar__badge--count");
+    expect(orders.querySelector(".shelf-sidebar__badge")).toHaveClass(
+      "shelf-sidebar__badge--count",
+    );
   });
 
   it("renders a node badge without the count pill", () => {
@@ -113,8 +115,8 @@ describe("Sidebar", () => {
     );
     const badge = screen
       .getByRole("link", { name: "Reports New" })
-      .querySelector(".cps-sidebar__badge");
-    expect(badge).not.toHaveClass("cps-sidebar__badge--count");
+      .querySelector(".shelf-sidebar__badge");
+    expect(badge).not.toHaveClass("shelf-sidebar__badge--count");
   });
 
   it("renders a button for items without href, calling onClick", async () => {
@@ -132,7 +134,7 @@ describe("Sidebar", () => {
     render(<AdminSidebar />);
     const icon = screen
       .getByRole("link", { name: "Dashboard" })
-      .querySelector(".cps-sidebar__icon");
+      .querySelector(".shelf-sidebar__icon");
     expect(icon).toHaveAttribute("aria-hidden", "true");
   });
 
@@ -214,9 +216,9 @@ describe("Sidebar", () => {
     expect(link).toBe(linkRef.current);
     expect(link).toHaveAttribute("href", "#orders");
     expect(link).toHaveAttribute("aria-current", "page");
-    expect(link).toHaveClass("cps-sidebar__item", "is-active");
+    expect(link).toHaveClass("shelf-sidebar__item", "is-active");
     expect(link).toHaveStyle({ fontStyle: "italic", order: "1" });
-    expect(link.querySelector(".cps-sidebar__icon")).not.toBeNull();
+    expect(link.querySelector(".shelf-sidebar__icon")).not.toBeNull();
 
     await user.click(link);
     expect(onNavigate).toHaveBeenCalledTimes(1);
@@ -236,7 +238,7 @@ describe("Sidebar", () => {
       </Sidebar>,
     );
     const link = screen.getByRole("link", { name: "Customers" });
-    expect(link).toHaveClass("cps-sidebar__item", "item", "router-link");
+    expect(link).toHaveClass("shelf-sidebar__item", "item", "router-link");
     expect(link).toHaveAttribute("aria-current", "page");
   });
 
@@ -274,7 +276,7 @@ describe("Sidebar", () => {
       await user.click(toggle);
       expect(onCollapsedChange).toHaveBeenLastCalledWith(true);
       expect(nav).toHaveAttribute("data-state", "collapsed");
-      expect(nav).toHaveClass("cps-sidebar--collapsed");
+      expect(nav).toHaveClass("shelf-sidebar--collapsed");
       expect(toggle).toHaveAccessibleName("Expand sidebar");
       expect(toggle).toHaveAttribute("aria-expanded", "false");
       expect(toggle).toHaveFocus();
@@ -370,8 +372,8 @@ describe("Sidebar", () => {
     it("sets the widths as CSS variables, in pixels for numbers", () => {
       render(<Sidebar width={280} collapsedWidth="5rem" style={{ height: 400 }} />);
       const nav = getNav();
-      expect(nav.style.getPropertyValue("--cps-sidebar-width")).toBe("280px");
-      expect(nav.style.getPropertyValue("--cps-sidebar-collapsed-width")).toBe("5rem");
+      expect(nav.style.getPropertyValue("--shelf-sidebar-width")).toBe("280px");
+      expect(nav.style.getPropertyValue("--shelf-sidebar-collapsed-width")).toBe("5rem");
       expect(nav).toHaveStyle({ height: "400px" });
     });
   });
@@ -502,21 +504,21 @@ describe("Sidebar", () => {
     const nav = screen.getByRole("navigation");
     expect(refs.root.current).toBe(nav);
     expect(nav).toHaveAttribute("id", "main-sidebar");
-    expect(nav).toHaveClass("cps-sidebar", "app-sidebar");
+    expect(nav).toHaveClass("shelf-sidebar", "app-sidebar");
     expect(screen.getByRole("button", { name: "Collapse sidebar" })).toHaveAttribute(
       "aria-controls",
       "main-sidebar",
     );
-    expect(refs.header.current).toHaveClass("cps-sidebar__header", "brand");
-    expect(refs.content.current).toHaveClass("cps-sidebar__content");
-    expect(refs.section.current).toHaveClass("cps-sidebar__section", "section");
+    expect(refs.header.current).toHaveClass("shelf-sidebar__header", "brand");
+    expect(refs.content.current).toHaveClass("shelf-sidebar__content");
+    expect(refs.section.current).toHaveClass("shelf-sidebar__section", "section");
     expect(refs.item.current).toBe(screen.getByRole("link", { name: "Orders" }));
-    expect(refs.item.current).toHaveClass("cps-sidebar__item", "orders");
+    expect(refs.item.current).toHaveClass("shelf-sidebar__item", "orders");
     expect(refs.item.current).toHaveAttribute("data-id", "orders");
     expect(refs.group.current?.tagName).toBe("LI");
-    expect(refs.group.current).toHaveClass("cps-sidebar__group", "group");
-    expect(refs.footer.current).toHaveClass("cps-sidebar__footer", "footer");
-    expect(refs.toggle.current).toHaveClass("cps-sidebar__toggle", "toggle");
+    expect(refs.group.current).toHaveClass("shelf-sidebar__group", "group");
+    expect(refs.footer.current).toHaveClass("shelf-sidebar__footer", "footer");
+    expect(refs.toggle.current).toHaveClass("shelf-sidebar__toggle", "toggle");
   });
 
   it("exposes the parts on Sidebar", () => {

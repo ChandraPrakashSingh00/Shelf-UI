@@ -1,4 +1,4 @@
-import { FileUpload } from "@codecps/ui";
+import { FileUpload } from "@shelf-ui/react";
 import { useState } from "react";
 
 export function FileUploadDemo() {
@@ -26,7 +26,7 @@ export function FileUploadDemo() {
         label="Store banner"
         accept="image/*"
         disabled
-        helperText="Upgrade to CodeCPS Pro to change the banner."
+        helperText="Upgrade to Acme Pro to change the banner."
       />
     </div>
   );

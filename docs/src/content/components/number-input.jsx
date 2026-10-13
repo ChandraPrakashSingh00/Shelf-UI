@@ -1,4 +1,4 @@
-import { NumberInput } from "@codecps/ui";
+import { NumberInput } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/number-input/Basic.jsx";
 import basicCode from "../../examples/number-input/Basic.jsx?raw";

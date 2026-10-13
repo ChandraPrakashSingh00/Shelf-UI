@@ -1,112 +1,115 @@
-.cps-avatar {
-  --cps-avatar-size: 2.5rem;
-  --cps-avatar-square-radius: var(--cps-radius-md);
+.shelf-avatar {
+  --shelf-avatar-size: 2.5rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-md);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: var(--cps-avatar-size);
-  height: var(--cps-avatar-size);
+  width: var(--shelf-avatar-size);
+  height: var(--shelf-avatar-size);
   overflow: hidden;
-  border-radius: var(--cps-radius-full);
+  border-radius: var(--shelf-radius-full);
   /* Shows while the image loads. */
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text-muted);
-  font-family: var(--cps-font-sans);
-  font-size: calc(var(--cps-avatar-size) * 0.4);
-  font-weight: var(--cps-font-weight-semibold);
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text-muted);
+  font-family: var(--shelf-font-sans);
+  font-size: calc(var(--shelf-avatar-size) * 0.4);
+  font-weight: var(--shelf-font-weight-semibold);
   line-height: 1;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
 }
 
-.cps-avatar--square {
-  border-radius: var(--cps-avatar-square-radius);
+.shelf-avatar--square {
+  border-radius: var(--shelf-avatar-square-radius);
 }
 
-.cps-avatar__image {
+.shelf-avatar__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.cps-avatar__icon {
+.shelf-avatar__icon {
   width: 60%;
   height: 60%;
 }
 
-.cps-avatar--fallback {
-  --cps-avatar-fallback-bg: var(--cps-color-primary-subtle);
+.shelf-avatar--fallback {
+  --shelf-avatar-fallback-bg: var(--shelf-color-primary-subtle);
 
   /*
    * The subtle colors are translucent in the dark theme, so they are layered
    * over an opaque surface: overlapping avatars in a group never show through.
    */
-  background-color: var(--cps-color-surface);
-  background-image: linear-gradient(var(--cps-avatar-fallback-bg), var(--cps-avatar-fallback-bg));
-  color: var(--cps-color-primary-text);
+  background-color: var(--shelf-color-surface);
+  background-image: linear-gradient(
+    var(--shelf-avatar-fallback-bg),
+    var(--shelf-avatar-fallback-bg)
+  );
+  color: var(--shelf-color-primary-text);
 }
 
 /* Sizes (the group sets the size for avatars wrapped in other elements, like links) */
-.cps-avatar--xs,
-.cps-avatar-group--xs {
-  --cps-avatar-size: 1.5rem;
-  --cps-avatar-square-radius: var(--cps-radius-sm);
+.shelf-avatar--xs,
+.shelf-avatar-group--xs {
+  --shelf-avatar-size: 1.5rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-sm);
 }
 
-.cps-avatar--sm,
-.cps-avatar-group--sm {
-  --cps-avatar-size: 2rem;
-  --cps-avatar-square-radius: var(--cps-radius-sm);
+.shelf-avatar--sm,
+.shelf-avatar-group--sm {
+  --shelf-avatar-size: 2rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-sm);
 }
 
-.cps-avatar--md,
-.cps-avatar-group--md {
-  --cps-avatar-size: 2.5rem;
-  --cps-avatar-square-radius: var(--cps-radius-md);
+.shelf-avatar--md,
+.shelf-avatar-group--md {
+  --shelf-avatar-size: 2.5rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-md);
 }
 
-.cps-avatar--lg,
-.cps-avatar-group--lg {
-  --cps-avatar-size: 3.5rem;
-  --cps-avatar-square-radius: var(--cps-radius-lg);
+.shelf-avatar--lg,
+.shelf-avatar-group--lg {
+  --shelf-avatar-size: 3.5rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-lg);
 }
 
-.cps-avatar--xl,
-.cps-avatar-group--xl {
-  --cps-avatar-size: 4.5rem;
-  --cps-avatar-square-radius: var(--cps-radius-lg);
+.shelf-avatar--xl,
+.shelf-avatar-group--xl {
+  --shelf-avatar-size: 4.5rem;
+  --shelf-avatar-square-radius: var(--shelf-radius-lg);
 }
 
 /* Group */
-.cps-avatar-group {
+.shelf-avatar-group {
   /* Color of the ring that separates overlapping avatars: the surface behind the group. */
-  --cps-avatar-group-ring: var(--cps-color-bg);
+  --shelf-avatar-group-ring: var(--shelf-color-bg);
 
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
 }
 
-.cps-avatar-group > * + * {
-  margin-inline-start: calc(var(--cps-avatar-size) * -0.2);
+.shelf-avatar-group > * + * {
+  margin-inline-start: calc(var(--shelf-avatar-size) * -0.2);
 }
 
-.cps-avatar-group .cps-avatar {
-  box-shadow: 0 0 0 2px var(--cps-avatar-group-ring);
+.shelf-avatar-group .shelf-avatar {
+  box-shadow: 0 0 0 2px var(--shelf-avatar-group-ring);
 }
 
-.cps-avatar-group__more {
-  --cps-avatar-fallback-bg: var(--cps-color-neutral-subtle);
+.shelf-avatar-group__more {
+  --shelf-avatar-fallback-bg: var(--shelf-color-neutral-subtle);
 
-  color: var(--cps-color-neutral-text);
+  color: var(--shelf-color-neutral-text);
 }
 
 /* Backgrounds and the group's ring are dropped in forced-colors mode; keep each avatar's edge. */
 @media (forced-colors: active) {
-  .cps-avatar {
+  .shelf-avatar {
     outline: 1px solid CanvasText;
     outline-offset: -1px;
   }

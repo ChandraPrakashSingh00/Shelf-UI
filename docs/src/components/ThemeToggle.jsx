@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import { useTheme } from "../lib/theme.js";
 import { MoonIcon, SunIcon } from "./icons.jsx";
 
@@ -18,6 +18,9 @@ export function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       {isDark ? <SunIcon /> : <MoonIcon />}
+      <span className="docs-icon-button__text" aria-hidden="true">
+        Dark mode
+      </span>
     </Button>
   );
 }

@@ -172,10 +172,10 @@ describe("Accordion", () => {
         <Accordion.Item value="deployments" title="Deployments">
           <Accordion>
             <Accordion.Item value="production" title="Production" headingLevel={4}>
-              codecps.com
+              example.com
             </Accordion.Item>
             <Accordion.Item value="preview" title="Preview" headingLevel={4}>
-              preview.codecps.com
+              preview.example.com
             </Accordion.Item>
           </Accordion>
         </Accordion.Item>
@@ -253,9 +253,9 @@ describe("Accordion", () => {
     );
 
     expect(rootRef.current).toBe(screen.getByTestId("faq"));
-    expect(rootRef.current).toHaveClass("cps-accordion", "faq");
+    expect(rootRef.current).toHaveClass("shelf-accordion", "faq");
     expect(itemRef.current).toBe(screen.getByTestId("billing-item"));
-    expect(itemRef.current).toHaveClass("cps-accordion__item", "faq-item");
+    expect(itemRef.current).toHaveClass("shelf-accordion__item", "faq-item");
     expect(itemRef.current).not.toHaveAttribute("title");
     expect(Accordion.Item).toBe(AccordionItem);
   });

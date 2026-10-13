@@ -1,4 +1,4 @@
-import { Button, PinInput } from "@codecps/ui";
+import { Button, PinInput } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function PinInputForm() {

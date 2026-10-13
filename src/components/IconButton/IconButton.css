@@ -1,55 +1,55 @@
 /*
- * IconButton builds on the Button styles (`cps-button`, its variants and sizes);
+ * IconButton builds on the Button styles (`shelf-button`, its variants and sizes);
  * these modifiers make it square, icon-only and optionally round.
  */
-.cps-button--icon-only {
-  --cps-icon-button-icon-size: 1.25rem;
+.shelf-button--icon-only {
+  --shelf-icon-button-icon-size: 1.25rem;
 
   flex-shrink: 0;
-  width: var(--cps-button-height);
+  width: var(--shelf-button-height);
   padding: 0;
 }
 
-.cps-button--icon-only.cps-button--sm {
-  --cps-icon-button-icon-size: 1rem;
+.shelf-button--icon-only.shelf-button--sm {
+  --shelf-icon-button-icon-size: 1rem;
 }
 
-.cps-button--icon-only.cps-button--lg {
-  --cps-icon-button-icon-size: 1.5rem;
+.shelf-button--icon-only.shelf-button--lg {
+  --shelf-icon-button-icon-size: 1.5rem;
 }
 
 /* The icon (or spinner); with `asChild`, an icon placed directly in the child. */
-.cps-button--icon-only > .cps-button__icon,
-.cps-button--icon-only > svg {
-  font-size: var(--cps-icon-button-icon-size);
+.shelf-button--icon-only > .shelf-button__icon,
+.shelf-button--icon-only > svg {
+  font-size: var(--shelf-icon-button-icon-size);
 }
 
-.cps-button--circle {
-  border-radius: var(--cps-radius-full);
+.shelf-button--circle {
+  border-radius: var(--shelf-radius-full);
 }
 
 /* Toggle buttons (`pressed`): a tinted background marks the "on" state. */
-.cps-button--icon-only[aria-pressed="true"]:is(.cps-button--ghost, .cps-button--secondary) {
-  --cps-button-border: var(--cps-color-primary-border);
+.shelf-button--icon-only[aria-pressed="true"]:is(.shelf-button--ghost, .shelf-button--secondary) {
+  --shelf-button-border: var(--shelf-color-primary-border);
 }
 
-.cps-button--icon-only[aria-pressed="true"]:is(
-    .cps-button--ghost,
-    .cps-button--secondary,
-    .cps-button--outline
+.shelf-button--icon-only[aria-pressed="true"]:is(
+    .shelf-button--ghost,
+    .shelf-button--secondary,
+    .shelf-button--outline
   ) {
-  --cps-button-bg: var(--cps-color-primary-subtle);
-  --cps-button-bg-hover: var(--cps-color-primary-border);
-  --cps-button-bg-active: var(--cps-color-primary-border);
-  --cps-button-fg: var(--cps-color-primary-text);
+  --shelf-button-bg: var(--shelf-color-primary-subtle);
+  --shelf-button-bg-hover: var(--shelf-color-primary-border);
+  --shelf-button-bg-active: var(--shelf-color-primary-border);
+  --shelf-button-fg: var(--shelf-color-primary-text);
 }
 
-.cps-button--icon-only.cps-button--primary[aria-pressed="true"] {
-  --cps-button-bg: var(--cps-color-primary-active);
+.shelf-button--icon-only.shelf-button--primary[aria-pressed="true"] {
+  --shelf-button-bg: var(--shelf-color-primary-active);
 }
 
-.cps-button--icon-only.cps-button--danger[aria-pressed="true"] {
-  --cps-button-bg: var(--cps-color-danger-active);
+.shelf-button--icon-only.shelf-button--danger[aria-pressed="true"] {
+  --shelf-button-bg: var(--shelf-color-danger-active);
 }
 
 /*
@@ -57,8 +57,8 @@
  * also while hovered or held down (the Button hover and active rules are more specific).
  */
 @media (forced-colors: active) {
-  .cps-button--icon-only[aria-pressed="true"],
-  .cps-button.cps-button--icon-only[aria-pressed="true"]:is(:hover, :active) {
+  .shelf-button--icon-only[aria-pressed="true"],
+  .shelf-button.shelf-button--icon-only[aria-pressed="true"]:is(:hover, :active) {
     border-color: Highlight;
     background-color: Highlight;
     color: HighlightText;

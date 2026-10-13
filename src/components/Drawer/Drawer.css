@@ -1,89 +1,89 @@
-.cps-drawer-overlay {
+.shelf-drawer-overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--cps-z-modal);
+  z-index: var(--shelf-z-modal);
   display: flex;
-  background-color: var(--cps-color-overlay);
-  animation: cps-fade-in var(--cps-duration-normal) var(--cps-easing);
+  background-color: var(--shelf-color-overlay);
+  animation: shelf-fade-in var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-drawer {
+.shelf-drawer {
   display: flex;
   flex-direction: column;
-  background-color: var(--cps-color-surface);
-  box-shadow: var(--cps-shadow-lg);
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-normal);
+  background-color: var(--shelf-color-surface);
+  box-shadow: var(--shelf-shadow-lg);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-normal);
 }
 
 /* The panel itself is only focused as a fallback when it has no controls. */
-.cps-drawer:focus {
+.shelf-drawer:focus {
   outline: none;
 }
 
 /* Sizes: the width of left and right drawers (bottom drawers: see below). */
-.cps-drawer--sm {
-  --cps-drawer-width: 20rem;
+.shelf-drawer--sm {
+  --shelf-drawer-width: 20rem;
 }
 
-.cps-drawer--md {
-  --cps-drawer-width: 26rem;
+.shelf-drawer--md {
+  --shelf-drawer-width: 26rem;
 }
 
-.cps-drawer--lg {
-  --cps-drawer-width: 36rem;
+.shelf-drawer--lg {
+  --shelf-drawer-width: 36rem;
 }
 
 /* Sides */
-.cps-drawer--left,
-.cps-drawer--right {
-  width: var(--cps-drawer-width);
+.shelf-drawer--left,
+.shelf-drawer--right {
+  width: var(--shelf-drawer-width);
   max-width: 100%;
   height: 100vh;
   height: 100dvh;
 }
 
-.cps-drawer--right {
+.shelf-drawer--right {
   margin-left: auto;
-  border-left: 1px solid var(--cps-color-border);
-  animation: cps-drawer-in-right var(--cps-duration-normal) var(--cps-easing);
+  border-left: 1px solid var(--shelf-color-border);
+  animation: shelf-drawer-in-right var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-drawer--left {
+.shelf-drawer--left {
   margin-right: auto;
-  border-right: 1px solid var(--cps-color-border);
-  animation: cps-drawer-in-left var(--cps-duration-normal) var(--cps-easing);
+  border-right: 1px solid var(--shelf-color-border);
+  animation: shelf-drawer-in-left var(--shelf-duration-normal) var(--shelf-easing);
 }
 
-.cps-drawer--bottom {
+.shelf-drawer--bottom {
   width: 100%;
   margin-top: auto;
   /* Keeps the footer clear of the home indicator on phones without a home button. */
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  border-top: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-lg) var(--cps-radius-lg) 0 0;
-  animation: cps-drawer-in-bottom var(--cps-duration-normal) var(--cps-easing);
+  border-top: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-lg) var(--shelf-radius-lg) 0 0;
+  animation: shelf-drawer-in-bottom var(--shelf-duration-normal) var(--shelf-easing);
 }
 
 /* Bottom drawers grow with their content up to a share of the screen height. */
-.cps-drawer--bottom.cps-drawer--sm {
+.shelf-drawer--bottom.shelf-drawer--sm {
   max-height: 40vh;
   max-height: 40dvh;
 }
 
-.cps-drawer--bottom.cps-drawer--md {
+.shelf-drawer--bottom.shelf-drawer--md {
   max-height: 60vh;
   max-height: 60dvh;
 }
 
-.cps-drawer--bottom.cps-drawer--lg {
+.shelf-drawer--bottom.shelf-drawer--lg {
   max-height: 85vh;
   max-height: 85dvh;
 }
 
-.cps-drawer__header {
+.shelf-drawer__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -91,31 +91,31 @@
   padding: 1.25rem 1.5rem 0;
 }
 
-.cps-drawer__heading {
+.shelf-drawer__heading {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
   min-width: 0;
 }
 
-.cps-drawer__title {
+.shelf-drawer__title {
   margin: 0;
-  font-size: var(--cps-font-size-lg);
-  font-weight: var(--cps-font-weight-semibold);
-  line-height: var(--cps-line-height-tight);
+  font-size: var(--shelf-font-size-lg);
+  font-weight: var(--shelf-font-weight-semibold);
+  line-height: var(--shelf-line-height-tight);
 }
 
-.cps-drawer__description {
+.shelf-drawer__description {
   margin: 0;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-drawer__close {
+.shelf-drawer__close {
   margin: -0.25rem -0.5rem 0 auto;
 }
 
 /* Fills the panel and scrolls, keeping the header and footer in view. */
-.cps-drawer__body {
+.shelf-drawer__body {
   flex: 1 1 auto;
   min-height: 0;
   padding: 1rem 1.5rem;
@@ -123,49 +123,49 @@
   overscroll-behavior: contain;
 }
 
-.cps-drawer__footer {
+.shelf-drawer__footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.75rem;
   padding: 1rem 1.5rem 1.25rem;
-  border-top: 1px solid var(--cps-color-border);
+  border-top: 1px solid var(--shelf-color-border);
 }
 
 /* Without body content, keep the header from touching the footer border. */
-.cps-drawer__header + .cps-drawer__footer {
+.shelf-drawer__header + .shelf-drawer__footer {
   margin-top: 1.25rem;
 }
 
 @media (max-width: 480px) {
-  .cps-drawer__header,
-  .cps-drawer__body,
-  .cps-drawer__footer {
+  .shelf-drawer__header,
+  .shelf-drawer__body,
+  .shelf-drawer__footer {
     padding-inline: 1.25rem;
   }
 }
 
-@keyframes cps-drawer-in-right {
+@keyframes shelf-drawer-in-right {
   from {
     transform: translateX(100%);
   }
 }
 
-@keyframes cps-drawer-in-left {
+@keyframes shelf-drawer-in-left {
   from {
     transform: translateX(-100%);
   }
 }
 
-@keyframes cps-drawer-in-bottom {
+@keyframes shelf-drawer-in-bottom {
   from {
     transform: translateY(100%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-drawer-overlay,
-  .cps-drawer {
+  .shelf-drawer-overlay,
+  .shelf-drawer {
     animation: none;
   }
 }

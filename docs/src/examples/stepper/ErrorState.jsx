@@ -1,4 +1,4 @@
-import { Button, Stepper } from "@codecps/ui";
+import { Button, Stepper } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function StepperErrorState() {

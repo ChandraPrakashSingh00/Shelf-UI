@@ -1,4 +1,4 @@
-import { Button, Dropdown } from "@codecps/ui";
+import { Button, Dropdown } from "@shelf-ui/react";
 
 function Icon({ path }) {
   return (

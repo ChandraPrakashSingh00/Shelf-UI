@@ -1,33 +1,33 @@
-.cps-banner {
-  --cps-banner-bg: var(--cps-color-primary);
-  --cps-banner-fg: var(--cps-color-on-primary);
-  --cps-banner-border: transparent;
-  --cps-banner-accent: currentColor;
-  --cps-banner-link: currentColor;
+.shelf-banner {
+  --shelf-banner-bg: var(--shelf-color-primary);
+  --shelf-banner-fg: var(--shelf-color-on-primary);
+  --shelf-banner-border: transparent;
+  --shelf-banner-accent: currentColor;
+  --shelf-banner-link: currentColor;
 
   /* Adapts to its own width, so it also wraps nicely inside narrow layouts. */
-  container: cps-banner / inline-size;
+  container: shelf-banner / inline-size;
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
   width: 100%;
   padding: 0.5rem 1rem;
   /* A transparent border still shows up in forced-colors mode, outlining the bar. */
-  border-bottom: 1px solid var(--cps-banner-border);
-  background-color: var(--cps-banner-bg);
-  color: var(--cps-banner-fg);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-normal);
+  border-bottom: 1px solid var(--shelf-banner-border);
+  background-color: var(--shelf-banner-bg);
+  color: var(--shelf-banner-fg);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-normal);
 }
 
-.cps-banner--sticky {
+.shelf-banner--sticky {
   position: sticky;
   top: 0;
-  z-index: var(--cps-z-navbar);
+  z-index: var(--shelf-z-navbar);
 }
 
-.cps-banner__inner {
+.shelf-banner__inner {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -38,39 +38,39 @@
   min-height: 2rem;
 }
 
-.cps-banner--align-center .cps-banner__inner {
+.shelf-banner--align-center .shelf-banner__inner {
   justify-content: center;
   text-align: center;
 }
 
-.cps-banner--align-start .cps-banner__inner {
+.shelf-banner--align-start .shelf-banner__inner {
   justify-content: flex-start;
   text-align: start;
 }
 
 /* Balance the dismiss button on the right (0.5rem gap + 2rem button - 0.5rem
    negative margin), so centered content stays centered on the page. */
-.cps-banner--align-center.cps-banner--dismissible .cps-banner__inner {
+.shelf-banner--align-center.shelf-banner--dismissible .shelf-banner__inner {
   padding-inline-start: 2rem;
 }
 
-.cps-banner__icon {
+.shelf-banner__icon {
   display: inline-flex;
   flex-shrink: 0;
-  color: var(--cps-banner-accent);
+  color: var(--shelf-banner-accent);
   font-size: 1.125rem;
 }
 
-.cps-banner__message {
+.shelf-banner__message {
   min-width: 0;
   overflow-wrap: break-word;
 }
 
-.cps-banner__title {
-  font-weight: var(--cps-font-weight-semibold);
+.shelf-banner__title {
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-banner__action {
+.shelf-banner__action {
   display: flex;
   flex-shrink: 0;
   flex-wrap: wrap;
@@ -79,94 +79,94 @@
 }
 
 /* Plain links in the message or action; styled components keep their own look. */
-.cps-banner :where(.cps-banner__message, .cps-banner__action) a:not([class]) {
+.shelf-banner :where(.shelf-banner__message, .shelf-banner__action) a:not([class]) {
   border-radius: 2px;
-  color: var(--cps-banner-link);
-  font-weight: var(--cps-font-weight-semibold);
+  color: var(--shelf-banner-link);
+  font-weight: var(--shelf-font-weight-semibold);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.cps-banner :where(.cps-banner__message, .cps-banner__action) a:not([class]):hover {
+.shelf-banner :where(.shelf-banner__message, .shelf-banner__action) a:not([class]):hover {
   text-decoration-thickness: 2px;
 }
 
-.cps-banner :where(.cps-banner__message, .cps-banner__action) a:not([class]):focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-banner :where(.shelf-banner__message, .shelf-banner__action) a:not([class]):focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
-.cps-banner__dismiss {
+.shelf-banner__dismiss {
   margin-inline-end: -0.5rem;
   color: inherit;
 }
 
-.cps-banner__dismiss:hover {
+.shelf-banner__dismiss:hover {
   background-color: color-mix(in srgb, currentColor 14%, transparent);
   color: inherit;
 }
 
 /* Variants */
-.cps-banner--primary {
+.shelf-banner--primary {
   /* Focus rings inside the solid bar (links, buttons, dismiss) must contrast with it. */
-  --cps-color-focus: var(--cps-color-on-primary);
+  --shelf-color-focus: var(--shelf-color-on-primary);
 }
 
-.cps-banner--info {
-  --cps-banner-bg: var(--cps-color-info-subtle);
-  --cps-banner-fg: var(--cps-color-text);
-  --cps-banner-border: var(--cps-color-info-border);
-  --cps-banner-accent: var(--cps-color-info);
-  --cps-banner-link: var(--cps-color-info-text);
+.shelf-banner--info {
+  --shelf-banner-bg: var(--shelf-color-info-subtle);
+  --shelf-banner-fg: var(--shelf-color-text);
+  --shelf-banner-border: var(--shelf-color-info-border);
+  --shelf-banner-accent: var(--shelf-color-info);
+  --shelf-banner-link: var(--shelf-color-info-text);
 }
 
-.cps-banner--success {
-  --cps-banner-bg: var(--cps-color-success-subtle);
-  --cps-banner-fg: var(--cps-color-text);
-  --cps-banner-border: var(--cps-color-success-border);
-  --cps-banner-accent: var(--cps-color-success);
-  --cps-banner-link: var(--cps-color-success-text);
+.shelf-banner--success {
+  --shelf-banner-bg: var(--shelf-color-success-subtle);
+  --shelf-banner-fg: var(--shelf-color-text);
+  --shelf-banner-border: var(--shelf-color-success-border);
+  --shelf-banner-accent: var(--shelf-color-success);
+  --shelf-banner-link: var(--shelf-color-success-text);
 }
 
-.cps-banner--warning {
-  --cps-banner-bg: var(--cps-color-warning-subtle);
-  --cps-banner-fg: var(--cps-color-text);
-  --cps-banner-border: var(--cps-color-warning-border);
-  --cps-banner-accent: var(--cps-color-warning);
-  --cps-banner-link: var(--cps-color-warning-text);
+.shelf-banner--warning {
+  --shelf-banner-bg: var(--shelf-color-warning-subtle);
+  --shelf-banner-fg: var(--shelf-color-text);
+  --shelf-banner-border: var(--shelf-color-warning-border);
+  --shelf-banner-accent: var(--shelf-color-warning);
+  --shelf-banner-link: var(--shelf-color-warning-text);
 }
 
-.cps-banner--danger {
-  --cps-banner-bg: var(--cps-color-danger-subtle);
-  --cps-banner-fg: var(--cps-color-text);
-  --cps-banner-border: var(--cps-color-danger-border);
-  --cps-banner-accent: var(--cps-color-danger);
-  --cps-banner-link: var(--cps-color-danger-text);
+.shelf-banner--danger {
+  --shelf-banner-bg: var(--shelf-color-danger-subtle);
+  --shelf-banner-fg: var(--shelf-color-text);
+  --shelf-banner-border: var(--shelf-color-danger-border);
+  --shelf-banner-accent: var(--shelf-color-danger);
+  --shelf-banner-link: var(--shelf-color-danger-text);
 }
 
-.cps-banner--neutral {
-  --cps-banner-bg: var(--cps-color-neutral-subtle);
-  --cps-banner-fg: var(--cps-color-text);
-  --cps-banner-border: var(--cps-color-neutral-border);
-  --cps-banner-accent: var(--cps-color-neutral);
-  --cps-banner-link: var(--cps-color-text);
+.shelf-banner--neutral {
+  --shelf-banner-bg: var(--shelf-color-neutral-subtle);
+  --shelf-banner-fg: var(--shelf-color-text);
+  --shelf-banner-border: var(--shelf-color-neutral-border);
+  --shelf-banner-accent: var(--shelf-color-neutral);
+  --shelf-banner-link: var(--shelf-color-text);
 }
 
 /* Narrow bars (phones, side panels): start-align so wrapped lines read naturally. */
-@container cps-banner (max-width: 30rem) {
-  .cps-banner__inner,
-  .cps-banner--align-center .cps-banner__inner {
+@container shelf-banner (max-width: 30rem) {
+  .shelf-banner__inner,
+  .shelf-banner--align-center .shelf-banner__inner {
     justify-content: flex-start;
     text-align: start;
   }
 
-  .cps-banner--align-center.cps-banner--dismissible .cps-banner__inner {
+  .shelf-banner--align-center.shelf-banner--dismissible .shelf-banner__inner {
     padding-inline-start: 0;
   }
 }
 
 @media (forced-colors: active) {
-  .cps-banner__dismiss:hover {
+  .shelf-banner__dismiss:hover {
     outline: 1px solid CanvasText;
   }
 }

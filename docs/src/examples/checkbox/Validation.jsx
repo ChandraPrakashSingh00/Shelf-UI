@@ -1,4 +1,4 @@
-import { Button, Checkbox } from "@codecps/ui";
+import { Button, Checkbox } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function CheckboxValidation() {
@@ -18,7 +18,7 @@ export default function CheckboxValidation() {
     >
       <Checkbox
         name="terms"
-        label="I agree to the CodeCPS Terms of Service and Privacy Policy"
+        label="I agree to the Acme Terms of Service and Privacy Policy"
         required
         checked={accepted}
         onCheckedChange={setAccepted}

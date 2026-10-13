@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { cx } from "../../utils/cx.js";
 
 export const CardHeader = forwardRef(function CardHeader({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-card__header", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-card__header", className)} />;
 });
 
 /**
@@ -13,19 +13,19 @@ export const CardTitle = forwardRef(function CardTitle(
   { as: Heading = "h3", className, ...rest },
   ref,
 ) {
-  return <Heading {...rest} ref={ref} className={cx("cps-card__title", className)} />;
+  return <Heading {...rest} ref={ref} className={cx("shelf-card__title", className)} />;
 });
 
 export const CardDescription = forwardRef(function CardDescription({ className, ...rest }, ref) {
-  return <p {...rest} ref={ref} className={cx("cps-card__description", className)} />;
+  return <p {...rest} ref={ref} className={cx("shelf-card__description", className)} />;
 });
 
 export const CardContent = forwardRef(function CardContent({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-card__content", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-card__content", className)} />;
 });
 
 export const CardFooter = forwardRef(function CardFooter({ className, ...rest }, ref) {
-  return <div {...rest} ref={ref} className={cx("cps-card__footer", className)} />;
+  return <div {...rest} ref={ref} className={cx("shelf-card__footer", className)} />;
 });
 
 const CardRoot = forwardRef(function Card(
@@ -36,7 +36,7 @@ const CardRoot = forwardRef(function Card(
   const usesShorthand = hasHeader || footer != null;
 
   return (
-    <div {...rest} ref={ref} className={cx("cps-card", `cps-card--${variant}`, className)}>
+    <div {...rest} ref={ref} className={cx("shelf-card", `shelf-card--${variant}`, className)}>
       {hasHeader && (
         <CardHeader>
           {title != null && <CardTitle>{title}</CardTitle>}

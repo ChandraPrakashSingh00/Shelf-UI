@@ -389,7 +389,7 @@ describe("DatePicker", () => {
     );
     expect(field()).toHaveAccessibleDescription("Choose a delivery date.");
     expect(field()).toHaveAttribute("aria-invalid", "true");
-    expect(field().closest(".cps-field")).toHaveClass("cps-field--invalid");
+    expect(field().closest(".shelf-field")).toHaveClass("shelf-field--invalid");
   });
 
   it("disables the field, its clear button and its form value", async () => {
@@ -408,7 +408,7 @@ describe("DatePicker", () => {
     const field = screen.getByRole("button", { name: /^Delivery date/ });
     expect(field).toBeDisabled();
     expect(screen.queryByRole("button", { name: "Clear date" })).not.toBeInTheDocument();
-    expect(container.querySelector(".cps-field")).toHaveClass("cps-field--disabled");
+    expect(container.querySelector(".shelf-field")).toHaveClass("shelf-field--disabled");
     expect(new FormData(screen.getByRole("form")).get("deliveryDate")).toBeNull();
 
     await user.click(field);
@@ -525,9 +525,9 @@ describe("DatePicker", () => {
     expect(field).toHaveAttribute("id", "delivery");
     expect(field).toHaveAttribute("data-testid", "delivery-field");
     expect(container.firstChild).toHaveClass(
-      "cps-field",
-      "cps-field--lg",
-      "cps-date-picker",
+      "shelf-field",
+      "shelf-field--lg",
+      "shelf-date-picker",
       "checkout-date",
     );
     expect(container.firstChild).toHaveStyle({ maxWidth: "320px" });
@@ -536,7 +536,7 @@ describe("DatePicker", () => {
   it("aligns the popup with the end of the field", async () => {
     const { user, field } = renderPicker({ align: "end" });
     await user.click(field());
-    expect(screen.getByRole("dialog")).toHaveClass("cps-date-picker__popup--end");
+    expect(screen.getByRole("dialog")).toHaveClass("shelf-date-picker__popup--end");
   });
 
   it("renders on the server without touching the browser", () => {

@@ -1,4 +1,4 @@
-import { Alert } from "@codecps/ui";
+import { Alert } from "@shelf-ui/react";
 
 function RocketIcon() {
   return (

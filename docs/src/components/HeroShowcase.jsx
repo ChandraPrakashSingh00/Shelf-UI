@@ -1,9 +1,8 @@
-import { Avatar, Badge, Button, Input, Progress, Stat, Switch } from "@codecps/ui";
+import { Avatar, Badge, Button, Input, Progress, Stat, Switch } from "@shelf-ui/react";
 import aditi from "../examples/avatar/aditi.svg";
 import rohan from "../examples/avatar/rohan.svg";
 import sneha from "../examples/avatar/sneha.svg";
-import { CheckIcon } from "./icons.jsx";
-import { LogoMark } from "./Logo.jsx";
+import { CheckIcon, PackageIcon } from "./icons.jsx";
 
 const navItems = ["Dashboard", "Orders", "Products", "Customers", "Settings"];
 
@@ -17,7 +16,7 @@ const orders = [
 
 /**
  * The home page hero: a store dashboard in a browser window, built from live
- * CodeCPS UI components, with two floating cards. Decorative, so it's hidden
+ * Shelf UI components, with two floating cards. Decorative, so it's hidden
  * from assistive tech and inert. It follows the site theme.
  */
 export function HeroShowcase() {
@@ -30,13 +29,15 @@ export function HeroShowcase() {
             <i />
             <i />
           </span>
-          <span className="docs-browser__url">app.codecps.in/dashboard</span>
+          <span className="docs-browser__url">app.example.com/dashboard</span>
         </div>
 
         <div className="docs-browser__body">
           <aside className="docs-app-nav">
             <span className="docs-app-nav__brand">
-              <LogoMark />
+              <span className="docs-app-nav__logo">
+                <PackageIcon />
+              </span>
               Store admin
             </span>
             <ul>
@@ -112,7 +113,7 @@ export function HeroShowcase() {
 
       <div className="docs-float docs-float--left">
         <p className="docs-float__title">Welcome back</p>
-        <Input size="sm" label="Email" defaultValue="aditi@codecps.in" />
+        <Input size="sm" label="Email" defaultValue="aditi@example.com" />
         <Button size="sm" fullWidth>
           Sign in
         </Button>

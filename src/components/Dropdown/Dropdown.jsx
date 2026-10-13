@@ -123,7 +123,7 @@ export function Dropdown({
   };
 
   return (
-    <div ref={rootRef} className={cx("cps-dropdown", className)}>
+    <div ref={rootRef} className={cx("shelf-dropdown", className)}>
       {cloneElement(trigger, {
         id: triggerId,
         "aria-haspopup": "menu",
@@ -144,7 +144,7 @@ export function Dropdown({
           role="menu"
           aria-label={label}
           aria-labelledby={label ? undefined : triggerId}
-          className={cx("cps-dropdown__menu", `cps-dropdown__menu--${align}`)}
+          className={cx("shelf-dropdown__menu", `shelf-dropdown__menu--${align}`)}
           onKeyDown={handleMenuKeyDown}
         >
           {items.map((item) => (
@@ -154,11 +154,11 @@ export function Dropdown({
               role="menuitem"
               tabIndex={-1}
               disabled={item.disabled}
-              className={cx("cps-dropdown__item", item.danger && "cps-dropdown__item--danger")}
+              className={cx("shelf-dropdown__item", item.danger && "shelf-dropdown__item--danger")}
               onClick={() => selectItem(item)}
             >
               {item.icon && (
-                <span className="cps-dropdown__icon" aria-hidden="true">
+                <span className="shelf-dropdown__icon" aria-hidden="true">
                   {item.icon}
                 </span>
               )}

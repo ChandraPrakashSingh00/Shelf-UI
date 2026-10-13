@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import { Link, Navigate, useLocation } from "react-router";
 import { Callout } from "../../components/Callout.jsx";
 import { CodeBlock } from "../../components/CodeBlock.jsx";
@@ -24,7 +24,7 @@ const fontCode = `<link rel="preconnect" href="https://fonts.googleapis.com" />
   rel="stylesheet"
 />`;
 
-const usageCode = `import { Button, Card, Input } from "@codecps/ui";
+const usageCode = `import { Button, Card, Input } from "@shelf-ui/react";
 
 export function StartProject() {
   return (
@@ -46,7 +46,7 @@ export function InstallationPage() {
     <article className="docs-article">
       <PageHeader
         title="Installation"
-        lead="Get started with CodeCPS UI in your React project in four steps."
+        lead="Get started with Shelf UI in your React project in four steps."
       />
 
       <h2 id="requirements" className="docs-h2">
@@ -64,7 +64,7 @@ export function InstallationPage() {
           <h2 id="install" className="docs-step__title">
             Install the package
           </h2>
-          <p className="docs-text">Install CodeCPS UI with your favorite package manager.</p>
+          <p className="docs-text">Install Shelf UI with your favorite package manager.</p>
           <PackageManagerTabs />
         </li>
         <li className="docs-step">
@@ -75,7 +75,7 @@ export function InstallationPage() {
             Add the stylesheet once, in your app's entry file (for example <code>main.jsx</code>).
             It holds the design tokens and every component's styles, about 19 kB gzipped.
           </p>
-          <CodeBlock code={'import "@codecps/ui/styles.css";'} />
+          <CodeBlock code={'import "@shelf-ui/react/styles.css";'} />
         </li>
         <li className="docs-step">
           <h2 id="font" className="docs-step__title">
@@ -111,7 +111,7 @@ export function InstallationPage() {
           </>
         }
       >
-        You can now use every CodeCPS UI component in your project.
+        You can now use every Shelf UI component in your project.
       </Callout>
 
       <DocsPageNav page={installationPage} />

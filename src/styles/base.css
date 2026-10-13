@@ -1,12 +1,12 @@
-/* Scoped to library elements only — CodeCPS UI never resets the host page. */
-:where([class^="cps-"], [class*=" cps-"]),
-:where([class^="cps-"], [class*=" cps-"])::before,
-:where([class^="cps-"], [class*=" cps-"])::after {
+/* Scoped to library elements only — Shelf UI never resets the host page. */
+:where([class^="shelf-"], [class*=" shelf-"]),
+:where([class^="shelf-"], [class*=" shelf-"])::before,
+:where([class^="shelf-"], [class*=" shelf-"])::after {
   box-sizing: border-box;
 }
 
 /* Hides text visually while keeping it available to screen readers. */
-.cps-visually-hidden {
+.shelf-visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -18,13 +18,13 @@
   border: 0;
 }
 
-@keyframes cps-fade-in {
+@keyframes shelf-fade-in {
   from {
     opacity: 0;
   }
 }
 
-@keyframes cps-slide-up {
+@keyframes shelf-slide-up {
   from {
     opacity: 0;
     transform: translateY(8px);

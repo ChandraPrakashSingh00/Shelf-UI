@@ -1,4 +1,4 @@
-import { Rating } from "@codecps/ui";
+import { Rating } from "@shelf-ui/react";
 import { useState } from "react";
 
 const feedback = ["Tap a star to rate", "Poor", "Fair", "Good", "Very good", "Excellent"];
@@ -16,7 +16,7 @@ export default function RatingLabels() {
         getLabel={(value) => `${value} ${value === 1 ? "star" : "stars"}, ${feedback[value]}`}
       />
       {/* Screen readers already hear this in each star's name. */}
-      <span aria-hidden="true" style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+      <span aria-hidden="true" style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
         {feedback[rating]}
       </span>
     </div>

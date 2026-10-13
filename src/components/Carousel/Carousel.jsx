@@ -144,7 +144,7 @@ const CarouselRoot = forwardRef(function Carousel(
       ref={ref}
       aria-roledescription="carousel"
       aria-label={label}
-      className={cx("cps-carousel", className)}
+      className={cx("shelf-carousel", className)}
       onPointerEnter={composeEventHandlers(onPointerEnter, () => setHovered(true))}
       onPointerLeave={composeEventHandlers(onPointerLeave, () => setHovered(false))}
       onFocus={composeEventHandlers(onFocus, () => setFocused(true))}
@@ -155,7 +155,7 @@ const CarouselRoot = forwardRef(function Carousel(
         <IconButton
           label={playing ? "Stop automatic slide show" : "Start automatic slide show"}
           aria-controls={slidesId}
-          className="cps-carousel__rotation"
+          className="shelf-carousel__rotation"
           onClick={toggleRotation}
           onPointerEnter={() => setRotationButtonHovered(true)}
           onPointerLeave={() => setRotationButtonHovered(false)}
@@ -166,7 +166,7 @@ const CarouselRoot = forwardRef(function Carousel(
         </IconButton>
       )}
 
-      <div className="cps-carousel__stage">
+      <div className="shelf-carousel__stage">
         {showArrows && hasControls && (
           <>
             {/* `aria-disabled` instead of `disabled`, so focus stays put at either end. */}
@@ -174,7 +174,7 @@ const CarouselRoot = forwardRef(function Carousel(
               label={previousLabel}
               aria-controls={slidesId}
               aria-disabled={!hasPrevious || undefined}
-              className="cps-carousel__arrow cps-carousel__arrow--previous"
+              className="shelf-carousel__arrow shelf-carousel__arrow--previous"
               onClick={showPrevious}
             >
               <ChevronLeftIcon />
@@ -183,7 +183,7 @@ const CarouselRoot = forwardRef(function Carousel(
               label={nextLabel}
               aria-controls={slidesId}
               aria-disabled={!hasNext || undefined}
-              className="cps-carousel__arrow cps-carousel__arrow--next"
+              className="shelf-carousel__arrow shelf-carousel__arrow--next"
               onClick={showNext}
             >
               <ChevronRightIcon />
@@ -194,14 +194,14 @@ const CarouselRoot = forwardRef(function Carousel(
         {/* Announces the slides the user moves to, but stays quiet while rotating. */}
         <div
           id={slidesId}
-          className="cps-carousel__viewport"
+          className="shelf-carousel__viewport"
           aria-live={rotating ? "off" : "polite"}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerCancel}
         >
           <div
-            className="cps-carousel__track"
+            className="shelf-carousel__track"
             data-move={moves.count > 0 ? moves.count % 2 : undefined}
             style={{ transform: `translateX(${activeIndex * -100}%)` }}
           >
@@ -218,7 +218,7 @@ const CarouselRoot = forwardRef(function Carousel(
       </div>
 
       {showDots && hasControls && (
-        <div className="cps-carousel__dots" role="group" aria-label="Choose slide">
+        <div className="shelf-carousel__dots" role="group" aria-label="Choose slide">
           {slides.map((slide, slideIndex) => (
             <button
               key={slide.key}
@@ -226,7 +226,7 @@ const CarouselRoot = forwardRef(function Carousel(
               aria-label={`Slide ${slideIndex + 1}`}
               aria-current={slideIndex === activeIndex || undefined}
               aria-controls={slidesId}
-              className="cps-carousel__dot"
+              className="shelf-carousel__dot"
               onClick={() => goTo(slideIndex)}
             />
           ))}
@@ -262,7 +262,7 @@ export const CarouselSlide = forwardRef(function CarouselSlide(
       aria-label={ariaLabel ?? positionLabel}
       aria-labelledby={ariaLabelledBy}
       aria-hidden={slide.active ? undefined : true}
-      className={cx("cps-carousel__slide", className)}
+      className={cx("shelf-carousel__slide", className)}
     />
   );
 });

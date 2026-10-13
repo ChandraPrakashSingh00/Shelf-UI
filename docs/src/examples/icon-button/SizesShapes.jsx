@@ -1,4 +1,4 @@
-import { IconButton } from "@codecps/ui";
+import { IconButton } from "@shelf-ui/react";
 
 function CartIcon() {
   return (

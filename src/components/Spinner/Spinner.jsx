@@ -26,10 +26,10 @@ export const Spinner = forwardRef(function Spinner(
       ref={ref}
       role={isDecorative ? undefined : "status"}
       aria-hidden={isDecorative || undefined}
-      className={cx("cps-spinner-status", `cps-spinner-status--${size}`, className)}
+      className={cx("shelf-spinner-status", `shelf-spinner-status--${size}`, className)}
     >
       <SpinnerIcon />
-      {!isDecorative && <span className="cps-visually-hidden">{label}</span>}
+      {!isDecorative && <span className="shelf-visually-hidden">{label}</span>}
     </span>
   );
 });

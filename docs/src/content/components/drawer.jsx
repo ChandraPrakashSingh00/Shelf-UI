@@ -1,4 +1,4 @@
-import { Button, Drawer } from "@codecps/ui";
+import { Button, Drawer } from "@shelf-ui/react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import BottomSheet from "../../examples/drawer/BottomSheet.jsx";
@@ -43,17 +43,17 @@ const bar = (width) => ({
   width,
   height: 8,
   borderRadius: 4,
-  backgroundColor: "var(--cps-color-surface-hover)",
+  backgroundColor: "var(--shelf-color-surface-hover)",
 });
 
 function DrawerThumbnail() {
   return (
     <div style={{ position: "absolute", inset: 0 }}>
       <div style={{ display: "grid", gap: 12, width: "40%", padding: 18 }}>
-        <span style={{ ...bar("80%"), backgroundColor: "var(--cps-color-border-strong)" }} />
-        <span style={{ ...bar("100%"), backgroundColor: "var(--cps-color-border-strong)" }} />
-        <span style={{ ...bar("65%"), backgroundColor: "var(--cps-color-border-strong)" }} />
-        <span style={{ ...bar("90%"), backgroundColor: "var(--cps-color-border-strong)" }} />
+        <span style={{ ...bar("80%"), backgroundColor: "var(--shelf-color-border-strong)" }} />
+        <span style={{ ...bar("100%"), backgroundColor: "var(--shelf-color-border-strong)" }} />
+        <span style={{ ...bar("65%"), backgroundColor: "var(--shelf-color-border-strong)" }} />
+        <span style={{ ...bar("90%"), backgroundColor: "var(--shelf-color-border-strong)" }} />
       </div>
       <div
         style={{
@@ -61,7 +61,7 @@ function DrawerThumbnail() {
           inset: 0,
           display: "flex",
           justifyContent: "flex-end",
-          backgroundColor: "var(--cps-color-overlay)",
+          backgroundColor: "var(--shelf-color-overlay)",
         }}
       >
         <div
@@ -71,10 +71,10 @@ function DrawerThumbnail() {
             gap: 10,
             width: "56%",
             padding: "14px 14px 12px",
-            borderLeft: "1px solid var(--cps-color-border)",
-            backgroundColor: "var(--cps-color-surface)",
-            boxShadow: "var(--cps-shadow-lg)",
-            color: "var(--cps-color-text)",
+            borderLeft: "1px solid var(--shelf-color-border)",
+            backgroundColor: "var(--shelf-color-surface)",
+            boxShadow: "var(--shelf-shadow-lg)",
+            color: "var(--shelf-color-text)",
             fontSize: 13,
           }}
         >

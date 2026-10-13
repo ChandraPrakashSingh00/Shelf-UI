@@ -1,8 +1,8 @@
-import { IconButton } from "@codecps/ui";
+import { IconButton } from "@shelf-ui/react";
 import { useState } from "react";
 
 function HeartIcon({ filled }) {
-  const color = filled ? "var(--cps-color-danger)" : "currentColor";
+  const color = filled ? "var(--shelf-color-danger)" : "currentColor";
   return (
     <svg
       viewBox="0 0 24 24"
@@ -19,12 +19,12 @@ function HeartIcon({ filled }) {
 }
 
 const products = [
-  { id: "kurta", name: "Cotton kurta", price: 1299, tint: "var(--cps-color-warning-subtle)" },
+  { id: "kurta", name: "Cotton kurta", price: 1299, tint: "var(--shelf-color-warning-subtle)" },
   {
     id: "sneakers",
     name: "Running sneakers",
     price: 2499,
-    tint: "var(--cps-color-primary-subtle)",
+    tint: "var(--shelf-color-primary-subtle)",
   },
 ];
 
@@ -45,9 +45,9 @@ export default function IconButtonWishlist() {
             position: "relative",
             width: 180,
             overflow: "hidden",
-            border: "1px solid var(--cps-color-border)",
-            borderRadius: "var(--cps-radius-lg)",
-            backgroundColor: "var(--cps-color-surface)",
+            border: "1px solid var(--shelf-color-border)",
+            borderRadius: "var(--shelf-radius-lg)",
+            backgroundColor: "var(--shelf-color-surface)",
           }}
         >
           <div style={{ height: 120, backgroundColor: product.tint }} />
@@ -64,7 +64,7 @@ export default function IconButtonWishlist() {
             <HeartIcon filled={saved.includes(product.id)} />
           </IconButton>
           <div style={{ padding: 12 }}>
-            <h4 style={{ margin: 0, fontSize: "var(--cps-font-size-sm)" }}>{product.name}</h4>
+            <h4 style={{ margin: 0, fontSize: "var(--shelf-font-size-sm)" }}>{product.name}</h4>
             <p style={{ margin: "4px 0 0", fontWeight: 600 }}>
               ₹{product.price.toLocaleString("en-IN")}
             </p>

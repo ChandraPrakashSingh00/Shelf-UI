@@ -48,29 +48,29 @@ export const EmptyState = forwardRef(function EmptyState(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-empty-state",
-        `cps-empty-state--${size}`,
-        `cps-empty-state--${variant}`,
-        `cps-empty-state--${tone}`,
-        `cps-empty-state--align-${align}`,
+        "shelf-empty-state",
+        `shelf-empty-state--${size}`,
+        `shelf-empty-state--${variant}`,
+        `shelf-empty-state--${tone}`,
+        `shelf-empty-state--align-${align}`,
         className,
       )}
     >
       {image != null ? (
-        <div className="cps-empty-state__image">{image}</div>
+        <div className="shelf-empty-state__image">{image}</div>
       ) : (
         icon != null && (
-          <span className="cps-empty-state__icon" aria-hidden="true">
+          <span className="shelf-empty-state__icon" aria-hidden="true">
             {icon}
           </span>
         )
       )}
-      <div className="cps-empty-state__text">
-        <Heading className="cps-empty-state__title">{title}</Heading>
-        {description != null && <p className="cps-empty-state__description">{description}</p>}
+      <div className="shelf-empty-state__text">
+        <Heading className="shelf-empty-state__title">{title}</Heading>
+        {description != null && <p className="shelf-empty-state__description">{description}</p>}
       </div>
       {children}
-      {actions != null && <div className="cps-empty-state__actions">{actions}</div>}
+      {actions != null && <div className="shelf-empty-state__actions">{actions}</div>}
     </div>
   );
 });

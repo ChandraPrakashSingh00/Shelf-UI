@@ -116,7 +116,7 @@ describe("CommandPalette", () => {
     await openHarness({ items: withIcon });
 
     const home = option("Home");
-    const keys = home.querySelectorAll("kbd.cps-command-palette__kbd");
+    const keys = home.querySelectorAll("kbd.shelf-command-palette__kbd");
     expect(Array.from(keys).map((key) => key.textContent)).toEqual(["G", "H"]);
     expect(keys[0].parentElement).toHaveAttribute("aria-hidden", "true");
     expect(screen.getByTestId("home-icon").parentElement).toHaveAttribute("aria-hidden", "true");
@@ -127,7 +127,7 @@ describe("CommandPalette", () => {
     const expectActive = (name) => {
       expect(input).toHaveAttribute("aria-activedescendant", option(name).id);
       expect(option(name)).toHaveAttribute("aria-selected", "true");
-      expect(option(name)).toHaveClass("cps-command-palette__option--active");
+      expect(option(name)).toHaveClass("shelf-command-palette__option--active");
     };
 
     expectActive("Dashboard");
@@ -457,13 +457,13 @@ describe("CommandPalette", () => {
 
     const dialog = screen.getByRole("dialog", { name: "Admin search" });
     expect(ref.current).toBe(dialog);
-    expect(dialog).toHaveClass("cps-command-palette", "custom-palette");
+    expect(dialog).toHaveClass("shelf-command-palette", "custom-palette");
     expect(dialog).toHaveAttribute("data-testid", "palette");
     expect(screen.getByRole("listbox", { name: "Admin search" })).toBeInTheDocument();
     const input = screen.getByRole("combobox", { name: "Search the admin" });
     expect(input).toHaveAttribute("placeholder", "Search orders, products…");
     expect(screen.getByText("Press Enter to open").parentElement).toHaveClass(
-      "cps-command-palette__footer",
+      "shelf-command-palette__footer",
     );
   });
 

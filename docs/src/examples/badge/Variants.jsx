@@ -1,4 +1,4 @@
-import { Badge } from "@codecps/ui";
+import { Badge } from "@shelf-ui/react";
 
 export default function BadgeVariants() {
   return (

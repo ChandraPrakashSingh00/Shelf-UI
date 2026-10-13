@@ -41,7 +41,7 @@ export const Switch = forwardRef(function Switch(
   ref,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-switch-${generatedId}`;
+  const inputId = id ?? `shelf-switch-${generatedId}`;
   const descriptionId = `${inputId}-description`;
   const describedBy = [ariaDescribedBy, description != null ? descriptionId : null]
     .filter(Boolean)
@@ -50,14 +50,14 @@ export const Switch = forwardRef(function Switch(
   return (
     <div
       className={cx(
-        "cps-switch",
-        `cps-switch--${size}`,
-        disabled && "cps-switch--disabled",
+        "shelf-switch",
+        `shelf-switch--${size}`,
+        disabled && "shelf-switch--disabled",
         className,
       )}
       style={style}
     >
-      <span className="cps-switch__control">
+      <span className="shelf-switch__control">
         <input
           {...rest}
           ref={ref}
@@ -69,29 +69,29 @@ export const Switch = forwardRef(function Switch(
           disabled={disabled}
           required={required}
           aria-describedby={describedBy || undefined}
-          className="cps-switch__input"
+          className="shelf-switch__input"
           onChange={composeEventHandlers(onChange, (event) =>
             onCheckedChange?.(event.target.checked),
           )}
         />
-        <span className="cps-switch__track" aria-hidden="true">
-          <span className="cps-switch__thumb" />
+        <span className="shelf-switch__track" aria-hidden="true">
+          <span className="shelf-switch__thumb" />
         </span>
       </span>
       {(label != null || description != null) && (
-        <div className="cps-switch__text">
+        <div className="shelf-switch__text">
           {label != null && (
-            <label htmlFor={inputId} className="cps-switch__label">
+            <label htmlFor={inputId} className="shelf-switch__label">
               {label}
               {required && (
-                <span className="cps-field__required" aria-hidden="true">
+                <span className="shelf-field__required" aria-hidden="true">
                   *
                 </span>
               )}
             </label>
           )}
           {description != null && (
-            <p id={descriptionId} className="cps-switch__description">
+            <p id={descriptionId} className="shelf-switch__description">
               {description}
             </p>
           )}

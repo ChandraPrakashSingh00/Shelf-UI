@@ -11,7 +11,7 @@ describe("Link", () => {
     const link = screen.getByRole("link", { name: "View orders" });
     expect(link.tagName).toBe("A");
     expect(link).toHaveAttribute("href", "/orders");
-    expect(link).toHaveClass("cps-link", "cps-link--primary", "cps-link--underline-hover");
+    expect(link).toHaveClass("shelf-link", "shelf-link--primary", "shelf-link--underline-hover");
     expect(link).not.toHaveAttribute("target");
     expect(link).not.toHaveAttribute("rel");
     expect(link.querySelector("svg")).not.toBeInTheDocument();
@@ -23,7 +23,7 @@ describe("Link", () => {
         Label
       </Link>,
     );
-    expect(screen.getByRole("link")).toHaveClass(`cps-link--${variant}`);
+    expect(screen.getByRole("link")).toHaveClass(`shelf-link--${variant}`);
   });
 
   it.each(["hover", "always", "none"])("applies the %s underline", (underline) => {
@@ -32,7 +32,7 @@ describe("Link", () => {
         Label
       </Link>,
     );
-    expect(screen.getByRole("link")).toHaveClass(`cps-link--underline-${underline}`);
+    expect(screen.getByRole("link")).toHaveClass(`shelf-link--underline-${underline}`);
   });
 
   it("opens external links in a new tab safely and says so", () => {
@@ -45,12 +45,12 @@ describe("Link", () => {
     const link = screen.getByRole("link", { name: /^GST portal\s\(opens in a new tab\)$/ });
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(link).toHaveClass("cps-link--external");
+    expect(link).toHaveClass("shelf-link--external");
 
     const icon = link.querySelector("svg");
-    expect(icon).toHaveClass("cps-link__icon");
+    expect(icon).toHaveClass("shelf-link__icon");
     expect(icon).toHaveAttribute("aria-hidden", "true");
-    expect(screen.getByText("(opens in a new tab)")).toHaveClass("cps-visually-hidden");
+    expect(screen.getByText("(opens in a new tab)")).toHaveClass("shelf-visually-hidden");
   });
 
   it("merges rel and keeps a custom target on external links", () => {
@@ -124,7 +124,7 @@ describe("Link", () => {
 
     const link = screen.getByRole("link", { name: "Returns policy" });
     expect(link).toHaveAttribute("href", "/returns");
-    expect(link).toHaveClass("cps-link", "cps-link--muted", "router-link");
+    expect(link).toHaveClass("shelf-link", "shelf-link--muted", "router-link");
 
     await user.click(link);
     expect(onChildClick).toHaveBeenCalledTimes(1);
@@ -141,7 +141,7 @@ describe("Link", () => {
     const link = screen.getByRole("link", { name: /^India Post\s\(opens in a new tab\)$/ });
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(link.querySelector(".cps-link__icon")).toBeInTheDocument();
+    expect(link.querySelector(".shelf-link__icon")).toBeInTheDocument();
   });
 
   it("merges an asChild element's own rel with noopener noreferrer", () => {
@@ -168,7 +168,7 @@ describe("Link", () => {
 
     const link = screen.getByRole("link", { name: "Help centre" });
     expect(ref.current).toBe(link);
-    expect(link).toHaveClass("cps-link", "custom");
+    expect(link).toHaveClass("shelf-link", "custom");
     expect(link).toHaveAttribute("data-testid", "help");
     expect(link).toHaveAttribute("hreflang", "hi");
   });

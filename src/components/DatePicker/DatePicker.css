@@ -2,36 +2,36 @@
  * The control draws the Input look around the field button and the clear
  * button; the popup opens below it, like Popover.
  */
-.cps-date-picker__anchor {
+.shelf-date-picker__anchor {
   position: relative;
 }
 
-.cps-date-picker__control {
+.shelf-date-picker__control {
   display: flex;
   align-items: center;
-  height: var(--cps-input-height);
-  border: 1px solid var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-md);
-  background-color: var(--cps-color-surface);
+  height: var(--shelf-input-height);
+  border: 1px solid var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-md);
+  background-color: var(--shelf-color-surface);
   transition:
-    border-color var(--cps-duration-fast) var(--cps-easing),
-    box-shadow var(--cps-duration-fast) var(--cps-easing);
+    border-color var(--shelf-duration-fast) var(--shelf-easing),
+    box-shadow var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-date-picker__control:hover {
-  border-color: var(--cps-color-text-subtle);
+.shelf-date-picker__control:hover {
+  border-color: var(--shelf-color-text-subtle);
 }
 
-.cps-date-picker__control:focus-within,
-.cps-date-picker--open .cps-date-picker__control {
-  border-color: var(--cps-color-primary);
+.shelf-date-picker__control:focus-within,
+.shelf-date-picker--open .shelf-date-picker__control {
+  border-color: var(--shelf-color-primary);
 }
 
-.cps-date-picker__control:focus-within {
-  box-shadow: 0 0 0 3px var(--cps-focus-ring-soft);
+.shelf-date-picker__control:focus-within {
+  box-shadow: 0 0 0 3px var(--shelf-focus-ring-soft);
 }
 
-.cps-date-picker__trigger {
+.shelf-date-picker__trigger {
   display: flex;
   flex: 1;
   align-items: center;
@@ -46,19 +46,19 @@
   background: transparent;
   color: inherit;
   font: inherit;
-  font-size: var(--cps-input-font-size);
+  font-size: var(--shelf-input-font-size);
   text-align: start;
   cursor: pointer;
 }
 
-.cps-date-picker__icon {
+.shelf-date-picker__icon {
   flex-shrink: 0;
   width: 1.1em;
   height: 1.1em;
-  color: var(--cps-color-text-subtle);
+  color: var(--shelf-color-text-subtle);
 }
 
-.cps-date-picker__value {
+.shelf-date-picker__value {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -66,11 +66,11 @@
   white-space: nowrap;
 }
 
-.cps-date-picker__value--placeholder {
-  color: var(--cps-color-text-subtle);
+.shelf-date-picker__value--placeholder {
+  color: var(--shelf-color-text-subtle);
 }
 
-.cps-date-picker__clear {
+.shelf-date-picker__clear {
   width: 1.75rem;
   height: 1.75rem;
   margin-inline-end: 0.25rem;
@@ -78,7 +78,7 @@
 }
 
 /* Visually hidden, but focusable, so the browser can report it as required. */
-.cps-date-picker__validation {
+.shelf-date-picker__validation {
   position: absolute;
   bottom: 0;
   inset-inline-start: 1rem;
@@ -91,99 +91,99 @@
   pointer-events: none;
 }
 
-.cps-field--invalid .cps-date-picker__control {
-  border-color: var(--cps-color-danger);
+.shelf-field--invalid .shelf-date-picker__control {
+  border-color: var(--shelf-color-danger);
 }
 
-.cps-field--invalid .cps-date-picker__control:focus-within {
-  box-shadow: 0 0 0 3px var(--cps-color-danger-subtle);
+.shelf-field--invalid .shelf-date-picker__control:focus-within {
+  box-shadow: 0 0 0 3px var(--shelf-color-danger-subtle);
 }
 
-.cps-field--disabled .cps-date-picker__control {
-  border-color: var(--cps-color-border);
-  background-color: var(--cps-color-surface-muted);
+.shelf-field--disabled .shelf-date-picker__control {
+  border-color: var(--shelf-color-border);
+  background-color: var(--shelf-color-surface-muted);
 }
 
-.cps-date-picker__trigger:disabled {
-  color: var(--cps-color-text-subtle);
+.shelf-date-picker__trigger:disabled {
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
-.cps-date-picker__popup {
+.shelf-date-picker__popup {
   position: absolute;
   top: calc(100% + 0.375rem);
-  z-index: var(--cps-z-dropdown);
+  z-index: var(--shelf-z-dropdown);
   display: flex;
   gap: 0.75rem;
   width: max-content;
   max-width: calc(100vw - 2rem);
   padding: 0.75rem;
-  border: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-lg);
-  background-color: var(--cps-color-surface);
-  box-shadow: var(--cps-shadow-md);
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
-  animation: cps-fade-in var(--cps-duration-fast) var(--cps-easing);
+  border: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-lg);
+  background-color: var(--shelf-color-surface);
+  box-shadow: var(--shelf-shadow-md);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
+  animation: shelf-fade-in var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-date-picker__popup--start {
+.shelf-date-picker__popup--start {
   inset-inline-start: 0;
 }
 
-.cps-date-picker__popup--end {
+.shelf-date-picker__popup--end {
   inset-inline-end: 0;
 }
 
-.cps-date-picker__presets {
+.shelf-date-picker__presets {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: 8rem;
   padding-inline-end: 0.75rem;
-  border-inline-end: 1px solid var(--cps-color-border);
+  border-inline-end: 1px solid var(--shelf-color-border);
 }
 
-.cps-date-picker__preset {
+.shelf-date-picker__preset {
   display: flex;
   align-items: center;
   min-height: 2rem;
   padding: 0.375rem 0.625rem;
   border: 0;
-  border-radius: var(--cps-radius-sm);
+  border-radius: var(--shelf-radius-sm);
   background: transparent;
-  color: var(--cps-color-text);
+  color: var(--shelf-color-text);
   font: inherit;
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-tight);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-tight);
   text-align: start;
   white-space: nowrap;
   cursor: pointer;
 }
 
-.cps-date-picker__preset:hover {
-  background-color: var(--cps-color-surface-hover);
+.shelf-date-picker__preset:hover {
+  background-color: var(--shelf-color-surface-hover);
 }
 
-.cps-date-picker__preset:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-date-picker__preset:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: -2px;
 }
 
-.cps-date-picker__preset--active,
-.cps-date-picker__preset--active:hover {
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
-  font-weight: var(--cps-font-weight-medium);
+.shelf-date-picker__preset--active,
+.shelf-date-picker__preset--active:hover {
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
+  font-weight: var(--shelf-font-weight-medium);
 }
 
 /* On small screens the presets wrap above the calendar. */
 @media (max-width: 30rem) {
-  .cps-date-picker__popup {
+  .shelf-date-picker__popup {
     flex-direction: column;
   }
 
-  .cps-date-picker__presets {
+  .shelf-date-picker__presets {
     flex-direction: row;
     flex-wrap: wrap;
     /* As wide as the calendar: the presets don't widen the popup, they wrap. */
@@ -191,26 +191,26 @@
     min-width: 100%;
     padding: 0 0 0.75rem;
     border-inline-end: 0;
-    border-bottom: 1px solid var(--cps-color-border);
+    border-bottom: 1px solid var(--shelf-color-border);
   }
 }
 
 @media (forced-colors: active) {
-  .cps-date-picker__control:focus-within {
+  .shelf-date-picker__control:focus-within {
     outline: 2px solid CanvasText;
   }
 
-  .cps-date-picker__preset--active {
+  .shelf-date-picker__preset--active {
     outline: 1px solid Highlight;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-date-picker__control {
+  .shelf-date-picker__control {
     transition: none;
   }
 
-  .cps-date-picker__popup {
+  .shelf-date-picker__popup {
     animation: none;
   }
 }

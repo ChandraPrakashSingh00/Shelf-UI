@@ -3,14 +3,14 @@ import { createRef } from "react";
 import { describe, expect, it } from "vitest";
 import { Progress } from "./Progress.jsx";
 
-const bar = (progressbar) => progressbar.querySelector(".cps-progress__bar");
+const bar = (progressbar) => progressbar.querySelector(".shelf-progress__bar");
 
 describe("Progress", () => {
   it("renders a progress bar named by its visible label", () => {
-    render(<Progress label="Deploying codecps-web" value={45} />);
+    render(<Progress label="Deploying storefront-web" value={45} />);
 
-    const progressbar = screen.getByRole("progressbar", { name: "Deploying codecps-web" });
-    const label = screen.getByText("Deploying codecps-web");
+    const progressbar = screen.getByRole("progressbar", { name: "Deploying storefront-web" });
+    const label = screen.getByText("Deploying storefront-web");
     expect(progressbar).toHaveAttribute("aria-labelledby", label.id);
     expect(progressbar).toHaveAttribute("aria-valuemin", "0");
     expect(progressbar).toHaveAttribute("aria-valuemax", "100");
@@ -74,8 +74,8 @@ describe("Progress", () => {
     expect(progressbar).not.toHaveAttribute("aria-valuenow");
     expect(progressbar).not.toHaveAttribute("aria-valuetext");
     expect(bar(progressbar)).not.toHaveAttribute("style");
-    expect(container.firstElementChild).toHaveClass("cps-progress--indeterminate");
-    expect(container.querySelector(".cps-progress__value")).toBeNull();
+    expect(container.firstElementChild).toHaveClass("shelf-progress--indeterminate");
+    expect(container.querySelector(".shelf-progress__value")).toBeNull();
   });
 
   it("puts aria-label, aria-labelledby and aria-describedby on the progress bar", () => {
@@ -97,7 +97,7 @@ describe("Progress", () => {
     expect(labelledBy).toHaveAccessibleName("Nightly backup");
     expect(labelledBy).toHaveAccessibleDescription("Runs every day at 02:00 IST.");
     expect(labelled).toHaveAccessibleName("Sync");
-    for (const root of container.querySelectorAll(".cps-progress")) {
+    for (const root of container.querySelectorAll(".shelf-progress")) {
       expect(root).not.toHaveAttribute("aria-label");
       expect(root).not.toHaveAttribute("aria-labelledby");
       expect(root).not.toHaveAttribute("aria-describedby");
@@ -107,20 +107,20 @@ describe("Progress", () => {
   it("defaults to the primary variant and medium size", () => {
     const { container } = render(<Progress aria-label="Build" value={10} />);
     expect(container.firstElementChild).toHaveClass(
-      "cps-progress",
-      "cps-progress--primary",
-      "cps-progress--md",
+      "shelf-progress",
+      "shelf-progress--primary",
+      "shelf-progress--md",
     );
   });
 
   it.each(["primary", "success", "warning", "danger"])("applies the %s variant", (variant) => {
     const { container } = render(<Progress aria-label="Build" value={10} variant={variant} />);
-    expect(container.firstElementChild).toHaveClass(`cps-progress--${variant}`);
+    expect(container.firstElementChild).toHaveClass(`shelf-progress--${variant}`);
   });
 
   it.each(["sm", "md", "lg"])("applies the %s size", (size) => {
     const { container } = render(<Progress aria-label="Build" value={10} size={size} />);
-    expect(container.firstElementChild).toHaveClass(`cps-progress--${size}`);
+    expect(container.firstElementChild).toHaveClass(`shelf-progress--${size}`);
   });
 
   it("forwards the ref and native attributes to the root, and merges className", () => {
@@ -131,7 +131,7 @@ describe("Progress", () => {
 
     const root = container.firstElementChild;
     expect(ref.current).toBe(root);
-    expect(root).toHaveClass("cps-progress", "custom");
+    expect(root).toHaveClass("shelf-progress", "custom");
     expect(root).toHaveAttribute("id", "build-progress");
     expect(root).not.toHaveAttribute("role");
   });

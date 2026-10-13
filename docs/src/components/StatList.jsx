@@ -13,7 +13,7 @@ export function StatList({ className }) {
   return (
     <ul
       className={["docs-stats__list", className].filter(Boolean).join(" ")}
-      aria-label="CodeCPS UI at a glance"
+      aria-label="Shelf UI at a glance"
     >
       {stats.map(({ value, label, Icon }) => (
         <li key={label} className="docs-stat">

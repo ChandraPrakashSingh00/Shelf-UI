@@ -9,7 +9,7 @@ function renderTrail(props = {}) {
     <Breadcrumb {...props}>
       <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
       <Breadcrumb.Item href="/projects">Projects</Breadcrumb.Item>
-      <Breadcrumb.Item current>codecps-web</Breadcrumb.Item>
+      <Breadcrumb.Item current>storefront-web</Breadcrumb.Item>
     </Breadcrumb>,
   );
 }
@@ -22,7 +22,7 @@ describe("Breadcrumb", () => {
     renderTrail();
 
     const nav = screen.getByRole("navigation", { name: "Breadcrumb" });
-    expect(nav).toHaveClass("cps-breadcrumb");
+    expect(nav).toHaveClass("shelf-breadcrumb");
     const list = within(nav).getByRole("list");
     expect(list.tagName).toBe("OL");
     // Separators are hidden from assistive technology, so only the 3 items count.
@@ -34,28 +34,28 @@ describe("Breadcrumb", () => {
 
     const home = screen.getByRole("link", { name: "Home" });
     expect(home).toHaveAttribute("href", "/");
-    expect(home).toHaveClass("cps-breadcrumb__link");
+    expect(home).toHaveClass("shelf-breadcrumb__link");
     expect(home).not.toHaveAttribute("aria-current");
     expect(screen.getByRole("link", { name: "Projects" })).toHaveAttribute("href", "/projects");
 
-    const current = screen.getByText("codecps-web");
+    const current = screen.getByText("storefront-web");
     expect(current.tagName).toBe("SPAN");
     expect(current).toHaveAttribute("aria-current", "page");
-    expect(current).toHaveClass("cps-breadcrumb__current");
-    expect(screen.queryByRole("link", { name: "codecps-web" })).not.toBeInTheDocument();
+    expect(current).toHaveClass("shelf-breadcrumb__current");
+    expect(screen.queryByRole("link", { name: "storefront-web" })).not.toBeInTheDocument();
   });
 
   it("puts a decorative separator between items only", () => {
     const { container } = renderTrail();
 
     expect(listChildren(container)).toEqual([
-      "cps-breadcrumb__item",
-      "cps-breadcrumb__separator",
-      "cps-breadcrumb__item",
-      "cps-breadcrumb__separator",
-      "cps-breadcrumb__item",
+      "shelf-breadcrumb__item",
+      "shelf-breadcrumb__separator",
+      "shelf-breadcrumb__item",
+      "shelf-breadcrumb__separator",
+      "shelf-breadcrumb__item",
     ]);
-    for (const separator of container.querySelectorAll(".cps-breadcrumb__separator")) {
+    for (const separator of container.querySelectorAll(".shelf-breadcrumb__separator")) {
       expect(separator.tagName).toBe("LI");
       expect(separator).toHaveAttribute("aria-hidden", "true");
       expect(separator.querySelector("svg")).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe("Breadcrumb", () => {
 
   it("renders a custom separator", () => {
     const { container } = renderTrail({ separator: "/" });
-    const separators = container.querySelectorAll(".cps-breadcrumb__separator");
+    const separators = container.querySelectorAll(".shelf-breadcrumb__separator");
     expect(separators).toHaveLength(2);
     for (const separator of separators) expect(separator).toHaveTextContent("/");
   });
@@ -81,9 +81,9 @@ describe("Breadcrumb", () => {
     );
 
     expect(listChildren(container)).toEqual([
-      "cps-breadcrumb__item",
-      "cps-breadcrumb__separator",
-      "cps-breadcrumb__item",
+      "shelf-breadcrumb__item",
+      "shelf-breadcrumb__separator",
+      "shelf-breadcrumb__item",
     ]);
     expect(screen.getByRole("navigation")).not.toHaveTextContent("Stray text");
   });
@@ -116,25 +116,25 @@ describe("Breadcrumb", () => {
           </RouterLink>
         </Breadcrumb.Item>
         <Breadcrumb.Item asChild current>
-          <RouterLink to="/projects/codecps-web">codecps-web</RouterLink>
+          <RouterLink to="/projects/storefront-web">storefront-web</RouterLink>
         </Breadcrumb.Item>
       </Breadcrumb>,
     );
 
     const link = screen.getByRole("link", { name: "Projects" });
     expect(link).toHaveAttribute("href", "/projects");
-    expect(link).toHaveClass("cps-breadcrumb__link", "router-link");
+    expect(link).toHaveClass("shelf-breadcrumb__link", "router-link");
     expect(link).not.toHaveAttribute("aria-current");
-    expect(link.parentElement).toHaveClass("cps-breadcrumb__item");
+    expect(link.parentElement).toHaveClass("shelf-breadcrumb__item");
 
     await user.click(link);
     expect(onNavigate).toHaveBeenCalledTimes(1);
     expect(onItemClick).toHaveBeenCalledTimes(1);
 
-    const current = screen.getByRole("link", { name: "codecps-web" });
-    expect(current).toHaveAttribute("href", "/projects/codecps-web");
+    const current = screen.getByRole("link", { name: "storefront-web" });
+    expect(current).toHaveAttribute("href", "/projects/storefront-web");
     expect(current).toHaveAttribute("aria-current", "page");
-    expect(current).toHaveClass("cps-breadcrumb__current");
+    expect(current).toHaveClass("shelf-breadcrumb__current");
   });
 
   it("uses label as the landmark's accessible name", () => {
@@ -148,7 +148,7 @@ describe("Breadcrumb", () => {
     const currentRef = createRef();
     render(
       <Breadcrumb ref={navRef} className="trail" data-testid="trail">
-        <BreadcrumbItem ref={linkRef} href="/" className="home-link" title="CodeCPS home">
+        <BreadcrumbItem ref={linkRef} href="/" className="home-link" title="Acme home">
           Home
         </BreadcrumbItem>
         <BreadcrumbItem ref={currentRef} current href="/settings" className="here">
@@ -158,15 +158,15 @@ describe("Breadcrumb", () => {
     );
 
     expect(navRef.current).toBe(screen.getByRole("navigation"));
-    expect(navRef.current).toHaveClass("cps-breadcrumb", "trail");
+    expect(navRef.current).toHaveClass("shelf-breadcrumb", "trail");
     expect(navRef.current).toHaveAttribute("data-testid", "trail");
 
     expect(linkRef.current).toBe(screen.getByRole("link", { name: "Home" }));
-    expect(linkRef.current).toHaveClass("cps-breadcrumb__link", "home-link");
-    expect(linkRef.current).toHaveAttribute("title", "CodeCPS home");
+    expect(linkRef.current).toHaveClass("shelf-breadcrumb__link", "home-link");
+    expect(linkRef.current).toHaveAttribute("title", "Acme home");
 
     expect(currentRef.current).toBe(screen.getByText("Settings"));
-    expect(currentRef.current).toHaveClass("cps-breadcrumb__current", "here");
+    expect(currentRef.current).toHaveClass("shelf-breadcrumb__current", "here");
     expect(currentRef.current).not.toHaveAttribute("href");
     expect(Breadcrumb.Item).toBe(BreadcrumbItem);
   });

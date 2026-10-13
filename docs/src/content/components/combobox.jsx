@@ -1,4 +1,4 @@
-import { Combobox } from "@codecps/ui";
+import { Combobox } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/combobox/Basic.jsx";
 import basicCode from "../../examples/combobox/Basic.jsx?raw";
@@ -31,9 +31,9 @@ const playgroundCities = [
 // Static look-alike: the card preview is inert and clips anything positioned outside it.
 function ComboboxThumbnail() {
   const surface = {
-    border: "1px solid var(--cps-color-border)",
-    borderRadius: "var(--cps-radius-md)",
-    backgroundColor: "var(--cps-color-surface)",
+    border: "1px solid var(--shelf-color-border)",
+    borderRadius: "var(--shelf-radius-md)",
+    backgroundColor: "var(--shelf-color-surface)",
   };
   const rows = [
     ["", "Pu", "ne"],
@@ -48,9 +48,9 @@ function ComboboxThumbnail() {
         gap: 4,
         width: "100%",
         maxWidth: 210,
-        color: "var(--cps-color-text)",
-        fontFamily: "var(--cps-font-sans)",
-        fontSize: "var(--cps-font-size-xs)",
+        color: "var(--shelf-color-text)",
+        fontFamily: "var(--shelf-font-sans)",
+        fontSize: "var(--shelf-font-size-xs)",
       }}
     >
       <div
@@ -61,8 +61,8 @@ function ComboboxThumbnail() {
           justifyContent: "space-between",
           height: 30,
           padding: "0 8px",
-          borderColor: "var(--cps-color-primary)",
-          boxShadow: "0 0 0 3px var(--cps-focus-ring-soft)",
+          borderColor: "var(--shelf-color-primary)",
+          boxShadow: "0 0 0 3px var(--shelf-focus-ring-soft)",
         }}
       >
         <span>Pu</span>
@@ -73,7 +73,7 @@ function ComboboxThumbnail() {
           fill="none"
           stroke="currentColor"
           strokeWidth={2}
-          style={{ color: "var(--cps-color-text-subtle)", transform: "rotate(180deg)" }}
+          style={{ color: "var(--shelf-color-text-subtle)", transform: "rotate(180deg)" }}
         >
           <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -84,7 +84,7 @@ function ComboboxThumbnail() {
           display: "grid",
           gap: 1,
           padding: 3,
-          boxShadow: "var(--cps-shadow-md)",
+          boxShadow: "var(--shelf-shadow-md)",
         }}
       >
         {rows.map(([before, match, after], index) => (
@@ -92,9 +92,9 @@ function ComboboxThumbnail() {
             key={index}
             style={{
               padding: "5px 7px",
-              borderRadius: "var(--cps-radius-sm)",
-              backgroundColor: index === 0 ? "var(--cps-color-primary-subtle)" : undefined,
-              color: index === 0 ? "var(--cps-color-primary-text)" : undefined,
+              borderRadius: "var(--shelf-radius-sm)",
+              backgroundColor: index === 0 ? "var(--shelf-color-primary-subtle)" : undefined,
+              color: index === 0 ? "var(--shelf-color-primary-text)" : undefined,
             }}
           >
             {before}

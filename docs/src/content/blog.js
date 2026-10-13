@@ -12,8 +12,61 @@ export const blogCategories = ["Tutorials", "Guides", "Tips", "Updates"];
 
 export const blogPosts = [
   {
+    slug: "whats-new-in-0-3-0",
+    title: "What's new in Shelf UI 0.3.0",
+    excerpt:
+      "A new npm package, one prefix for everything and a fresh violet look, for the same 50 components.",
+    category: "Updates",
+    date: "2026-10-13",
+    cover: "shelf",
+    body: [
+      {
+        type: "p",
+        text: "Shelf UI 0.3.0 is out. It's the first release of the `@shelf-ui/react` package: the same 50 components, with new names for their classes and tokens and a new default look.",
+      },
+      { type: "h2", text: "Install" },
+      { type: "code", language: "bash", title: "terminal", code: "npm install @shelf-ui/react" },
+      {
+        type: "code",
+        title: "main.jsx",
+        code: `import "@shelf-ui/react/styles.css";`,
+      },
+      { type: "h2", text: "Why Shelf" },
+      {
+        type: "p",
+        text: "A good component library works like a well-kept shelf: everything has its place, and you pick up what you need. The components are ready off the shelf, and design tokens make each one fit your brand.",
+      },
+      { type: "h2", text: "One prefix: shelf" },
+      {
+        type: "list",
+        items: [
+          "**Design tokens** start with `--shelf-`, like `--shelf-color-primary` and `--shelf-radius-md`.",
+          "**Class names** start with `shelf-`, like `.shelf-button` and `.shelf-card`.",
+          '**Dark mode** is `data-shelf-theme="dark"` on `<html>`.',
+        ],
+      },
+      {
+        type: "p",
+        text: "If you've styled an earlier version, the [changelog](/changelog) lists what to rename.",
+      },
+      { type: "h2", text: "A fresh look" },
+      {
+        type: "list",
+        items: [
+          "**A new default palette.** The primary color is violet `#6938ef`, with matching neutrals and a violet-black dark theme, and every text color meets WCAG AA contrast.",
+          "**A brand token.** `--shelf-brand-primary` is the color the primary and focus colors follow. Override it, or any other token, to use your own.",
+          "**A redesigned documentation site**, with new typefaces for headings and code.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Every token is listed on the [design tokens](/docs/design-tokens) page, and the [theme builder](/docs/theming) writes overrides for any color you pick.",
+      },
+    ],
+  },
+  {
     slug: "whats-new-in-0-2-0",
-    title: "What's new in CodeCPS UI 0.2.0",
+    title: "What's new in Shelf UI 0.2.0",
     excerpt:
       "23 new components take the library to 50, with tables, date pickers, file uploads and a command palette for e-commerce and admin screens.",
     category: "Updates",
@@ -22,7 +75,7 @@ export const blogPosts = [
     body: [
       {
         type: "p",
-        text: "CodeCPS UI 0.2.0 is out. It adds 23 components, taking the library from 27 to 50, with a focus on the screens we build most often: online stores and admin dashboards.",
+        text: "Shelf UI 0.2.0 is out. It adds 23 components, taking the library from 27 to 50, with a focus on the screens we build most often: online stores and admin dashboards.",
       },
       { type: "h2", text: "23 new components" },
       {
@@ -48,7 +101,7 @@ export const blogPosts = [
       {
         type: "code",
         title: "FeedbackForm.jsx",
-        code: `import { Button, DatePicker, Rating } from "@codecps/ui";
+        code: `import { Button, DatePicker, Rating } from "@shelf-ui/react";
 
 export function FeedbackForm() {
   return (
@@ -68,8 +121,6 @@ export function FeedbackForm() {
           "`Modal` and `Drawer` with `closeOnEscape={false}` no longer let Escape close a dialog they're nested in.",
         ],
       },
-      { type: "h2", text: "Upgrade" },
-      { type: "code", language: "bash", title: "terminal", code: "npm install @codecps/ui@0.2.0" },
       {
         type: "p",
         text: "There are no breaking changes. The full list is in the [changelog](/changelog).",
@@ -78,7 +129,7 @@ export function FeedbackForm() {
   },
   {
     slug: "sign-in-screen-with-vite",
-    title: "Build a sign-in screen with CodeCPS UI and Vite",
+    title: "Build a sign-in screen with Shelf UI and Vite",
     excerpt:
       "From an empty folder to an accessible sign-in form with validation and a success toast, in four steps.",
     category: "Tutorials",
@@ -87,7 +138,7 @@ export function FeedbackForm() {
     body: [
       {
         type: "p",
-        text: "In this tutorial you'll create a Vite app, add CodeCPS UI and build a sign-in card with labelled fields, an error message and a toast when the form is sent.",
+        text: "In this tutorial you'll create a Vite app, add Shelf UI and build a sign-in card with labelled fields, an error message and a toast when the form is sent.",
       },
       { type: "h2", text: "1. Create the app" },
       {
@@ -96,7 +147,7 @@ export function FeedbackForm() {
         title: "terminal",
         code: `npm create vite@latest my-app -- --template react
 cd my-app
-npm install @codecps/ui`,
+npm install @shelf-ui/react`,
       },
       { type: "h2", text: "2. Load the styles and toasts" },
       {
@@ -108,8 +159,8 @@ npm install @codecps/ui`,
         title: "src/main.jsx",
         code: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ToastProvider } from "@codecps/ui";
-import "@codecps/ui/styles.css";
+import { ToastProvider } from "@shelf-ui/react";
+import "@shelf-ui/react/styles.css";
 import { SignIn } from "./SignIn.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -128,7 +179,7 @@ createRoot(document.getElementById("root")).render(
       {
         type: "code",
         title: "src/SignIn.jsx",
-        code: `import { Button, Card, Checkbox, Input, useToast } from "@codecps/ui";
+        code: `import { Button, Card, Checkbox, Input, useToast } from "@shelf-ui/react";
 
 export function SignIn() {
   const { toast } = useToast();
@@ -187,14 +238,14 @@ export function SignIn() {
     slug: "accessible-forms",
     title: "Five habits for accessible forms",
     excerpt:
-      "Labels, hints, errors, groups and loading states: small habits that make forms work for everyone, and how CodeCPS UI helps.",
+      "Labels, hints, errors, groups and loading states: small habits that make forms work for everyone, and how Shelf UI helps.",
     category: "Guides",
     date: "2026-10-02",
     cover: "accessibility",
     body: [
       {
         type: "p",
-        text: "Forms are where most people get stuck. These five habits cover the problems we see most often in reviews, and each one takes a single prop with CodeCPS UI.",
+        text: "Forms are where most people get stuck. These five habits cover the problems we see most often in reviews, and each one takes a single prop with Shelf UI.",
       },
       { type: "h2", text: "1. Give every field a visible label" },
       {
@@ -250,7 +301,7 @@ export function SignIn() {
   },
   {
     slug: "theming-with-design-tokens",
-    title: "Theming CodeCPS UI with design tokens",
+    title: "Theming Shelf UI with design tokens",
     excerpt:
       "Change one variable and every button, tab, focus ring and link follows. Here's how the tokens fit together.",
     category: "Guides",
@@ -259,7 +310,7 @@ export function SignIn() {
     body: [
       {
         type: "p",
-        text: "Every CodeCPS UI component reads its colors, radii, font sizes and control heights from CSS custom properties prefixed with `--cps-`. Change a token and everything that uses it follows.",
+        text: "Every Shelf UI component reads its colors, radii, font sizes and control heights from CSS custom properties prefixed with `--shelf-`. Change a token and everything that uses it follows.",
       },
       { type: "h2", text: "Start with the primary color" },
       {
@@ -271,12 +322,12 @@ export function SignIn() {
         language: "css",
         title: "theme.css",
         code: `:root {
-  --cps-color-primary: #7c3aed;
-  --cps-color-primary-hover: color-mix(in srgb, #7c3aed 88%, black);
-  --cps-color-primary-active: color-mix(in srgb, #7c3aed 76%, black);
-  --cps-color-primary-subtle: color-mix(in srgb, #7c3aed 10%, white);
-  --cps-color-primary-text: color-mix(in srgb, #7c3aed 78%, black);
-  --cps-color-focus: #7c3aed;
+  --shelf-color-primary: #0f766e;
+  --shelf-color-primary-hover: color-mix(in srgb, #0f766e 88%, black);
+  --shelf-color-primary-active: color-mix(in srgb, #0f766e 76%, black);
+  --shelf-color-primary-subtle: color-mix(in srgb, #0f766e 10%, white);
+  --shelf-color-primary-text: color-mix(in srgb, #0f766e 78%, black);
+  --shelf-color-focus: #0f766e;
 }`,
       },
       {
@@ -286,12 +337,12 @@ export function SignIn() {
       { type: "h2", text: "Then the shape" },
       {
         type: "p",
-        text: "`--cps-radius-sm`, `--cps-radius-md` and `--cps-radius-lg` set the corners of small controls, fields and cards. Sharper corners feel more technical; rounder ones feel friendlier.",
+        text: "`--shelf-radius-sm`, `--shelf-radius-md` and `--shelf-radius-lg` set the corners of small controls, fields and cards. Sharper corners feel more technical; rounder ones feel friendlier.",
       },
       { type: "h2", text: "Dark mode comes free" },
       {
         type: "p",
-        text: 'Set `data-cps-theme="dark"` on `<html>` and the dark values apply. If you change the primary color, also set the dark versions of the subtle and text shades under `[data-cps-theme="dark"]`, since they sit on a dark background.',
+        text: 'Set `data-shelf-theme="dark"` on `<html>` and the dark values apply. If you change the primary color, also set the dark versions of the subtle and text shades under `[data-shelf-theme="dark"]`, since they sit on a dark background.',
       },
       {
         type: "p",
@@ -300,8 +351,8 @@ export function SignIn() {
     ],
   },
   {
-    slug: "codecps-ui-with-tailwind",
-    title: "Using CodeCPS UI with Tailwind CSS",
+    slug: "shelf-ui-with-tailwind",
+    title: "Using Shelf UI with Tailwind CSS",
     excerpt:
       "Why Tailwind utilities can't override the components out of the box, and the one-line import that fixes it.",
     category: "Tips",
@@ -310,12 +361,12 @@ export function SignIn() {
     body: [
       {
         type: "p",
-        text: "CodeCPS UI and Tailwind CSS work well together: the library gives you accessible components, and Tailwind lays out the page around them. One detail needs care: the order of the CSS.",
+        text: "Shelf UI and Tailwind CSS work well together: the library gives you accessible components, and Tailwind lays out the page around them. One detail needs care: the order of the CSS.",
       },
       { type: "h2", text: "The problem" },
       {
         type: "p",
-        text: 'Tailwind puts its utilities in a cascade layer. CSS outside any layer always beats layered CSS, whatever its specificity. So if you import `@codecps/ui/styles.css` normally, `<Button className="rounded-full">` keeps the button\'s own corners.',
+        text: 'Tailwind puts its utilities in a cascade layer. CSS outside any layer always beats layered CSS, whatever its specificity. So if you import `@shelf-ui/react/styles.css` normally, `<Button className="rounded-full">` keeps the button\'s own corners.',
       },
       { type: "h2", text: "The fix" },
       {
@@ -327,27 +378,27 @@ export function SignIn() {
         language: "css",
         title: "src/index.css",
         code: `@import "tailwindcss";
-@import "@codecps/ui/styles.css" layer(components);`,
+@import "@shelf-ui/react/styles.css" layer(components);`,
       },
       { type: "h2", text: "Tokens still work" },
       {
         type: "p",
-        text: "Design tokens are custom properties, so layers don't affect them. Override `--cps-` tokens on `:root` as usual, or use them in Tailwind with arbitrary values like `bg-[var(--cps-color-primary)]`.",
+        text: "Design tokens are custom properties, so layers don't affect them. Override `--shelf-` tokens on `:root` as usual, or use them in Tailwind with arbitrary values like `bg-[var(--shelf-color-primary)]`.",
       },
     ],
   },
   {
-    slug: "introducing-codecps-ui",
-    title: "Introducing CodeCPS UI",
+    slug: "introducing-shelf-ui",
+    title: "Introducing Shelf UI",
     excerpt:
-      "The React component library behind CodeCPS Technologies' products is now on npm: 27 accessible, themeable components.",
+      "An accessible, themeable React component library, now on npm: 27 components to start with.",
     category: "Updates",
     date: "2026-09-30",
     cover: "launch",
     body: [
       {
         type: "p",
-        text: "Today we're releasing CodeCPS UI 0.1.0, the React component library behind CodeCPS Technologies' products. It's on npm as `@codecps/ui`.",
+        text: "Today we're releasing Shelf UI 0.1.0, an accessible React component library for the products we build. It's on npm as `@shelf-ui/react`.",
       },
       { type: "h2", text: "Why we built it" },
       {
@@ -369,7 +420,7 @@ export function SignIn() {
         type: "code",
         title: "terminal",
         language: "bash",
-        code: "npm install @codecps/ui",
+        code: "npm install @shelf-ui/react",
       },
       {
         type: "p",

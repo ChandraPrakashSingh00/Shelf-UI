@@ -91,12 +91,12 @@ describe("Textarea", () => {
     const { rerender } = render(
       <Textarea label="Bio" showCount maxLength={10} value="Hello" onChange={() => {}} />,
     );
-    expect(screen.getByText("5 / 10")).not.toHaveClass("cps-textarea__count--over");
+    expect(screen.getByText("5 / 10")).not.toHaveClass("shelf-textarea__count--over");
 
     rerender(
-      <Textarea label="Bio" showCount maxLength={10} value="Hello, CodeCPS" onChange={() => {}} />,
+      <Textarea label="Bio" showCount maxLength={10} value="Hello, Acme Co" onChange={() => {}} />,
     );
-    expect(screen.getByText("14 / 10")).toHaveClass("cps-textarea__count--over");
+    expect(screen.getByText("14 / 10")).toHaveClass("shelf-textarea__count--over");
   });
 
   it("keeps a consumer-provided aria-describedby alongside the message and the count", () => {
@@ -166,13 +166,13 @@ describe("Textarea", () => {
     const { container, rerender } = render(<Textarea label="Notes" size="lg" />);
 
     const textarea = screen.getByLabelText("Notes");
-    expect(container.firstChild).toHaveClass("cps-field", "cps-field--lg");
-    expect(textarea).toHaveClass("cps-textarea", "cps-textarea--resize-vertical");
+    expect(container.firstChild).toHaveClass("shelf-field", "shelf-field--lg");
+    expect(textarea).toHaveClass("shelf-textarea", "shelf-textarea--resize-vertical");
     expect(textarea).not.toHaveAttribute("size");
 
     rerender(<Textarea label="Notes" resize="none" />);
-    expect(container.firstChild).toHaveClass("cps-field--md");
-    expect(textarea).toHaveClass("cps-textarea--resize-none");
+    expect(container.firstChild).toHaveClass("shelf-field--md");
+    expect(textarea).toHaveClass("shelf-textarea--resize-none");
   });
 
   it("grows and shrinks with its content when autoResize is set", async () => {
@@ -181,8 +181,8 @@ describe("Textarea", () => {
     render(<Textarea label="Commit message" autoResize rows={1} />);
 
     const textarea = screen.getByLabelText("Commit message");
-    expect(textarea).toHaveClass("cps-textarea--auto-resize");
-    expect(textarea).not.toHaveClass("cps-textarea--resize-vertical");
+    expect(textarea).toHaveClass("shelf-textarea--auto-resize");
+    expect(textarea).not.toHaveClass("shelf-textarea--resize-vertical");
     // One line: 20px of text + 16px of padding + 2px of borders.
     expect(textarea.style.height).toBe("38px");
 
@@ -255,7 +255,7 @@ describe("Textarea", () => {
 
     rerender(<Textarea label="Notes" defaultValue="Hello" />);
     expect(textarea.style.height).toBe("");
-    expect(textarea).toHaveClass("cps-textarea--resize-vertical");
+    expect(textarea).toHaveClass("shelf-textarea--resize-vertical");
   });
 
   it("stays fitted under StrictMode's simulated remount", () => {
@@ -288,8 +288,8 @@ describe("Textarea", () => {
     expect(textarea).toHaveAttribute("id", "bio");
     expect(textarea).toHaveAttribute("name", "bio");
     expect(textarea).toHaveAttribute("data-testid", "bio-textarea");
-    expect(textarea).toHaveClass("cps-textarea", "custom-textarea");
-    expect(container.firstChild).toHaveClass("cps-field", "custom-field");
+    expect(textarea).toHaveClass("shelf-textarea", "custom-textarea");
+    expect(container.firstChild).toHaveClass("shelf-field", "custom-field");
     expect(container.firstChild).toHaveStyle({ maxWidth: "400px" });
   });
 });

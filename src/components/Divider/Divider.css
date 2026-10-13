@@ -1,100 +1,100 @@
-.cps-divider {
-  --cps-divider-line: 1px var(--cps-divider-style, solid) var(--cps-color-border);
+.shelf-divider {
+  --shelf-divider-line: 1px var(--shelf-divider-style, solid) var(--shelf-color-border);
 
   flex-shrink: 0;
 }
 
-.cps-divider--dashed {
-  --cps-divider-style: dashed;
+.shelf-divider--dashed {
+  --shelf-divider-style: dashed;
 }
 
 /* Spacing: the margin on both sides of the line. */
-.cps-divider--spacing-sm {
-  --cps-divider-spacing: 0.5rem;
+.shelf-divider--spacing-sm {
+  --shelf-divider-spacing: 0.5rem;
 }
 
-.cps-divider--spacing-md {
-  --cps-divider-spacing: 1rem;
+.shelf-divider--spacing-md {
+  --shelf-divider-spacing: 1rem;
 }
 
-.cps-divider--spacing-lg {
-  --cps-divider-spacing: 1.5rem;
+.shelf-divider--spacing-lg {
+  --shelf-divider-spacing: 1.5rem;
 }
 
 /* Horizontal line: an <hr>, stripped of its native border and margins. */
-.cps-divider--horizontal {
+.shelf-divider--horizontal {
   align-self: stretch;
-  margin: var(--cps-divider-spacing) 0;
+  margin: var(--shelf-divider-spacing) 0;
 }
 
-.cps-divider--horizontal:not(.cps-divider--labelled) {
+.shelf-divider--horizontal:not(.shelf-divider--labelled) {
   height: 0;
   border: 0;
-  border-top: var(--cps-divider-line);
+  border-top: var(--shelf-divider-line);
 }
 
 /*
  * Vertical line: stretches to the height of a flex row; elsewhere (e.g. between
  * inline text) it's as tall as the text.
  */
-.cps-divider--vertical {
+.shelf-divider--vertical {
   align-self: stretch;
-  margin: 0 var(--cps-divider-spacing);
+  margin: 0 var(--shelf-divider-spacing);
 }
 
-.cps-divider--vertical:not(.cps-divider--labelled) {
+.shelf-divider--vertical:not(.shelf-divider--labelled) {
   display: inline-block;
   width: 0;
   min-height: 1em;
-  border-inline-start: var(--cps-divider-line);
+  border-inline-start: var(--shelf-divider-line);
   vertical-align: middle;
 }
 
 /* Labelled: the label between two lines drawn with pseudo-elements. */
-.cps-divider--labelled {
+.shelf-divider--labelled {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--cps-color-text-muted);
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-font-size-sm);
-  font-weight: var(--cps-font-weight-medium);
-  line-height: var(--cps-line-height-normal);
+  color: var(--shelf-color-text-muted);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-font-size-sm);
+  font-weight: var(--shelf-font-weight-medium);
+  line-height: var(--shelf-line-height-normal);
 }
 
-.cps-divider--labelled::before,
-.cps-divider--labelled::after {
+.shelf-divider--labelled::before,
+.shelf-divider--labelled::after {
   content: "";
   flex: 1 1 0;
   min-width: 1rem;
-  border-top: var(--cps-divider-line);
+  border-top: var(--shelf-divider-line);
 }
 
-.cps-divider--label-start::before,
-.cps-divider--label-end::after {
+.shelf-divider--label-start::before,
+.shelf-divider--label-end::after {
   flex: 0 0 1.5rem;
 }
 
-.cps-divider__label {
+.shelf-divider__label {
   min-width: 0;
   text-align: center;
   overflow-wrap: anywhere;
 }
 
-.cps-divider--vertical.cps-divider--labelled {
+.shelf-divider--vertical.shelf-divider--labelled {
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.cps-divider--vertical.cps-divider--labelled::before,
-.cps-divider--vertical.cps-divider--labelled::after {
+.shelf-divider--vertical.shelf-divider--labelled::before,
+.shelf-divider--vertical.shelf-divider--labelled::after {
   min-width: 0;
   min-height: 0.75rem;
   border-top: 0;
-  border-inline-start: var(--cps-divider-line);
+  border-inline-start: var(--shelf-divider-line);
 }
 
-.cps-divider--vertical.cps-divider--label-start::before,
-.cps-divider--vertical.cps-divider--label-end::after {
+.shelf-divider--vertical.shelf-divider--label-start::before,
+.shelf-divider--vertical.shelf-divider--label-end::after {
   flex-basis: 0.75rem;
 }

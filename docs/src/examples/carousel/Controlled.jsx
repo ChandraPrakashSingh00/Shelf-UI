@@ -1,4 +1,4 @@
-import { Carousel } from "@codecps/ui";
+import { Carousel } from "@shelf-ui/react";
 import { useState } from "react";
 import dashboard from "./dashboard.svg";
 import deployments from "./deployments.svg";
@@ -65,7 +65,7 @@ export default function CarouselControlled() {
                   padding: 0,
                   overflow: "hidden",
                   border: "2px solid",
-                  borderColor: current ? "var(--cps-color-primary)" : "transparent",
+                  borderColor: current ? "var(--shelf-color-primary)" : "transparent",
                   borderRadius: 8,
                   background: "none",
                   cursor: "pointer",
@@ -83,7 +83,7 @@ export default function CarouselControlled() {
             );
           })}
         </div>
-        <span style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+        <span style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
           Slide {index + 1} of {screenshots.length}: {screenshots[index].title}
         </span>
       </div>

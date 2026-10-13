@@ -1,4 +1,4 @@
-import { Divider, Link } from "@codecps/ui";
+import { Divider, Link } from "@shelf-ui/react";
 
 const stats = [
   { label: "Orders today", value: "1,248" },
@@ -15,7 +15,9 @@ export default function DividerVertical() {
           <div key={stat.label} style={{ display: "flex" }}>
             {index > 0 && <Divider orientation="vertical" spacing="lg" />}
             <div>
-              <div style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>{stat.label}</div>
+              <div style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
+                {stat.label}
+              </div>
               <div style={{ fontSize: 22, fontWeight: 600 }}>{stat.value}</div>
             </div>
           </div>

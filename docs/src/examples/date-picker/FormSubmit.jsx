@@ -1,4 +1,4 @@
-import { Button, DatePicker } from "@codecps/ui";
+import { Button, DatePicker } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function DatePickerFormSubmit() {
@@ -29,7 +29,7 @@ export default function DatePickerFormSubmit() {
         </Button>
       </div>
       {submitted && (
-        <pre style={{ margin: 0, fontSize: "var(--cps-font-size-xs)" }}>
+        <pre style={{ margin: 0, fontSize: "var(--shelf-font-size-xs)" }}>
           {JSON.stringify(submitted, null, 2)}
         </pre>
       )}

@@ -5,7 +5,7 @@
 export const introductionPage = {
   title: "Introduction",
   href: "/docs",
-  description: "What CodeCPS UI is, a quick install, peer dependencies and a basic setup.",
+  description: "What Shelf UI is, a quick install, peer dependencies and a basic setup.",
   keywords: ["overview", "getting started", "quick start", "peer dependencies", "react"],
 };
 
@@ -19,7 +19,7 @@ export const installationPage = {
 export const setupPage = {
   title: "Setup",
   href: "/docs/setup",
-  description: "Set up CodeCPS UI in Vite or the Next.js App Router, and enable toasts.",
+  description: "Set up Shelf UI in Vite or the Next.js App Router, and enable toasts.",
   keywords: ["vite", "next", "nextjs", "app router", "server components", "toast", "provider"],
 };
 
@@ -61,7 +61,7 @@ export const componentApiPage = {
 export const designTokensPage = {
   title: "Design tokens",
   href: "/docs/design-tokens",
-  description: "Every --cps- custom property, with its light and dark value.",
+  description: "Every --shelf- custom property, with its light and dark value.",
   keywords: ["tokens", "theme api", "css variables", "colors", "radius", "shadow", "z-index"],
 };
 

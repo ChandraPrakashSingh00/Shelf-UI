@@ -1,4 +1,4 @@
-import { Switch } from "@codecps/ui";
+import { Switch } from "@shelf-ui/react";
 
 export default function SwitchDescription() {
   return (

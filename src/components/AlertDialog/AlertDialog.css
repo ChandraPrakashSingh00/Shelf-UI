@@ -1,18 +1,18 @@
 /*
- * The overlay and the panel reuse Modal's classes (`cps-modal-overlay`, `cps-modal`,
- * `cps-modal--sm|md`), so both dialogs look and animate the same.
+ * The overlay and the panel reuse Modal's classes (`shelf-modal-overlay`, `shelf-modal`,
+ * `shelf-modal--sm|md`), so both dialogs look and animate the same.
  */
-.cps-alert-dialog {
-  --cps-alert-dialog-accent: var(--cps-color-danger);
-  --cps-alert-dialog-accent-bg: var(--cps-color-danger-subtle);
+.shelf-alert-dialog {
+  --shelf-alert-dialog-accent: var(--shelf-color-danger);
+  --shelf-alert-dialog-accent-bg: var(--shelf-color-danger-subtle);
 }
 
-.cps-alert-dialog--primary {
-  --cps-alert-dialog-accent: var(--cps-color-primary);
-  --cps-alert-dialog-accent-bg: var(--cps-color-primary-subtle);
+.shelf-alert-dialog--primary {
+  --shelf-alert-dialog-accent: var(--shelf-color-primary);
+  --shelf-alert-dialog-accent-bg: var(--shelf-color-primary-subtle);
 }
 
-.cps-alert-dialog__body {
+.shelf-alert-dialog__body {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -21,20 +21,20 @@
   overflow-y: auto;
 }
 
-.cps-alert-dialog__icon {
+.shelf-alert-dialog__icon {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-alert-dialog-accent-bg);
-  color: var(--cps-alert-dialog-accent);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-alert-dialog-accent-bg);
+  color: var(--shelf-alert-dialog-accent);
   font-size: 1.25rem;
 }
 
-.cps-alert-dialog__content {
+.shelf-alert-dialog__content {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -43,31 +43,31 @@
 }
 
 /* Lines the first line of the title up with the middle of the icon. */
-.cps-alert-dialog__icon + .cps-alert-dialog__content {
+.shelf-alert-dialog__icon + .shelf-alert-dialog__content {
   padding-top: 0.5rem;
 }
 
-.cps-alert-dialog__title {
+.shelf-alert-dialog__title {
   margin: 0;
-  font-size: var(--cps-font-size-lg);
-  font-weight: var(--cps-font-weight-semibold);
-  line-height: var(--cps-line-height-tight);
+  font-size: var(--shelf-font-size-lg);
+  font-weight: var(--shelf-font-weight-semibold);
+  line-height: var(--shelf-line-height-tight);
   overflow-wrap: break-word;
 }
 
-.cps-alert-dialog__description {
+.shelf-alert-dialog__description {
   margin: 0;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-alert-dialog__extra {
+.shelf-alert-dialog__extra {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 0.5rem;
 }
 
-.cps-alert-dialog__footer {
+.shelf-alert-dialog__footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -75,22 +75,22 @@
   padding: 1.5rem;
 }
 
-.cps-alert-dialog__cancel[aria-disabled="true"] {
+.shelf-alert-dialog__cancel[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
 @media (max-width: 480px) {
-  .cps-alert-dialog__body {
+  .shelf-alert-dialog__body {
     padding: 1.25rem 1.25rem 0;
   }
 
-  .cps-alert-dialog__footer {
+  .shelf-alert-dialog__footer {
     flex-direction: column;
     padding: 1.25rem;
   }
 
-  .cps-alert-dialog__footer > .cps-button {
+  .shelf-alert-dialog__footer > .shelf-button {
     width: 100%;
   }
 }

@@ -34,7 +34,7 @@ export const Input = forwardRef(function Input(
   ref,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-input-${generatedId}`;
+  const inputId = id ?? `shelf-input-${generatedId}`;
   const messageId = `${inputId}-message`;
 
   const hasError = error != null && error !== false && error !== "";
@@ -46,28 +46,28 @@ export const Input = forwardRef(function Input(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label className="cps-field__label" htmlFor={inputId}>
+        <label className="shelf-field__label" htmlFor={inputId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
 
-      <div className="cps-input">
+      <div className="shelf-input">
         {leftIcon && (
-          <span className="cps-input__icon" aria-hidden="true">
+          <span className="shelf-input__icon" aria-hidden="true">
             {leftIcon}
           </span>
         )}
@@ -79,17 +79,17 @@ export const Input = forwardRef(function Input(
           disabled={disabled}
           aria-invalid={hasError || undefined}
           aria-describedby={describedBy || undefined}
-          className={cx("cps-input__control", inputClassName)}
+          className={cx("shelf-input__control", inputClassName)}
         />
         {rightIcon && (
-          <span className="cps-input__icon" aria-hidden="true">
+          <span className="shelf-input__icon" aria-hidden="true">
             {rightIcon}
           </span>
         )}
       </div>
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

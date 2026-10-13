@@ -1,4 +1,4 @@
-import { Button, ToggleGroup } from "@codecps/ui";
+import { Button, ToggleGroup } from "@shelf-ui/react";
 import { useState } from "react";
 
 const revenue = {
@@ -22,7 +22,7 @@ export default function ToggleGroupControlled() {
         <ToggleGroup.Item value="90d">90 days</ToggleGroup.Item>
       </ToggleGroup>
       <div>
-        <div style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>Revenue</div>
+        <div style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>Revenue</div>
         <div style={{ fontSize: 28, fontWeight: 600 }}>{formatRupees(revenue[range])}</div>
       </div>
       <Button size="sm" variant="ghost" onClick={() => setRange("7d")}>

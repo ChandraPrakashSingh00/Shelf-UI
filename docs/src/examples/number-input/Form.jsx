@@ -1,4 +1,4 @@
-import { Button, NumberInput } from "@codecps/ui";
+import { Button, NumberInput } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function NumberInputForm() {
@@ -36,7 +36,7 @@ export default function NumberInputForm() {
         </Button>
       </div>
       {submitted && (
-        <p style={{ margin: 0, color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+        <p style={{ margin: 0, color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
           Submitted: stock={submitted.stock}, mrp={submitted.mrp}
         </p>
       )}

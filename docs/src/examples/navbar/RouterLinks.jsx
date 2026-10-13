@@ -1,4 +1,4 @@
-import { Button, Navbar } from "@codecps/ui";
+import { Button, Navbar } from "@shelf-ui/react";
 import { Link, useLocation } from "react-router";
 
 export default function NavbarRouterLinks() {
@@ -7,7 +7,7 @@ export default function NavbarRouterLinks() {
   return (
     <Navbar label="Documentation">
       <Navbar.Brand asChild>
-        <Link to="/">CodeCPS UI</Link>
+        <Link to="/">Shelf UI</Link>
       </Navbar.Brand>
       <Navbar.Menu>
         <Navbar.Links>

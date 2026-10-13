@@ -1,4 +1,4 @@
-import { Stat } from "@codecps/ui";
+import { Stat } from "@shelf-ui/react";
 
 const days = (change) => `${Math.abs(change)} ${Math.abs(change) === 1 ? "day" : "days"}`;
 

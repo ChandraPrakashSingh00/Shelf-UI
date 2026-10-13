@@ -132,7 +132,7 @@ export const Popover = forwardRef(function Popover(
   const hasHeader = title != null || showCloseButton;
 
   return (
-    <div ref={rootRef} className="cps-popover" onBlur={handleBlur}>
+    <div ref={rootRef} className="shelf-popover" onBlur={handleBlur}>
       {cloneElement(trigger, {
         id: triggerId,
         "aria-haspopup": "dialog",
@@ -152,24 +152,24 @@ export const Popover = forwardRef(function Popover(
           aria-label={labelledBy ? undefined : name}
           tabIndex={-1}
           className={cx(
-            "cps-popover__content",
-            `cps-popover__content--${side}`,
-            `cps-popover__content--${align}`,
+            "shelf-popover__content",
+            `shelf-popover__content--${side}`,
+            `shelf-popover__content--${align}`,
             className,
           )}
           onKeyDown={composeEventHandlers(onKeyDown, handleEscape)}
         >
           {hasHeader && (
-            <div className="cps-popover__header">
+            <div className="shelf-popover__header">
               {title != null && (
-                <h2 id={titleId} className="cps-popover__title">
+                <h2 id={titleId} className="shelf-popover__title">
                   {title}
                 </h2>
               )}
               {showCloseButton && (
                 <IconButton
                   label={closeLabel}
-                  className="cps-popover__close"
+                  className="shelf-popover__close"
                   onClick={() => close({ fromOutside: false })}
                 >
                   <CloseIcon />
@@ -177,7 +177,7 @@ export const Popover = forwardRef(function Popover(
               )}
             </div>
           )}
-          {children != null && <div className="cps-popover__body">{children}</div>}
+          {children != null && <div className="shelf-popover__body">{children}</div>}
         </div>
       )}
     </div>

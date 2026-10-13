@@ -1,4 +1,4 @@
-import { Calendar, Card } from "@codecps/ui";
+import { Calendar, Card } from "@shelf-ui/react";
 
 export default function CalendarBasic() {
   return (

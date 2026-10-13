@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-
-const SITE_NAME = "CodeCPS UI";
+import { productName } from "../content/site.js";
 
 /** Sets `document.title` for the current page. */
 export function useDocumentTitle(title) {
   useEffect(() => {
     document.title = title
-      ? `${title} · ${SITE_NAME}`
-      : `${SITE_NAME} — React components by CodeCPS`;
+      ? `${title} · ${productName}`
+      : `${productName} — Off-the-shelf React components`;
   }, [title]);
 }
 

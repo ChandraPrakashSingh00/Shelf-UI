@@ -1,9 +1,9 @@
-import { Button, Input, Popover } from "@codecps/ui";
+import { Button, Input, Popover } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function PopoverControlled() {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState("codecps-web");
+  const [name, setName] = useState("storefront-web");
 
   const handleSubmit = (event) => {
     event.preventDefault();

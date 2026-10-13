@@ -99,7 +99,7 @@ export const NumberInput = forwardRef(function NumberInput(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-number-input-${generatedId}`;
+  const inputId = id ?? `shelf-number-input-${generatedId}`;
   const messageId = `${inputId}-message`;
   const inputRef = useRef(null);
   const ref = useMemo(() => mergeRefs(inputRef, forwardedRef), [forwardedRef]);
@@ -327,7 +327,7 @@ export const NumberInput = forwardRef(function NumberInput(
       aria-label={decrementLabel}
       aria-controls={inputId}
       disabled={!canDecrement}
-      className="cps-number-input__button"
+      className="shelf-number-input__button"
       {...buttonHandlers(-stepValue)}
     >
       <MinusIcon />
@@ -341,7 +341,7 @@ export const NumberInput = forwardRef(function NumberInput(
       aria-label={incrementLabel}
       aria-controls={inputId}
       disabled={!canIncrement}
-      className="cps-number-input__button"
+      className="shelf-number-input__button"
       {...buttonHandlers(stepValue)}
     >
       <PlusIcon />
@@ -353,21 +353,21 @@ export const NumberInput = forwardRef(function NumberInput(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        "cps-number-input-field",
-        compact && "cps-number-input-field--compact",
-        invalid && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        "shelf-number-input-field",
+        compact && "shelf-number-input-field--compact",
+        invalid && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label className="cps-field__label" htmlFor={inputId}>
+        <label className="shelf-field__label" htmlFor={inputId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
@@ -376,9 +376,9 @@ export const NumberInput = forwardRef(function NumberInput(
 
       <div
         className={cx(
-          "cps-number-input",
-          `cps-number-input--${compact ? "compact" : "default"}`,
-          readOnly && "cps-number-input--readonly",
+          "shelf-number-input",
+          `shelf-number-input--${compact ? "compact" : "default"}`,
+          readOnly && "shelf-number-input--readonly",
         )}
       >
         {compact && decrementButton}
@@ -405,7 +405,7 @@ export const NumberInput = forwardRef(function NumberInput(
           }
           aria-invalid={invalid || undefined}
           aria-describedby={describedBy || undefined}
-          className={cx("cps-number-input__control", inputClassName)}
+          className={cx("shelf-number-input__control", inputClassName)}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
@@ -414,7 +414,7 @@ export const NumberInput = forwardRef(function NumberInput(
         {compact ? (
           incrementButton
         ) : (
-          <span className="cps-number-input__buttons">
+          <span className="shelf-number-input__buttons">
             {decrementButton}
             {incrementButton}
           </span>
@@ -432,7 +432,7 @@ export const NumberInput = forwardRef(function NumberInput(
       )}
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

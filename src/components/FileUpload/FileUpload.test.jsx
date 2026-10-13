@@ -14,8 +14,8 @@ function makeFile(name, type, size = 1200) {
 
 const liveRegion = () => document.querySelector('[aria-live="polite"]');
 const fileNames = () =>
-  Array.from(document.querySelectorAll(".cps-file-upload__name")).map((node) => node.textContent);
-const dropzone = () => document.querySelector(".cps-file-upload__dropzone");
+  Array.from(document.querySelectorAll(".shelf-file-upload__name")).map((node) => node.textContent);
+const dropzone = () => document.querySelector(".shelf-file-upload__dropzone");
 const drop = (files, types = ["Files"]) =>
   fireEvent.drop(dropzone(), { dataTransfer: { files, types } });
 
@@ -43,11 +43,11 @@ describe("FileUpload", () => {
     const input = screen.getByLabelText("Product images");
     expect(input).toHaveAttribute("type", "file");
     expect(input).toHaveAttribute("multiple");
-    expect(input).toHaveClass("cps-visually-hidden");
+    expect(input).toHaveClass("shelf-visually-hidden");
     expect(input).toHaveAccessibleName("Product images Choose files");
     expect(input).toHaveAccessibleDescription("PNG or JPG, up to 5 MB");
     expect(screen.getByText("or drag and drop here")).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass("cps-field", "cps-file-upload");
+    expect(container.firstChild).toHaveClass("shelf-field", "shelf-file-upload");
   });
 
   it("is reachable with Tab and names itself from the browse text without a label", async () => {
@@ -144,7 +144,7 @@ describe("FileUpload", () => {
       "file-invalid-type",
       "file-too-large",
     ]);
-    const rejections = document.querySelector(".cps-file-upload__rejections");
+    const rejections = document.querySelector(".shelf-file-upload__rejections");
     expect(rejections).toHaveTextContent("banner.gif: File type not accepted.");
     expect(rejections).toHaveTextContent("hero.jpg: File is larger than 5 MB.");
     expect(liveRegion()).toHaveTextContent("2 files couldn't be added.");
@@ -175,7 +175,7 @@ describe("FileUpload", () => {
     expect(input).toHaveAttribute("aria-invalid", "true");
     expect(input).toHaveAccessibleDescription("Upload the invoice");
     expect(screen.queryByText("PDF only")).not.toBeInTheDocument();
-    expect(document.querySelector(".cps-file-upload__rejections")).not.toBeInTheDocument();
+    expect(document.querySelector(".shelf-file-upload__rejections")).not.toBeInTheDocument();
   });
 
   it("adds dropped files, validated like picked ones, and shows the drag state", () => {
@@ -185,16 +185,16 @@ describe("FileUpload", () => {
     );
 
     fireEvent.dragEnter(dropzone(), { dataTransfer: { types: ["Files"] } });
-    expect(container.firstChild).toHaveClass("cps-file-upload--dragging");
+    expect(container.firstChild).toHaveClass("shelf-file-upload--dragging");
     fireEvent.dragLeave(dropzone(), { dataTransfer: { types: ["Files"] } });
-    expect(container.firstChild).not.toHaveClass("cps-file-upload--dragging");
+    expect(container.firstChild).not.toHaveClass("shelf-file-upload--dragging");
 
     fireEvent.dragEnter(dropzone(), { dataTransfer: { types: ["Files"] } });
     const sheet = makeFile("products.csv", "");
     const photo = makeFile("photo.jpg", "image/jpeg");
     drop([sheet, photo]);
 
-    expect(container.firstChild).not.toHaveClass("cps-file-upload--dragging");
+    expect(container.firstChild).not.toHaveClass("shelf-file-upload--dragging");
     expect(fileNames()).toEqual(["products.csv"]);
     expect(onReject.mock.calls[0][0][0].file).toBe(photo);
   });
@@ -284,8 +284,8 @@ describe("FileUpload", () => {
     );
 
     // Every file shows an icon; images get a thumbnail on top.
-    expect(container.querySelectorAll(".cps-file-upload__thumbnail svg")).toHaveLength(3);
-    const images = container.querySelectorAll("img.cps-file-upload__image");
+    expect(container.querySelectorAll(".shelf-file-upload__thumbnail svg")).toHaveLength(3);
+    const images = container.querySelectorAll("img.shelf-file-upload__image");
     expect(images).toHaveLength(2);
     expect(images[0]).toHaveAttribute("alt", "");
     expect(images[0].src).toMatch(/^blob:preview-/);
@@ -319,7 +319,7 @@ describe("FileUpload", () => {
       <FileUpload label="Product images" defaultValue={[photo]} showPreview={false} />,
     );
     expect(container.querySelector("img")).not.toBeInTheDocument();
-    expect(container.querySelector(".cps-file-upload__thumbnail svg")).toBeInTheDocument();
+    expect(container.querySelector(".shelf-file-upload__thumbnail svg")).toBeInTheDocument();
     expect(create).not.toHaveBeenCalled();
     unmount();
 
@@ -355,14 +355,14 @@ describe("FileUpload", () => {
     const click = vi.spyOn(input, "click");
 
     expect(input).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-field--disabled");
+    expect(container.firstChild).toHaveClass("shelf-field--disabled");
     expect(screen.getByRole("button", { name: "Remove front.png" })).toBeDisabled();
 
     await user.click(dropzone());
     expect(click).not.toHaveBeenCalled();
 
     fireEvent.dragEnter(dropzone(), { dataTransfer: { types: ["Files"] } });
-    expect(container.firstChild).not.toHaveClass("cps-file-upload--dragging");
+    expect(container.firstChild).not.toHaveClass("shelf-file-upload--dragging");
     drop([makeFile("back.png", "image/png")]);
     expect(onValueChange).not.toHaveBeenCalled();
   });
@@ -500,7 +500,7 @@ describe("FileUpload", () => {
     expect(input).toHaveAttribute("id", "invoice");
     expect(input).toHaveAttribute("capture", "environment");
     expect(input).toHaveAttribute("data-testid", "invoice-input");
-    expect(container.firstChild).toHaveClass("cps-file-upload", "custom");
+    expect(container.firstChild).toHaveClass("shelf-file-upload", "custom");
     expect(container.firstChild).toHaveStyle({ maxWidth: "480px" });
 
     fireEvent.change(input, { target: { files: [makeFile("a.pdf", "application/pdf")] } });

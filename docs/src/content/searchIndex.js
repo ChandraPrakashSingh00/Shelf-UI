@@ -7,13 +7,13 @@ const docsSections = [
   {
     title: "Dark mode",
     href: "/docs/theming#dark-mode",
-    description: 'Switch themes with data-cps-theme="dark" on the <html> element.',
+    description: 'Switch themes with data-shelf-theme="dark" on the <html> element.',
     keywords: ["dark", "theme", "night", "color scheme"],
   },
   {
     title: "Next.js",
     href: "/docs/setup#nextjs",
-    description: "Use CodeCPS UI with the Next.js App Router and React Server Components.",
+    description: "Use Shelf UI with the Next.js App Router and React Server Components.",
     keywords: ["next", "nextjs", "app router", "server components", "rsc", "ssr", "use client"],
   },
   {
@@ -26,7 +26,7 @@ const docsSections = [
   {
     title: "Wrap a component",
     href: "/docs/customization#wrapping",
-    description: "Build your own components on top of CodeCPS UI and pass props through.",
+    description: "Build your own components on top of Shelf UI and pass props through.",
     keywords: ["wrapper", "wrap", "custom component", "props", "spread", "composition"],
   },
 ];

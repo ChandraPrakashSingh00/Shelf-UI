@@ -103,10 +103,10 @@ function DatePickerPopup({
       {...rest}
       ref={popupRef}
       role="dialog"
-      className={cx("cps-date-picker__popup", `cps-date-picker__popup--${align}`)}
+      className={cx("shelf-date-picker__popup", `shelf-date-picker__popup--${align}`)}
     >
       {presets?.length > 0 && (
-        <div role="group" aria-label={presetsLabel} className="cps-date-picker__presets">
+        <div role="group" aria-label={presetsLabel} className="shelf-date-picker__presets">
           {presets.map((preset, index) => {
             const isActive = draft === null && isSameValue(mode, preset.value, value);
             return (
@@ -115,8 +115,8 @@ function DatePickerPopup({
                 type="button"
                 aria-current={isActive || undefined}
                 className={cx(
-                  "cps-date-picker__preset",
-                  isActive && "cps-date-picker__preset--active",
+                  "shelf-date-picker__preset",
+                  isActive && "shelf-date-picker__preset--active",
                 )}
                 onClick={() => handlePresetClick(preset)}
               >
@@ -134,7 +134,7 @@ function DatePickerPopup({
         month={month}
         onMonthChange={setMonth}
         autoFocus
-        className="cps-date-picker__calendar"
+        className="shelf-date-picker__calendar"
       />
     </div>
   );
@@ -234,7 +234,7 @@ export const DatePicker = forwardRef(function DatePicker(
 ) {
   const isRange = mode === "range";
   const baseId = useId();
-  const triggerId = id ?? `cps-date-picker-${baseId}`;
+  const triggerId = id ?? `shelf-date-picker-${baseId}`;
   const labelId = `${triggerId}-label`;
   const valueId = `${triggerId}-value`;
   const popupId = `${triggerId}-popup`;
@@ -354,12 +354,12 @@ export const DatePicker = forwardRef(function DatePicker(
     <div
       ref={rootRef}
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        "cps-date-picker",
-        open && "cps-date-picker--open",
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        "shelf-date-picker",
+        open && "shelf-date-picker--open",
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
@@ -367,18 +367,18 @@ export const DatePicker = forwardRef(function DatePicker(
       onKeyDown={handleKeyDown}
     >
       {label != null && (
-        <label id={labelId} className="cps-field__label" htmlFor={triggerId}>
+        <label id={labelId} className="shelf-field__label" htmlFor={triggerId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
 
-      <div className="cps-date-picker__anchor">
-        <div className="cps-date-picker__control">
+      <div className="shelf-date-picker__anchor">
+        <div className="shelf-date-picker__control">
           <button
             {...rest}
             ref={ref}
@@ -392,22 +392,26 @@ export const DatePicker = forwardRef(function DatePicker(
             aria-labelledby={labelledBy}
             aria-describedby={describedBy || undefined}
             aria-invalid={hasError || undefined}
-            className="cps-date-picker__trigger"
+            className="shelf-date-picker__trigger"
             onClick={handleTriggerClick}
           >
-            <CalendarIcon className="cps-date-picker__icon" />
+            <CalendarIcon className="shelf-date-picker__icon" />
             <span
               id={valueId}
               className={cx(
-                "cps-date-picker__value",
-                !hasValue && "cps-date-picker__value--placeholder",
+                "shelf-date-picker__value",
+                !hasValue && "shelf-date-picker__value--placeholder",
               )}
             >
               {hasValue ? displayText : placeholderText}
             </span>
           </button>
           {clearable && hasValue && !disabled && (
-            <IconButton label={clearLabel} className="cps-date-picker__clear" onClick={handleClear}>
+            <IconButton
+              label={clearLabel}
+              className="shelf-date-picker__clear"
+              onClick={handleClear}
+            >
               <CloseIcon />
             </IconButton>
           )}
@@ -426,7 +430,7 @@ export const DatePicker = forwardRef(function DatePicker(
             value={complete ? formatISODate(isRange ? range.start : startOfDay(currentValue)) : ""}
             onChange={() => {}}
             onFocus={() => triggerRef.current?.focus()}
-            className="cps-date-picker__validation"
+            className="shelf-date-picker__validation"
           />
         )}
 
@@ -482,7 +486,7 @@ export const DatePicker = forwardRef(function DatePicker(
         ))}
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

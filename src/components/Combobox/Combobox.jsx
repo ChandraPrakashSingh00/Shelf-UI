@@ -45,7 +45,7 @@ function HighlightedLabel({ label, query }) {
   return (
     <>
       {label.slice(0, start)}
-      <span className="cps-combobox__match">{label.slice(start, end)}</span>
+      <span className="shelf-combobox__match">{label.slice(start, end)}</span>
       {label.slice(end)}
     </>
   );
@@ -138,7 +138,7 @@ export const Combobox = forwardRef(function Combobox(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-combobox-${generatedId}`;
+  const inputId = id ?? `shelf-combobox-${generatedId}`;
   const labelId = `${inputId}-label`;
   const listboxId = `${inputId}-listbox`;
   const messageId = `${inputId}-message`;
@@ -426,31 +426,31 @@ export const Combobox = forwardRef(function Combobox(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        "cps-combobox",
-        isOpen && "cps-combobox--open",
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        "shelf-combobox",
+        isOpen && "shelf-combobox--open",
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
-        <label id={labelId} className="cps-field__label" htmlFor={inputId}>
+        <label id={labelId} className="shelf-field__label" htmlFor={inputId}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
         </label>
       )}
 
-      <div className="cps-combobox__anchor">
-        <div className="cps-combobox__box">
+      <div className="shelf-combobox__anchor">
+        <div className="shelf-combobox__box">
           {leftIcon && (
-            <span className="cps-combobox__icon" aria-hidden="true">
+            <span className="shelf-combobox__icon" aria-hidden="true">
               {leftIcon}
             </span>
           )}
@@ -477,19 +477,19 @@ export const Combobox = forwardRef(function Combobox(
             aria-invalid={hasError || undefined}
             aria-describedby={describedBy || undefined}
             aria-busy={loading || undefined}
-            className="cps-combobox__input"
+            className="shelf-combobox__input"
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
-          {loading && <Spinner className="cps-combobox__spinner" />}
+          {loading && <Spinner className="shelf-combobox__spinner" />}
           {showClear && (
             <button
               type="button"
               tabIndex={-1}
               aria-label={clearLabel}
-              className="cps-combobox__button"
+              className="shelf-combobox__button"
               onMouseDown={preventFocusLoss}
               onClick={handleClearClick}
             >
@@ -503,7 +503,7 @@ export const Combobox = forwardRef(function Combobox(
             aria-expanded={listboxVisible}
             aria-controls={listboxVisible ? listboxId : undefined}
             disabled={!interactive}
-            className="cps-combobox__button cps-combobox__toggle"
+            className="shelf-combobox__button shelf-combobox__toggle"
             onMouseDown={preventFocusLoss}
             onClick={handleToggleClick}
           >
@@ -525,16 +525,16 @@ export const Combobox = forwardRef(function Combobox(
             value={selectedValue == null ? "" : String(selectedValue)}
             onChange={() => {}}
             onFocus={() => inputRef.current?.focus()}
-            className="cps-combobox__validation"
+            className="shelf-combobox__validation"
           />
         )}
 
         {(listboxVisible || showLoading || showEmpty) && (
           <div
-            className="cps-combobox__popup"
+            className="shelf-combobox__popup"
             style={
               maxHeight != null
-                ? { "--cps-combobox-max-height": toCssLength(maxHeight) }
+                ? { "--shelf-combobox-max-height": toCssLength(maxHeight) }
                 : undefined
             }
             onMouseDown={preventFocusLoss}
@@ -545,7 +545,7 @@ export const Combobox = forwardRef(function Combobox(
                 role="listbox"
                 aria-labelledby={listboxLabelledBy}
                 aria-label={listboxLabelledBy ? undefined : rest["aria-label"]}
-                className="cps-combobox__listbox"
+                className="shelf-combobox__listbox"
               >
                 {visibleOptions.map((option, index) => {
                   const selected = option.value === selectedValue;
@@ -557,10 +557,10 @@ export const Combobox = forwardRef(function Combobox(
                       aria-selected={selected}
                       aria-disabled={option.disabled || undefined}
                       className={cx(
-                        "cps-combobox__option",
-                        index === activeIndex && "cps-combobox__option--active",
-                        selected && "cps-combobox__option--selected",
-                        option.disabled && "cps-combobox__option--disabled",
+                        "shelf-combobox__option",
+                        index === activeIndex && "shelf-combobox__option--active",
+                        selected && "shelf-combobox__option--selected",
+                        option.disabled && "shelf-combobox__option--disabled",
                       )}
                       onMouseMove={() => {
                         if (!option.disabled && index !== activeIndex) {
@@ -569,17 +569,17 @@ export const Combobox = forwardRef(function Combobox(
                       }}
                       onClick={() => selectOption(option)}
                     >
-                      <span className="cps-combobox__option-text">
-                        <span className="cps-combobox__option-label">
+                      <span className="shelf-combobox__option-text">
+                        <span className="shelf-combobox__option-label">
                           <HighlightedLabel label={option.label} query={query} />
                         </span>
                         {option.description != null && (
-                          <span className="cps-combobox__option-description">
+                          <span className="shelf-combobox__option-description">
                             {option.description}
                           </span>
                         )}
                       </span>
-                      {selected && <CheckIcon className="cps-combobox__check" />}
+                      {selected && <CheckIcon className="shelf-combobox__check" />}
                     </li>
                   );
                 })}
@@ -587,8 +587,8 @@ export const Combobox = forwardRef(function Combobox(
             )}
             {/* Announced through the status region below instead. */}
             {(showLoading || showEmpty) && (
-              <div className="cps-combobox__status" aria-hidden="true">
-                {showLoading && <Spinner className="cps-combobox__status-spinner" />}
+              <div className="shelf-combobox__status" aria-hidden="true">
+                {showLoading && <Spinner className="shelf-combobox__status-spinner" />}
                 {showLoading ? loadingMessage : emptyMessage}
               </div>
             )}
@@ -605,12 +605,12 @@ export const Combobox = forwardRef(function Combobox(
           disabled={disabled}
         />
       )}
-      <span className="cps-visually-hidden" role="status">
+      <span className="shelf-visually-hidden" role="status">
         {announcement}
       </span>
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

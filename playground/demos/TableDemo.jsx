@@ -1,4 +1,4 @@
-import { Badge, Button, EmptyState, Switch, Table } from "@codecps/ui";
+import { Badge, Button, EmptyState, Switch, Table } from "@shelf-ui/react";
 import { useState } from "react";
 
 const rupees = new Intl.NumberFormat("en-IN", {

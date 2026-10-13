@@ -1,4 +1,4 @@
-import { Button, Modal } from "@codecps/ui";
+import { Button, Modal } from "@shelf-ui/react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/modal/Basic.jsx";

@@ -1,4 +1,4 @@
-import { Button, Drawer } from "@codecps/ui";
+import { Button, Drawer } from "@shelf-ui/react";
 import { useState } from "react";
 
 const links = [
@@ -24,7 +24,7 @@ export default function DrawerNavigation() {
         onClose={() => setOpen(false)}
         side="left"
         size="sm"
-        title="CodeCPS"
+        title="Acme"
         description="Priya Sharma · Pro plan"
       >
         <nav aria-label="Main">
@@ -44,8 +44,10 @@ export default function DrawerNavigation() {
                       display: "block",
                       padding: "8px 12px",
                       borderRadius: 8,
-                      background: isCurrent ? "var(--cps-color-primary-subtle)" : "transparent",
-                      color: isCurrent ? "var(--cps-color-primary-text)" : "var(--cps-color-text)",
+                      background: isCurrent ? "var(--shelf-color-primary-subtle)" : "transparent",
+                      color: isCurrent
+                        ? "var(--shelf-color-primary-text)"
+                        : "var(--shelf-color-text)",
                       fontWeight: 500,
                       textDecoration: "none",
                     }}

@@ -1,4 +1,4 @@
-import { Banner, Button } from "@codecps/ui";
+import { Banner, Button } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function BannerDismissible() {

@@ -12,7 +12,7 @@ describe("Switch", () => {
     expect(control).toHaveAttribute("type", "checkbox");
     expect(control).not.toBeChecked();
     expect(control).not.toHaveAttribute("aria-checked");
-    expect(container.firstChild).toHaveClass("cps-switch", "cps-switch--md");
+    expect(container.firstChild).toHaveClass("shelf-switch", "shelf-switch--md");
   });
 
   it("toggles when the label or the switch is clicked (uncontrolled)", async () => {
@@ -123,7 +123,7 @@ describe("Switch", () => {
     );
     const control = screen.getByRole("switch");
     expect(control).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-switch--disabled");
+    expect(container.firstChild).toHaveClass("shelf-switch--disabled");
 
     await userEvent.click(screen.getByText("Single sign-on"));
     expect(control).not.toBeChecked();
@@ -137,7 +137,7 @@ describe("Switch", () => {
 
   it.each(["sm", "md"])("applies the %s size", (size) => {
     const { container } = render(<Switch label="Size" size={size} />);
-    expect(container.firstChild).toHaveClass(`cps-switch--${size}`);
+    expect(container.firstChild).toHaveClass(`shelf-switch--${size}`);
   });
 
   it("submits with its form like a checkbox", async () => {
@@ -170,7 +170,7 @@ describe("Switch", () => {
     expect(ref.current).toBe(control);
     expect(control).toHaveAttribute("id", "auto-deploy");
     expect(control).toHaveAttribute("data-testid", "switch-input");
-    expect(container.firstChild).toHaveClass("cps-switch", "custom");
+    expect(container.firstChild).toHaveClass("shelf-switch", "custom");
     expect(container.firstChild).toHaveStyle({ marginTop: "8px" });
   });
 });

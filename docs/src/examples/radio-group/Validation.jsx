@@ -1,4 +1,4 @@
-import { Button, Radio, RadioGroup } from "@codecps/ui";
+import { Button, Radio, RadioGroup } from "@shelf-ui/react";
 import { useState } from "react";
 
 const frameworks = [

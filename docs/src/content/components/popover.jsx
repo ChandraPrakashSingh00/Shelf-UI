@@ -1,4 +1,4 @@
-import { Button, Popover } from "@codecps/ui";
+import { Button, Popover } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Controlled from "../../examples/popover/Controlled.jsx";
 import controlledCode from "../../examples/popover/Controlled.jsx?raw";
@@ -37,16 +37,16 @@ function PopoverThumbnail() {
           gap: 8,
           width: "100%",
           padding: 12,
-          border: "1px solid var(--cps-color-border)",
-          borderRadius: "var(--cps-radius-lg)",
-          backgroundColor: "var(--cps-color-surface)",
-          boxShadow: "var(--cps-shadow-md)",
-          color: "var(--cps-color-text)",
-          fontFamily: "var(--cps-font-sans)",
-          fontSize: "var(--cps-font-size-xs)",
+          border: "1px solid var(--shelf-color-border)",
+          borderRadius: "var(--shelf-radius-lg)",
+          backgroundColor: "var(--shelf-color-surface)",
+          boxShadow: "var(--shelf-shadow-md)",
+          color: "var(--shelf-color-text)",
+          fontFamily: "var(--shelf-font-sans)",
+          fontSize: "var(--shelf-font-size-xs)",
         }}
       >
-        <strong style={{ fontSize: "var(--cps-font-size-sm)" }}>Share project</strong>
+        <strong style={{ fontSize: "var(--shelf-font-size-sm)" }}>Share project</strong>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <span
             style={{
@@ -54,14 +54,14 @@ function PopoverThumbnail() {
               minWidth: 0,
               padding: "4px 8px",
               overflow: "hidden",
-              border: "1px solid var(--cps-color-border-strong)",
-              borderRadius: "var(--cps-radius-sm)",
-              color: "var(--cps-color-text-muted)",
+              border: "1px solid var(--shelf-color-border-strong)",
+              borderRadius: "var(--shelf-radius-sm)",
+              color: "var(--shelf-color-text-muted)",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
             }}
           >
-            codecps.app/p/codecps-web
+            example.com/p/storefront-web
           </span>
           <Button size="sm">Copy</Button>
         </div>

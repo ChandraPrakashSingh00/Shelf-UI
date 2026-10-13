@@ -1,8 +1,9 @@
-import { Button, Navbar } from "@codecps/ui";
+import { Button, Navbar } from "@shelf-ui/react";
 import { Link, useLocation } from "react-router";
 import { SearchIcon } from "../components/icons.jsx";
 import { BrandLogo } from "../components/Logo.jsx";
 import { ThemeToggle } from "../components/ThemeToggle.jsx";
+import { productName } from "../content/site.js";
 import { isApplePlatform } from "../lib/document.js";
 
 const primaryLinks = [
@@ -28,7 +29,7 @@ export function SiteHeader({ onOpenSearch }) {
   return (
     <Navbar sticky className="docs-header">
       <Navbar.Brand asChild>
-        <Link to="/" aria-label="CodeCPS UI home">
+        <Link to="/" aria-label={`${productName} home`}>
           <BrandLogo />
         </Link>
       </Navbar.Brand>

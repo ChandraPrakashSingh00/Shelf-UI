@@ -1,4 +1,4 @@
-import { Stepper } from "@codecps/ui";
+import { Stepper } from "@shelf-ui/react";
 import { useState } from "react";
 
 const steps = [
@@ -20,7 +20,7 @@ export default function StepperClickable() {
         onStepClick={setActiveStep}
         label="Checkout progress"
       />
-      <p style={{ margin: 0, color: "var(--cps-color-text-muted)", textAlign: "center" }}>
+      <p style={{ margin: 0, color: "var(--shelf-color-text-muted)", textAlign: "center" }}>
         Editing: {steps[activeStep].title}
       </p>
     </div>

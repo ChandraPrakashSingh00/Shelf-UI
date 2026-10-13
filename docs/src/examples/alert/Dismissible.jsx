@@ -1,4 +1,4 @@
-import { Alert, Button } from "@codecps/ui";
+import { Alert, Button } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function AlertDismissible() {
@@ -17,7 +17,7 @@ export default function AlertDismissible() {
       <Alert
         variant="success"
         title="Project created"
-        description="codecps-web is ready to deploy."
+        description="storefront-web is ready to deploy."
         onDismiss={() => setVisible(false)}
       />
     </div>

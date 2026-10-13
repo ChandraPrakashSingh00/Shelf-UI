@@ -39,9 +39,9 @@ const getAlign = (column) => column.align ?? (column.numeric ? "end" : "start");
 
 const cellClasses = (column, ...extra) =>
   cx(
-    "cps-table__cell",
-    `cps-table__cell--align-${getAlign(column)}`,
-    column.numeric && "cps-table__cell--numeric",
+    "shelf-table__cell",
+    `shelf-table__cell--align-${getAlign(column)}`,
+    column.numeric && "shelf-table__cell--numeric",
     column.className,
     ...extra,
   );
@@ -244,20 +244,20 @@ export const Table = forwardRef(function Table(
         key={column.key}
         scope="col"
         aria-sort={ARIA_SORT[direction]}
-        className={cellClasses(column, "cps-table__header")}
+        className={cellClasses(column, "shelf-table__header")}
         style={column.width != null ? { width: toCssLength(column.width) } : undefined}
       >
         {column.sortable ? (
           <button
             type="button"
-            className="cps-table__sort"
+            className="shelf-table__sort"
             onClick={() => setSort(getNextSort(currentSort, column.key))}
           >
-            <span className="cps-table__sort-label">{column.header}</span>
+            <span className="shelf-table__sort-label">{column.header}</span>
             <SortIcon
               className={cx(
-                "cps-table__sort-icon",
-                direction == null && "cps-table__sort-icon--inactive",
+                "shelf-table__sort-icon",
+                direction == null && "shelf-table__sort-icon--inactive",
               )}
             />
           </button>
@@ -275,11 +275,11 @@ export const Table = forwardRef(function Table(
     return (
       <tr
         key={id ?? index}
-        className={cx("cps-table__row", selected && "cps-table__row--selected")}
+        className={cx("shelf-table__row", selected && "shelf-table__row--selected")}
         data-selected={selected || undefined}
       >
         {selectable && (
-          <td className="cps-table__cell cps-table__cell--select">
+          <td className="shelf-table__cell shelf-table__cell--select">
             <Checkbox
               size={checkboxSize}
               aria-label={getRowLabel(row)}
@@ -308,15 +308,15 @@ export const Table = forwardRef(function Table(
   };
 
   const skeletonRows = Array.from({ length: Math.max(1, Math.floor(loadingRows) || 1) }, (_, i) => (
-    <tr key={i} className="cps-table__row cps-table__row--placeholder">
+    <tr key={i} className="shelf-table__row shelf-table__row--placeholder">
       {selectable && (
-        <td className="cps-table__cell cps-table__cell--select">
-          <Skeleton variant="rectangular" className="cps-table__checkbox-skeleton" />
+        <td className="shelf-table__cell shelf-table__cell--select">
+          <Skeleton variant="rectangular" className="shelf-table__checkbox-skeleton" />
         </td>
       )}
       {columns.map((column) => (
         <td key={column.key} className={cellClasses(column)}>
-          <Skeleton className="cps-table__skeleton" />
+          <Skeleton className="shelf-table__skeleton" />
         </td>
       ))}
     </tr>
@@ -327,14 +327,14 @@ export const Table = forwardRef(function Table(
       ref={containerRef}
       {...(scrollable ? { tabIndex: 0, ...(regionName && { role: "region", ...regionName }) } : {})}
       className={cx(
-        "cps-table",
-        `cps-table--${size}`,
-        striped && "cps-table--striped",
-        hoverable && "cps-table--hoverable",
-        bordered && "cps-table--bordered",
-        stickyHeader && "cps-table--sticky-header",
-        loading && "cps-table--loading",
-        hasFooter && "cps-table--has-footer",
+        "shelf-table",
+        `shelf-table--${size}`,
+        striped && "shelf-table--striped",
+        hoverable && "shelf-table--hoverable",
+        bordered && "shelf-table--bordered",
+        stickyHeader && "shelf-table--sticky-header",
+        loading && "shelf-table--loading",
+        hasFooter && "shelf-table--has-footer",
         className,
       )}
       style={maxHeight != null ? { maxHeight: toCssLength(maxHeight), ...style } : style}
@@ -345,20 +345,23 @@ export const Table = forwardRef(function Table(
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy}
         aria-busy={loading || undefined}
-        className="cps-table__table"
+        className="shelf-table__table"
       >
         {caption != null && (
           <caption
             id={captionId}
-            className={cx("cps-table__caption", captionHidden && "cps-visually-hidden")}
+            className={cx("shelf-table__caption", captionHidden && "shelf-visually-hidden")}
           >
             {caption}
           </caption>
         )}
-        <thead className="cps-table__head">
-          <tr className="cps-table__row">
+        <thead className="shelf-table__head">
+          <tr className="shelf-table__row">
             {selectable && (
-              <th scope="col" className="cps-table__cell cps-table__header cps-table__cell--select">
+              <th
+                scope="col"
+                className="shelf-table__cell shelf-table__header shelf-table__cell--select"
+              >
                 <Checkbox
                   size={checkboxSize}
                   aria-label={selectAllLabel}
@@ -372,12 +375,12 @@ export const Table = forwardRef(function Table(
             {columns.map(renderHeader)}
           </tr>
         </thead>
-        <tbody className="cps-table__body">
+        <tbody className="shelf-table__body">
           {showSkeleton ? (
             skeletonRows
           ) : rows.length === 0 ? (
-            <tr className="cps-table__row cps-table__row--empty">
-              <td colSpan={columnCount} className="cps-table__cell cps-table__empty">
+            <tr className="shelf-table__row shelf-table__row--empty">
+              <td colSpan={columnCount} className="shelf-table__cell shelf-table__empty">
                 {emptyState}
               </td>
             </tr>
@@ -386,9 +389,9 @@ export const Table = forwardRef(function Table(
           )}
         </tbody>
         {hasFooter && (
-          <tfoot className="cps-table__foot">
-            <tr className="cps-table__row">
-              {selectable && <td className="cps-table__cell cps-table__cell--select" />}
+          <tfoot className="shelf-table__foot">
+            <tr className="shelf-table__row">
+              {selectable && <td className="shelf-table__cell shelf-table__cell--select" />}
               {columns.map((column) => (
                 <td key={column.key} className={cellClasses(column)}>
                   {column.footer}
@@ -399,7 +402,7 @@ export const Table = forwardRef(function Table(
         )}
       </table>
       {/* Present from the start, so the change to "Loading…" is announced. */}
-      <div role="status" className="cps-visually-hidden cps-table__status">
+      <div role="status" className="shelf-visually-hidden shelf-table__status">
         {loading ? loadingLabel : null}
       </div>
     </div>

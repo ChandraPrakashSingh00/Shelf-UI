@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import { Rating } from "./Rating.jsx";
 
 const star = (name) => screen.getByRole("radio", { name });
-const activeStars = (container) => container.querySelectorAll(".cps-rating__item--active").length;
+const activeStars = (container) => container.querySelectorAll(".shelf-rating__item--active").length;
 
 describe("Rating", () => {
   it("renders a labelled radio group with one radio per star", () => {
@@ -45,13 +45,13 @@ describe("Rating", () => {
     expect(activeStars(container)).toBe(5);
 
     await user.unhover(star("5 stars"));
-    fireEvent.mouseLeave(container.querySelector(".cps-rating"));
+    fireEvent.mouseLeave(container.querySelector(".shelf-rating"));
     expect(activeStars(container)).toBe(2);
   });
 
   it("previews only for a mouse, so a tap doesn't leave stars stuck filled", () => {
     const { container } = render(<Rating label="Rate this product" defaultValue={2} />);
-    const items = container.querySelectorAll(".cps-rating__item");
+    const items = container.querySelectorAll(".shelf-rating__item");
 
     fireEvent.pointerOver(items[4], { pointerType: "touch" });
     expect(activeStars(container)).toBe(2);
@@ -103,7 +103,7 @@ describe("Rating", () => {
     expect(onValueChange).toHaveBeenLastCalledWith(0);
     expect(screen.getAllByRole("radio").some((radio) => radio.checked)).toBe(false);
     await user.unhover(star("3 stars"));
-    fireEvent.mouseLeave(container.querySelector(".cps-rating"));
+    fireEvent.mouseLeave(container.querySelector(".shelf-rating"));
     expect(activeStars(container)).toBe(0);
 
     await user.click(star("2 stars"));
@@ -190,7 +190,7 @@ describe("Rating", () => {
     );
     expect(group).toHaveAttribute("aria-invalid", "true");
     expect(group).toHaveAccessibleDescription("Please choose a rating");
-    expect(group).toHaveClass("cps-rating-field--invalid");
+    expect(group).toHaveClass("shelf-rating-field--invalid");
   });
 
   it("disables every star and ignores hover", async () => {
@@ -198,8 +198,8 @@ describe("Rating", () => {
     const { container } = render(<Rating label="Rate this product" defaultValue={2} disabled />);
 
     for (const radio of screen.getAllByRole("radio")) expect(radio).toBeDisabled();
-    expect(screen.getByRole("radiogroup")).toHaveClass("cps-rating-field--disabled");
-    await user.hover(container.querySelectorAll(".cps-rating__item")[4]);
+    expect(screen.getByRole("radiogroup")).toHaveClass("shelf-rating-field--disabled");
+    await user.hover(container.querySelectorAll(".shelf-rating__item")[4]);
     expect(activeStars(container)).toBe(2);
   });
 
@@ -247,7 +247,7 @@ describe("Rating", () => {
 
     await user.click(star("3 stars"));
     await user.unhover(star("3 stars"));
-    fireEvent.mouseLeave(container.querySelector(".cps-rating"));
+    fireEvent.mouseLeave(container.querySelector(".shelf-rating"));
     expect(new FormData(form).get("rating")).toBe("3");
 
     await user.click(screen.getByRole("button", { name: "Reset" }));
@@ -267,7 +267,7 @@ describe("Rating", () => {
 
   it("applies sizes", () => {
     const { container } = render(<Rating label="Rate this product" size="lg" />);
-    expect(container.querySelector(".cps-rating")).toHaveClass("cps-rating--lg");
+    expect(container.querySelector(".shelf-rating")).toHaveClass("shelf-rating--lg");
   });
 
   it("forwards the ref and other props to the fieldset", () => {
@@ -284,7 +284,7 @@ describe("Rating", () => {
     const group = screen.getByRole("radiogroup");
     expect(ref.current).toBe(group);
     expect(group).toHaveAttribute("data-testid", "product-rating");
-    expect(group).toHaveClass("cps-rating-field", "custom");
+    expect(group).toHaveClass("shelf-rating-field", "custom");
     expect(group).toHaveStyle({ marginTop: "8px" });
   });
 
@@ -293,10 +293,10 @@ describe("Rating", () => {
       const { container } = render(<Rating readOnly value={4.3} />);
 
       const image = screen.getByRole("img", { name: "Rated 4.3 out of 5" });
-      expect(image).toHaveClass("cps-rating", "cps-rating--readonly", "cps-rating--md");
+      expect(image).toHaveClass("shelf-rating", "shelf-rating--readonly", "shelf-rating--md");
       expect(screen.queryByRole("radio")).not.toBeInTheDocument();
 
-      const fills = container.querySelectorAll(".cps-rating__fill");
+      const fills = container.querySelectorAll(".shelf-rating__fill");
       expect(fills).toHaveLength(5);
       expect(fills[3]).not.toHaveAttribute("style");
       expect(fills[4]).toHaveStyle({ width: "30%" });
@@ -304,7 +304,7 @@ describe("Rating", () => {
 
     it("leaves the stars after the value empty", () => {
       const { container } = render(<Rating readOnly value={2} />);
-      expect(container.querySelectorAll(".cps-rating__fill")).toHaveLength(2);
+      expect(container.querySelectorAll(".shelf-rating__fill")).toHaveLength(2);
       expect(screen.getByRole("img")).toHaveAccessibleName("Rated 2 out of 5");
     });
 
@@ -316,7 +316,7 @@ describe("Rating", () => {
       });
       expect(image).toHaveTextContent("4.3");
       expect(image).toHaveTextContent("(1,28,400)");
-      expect(image).toHaveClass("cps-rating--sm");
+      expect(image).toHaveClass("shelf-rating--sm");
     });
 
     it("uses the singular for one rating and a custom count format", () => {
@@ -327,7 +327,7 @@ describe("Rating", () => {
     it("clamps the value to 0–max and accepts a custom label", () => {
       const { container, rerender } = render(<Rating readOnly value={7} />);
       expect(screen.getByRole("img")).toHaveAccessibleName("Rated 5 out of 5");
-      expect(container.querySelectorAll(".cps-rating__fill")).toHaveLength(5);
+      expect(container.querySelectorAll(".shelf-rating__fill")).toHaveLength(5);
 
       rerender(
         <Rating readOnly value={3.8} aria-label="Average rating: 3.8 of 5 from 214 buyers" />,

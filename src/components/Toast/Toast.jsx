@@ -78,7 +78,7 @@ export const Toast = forwardRef(function Toast(
       variant={variant}
       description={message}
       onDismiss={onDismiss}
-      className={cx("cps-toast", className)}
+      className={cx("shelf-toast", className)}
       onMouseEnter={composeEventHandlers(onMouseEnter, () => setHovered(true))}
       onMouseLeave={composeEventHandlers(onMouseLeave, () => setHovered(false))}
       onFocus={composeEventHandlers(onFocus, () => setFocused(true))}

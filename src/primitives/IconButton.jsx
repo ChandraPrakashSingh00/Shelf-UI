@@ -15,7 +15,7 @@ export const IconButton = forwardRef(function IconButton(
       ref={ref}
       type={type}
       aria-label={label}
-      className={cx("cps-icon-button", className)}
+      className={cx("shelf-icon-button", className)}
     >
       {children}
     </button>

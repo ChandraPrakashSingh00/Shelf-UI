@@ -1,4 +1,4 @@
-import { Avatar, Sidebar } from "@codecps/ui";
+import { Avatar, Sidebar } from "@shelf-ui/react";
 import { useState } from "react";
 
 const iconPaths = {
@@ -55,9 +55,9 @@ export default function SidebarAdminLayout() {
         width: "100%",
         height: 560,
         overflow: "hidden",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-bg)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-bg)",
       }}
     >
       <Sidebar label="Admin" collapsed={collapsed} onCollapsedChange={setCollapsed}>
@@ -70,9 +70,9 @@ export default function SidebarAdminLayout() {
               placeItems: "center",
               width: 32,
               height: 32,
-              borderRadius: "var(--cps-radius-md)",
-              backgroundColor: "var(--cps-color-primary)",
-              color: "var(--cps-color-on-primary)",
+              borderRadius: "var(--shelf-radius-md)",
+              backgroundColor: "var(--shelf-color-primary)",
+              color: "var(--shelf-color-on-primary)",
             }}
           >
             S
@@ -116,7 +116,9 @@ export default function SidebarAdminLayout() {
             {!collapsed && (
               <div style={{ display: "grid", minWidth: 0, lineHeight: 1.3 }}>
                 <strong>Aarti Verma</strong>
-                <small style={{ color: "var(--cps-color-text-muted)" }}>Store owner, Mumbai</small>
+                <small style={{ color: "var(--shelf-color-text-muted)" }}>
+                  Store owner, Mumbai
+                </small>
               </div>
             )}
           </div>
@@ -137,9 +139,9 @@ export default function SidebarAdminLayout() {
               key={text}
               style={{
                 padding: 16,
-                border: "1px solid var(--cps-color-border)",
-                borderRadius: "var(--cps-radius-md)",
-                color: "var(--cps-color-text-muted)",
+                border: "1px solid var(--shelf-color-border)",
+                borderRadius: "var(--shelf-radius-md)",
+                color: "var(--shelf-color-text-muted)",
               }}
             >
               {text}

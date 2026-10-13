@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@codecps/ui";
+import { ToggleGroup } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Controlled from "../../examples/toggle-group/Controlled.jsx";
 import controlledCode from "../../examples/toggle-group/Controlled.jsx?raw";

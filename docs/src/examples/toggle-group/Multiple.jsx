@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@codecps/ui";
+import { ToggleGroup } from "@shelf-ui/react";
 import { useState } from "react";
 
 const orders = [
@@ -29,7 +29,7 @@ export default function ToggleGroupMultiple() {
         <ToggleGroup.Item value="delivered">Delivered</ToggleGroup.Item>
         <ToggleGroup.Item value="returned">Returned</ToggleGroup.Item>
       </ToggleGroup>
-      <p aria-live="polite" style={{ margin: 0, color: "var(--cps-color-text-muted)" }}>
+      <p aria-live="polite" style={{ margin: 0, color: "var(--shelf-color-text-muted)" }}>
         {visible.length === 0
           ? "No orders match these filters."
           : `${visible.length} orders: ${visible.map((order) => `${order.id} (${order.city})`).join(", ")}`}

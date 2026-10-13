@@ -28,14 +28,14 @@ describe("IconButton", () => {
     );
     const button = screen.getByRole("button");
     expect(button).toHaveClass(
-      "cps-button",
-      "cps-button--ghost",
-      "cps-button--md",
-      "cps-button--icon-only",
+      "shelf-button",
+      "shelf-button--ghost",
+      "shelf-button--md",
+      "shelf-button--icon-only",
     );
-    expect(button).not.toHaveClass("cps-button--circle");
+    expect(button).not.toHaveClass("shelf-button--circle");
     // The internal close-button primitive's class is not reused.
-    expect(button).not.toHaveClass("cps-icon-button");
+    expect(button).not.toHaveClass("shelf-icon-button");
   });
 
   it.each(["primary", "secondary", "outline", "ghost", "danger"])(
@@ -46,7 +46,7 @@ describe("IconButton", () => {
           <Heart />
         </IconButton>,
       );
-      expect(screen.getByRole("button")).toHaveClass(`cps-button--${variant}`);
+      expect(screen.getByRole("button")).toHaveClass(`shelf-button--${variant}`);
     },
   );
 
@@ -56,7 +56,7 @@ describe("IconButton", () => {
         <Heart />
       </IconButton>,
     );
-    expect(screen.getByRole("button")).toHaveClass(`cps-button--${size}`);
+    expect(screen.getByRole("button")).toHaveClass(`shelf-button--${size}`);
   });
 
   it('is round with shape="circle"', () => {
@@ -65,7 +65,7 @@ describe("IconButton", () => {
         <Heart />
       </IconButton>,
     );
-    expect(screen.getByRole("button")).toHaveClass("cps-button--circle");
+    expect(screen.getByRole("button")).toHaveClass("shelf-button--circle");
   });
 
   it("calls onClick from the mouse and the keyboard, and does not submit forms", async () => {
@@ -150,8 +150,8 @@ describe("IconButton", () => {
     expect(button).toHaveAttribute("aria-busy", "true");
     expect(button).toHaveAttribute("aria-disabled", "true");
     expect(button).not.toBeDisabled();
-    expect(button).toHaveClass("cps-button--loading");
-    expect(button.querySelector(".cps-spinner")).toBeInTheDocument();
+    expect(button).toHaveClass("shelf-button--loading");
+    expect(button.querySelector(".shelf-spinner")).toBeInTheDocument();
     expect(screen.queryByTestId("icon")).not.toBeInTheDocument();
 
     await user.tab();
@@ -178,10 +178,10 @@ describe("IconButton", () => {
     expect(link).toHaveAttribute("href", "/cart");
     expect(link).not.toHaveAttribute("type");
     expect(link).toHaveClass(
-      "cps-button",
-      "cps-button--outline",
-      "cps-button--lg",
-      "cps-button--icon-only",
+      "shelf-button",
+      "shelf-button--outline",
+      "shelf-button--lg",
+      "shelf-button--icon-only",
       "custom-link",
     );
 
@@ -200,7 +200,7 @@ describe("IconButton", () => {
 
     const button = screen.getByRole("button", { name: "Share" });
     expect(ref.current).toBe(button);
-    expect(button).toHaveClass("cps-button", "custom");
+    expect(button).toHaveClass("shelf-button", "custom");
     expect(button).toHaveAttribute("data-testid", "share");
     expect(button).toHaveAttribute("title", "Share");
   });

@@ -1,4 +1,4 @@
-import { Button, Tag } from "@codecps/ui";
+import { Button, Tag } from "@shelf-ui/react";
 import { useState } from "react";
 
 const FILTERS = ["Red", "Under ₹999", "Fabindia", "4★ & above"];

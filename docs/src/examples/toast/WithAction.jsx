@@ -1,4 +1,4 @@
-import { Button, useToast } from "@codecps/ui";
+import { Button, useToast } from "@shelf-ui/react";
 
 export default function ToastWithAction() {
   const { toast, dismiss } = useToast();
@@ -7,7 +7,7 @@ export default function ToastWithAction() {
     toast({
       id: "archived",
       title: "Project archived",
-      message: "codecps-web was moved to the archive.",
+      message: "storefront-web was moved to the archive.",
       // Stay open so people have time to reach the Undo button.
       duration: Infinity,
       action: (

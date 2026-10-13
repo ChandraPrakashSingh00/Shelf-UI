@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import { Link } from "react-router";
 import {
   GitHubIcon,
@@ -10,7 +10,14 @@ import {
 import { BrandLogo } from "../components/Logo.jsx";
 import { SocialLinks } from "../components/SocialLinks.jsx";
 import { StatList } from "../components/StatList.jsx";
-import { companyUrl, issuesUrl, licenseUrl, repositoryUrl, version } from "../content/site.js";
+import {
+  issuesUrl,
+  licenseUrl,
+  packageName,
+  productName,
+  repositoryUrl,
+  version,
+} from "../content/site.js";
 import { PageHero } from "../layout/PageParts.jsx";
 import { useDocumentTitle } from "../lib/document.js";
 
@@ -32,7 +39,7 @@ const values = [
   },
   {
     title: "Impact",
-    text: "One library across CodeCPS products means faster projects and an accessible, consistent experience for everyone.",
+    text: "One library across every project means faster builds and an accessible, consistent experience for everyone.",
     Icon: TargetIcon,
   },
 ];
@@ -56,22 +63,23 @@ export function AboutPage() {
       />
 
       <div className="docs-container docs-about">
-        <section className="docs-about__intro" aria-label="CodeCPS Technologies">
-          <div className="docs-about__logo" role="img" aria-label="CodeCPS Technologies logo">
-            <BrandLogo size="lg" />
+        <section className="docs-about__intro" aria-label={`About ${productName}`}>
+          <div className="docs-about__logo" role="img" aria-label={productName}>
+            <BrandLogo size="lg" byline />
           </div>
           <div className="docs-about__text">
             <p>
-              CodeCPS UI is a modern React component library built by{" "}
-              <a href={companyUrl} target="_blank" rel="noreferrer">
-                CodeCPS Technologies
-              </a>
-              , a software development company in Greater Noida West, India.
+              {productName} is an open-source React component library, published on npm as{" "}
+              <code>{packageName}</code>.
             </p>
             <p>
-              It's the shared foundation for our products: the same buttons, forms, overlays and
-              navigation in every project, built once, tested once and styled with the CodeCPS
-              design system. Everything is accessible, customizable and free to use.
+              It's a shared foundation for your products: the same buttons, forms, overlays and
+              navigation in every project, built once, tested once and styled with design tokens.
+              Everything is accessible, customizable and free to use.
+            </p>
+            <p>
+              We named it {productName} because a component library should work like a well-kept
+              shelf: everything in its place, ready to pick up and make your own.
             </p>
           </div>
         </section>
@@ -125,7 +133,7 @@ export function AboutPage() {
             Join Our Community
           </h2>
           <p className="docs-community__text">
-            Follow along, report issues and share what you build with CodeCPS UI.
+            Follow along, report issues and share what you build with Shelf UI.
           </p>
           <SocialLinks className="docs-social--light" />
           <div className="docs-community__actions">
@@ -146,7 +154,7 @@ export function AboutPage() {
             <a href={licenseUrl} target="_blank" rel="noreferrer">
               MIT License
             </a>
-            . © {new Date().getFullYear()} CodeCPS Technologies.
+            . © {new Date().getFullYear()} {productName} contributors.
           </p>
         </section>
       </div>

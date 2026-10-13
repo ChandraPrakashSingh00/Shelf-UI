@@ -1,4 +1,4 @@
-import { Button, Timeline } from "@codecps/ui";
+import { Button, Timeline } from "@shelf-ui/react";
 import { useState } from "react";
 
 const steps = [

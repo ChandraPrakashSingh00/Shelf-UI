@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup } from "@codecps/ui";
+import { Avatar, AvatarGroup } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import aditi from "../../examples/avatar/aditi.svg";
 import Fallbacks from "../../examples/avatar/Fallbacks.jsx";
@@ -121,7 +121,7 @@ export const avatarDoc = {
     {
       title: "Avatar",
       description:
-        "Renders a `<span>` and accepts its native attributes. The `ref` points to it. For a custom size, set the `--cps-avatar-size` CSS variable (for example with `style`).",
+        "Renders a `<span>` and accepts its native attributes. The `ref` points to it. For a custom size, set the `--shelf-avatar-size` CSS variable (for example with `style`).",
       props: [
         {
           name: "src",
@@ -164,7 +164,7 @@ export const avatarDoc = {
     {
       title: "AvatarGroup",
       description:
-        'Renders a `<span role="group">` and accepts its native attributes. The `ref` points to it. The ring between avatars uses the `--cps-avatar-group-ring` CSS variable (the page background by default): set it to the color behind the group, e.g. `var(--cps-color-surface)` on a card.',
+        'Renders a `<span role="group">` and accepts its native attributes. The `ref` points to it. The ring between avatars uses the `--shelf-avatar-group-ring` CSS variable (the page background by default): set it to the color behind the group, e.g. `var(--shelf-color-surface)` on a card.',
       props: [
         {
           name: "children",

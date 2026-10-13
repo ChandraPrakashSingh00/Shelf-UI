@@ -33,7 +33,7 @@ export const Tag = forwardRef(function Tag(
   },
   ref,
 ) {
-  const baseId = `cps-tag-${useId()}`;
+  const baseId = `shelf-tag-${useId()}`;
   const labelId = `${baseId}-label`;
   const removeId = `${baseId}-remove`;
   const removable = typeof onRemove === "function";
@@ -49,20 +49,20 @@ export const Tag = forwardRef(function Tag(
       {...rest}
       ref={ref}
       className={cx(
-        "cps-tag",
-        `cps-tag--${variant}`,
-        `cps-tag--${size}`,
-        removable && "cps-tag--removable",
-        disabled && "cps-tag--disabled",
+        "shelf-tag",
+        `shelf-tag--${variant}`,
+        `shelf-tag--${size}`,
+        removable && "shelf-tag--removable",
+        disabled && "shelf-tag--disabled",
         className,
       )}
     >
       {icon != null && (
-        <span className="cps-tag__icon" aria-hidden="true">
+        <span className="shelf-tag__icon" aria-hidden="true">
           {icon}
         </span>
       )}
-      <span id={labelId} className="cps-tag__label">
+      <span id={labelId} className="shelf-tag__label">
         {children}
       </span>
       {removable && (
@@ -73,7 +73,7 @@ export const Tag = forwardRef(function Tag(
           aria-label={removeLabel}
           aria-labelledby={`${removeId} ${labelId}`}
           disabled={disabled}
-          className="cps-tag__remove"
+          className="shelf-tag__remove"
           onClick={onRemove}
           onKeyDown={handleRemoveKeyDown}
         >

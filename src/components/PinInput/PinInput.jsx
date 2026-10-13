@@ -79,7 +79,7 @@ export const PinInput = forwardRef(function PinInput(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const baseId = id ?? `cps-pin-input-${generatedId}`;
+  const baseId = id ?? `shelf-pin-input-${generatedId}`;
   const boxId = (index) => (index === 0 ? baseId : `${baseId}-${index + 1}`);
   const labelId = `${baseId}-label`;
   const messageId = `${baseId}-message`;
@@ -109,7 +109,7 @@ export const PinInput = forwardRef(function PinInput(
   const ref = useMemo(() => mergeRefs(firstBoxRef, forwardedRef), [forwardedRef]);
 
   const focusBox = (index) => {
-    const boxes = groupRef.current?.querySelectorAll(".cps-pin-input__box");
+    const boxes = groupRef.current?.querySelectorAll(".shelf-pin-input__box");
     boxes?.[Math.max(0, Math.min(index, boxCount - 1))]?.focus();
   };
 
@@ -233,21 +233,21 @@ export const PinInput = forwardRef(function PinInput(
   return (
     <div
       className={cx(
-        "cps-field",
-        `cps-field--${size}`,
-        "cps-pin-input-field",
-        hasError && "cps-field--invalid",
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        `shelf-field--${size}`,
+        "shelf-pin-input-field",
+        hasError && "shelf-field--invalid",
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {label != null && (
         // Clicking the label focuses the box that takes the next character.
-        <label id={labelId} className="cps-field__label" htmlFor={boxId(activeIndex)}>
+        <label id={labelId} className="shelf-field__label" htmlFor={boxId(activeIndex)}>
           {label}
           {required && (
-            <span className="cps-field__required" aria-hidden="true">
+            <span className="shelf-field__required" aria-hidden="true">
               *
             </span>
           )}
@@ -261,7 +261,7 @@ export const PinInput = forwardRef(function PinInput(
         aria-labelledby={ariaLabelledBy ?? (label != null ? labelId : undefined)}
         // Codes read left to right, also on right-to-left pages.
         dir="ltr"
-        className="cps-pin-input"
+        className="shelf-pin-input"
       >
         {Array.from({ length: boxCount }, (_, index) => {
           const character = code[index] ?? "";
@@ -287,7 +287,7 @@ export const PinInput = forwardRef(function PinInput(
               aria-invalid={hasError || undefined}
               aria-describedby={describedBy || undefined}
               data-filled={character ? "" : undefined}
-              className="cps-pin-input__box"
+              className="shelf-pin-input__box"
               onChange={handleChange(index)}
               onKeyDown={handleKeyDown(index)}
               onFocus={handleFocus(index)}
@@ -302,7 +302,7 @@ export const PinInput = forwardRef(function PinInput(
       )}
 
       {message != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {message}
         </p>
       )}

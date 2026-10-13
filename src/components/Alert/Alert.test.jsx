@@ -12,7 +12,7 @@ describe("Alert", () => {
     ["success", "status"],
   ])("uses role=%s → %s so urgency matches the message", (variant, role) => {
     render(<Alert variant={variant} title="Heads up" />);
-    expect(screen.getByRole(role)).toHaveClass(`cps-alert--${variant}`);
+    expect(screen.getByRole(role)).toHaveClass(`shelf-alert--${variant}`);
   });
 
   it("renders title, description and a decorative default icon", () => {
@@ -21,7 +21,7 @@ describe("Alert", () => {
     const alert = screen.getByRole("alert");
     expect(alert).toHaveTextContent("Deployment failed");
     expect(alert).toHaveTextContent("Check the build logs.");
-    expect(alert.querySelector(".cps-alert__icon")).toHaveAttribute("aria-hidden", "true");
+    expect(alert.querySelector(".shelf-alert__icon")).toHaveAttribute("aria-hidden", "true");
   });
 
   it("supports a custom icon or no icon", () => {
@@ -29,7 +29,7 @@ describe("Alert", () => {
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
 
     rerender(<Alert title="No icon" icon={null} />);
-    expect(screen.getByRole("status").querySelector(".cps-alert__icon")).not.toBeInTheDocument();
+    expect(screen.getByRole("status").querySelector(".shelf-alert__icon")).not.toBeInTheDocument();
   });
 
   it("only shows a dismiss button when onDismiss is provided", async () => {

@@ -39,11 +39,11 @@ export const Button = forwardRef(function Button(
   ref,
 ) {
   const classes = cx(
-    "cps-button",
-    `cps-button--${variant}`,
-    `cps-button--${size}`,
-    fullWidth && "cps-button--full-width",
-    loading && !asChild && "cps-button--loading",
+    "shelf-button",
+    `shelf-button--${variant}`,
+    `shelf-button--${size}`,
+    fullWidth && "shelf-button--full-width",
+    loading && !asChild && "shelf-button--loading",
     className,
   );
 
@@ -77,17 +77,17 @@ export const Button = forwardRef(function Button(
       className={classes}
     >
       {loading ? (
-        <Spinner className="cps-button__icon" />
+        <Spinner className="shelf-button__icon" />
       ) : (
         leftIcon && (
-          <span className="cps-button__icon" aria-hidden="true">
+          <span className="shelf-button__icon" aria-hidden="true">
             {leftIcon}
           </span>
         )
       )}
       {children}
       {rightIcon && (
-        <span className="cps-button__icon" aria-hidden="true">
+        <span className="shelf-button__icon" aria-hidden="true">
           {rightIcon}
         </span>
       )}

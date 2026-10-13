@@ -1,7 +1,7 @@
-import { Button, Input, Popover } from "@codecps/ui";
+import { Button, Input, Popover } from "@shelf-ui/react";
 import { useState } from "react";
 
-const link = "https://codecps.app/p/codecps-web";
+const link = "https://example.com/p/storefront-web";
 
 export default function PopoverShareLink() {
   const [copied, setCopied] = useState(false);
@@ -17,7 +17,9 @@ export default function PopoverShareLink() {
       onOpenChange={() => setCopied(false)}
     >
       <div style={{ display: "grid", gap: 12 }}>
-        <p style={{ margin: 0 }}>Anyone with the link can view codecps-web and its deployments.</p>
+        <p style={{ margin: 0 }}>
+          Anyone with the link can view storefront-web and its deployments.
+        </p>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
           <Input
             label="Project link"
@@ -29,7 +31,7 @@ export default function PopoverShareLink() {
         </div>
         <p
           role="status"
-          style={{ minHeight: "1.5em", margin: 0, color: "var(--cps-color-success-text)" }}
+          style={{ minHeight: "1.5em", margin: 0, color: "var(--shelf-color-success-text)" }}
         >
           {copied ? "Link copied to the clipboard." : ""}
         </p>

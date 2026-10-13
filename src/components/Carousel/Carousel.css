@@ -2,19 +2,19 @@
  * Layout: the slides span the first row; the rotation button (first in the DOM,
  * so it comes first in the Tab order) and the dots share the second row.
  */
-.cps-carousel {
-  --cps-carousel-duration: calc(var(--cps-duration-normal) * 1.5);
+.shelf-carousel {
+  --shelf-carousel-duration: calc(var(--shelf-duration-normal) * 1.5);
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   row-gap: 0.75rem;
   min-width: 0;
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
 }
 
 /* The slides, with the arrows laid over their left and right edges. */
-.cps-carousel__stage {
+.shelf-carousel__stage {
   position: relative;
   /* Keeps the arrows' z-index local to the carousel. */
   isolation: isolate;
@@ -23,27 +23,27 @@
   min-width: 0;
 }
 
-.cps-carousel__viewport {
+.shelf-carousel__viewport {
   overflow: hidden;
   /* Keeps the moving track clipped to the rounded corners in every browser. */
   isolation: isolate;
-  border-radius: var(--cps-radius-lg);
+  border-radius: var(--shelf-radius-lg);
   /* Horizontal swipes change the slide; vertical ones still scroll the page. */
   touch-action: pan-y pinch-zoom;
 }
 
-.cps-carousel__track {
+.shelf-carousel__track {
   display: flex;
-  transition: transform var(--cps-carousel-duration) var(--cps-easing);
+  transition: transform var(--shelf-carousel-duration) var(--shelf-easing);
 }
 
-.cps-carousel__slide {
+.shelf-carousel__slide {
   flex: 0 0 100%;
   min-width: 0;
 }
 
 /* Inactive slides can't be seen or focused... */
-.cps-carousel__slide[aria-hidden="true"] {
+.shelf-carousel__slide[aria-hidden="true"] {
   visibility: hidden;
 }
 
@@ -53,22 +53,22 @@
  * the track passes on a longer jump, stays visible until it has slid out of
  * view. The incoming slide shows at once.
  */
-.cps-carousel__track[data-move="0"] > .cps-carousel__slide[aria-hidden="true"] {
-  animation: cps-carousel-move-0 var(--cps-carousel-duration);
+.shelf-carousel__track[data-move="0"] > .shelf-carousel__slide[aria-hidden="true"] {
+  animation: shelf-carousel-move-0 var(--shelf-carousel-duration);
 }
 
-.cps-carousel__track[data-move="1"] > .cps-carousel__slide[aria-hidden="true"] {
-  animation: cps-carousel-move-1 var(--cps-carousel-duration);
+.shelf-carousel__track[data-move="1"] > .shelf-carousel__slide[aria-hidden="true"] {
+  animation: shelf-carousel-move-1 var(--shelf-carousel-duration);
 }
 
-@keyframes cps-carousel-move-0 {
+@keyframes shelf-carousel-move-0 {
   from,
   to {
     visibility: visible;
   }
 }
 
-@keyframes cps-carousel-move-1 {
+@keyframes shelf-carousel-move-1 {
   from,
   to {
     visibility: visible;
@@ -76,53 +76,53 @@
 }
 
 /* Previous / next buttons */
-.cps-carousel__arrow {
+.shelf-carousel__arrow {
   position: absolute;
   top: 50%;
   z-index: 1;
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-surface);
-  box-shadow: var(--cps-shadow-md);
-  color: var(--cps-color-text);
+  border: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-surface);
+  box-shadow: var(--shelf-shadow-md);
+  color: var(--shelf-color-text);
   font-size: 1.25rem;
   transform: translateY(-50%);
 }
 
-.cps-carousel__arrow--previous {
+.shelf-carousel__arrow--previous {
   left: 0.75rem;
 }
 
-.cps-carousel__arrow--next {
+.shelf-carousel__arrow--next {
   right: 0.75rem;
 }
 
-.cps-carousel__arrow[aria-disabled="true"] {
+.shelf-carousel__arrow[aria-disabled="true"] {
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-.cps-carousel__arrow[aria-disabled="true"]:hover {
-  background-color: var(--cps-color-surface);
-  color: var(--cps-color-text);
+.shelf-carousel__arrow[aria-disabled="true"]:hover {
+  background-color: var(--shelf-color-surface);
+  color: var(--shelf-color-text);
 }
 
 /* Stop / start button */
-.cps-carousel__rotation {
+.shelf-carousel__rotation {
   grid-row: 2;
   grid-column: 1;
   align-self: center;
   justify-self: start;
-  border: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-full);
-  color: var(--cps-color-text);
+  border: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-full);
+  color: var(--shelf-color-text);
 }
 
 /* Slide picker */
-.cps-carousel__dots {
+.shelf-carousel__dots {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -133,7 +133,7 @@
 }
 
 /* A 24px target around a small dot; the current slide's dot grows into a pill. */
-.cps-carousel__dot {
+.shelf-carousel__dot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -141,55 +141,55 @@
   height: 1.5rem;
   padding: 0;
   border: 0;
-  border-radius: var(--cps-radius-full);
+  border-radius: var(--shelf-radius-full);
   background: transparent;
   cursor: pointer;
 }
 
-.cps-carousel__dot::before {
+.shelf-carousel__dot::before {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-text-subtle);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-text-subtle);
   transition:
-    width var(--cps-duration-normal) var(--cps-easing),
-    background-color var(--cps-duration-fast) var(--cps-easing);
+    width var(--shelf-duration-normal) var(--shelf-easing),
+    background-color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-carousel__dot:hover::before {
-  background-color: var(--cps-color-text-muted);
+.shelf-carousel__dot:hover::before {
+  background-color: var(--shelf-color-text-muted);
 }
 
-.cps-carousel__dot[aria-current="true"]::before {
+.shelf-carousel__dot[aria-current="true"]::before {
   width: 1.25rem;
-  background-color: var(--cps-color-primary);
+  background-color: var(--shelf-color-primary);
 }
 
-.cps-carousel__dot:focus-visible {
-  outline: 2px solid var(--cps-color-focus);
+.shelf-carousel__dot:focus-visible {
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
 /* The dots are drawn with backgrounds, which forced-colors mode removes. */
 @media (forced-colors: active) {
-  .cps-carousel__dot::before {
+  .shelf-carousel__dot::before {
     forced-color-adjust: none;
     background-color: CanvasText;
   }
 
-  .cps-carousel__dot[aria-current="true"]::before {
+  .shelf-carousel__dot[aria-current="true"]::before {
     background-color: Highlight;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-carousel__track,
-  .cps-carousel__dot::before {
+  .shelf-carousel__track,
+  .shelf-carousel__dot::before {
     transition: none;
   }
 
-  .cps-carousel__track[data-move] > .cps-carousel__slide[aria-hidden="true"] {
+  .shelf-carousel__track[data-move] > .shelf-carousel__slide[aria-hidden="true"] {
     animation: none;
   }
 }

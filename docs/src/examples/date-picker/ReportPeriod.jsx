@@ -1,4 +1,4 @@
-import { DatePicker } from "@codecps/ui";
+import { DatePicker } from "@shelf-ui/react";
 import { useState } from "react";
 
 // Report ranges end today; built once, when the page opens.
@@ -35,7 +35,7 @@ export default function DatePickerReportPeriod() {
         onValueChange={setPeriod}
         clearable={false}
       />
-      <p style={{ margin: 0, color: "var(--cps-color-text-muted)" }}>
+      <p style={{ margin: 0, color: "var(--shelf-color-text-muted)" }}>
         Showing orders placed from {formatDay(period.start)} to {formatDay(period.end)}.
       </p>
     </div>

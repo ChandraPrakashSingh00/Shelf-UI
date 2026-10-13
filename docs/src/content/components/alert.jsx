@@ -1,4 +1,4 @@
-import { Alert } from "@codecps/ui";
+import { Alert } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import CustomIcon from "../../examples/alert/CustomIcon.jsx";
 import customIconCode from "../../examples/alert/CustomIcon.jsx?raw";

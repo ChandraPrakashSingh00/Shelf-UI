@@ -1,4 +1,4 @@
-import { DatePicker } from "@codecps/ui";
+import { DatePicker } from "@shelf-ui/react";
 
 export default function DatePickerBasic() {
   return (

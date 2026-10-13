@@ -1,4 +1,4 @@
-import { Button, Stepper } from "@codecps/ui";
+import { Button, Stepper } from "@shelf-ui/react";
 import { useRef, useState } from "react";
 
 const steps = [
@@ -39,9 +39,9 @@ export default function StepperCheckout() {
         style={{
           margin: 0,
           padding: 16,
-          border: "1px solid var(--cps-color-border)",
-          borderRadius: "var(--cps-radius-md)",
-          backgroundColor: "var(--cps-color-surface-muted)",
+          border: "1px solid var(--shelf-color-border)",
+          borderRadius: "var(--shelf-radius-md)",
+          backgroundColor: "var(--shelf-color-surface-muted)",
         }}
       >
         {isDone ? "Order #OD-4821 placed! The invoice is in your email." : stepContent[activeStep]}

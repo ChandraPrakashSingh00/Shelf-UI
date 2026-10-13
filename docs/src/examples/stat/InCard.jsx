@@ -1,4 +1,4 @@
-import { Card, Stat } from "@codecps/ui";
+import { Card, Stat } from "@shelf-ui/react";
 
 export default function StatInCard() {
   return (

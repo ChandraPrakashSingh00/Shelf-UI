@@ -1,5 +1,5 @@
 /*
- * Single stylesheet entry, emitted as `@codecps/ui/styles.css`.
+ * Single stylesheet entry, emitted as `@shelf-ui/react/styles.css`.
  * Each component keeps its CSS in its own folder; register new files here.
  */
 @import "./tokens.css";

@@ -1,51 +1,51 @@
-.cps-kbd {
-  --cps-kbd-font-family:
+.shelf-kbd {
+  --shelf-kbd-font-family:
     ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  font-family: var(--cps-font-sans);
-  font-size: var(--cps-kbd-font-size);
+  font-family: var(--shelf-font-sans);
+  font-size: var(--shelf-kbd-font-size);
   line-height: 1;
 }
 
 /* Sizes (inherited by the keys of a combination). */
-.cps-kbd--sm {
-  --cps-kbd-height: 1.25rem;
-  --cps-kbd-padding-x: 0.25rem;
-  --cps-kbd-font-size: 0.6875rem;
+.shelf-kbd--sm {
+  --shelf-kbd-height: 1.25rem;
+  --shelf-kbd-padding-x: 0.25rem;
+  --shelf-kbd-font-size: 0.6875rem;
 }
 
-.cps-kbd--md {
-  --cps-kbd-height: 1.5rem;
-  --cps-kbd-padding-x: 0.375rem;
-  --cps-kbd-font-size: var(--cps-font-size-xs);
+.shelf-kbd--md {
+  --shelf-kbd-height: 1.5rem;
+  --shelf-kbd-padding-x: 0.375rem;
+  --shelf-kbd-font-size: var(--shelf-font-size-xs);
 }
 
 /* A single key, or one key of a combination: looks like a physical key. */
-.cps-kbd--key,
-.cps-kbd__key {
+.shelf-kbd--key,
+.shelf-kbd__key {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: var(--cps-kbd-height);
-  height: var(--cps-kbd-height);
-  padding: 0 var(--cps-kbd-padding-x);
-  border: 1px solid var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-sm);
-  background-color: var(--cps-color-surface-muted);
-  box-shadow: inset 0 -1px 0 var(--cps-color-border-strong);
-  color: var(--cps-color-text);
-  font-family: var(--cps-kbd-font-family);
-  font-size: var(--cps-kbd-font-size);
-  font-weight: var(--cps-font-weight-medium);
+  min-width: var(--shelf-kbd-height);
+  height: var(--shelf-kbd-height);
+  padding: 0 var(--shelf-kbd-padding-x);
+  border: 1px solid var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-sm);
+  background-color: var(--shelf-color-surface-muted);
+  box-shadow: inset 0 -1px 0 var(--shelf-color-border-strong);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-kbd-font-family);
+  font-size: var(--shelf-kbd-font-size);
+  font-weight: var(--shelf-font-weight-medium);
   line-height: 1;
   white-space: nowrap;
 }
 
 /* A combination keeps its keys and separators on one line. */
-.cps-kbd--combination {
+.shelf-kbd--combination {
   white-space: nowrap;
 }
 
-.cps-kbd__separator {
-  color: var(--cps-color-text-muted);
+.shelf-kbd__separator {
+  color: var(--shelf-color-text-muted);
 }

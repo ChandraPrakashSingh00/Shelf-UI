@@ -1,4 +1,4 @@
-import { Tag } from "@codecps/ui";
+import { Tag } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Disabled from "../../examples/tag/Disabled.jsx";
 import disabledCode from "../../examples/tag/Disabled.jsx?raw";

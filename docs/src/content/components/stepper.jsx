@@ -1,4 +1,4 @@
-import { Stepper } from "@codecps/ui";
+import { Stepper } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Checkout from "../../examples/stepper/Checkout.jsx";
 import checkoutCode from "../../examples/stepper/Checkout.jsx?raw";

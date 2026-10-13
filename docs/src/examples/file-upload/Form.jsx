@@ -1,4 +1,4 @@
-import { Button, FileUpload } from "@codecps/ui";
+import { Button, FileUpload } from "@shelf-ui/react";
 import { useState } from "react";
 
 export default function FileUploadForm() {

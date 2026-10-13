@@ -1,4 +1,4 @@
-import { Button } from "@codecps/ui";
+import { Button } from "@shelf-ui/react";
 import AlignEnd from "../../examples/dropdown/AlignEnd.jsx";
 import alignEndCode from "../../examples/dropdown/AlignEnd.jsx?raw";
 import Basic from "../../examples/dropdown/Basic.jsx";

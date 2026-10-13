@@ -1,4 +1,4 @@
-import { Progress } from "@codecps/ui";
+import { Progress } from "@shelf-ui/react";
 
 export default function ProgressSizes() {
   return (

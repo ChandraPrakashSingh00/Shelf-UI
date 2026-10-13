@@ -1,4 +1,4 @@
-import { IconButton } from "@codecps/ui";
+import { IconButton } from "@shelf-ui/react";
 
 function EyeIcon() {
   return (
@@ -85,14 +85,14 @@ export default function IconButtonTooltips() {
         width: "100%",
         maxWidth: 440,
         padding: "12px 16px",
-        border: "1px solid var(--cps-color-border)",
-        borderRadius: "var(--cps-radius-lg)",
-        backgroundColor: "var(--cps-color-surface)",
+        border: "1px solid var(--shelf-color-border)",
+        borderRadius: "var(--shelf-radius-lg)",
+        backgroundColor: "var(--shelf-color-surface)",
       }}
     >
       <div>
-        <strong>Order #CPS-10428</strong>
-        <div style={{ color: "var(--cps-color-text-muted)", fontSize: 14 }}>
+        <strong>Order #ORD-10428</strong>
+        <div style={{ color: "var(--shelf-color-text-muted)", fontSize: 14 }}>
           Ananya Sharma · Pune · ₹3,450
         </div>
       </div>

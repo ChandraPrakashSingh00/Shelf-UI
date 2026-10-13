@@ -1,9 +1,9 @@
 /* FileUpload: drop zone, rejected files and the list of chosen files. */
-.cps-file-upload__area {
+.shelf-file-upload__area {
   position: relative;
 }
 
-.cps-file-upload__dropzone {
+.shelf-file-upload__dropzone {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,105 +11,105 @@
   gap: 0.5rem;
   min-height: 8rem;
   padding: 1.25rem 1rem;
-  border: 1px dashed var(--cps-color-border-strong);
-  border-radius: var(--cps-radius-lg);
-  background-color: var(--cps-color-surface);
-  color: var(--cps-color-text-muted);
-  font-size: var(--cps-font-size-sm);
-  line-height: var(--cps-line-height-normal);
+  border: 1px dashed var(--shelf-color-border-strong);
+  border-radius: var(--shelf-radius-lg);
+  background-color: var(--shelf-color-surface);
+  color: var(--shelf-color-text-muted);
+  font-size: var(--shelf-font-size-sm);
+  line-height: var(--shelf-line-height-normal);
   text-align: center;
   cursor: pointer;
   transition:
-    border-color var(--cps-duration-fast) var(--cps-easing),
-    background-color var(--cps-duration-fast) var(--cps-easing);
+    border-color var(--shelf-duration-fast) var(--shelf-easing),
+    background-color var(--shelf-duration-fast) var(--shelf-easing);
 }
 
-.cps-file-upload__dropzone:hover {
-  border-color: var(--cps-color-primary);
-  background-color: var(--cps-color-surface-muted);
+.shelf-file-upload__dropzone:hover {
+  border-color: var(--shelf-color-primary);
+  background-color: var(--shelf-color-surface-muted);
 }
 
 /* The visually hidden input has focus: ring the drop zone it stands for. */
-.cps-file-upload__input:focus-visible + .cps-file-upload__dropzone {
-  border-color: var(--cps-color-primary);
-  outline: 2px solid var(--cps-color-focus);
+.shelf-file-upload__input:focus-visible + .shelf-file-upload__dropzone {
+  border-color: var(--shelf-color-primary);
+  outline: 2px solid var(--shelf-color-focus);
   outline-offset: 2px;
 }
 
-.cps-file-upload--dragging .cps-file-upload__dropzone {
+.shelf-file-upload--dragging .shelf-file-upload__dropzone {
   border-style: solid;
-  border-color: var(--cps-color-primary);
-  background-color: var(--cps-color-primary-subtle);
+  border-color: var(--shelf-color-primary);
+  background-color: var(--shelf-color-primary-subtle);
 }
 
-.cps-file-upload__icon {
+.shelf-file-upload__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--cps-radius-full);
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+  border-radius: var(--shelf-radius-full);
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
   font-size: 1.25rem;
 }
 
-.cps-file-upload__text {
+.shelf-file-upload__text {
   max-width: 100%;
   overflow-wrap: anywhere;
 }
 
-.cps-file-upload__browse {
-  color: var(--cps-color-primary-text);
-  font-weight: var(--cps-font-weight-semibold);
+.shelf-file-upload__browse {
+  color: var(--shelf-color-primary-text);
+  font-weight: var(--shelf-font-weight-semibold);
 }
 
-.cps-file-upload__dropzone:hover .cps-file-upload__browse {
+.shelf-file-upload__dropzone:hover .shelf-file-upload__browse {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.cps-field--invalid .cps-file-upload__dropzone {
-  border-color: var(--cps-color-danger);
+.shelf-field--invalid .shelf-file-upload__dropzone {
+  border-color: var(--shelf-color-danger);
 }
 
-.cps-field--disabled .cps-file-upload__dropzone {
-  border-color: var(--cps-color-border);
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text-subtle);
+.shelf-field--disabled .shelf-file-upload__dropzone {
+  border-color: var(--shelf-color-border);
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
-.cps-field--disabled .cps-file-upload__icon {
-  background-color: var(--cps-color-surface-hover);
-  color: var(--cps-color-text-subtle);
+.shelf-field--disabled .shelf-file-upload__icon {
+  background-color: var(--shelf-color-surface-hover);
+  color: var(--shelf-color-text-subtle);
 }
 
-.cps-field--disabled .cps-file-upload__browse {
+.shelf-field--disabled .shelf-file-upload__browse {
   color: inherit;
   text-decoration: none;
 }
 
 /* Files that couldn't be added. */
-.cps-file-upload__rejections {
+.shelf-file-upload__rejections {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: var(--cps-font-size-xs);
-  line-height: var(--cps-line-height-normal);
-  color: var(--cps-color-danger-text);
+  font-size: var(--shelf-font-size-xs);
+  line-height: var(--shelf-line-height-normal);
+  color: var(--shelf-color-danger-text);
 }
 
-.cps-file-upload__rejected-name {
-  font-weight: var(--cps-font-weight-medium);
+.shelf-file-upload__rejected-name {
+  font-weight: var(--shelf-font-weight-medium);
   overflow-wrap: anywhere;
 }
 
 /* Chosen files */
-.cps-file-upload__list {
+.shelf-file-upload__list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -118,19 +118,19 @@
   list-style: none;
 }
 
-.cps-file-upload__item {
+.shelf-file-upload__item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
   padding: 0.5rem 0.5rem 0.5rem 0.625rem;
-  border: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-md);
-  background-color: var(--cps-color-surface);
+  border: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-md);
+  background-color: var(--shelf-color-surface);
 }
 
 /* A file icon; an image file's thumbnail covers it once loaded. */
-.cps-file-upload__thumbnail {
+.shelf-file-upload__thumbnail {
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
@@ -139,13 +139,13 @@
   width: 2.5rem;
   height: 2.5rem;
   overflow: hidden;
-  border-radius: var(--cps-radius-sm);
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text-subtle);
+  border-radius: var(--shelf-radius-sm);
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text-subtle);
   font-size: 1.25rem;
 }
 
-.cps-file-upload__image {
+.shelf-file-upload__image {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -153,52 +153,52 @@
   object-fit: cover;
 }
 
-.cps-file-upload__image[hidden] {
+.shelf-file-upload__image[hidden] {
   display: none;
 }
 
-.cps-file-upload__details {
+.shelf-file-upload__details {
   display: flex;
   flex: 1;
   flex-direction: column;
   min-width: 0;
 }
 
-.cps-file-upload__name {
+.shelf-file-upload__name {
   overflow: hidden;
-  font-size: var(--cps-font-size-sm);
-  font-weight: var(--cps-font-weight-medium);
-  line-height: var(--cps-line-height-tight);
+  font-size: var(--shelf-font-size-sm);
+  font-weight: var(--shelf-font-weight-medium);
+  line-height: var(--shelf-line-height-tight);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.cps-file-upload__size {
+.shelf-file-upload__size {
   margin-top: 0.125rem;
-  font-size: var(--cps-font-size-xs);
-  line-height: var(--cps-line-height-normal);
+  font-size: var(--shelf-font-size-xs);
+  line-height: var(--shelf-line-height-normal);
   font-variant-numeric: tabular-nums;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
 }
 
-.cps-file-upload__remove:disabled {
-  color: var(--cps-color-text-subtle);
+.shelf-file-upload__remove:disabled {
+  color: var(--shelf-color-text-subtle);
   cursor: not-allowed;
 }
 
-.cps-file-upload__remove:disabled:hover {
+.shelf-file-upload__remove:disabled:hover {
   background-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cps-file-upload__dropzone {
+  .shelf-file-upload__dropzone {
     transition: none;
   }
 }
 
 /* Backgrounds are replaced in forced-colors mode: mark the drag state with the border. */
 @media (forced-colors: active) {
-  .cps-file-upload--dragging .cps-file-upload__dropzone {
+  .shelf-file-upload--dragging .shelf-file-upload__dropzone {
     border-width: 2px;
     border-color: Highlight;
   }

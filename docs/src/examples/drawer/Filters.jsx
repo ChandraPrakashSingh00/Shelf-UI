@@ -1,4 +1,4 @@
-import { Button, Drawer, Input } from "@codecps/ui";
+import { Button, Drawer, Input } from "@shelf-ui/react";
 import { useState } from "react";
 
 const statuses = ["Ready", "Building", "Failed", "Canceled"];

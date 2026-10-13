@@ -1,4 +1,4 @@
-import { Card } from "@codecps/ui";
+import { Card } from "@shelf-ui/react";
 
 export default function CardVariants() {
   return (

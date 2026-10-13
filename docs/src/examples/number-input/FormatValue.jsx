@@ -1,4 +1,4 @@
-import { NumberInput } from "@codecps/ui";
+import { NumberInput } from "@shelf-ui/react";
 
 const formatRupees = (value) => `₹${value.toLocaleString("en-IN", { maximumFractionDigits: 2 })}`;
 

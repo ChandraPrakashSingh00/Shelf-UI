@@ -1,24 +1,24 @@
 /* Page chrome for the local playground only — not part of the library. */
 body {
   margin: 0;
-  background-color: var(--cps-color-bg);
-  color: var(--cps-color-text);
-  font-family: var(--cps-font-sans);
+  background-color: var(--shelf-color-bg);
+  color: var(--shelf-color-text);
+  font-family: var(--shelf-font-sans);
 }
 
 .pg-logo {
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: var(--cps-radius-sm);
-  background-color: var(--cps-color-primary);
+  border-radius: var(--shelf-radius-sm);
+  background-color: var(--shelf-color-primary);
 }
 
 /*
  * Between the collapsed mobile menu (below 768px) and the width where every
  * category link fits, the links scroll sideways instead of widening the page.
  */
-@container cps-navbar (min-width: 768px) and (max-width: 1099.98px) {
-  .pg-navbar .cps-navbar__links {
+@container shelf-navbar (min-width: 768px) and (max-width: 1099.98px) {
+  .pg-navbar .shelf-navbar__links {
     min-width: 0;
     /* Room for the links' focus outlines inside the scrolling list. */
     padding: 0.25rem;
@@ -26,15 +26,15 @@ body {
     scrollbar-width: thin;
   }
 
-  .pg-navbar .cps-navbar__links > li {
+  .pg-navbar .shelf-navbar__links > li {
     flex-shrink: 0;
   }
 
-  .pg-navbar .cps-navbar__link {
+  .pg-navbar .shelf-navbar__link {
     white-space: nowrap;
   }
 
-  .pg-navbar .cps-navbar__actions {
+  .pg-navbar .shelf-navbar__actions {
     flex-shrink: 0;
   }
 
@@ -65,12 +65,12 @@ body {
 .pg-hero h1 {
   margin: 0;
   font-size: 2.25rem;
-  line-height: var(--cps-line-height-tight);
+  line-height: var(--shelf-line-height-tight);
 }
 
 .pg-hero p {
   margin: 0;
-  color: var(--cps-color-text-muted);
+  color: var(--shelf-color-text-muted);
 }
 
 .pg-section {
@@ -78,13 +78,13 @@ body {
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 0;
-  border-top: 1px solid var(--cps-color-border);
+  border-top: 1px solid var(--shelf-color-border);
   scroll-margin-top: 4rem;
 }
 
 .pg-section__title {
   margin: 0;
-  font-size: var(--cps-font-size-lg);
+  font-size: var(--shelf-font-size-lg);
 }
 
 .pg-row {
@@ -107,8 +107,8 @@ body {
 }
 
 .pg-muted {
-  color: var(--cps-color-text-muted);
-  font-size: var(--cps-font-size-sm);
+  color: var(--shelf-color-text-muted);
+  font-size: var(--shelf-font-size-sm);
 }
 
 .pg-narrow {
@@ -120,10 +120,10 @@ body {
   place-items: center;
   min-height: 11rem;
   padding: 1.5rem 4.5rem;
-  background-color: var(--cps-color-primary-subtle);
-  color: var(--cps-color-primary-text);
+  background-color: var(--shelf-color-primary-subtle);
+  color: var(--shelf-color-primary-text);
   font-size: 1.25rem;
-  font-weight: var(--cps-font-weight-semibold);
+  font-weight: var(--shelf-font-weight-semibold);
   text-align: center;
 }
 
@@ -135,9 +135,9 @@ body {
 
 .pg-hero code {
   padding: 0.1em 0.375em;
-  border: 1px solid var(--cps-color-border);
-  border-radius: var(--cps-radius-sm);
-  background-color: var(--cps-color-surface-muted);
-  color: var(--cps-color-text);
+  border: 1px solid var(--shelf-color-border);
+  border-radius: var(--shelf-radius-sm);
+  background-color: var(--shelf-color-surface-muted);
+  color: var(--shelf-color-text);
   font-size: 0.9em;
 }

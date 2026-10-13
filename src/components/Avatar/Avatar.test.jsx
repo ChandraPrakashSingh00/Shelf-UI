@@ -12,8 +12,8 @@ describe("Avatar", () => {
     expect(image).toHaveAttribute("src", "/avatars/aditi.png");
 
     const root = container.firstElementChild;
-    expect(root).toHaveClass("cps-avatar", "cps-avatar--md", "cps-avatar--circle");
-    expect(root).not.toHaveClass("cps-avatar--fallback");
+    expect(root).toHaveClass("shelf-avatar", "shelf-avatar--md", "shelf-avatar--circle");
+    expect(root).not.toHaveClass("shelf-avatar--fallback");
     expect(root).not.toHaveAttribute("role");
     expect(root).not.toHaveAttribute("aria-hidden");
   });
@@ -29,7 +29,7 @@ describe("Avatar", () => {
     const avatar = screen.getByRole("img", { name: "Sai Kiran Reddy" });
     expect(avatar.tagName).toBe("SPAN");
     expect(avatar).toHaveTextContent(/^SR$/);
-    expect(avatar).toHaveClass("cps-avatar--fallback");
+    expect(avatar).toHaveClass("shelf-avatar--fallback");
   });
 
   it.each([
@@ -71,11 +71,11 @@ describe("Avatar", () => {
   });
 
   it("shows a custom fallback instead of the initials", () => {
-    render(<Avatar name="CodeCPS Bot" fallback={<svg data-testid="bot-icon" />} />);
+    render(<Avatar name="Acme Bot" fallback={<svg data-testid="bot-icon" />} />);
 
-    const avatar = screen.getByRole("img", { name: "CodeCPS Bot" });
+    const avatar = screen.getByRole("img", { name: "Acme Bot" });
     expect(within(avatar).getByTestId("bot-icon")).toBeInTheDocument();
-    expect(avatar).not.toHaveTextContent("CB");
+    expect(avatar).not.toHaveTextContent("AB");
   });
 
   it("is decorative, with a user icon, when there is no name", () => {
@@ -84,7 +84,7 @@ describe("Avatar", () => {
     const root = container.firstElementChild;
     expect(root).toHaveAttribute("aria-hidden", "true");
     expect(root).not.toHaveAttribute("role");
-    expect(root.querySelector("svg.cps-avatar__icon")).toBeInTheDocument();
+    expect(root.querySelector("svg.shelf-avatar__icon")).toBeInTheDocument();
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 
@@ -103,12 +103,12 @@ describe("Avatar", () => {
 
   it.each(["xs", "sm", "md", "lg", "xl"])("applies the %s size", (size) => {
     render(<Avatar name="Aditi Rao" size={size} />);
-    expect(screen.getByRole("img")).toHaveClass(`cps-avatar--${size}`);
+    expect(screen.getByRole("img")).toHaveClass(`shelf-avatar--${size}`);
   });
 
   it("applies the square shape", () => {
-    render(<Avatar name="CodeCPS Cloud" shape="square" />);
-    expect(screen.getByRole("img")).toHaveClass("cps-avatar--square");
+    render(<Avatar name="Acme Cloud" shape="square" />);
+    expect(screen.getByRole("img")).toHaveClass("shelf-avatar--square");
   });
 
   it("forwards the ref and native attributes, and merges className", () => {
@@ -117,7 +117,7 @@ describe("Avatar", () => {
 
     const avatar = screen.getByRole("img", { name: "Aditi Rao" });
     expect(ref.current).toBe(avatar);
-    expect(avatar).toHaveClass("cps-avatar", "custom");
+    expect(avatar).toHaveClass("shelf-avatar", "custom");
     expect(avatar).toHaveAttribute("id", "owner");
     expect(avatar).toHaveAttribute("title", "Owner");
   });
@@ -157,7 +157,7 @@ describe("AvatarGroup", () => {
       "3 more",
     ]);
     expect(avatars[2]).toHaveTextContent("+3");
-    expect(avatars[2]).toHaveClass("cps-avatar-group__more");
+    expect(avatars[2]).toHaveClass("shelf-avatar-group__more");
   });
 
   it("sizes its avatars, and an avatar's own size wins", () => {
@@ -169,9 +169,9 @@ describe("AvatarGroup", () => {
       </AvatarGroup>,
     );
 
-    expect(screen.getByRole("img", { name: "Aditi Rao" })).toHaveClass("cps-avatar--sm");
-    expect(screen.getByRole("img", { name: "Rohan Mehta" })).toHaveClass("cps-avatar--lg");
-    expect(screen.getByRole("img", { name: "1 more" })).toHaveClass("cps-avatar--sm");
+    expect(screen.getByRole("img", { name: "Aditi Rao" })).toHaveClass("shelf-avatar--sm");
+    expect(screen.getByRole("img", { name: "Rohan Mehta" })).toHaveClass("shelf-avatar--lg");
+    expect(screen.getByRole("img", { name: "1 more" })).toHaveClass("shelf-avatar--sm");
   });
 
   it("sizes avatars wrapped in other elements, such as profile links", () => {
@@ -188,7 +188,7 @@ describe("AvatarGroup", () => {
       "href",
       "/people/aditi",
     );
-    expect(screen.getByRole("img", { name: "Aditi Rao" })).toHaveClass("cps-avatar--lg");
+    expect(screen.getByRole("img", { name: "Aditi Rao" })).toHaveClass("shelf-avatar--lg");
   });
 
   it("accepts aria-label, forwards the ref and native attributes, and merges className", () => {
@@ -201,7 +201,7 @@ describe("AvatarGroup", () => {
 
     const group = screen.getByRole("group", { name: "Reviewers" });
     expect(ref.current).toBe(group);
-    expect(group).toHaveClass("cps-avatar-group", "cps-avatar-group--md", "custom");
+    expect(group).toHaveClass("shelf-avatar-group", "shelf-avatar-group--md", "custom");
     expect(group).toHaveAttribute("data-testid", "reviewers");
   });
 });

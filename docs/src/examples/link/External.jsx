@@ -1,4 +1,4 @@
-import { Link } from "@codecps/ui";
+import { Link } from "@shelf-ui/react";
 
 export default function LinkExternal() {
   return (

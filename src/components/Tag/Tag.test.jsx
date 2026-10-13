@@ -7,9 +7,9 @@ import { Tag } from "./Tag.jsx";
 describe("Tag", () => {
   it("renders its text in a neutral, medium span by default", () => {
     render(<Tag>Electronics</Tag>);
-    const tag = screen.getByText("Electronics").closest(".cps-tag");
+    const tag = screen.getByText("Electronics").closest(".shelf-tag");
     expect(tag.tagName).toBe("SPAN");
-    expect(tag).toHaveClass("cps-tag", "cps-tag--neutral", "cps-tag--md");
+    expect(tag).toHaveClass("shelf-tag", "shelf-tag--neutral", "shelf-tag--md");
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
@@ -17,13 +17,13 @@ describe("Tag", () => {
     "applies the %s variant",
     (variant) => {
       render(<Tag variant={variant}>Label</Tag>);
-      expect(screen.getByText("Label").parentElement).toHaveClass(`cps-tag--${variant}`);
+      expect(screen.getByText("Label").parentElement).toHaveClass(`shelf-tag--${variant}`);
     },
   );
 
   it.each(["sm", "md"])("applies the %s size", (size) => {
     render(<Tag size={size}>Label</Tag>);
-    expect(screen.getByText("Label").parentElement).toHaveClass(`cps-tag--${size}`);
+    expect(screen.getByText("Label").parentElement).toHaveClass(`shelf-tag--${size}`);
   });
 
   it("renders a decorative icon before the text", () => {
@@ -40,7 +40,7 @@ describe("Tag", () => {
 
     const button = screen.getByRole("button", { name: "Remove Red" });
     expect(button).toHaveAttribute("type", "button");
-    expect(button.closest(".cps-tag")).toHaveClass("cps-tag--removable");
+    expect(button.closest(".shelf-tag")).toHaveClass("shelf-tag--removable");
 
     await user.click(button);
     expect(onRemove).toHaveBeenCalledTimes(1);
@@ -84,7 +84,7 @@ describe("Tag", () => {
 
     const button = screen.getByRole("button", { name: "Remove Red" });
     expect(button).toBeDisabled();
-    expect(button.closest(".cps-tag")).toHaveClass("cps-tag--disabled");
+    expect(button.closest(".shelf-tag")).toHaveClass("shelf-tag--disabled");
     await user.click(button);
     expect(onRemove).not.toHaveBeenCalled();
   });
@@ -110,7 +110,7 @@ describe("Tag", () => {
 
     const tag = screen.getByTestId("tag");
     expect(ref.current).toBe(tag);
-    expect(tag).toHaveClass("cps-tag", "custom");
+    expect(tag).toHaveClass("shelf-tag", "custom");
     expect(tag).toHaveAttribute("title", "Category");
   });
 });

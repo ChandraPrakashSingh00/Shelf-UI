@@ -1,4 +1,4 @@
-import { Input } from "@codecps/ui";
+import { Input } from "@shelf-ui/react";
 
 export default function InputBasic() {
   return (

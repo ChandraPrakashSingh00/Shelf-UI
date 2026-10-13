@@ -136,7 +136,7 @@ describe("Table", () => {
     const { rerender } = render(
       <Table caption="Recent orders" captionHidden columns={columns} data={orders} />,
     );
-    expect(screen.getByText("Recent orders")).toHaveClass("cps-visually-hidden");
+    expect(screen.getByText("Recent orders")).toHaveClass("shelf-visually-hidden");
     expect(screen.getByRole("table", { name: "Recent orders" })).toBeInTheDocument();
 
     rerender(<Table aria-label="Orders" columns={columns} data={orders} />);
@@ -326,7 +326,7 @@ describe("Table", () => {
       expect(all).toBePartiallyChecked();
       expect(onSelectionChange).toHaveBeenLastCalledWith([1042]);
       const row = first.closest("tr");
-      expect(row).toHaveClass("cps-table__row--selected");
+      expect(row).toHaveClass("shelf-table__row--selected");
       expect(row).toHaveAttribute("data-selected", "true");
       expect(row).not.toHaveAttribute("aria-selected");
 
@@ -338,7 +338,7 @@ describe("Table", () => {
       await user.click(all);
       expect(onSelectionChange).toHaveBeenLastCalledWith([]);
       expect(first).not.toBeChecked();
-      expect(row).not.toHaveClass("cps-table__row--selected");
+      expect(row).not.toHaveClass("shelf-table__row--selected");
     });
 
     it("toggles row checkboxes with Space", async () => {
@@ -542,7 +542,7 @@ describe("Table", () => {
       );
       expect(orderIds()).toEqual(["#1042", "#1043", "#1044"]);
       expect(screen.getByRole("status")).toHaveTextContent("Loading orders…");
-      expect(screen.getByRole("table").parentElement).toHaveClass("cps-table--loading");
+      expect(screen.getByRole("table").parentElement).toHaveClass("shelf-table--loading");
     });
   });
 
@@ -587,11 +587,11 @@ describe("Table", () => {
     expect(header("Customer")).toHaveClass("hide-on-mobile");
     expect(screen.getByRole("cell", { name: "Priya Sharma" })).toHaveClass("hide-on-mobile");
     expect(screen.getByRole("cell", { name: "Mumbai" })).toHaveClass(
-      "cps-table__cell--align-center",
+      "shelf-table__cell--align-center",
     );
     expect(screen.getByRole("cell", { name: "1299" })).toHaveClass(
-      "cps-table__cell--numeric",
-      "cps-table__cell--align-end",
+      "shelf-table__cell--numeric",
+      "shelf-table__cell--align-end",
     );
   });
 
@@ -600,9 +600,9 @@ describe("Table", () => {
       <Table aria-label="Orders" columns={columns} data={orders} />,
     );
     const root = container.firstChild;
-    expect(root).toHaveClass("cps-table", "cps-table--md", "cps-table--hoverable");
-    expect(root).toHaveClass("cps-table--bordered");
-    expect(root).not.toHaveClass("cps-table--striped");
+    expect(root).toHaveClass("shelf-table", "shelf-table--md", "shelf-table--hoverable");
+    expect(root).toHaveClass("shelf-table--bordered");
+    expect(root).not.toHaveClass("shelf-table--striped");
 
     rerender(
       <Table
@@ -617,9 +617,13 @@ describe("Table", () => {
         maxHeight={320}
       />,
     );
-    expect(root).toHaveClass("cps-table--sm", "cps-table--striped", "cps-table--sticky-header");
-    expect(root).not.toHaveClass("cps-table--hoverable");
-    expect(root).not.toHaveClass("cps-table--bordered");
+    expect(root).toHaveClass(
+      "shelf-table--sm",
+      "shelf-table--striped",
+      "shelf-table--sticky-header",
+    );
+    expect(root).not.toHaveClass("shelf-table--hoverable");
+    expect(root).not.toHaveClass("shelf-table--bordered");
     expect(root).toHaveStyle({ maxHeight: "320px" });
   });
 

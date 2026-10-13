@@ -1,4 +1,4 @@
-import { Progress } from "@codecps/ui";
+import { Progress } from "@shelf-ui/react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/progress/Basic.jsx";
 import basicCode from "../../examples/progress/Basic.jsx?raw";
@@ -49,7 +49,7 @@ export const progressDoc = {
       indeterminate: false,
       variant: "primary",
       size: "md",
-      label: "Deploying codecps-web",
+      label: "Deploying storefront-web",
       showValue: true,
     },
     controls: {

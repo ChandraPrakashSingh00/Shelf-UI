@@ -1,4 +1,4 @@
-import { PinInput } from "@codecps/ui";
+import { PinInput } from "@shelf-ui/react";
 
 export default function PinInputMasked() {
   return (
@@ -8,7 +8,7 @@ export default function PinInputMasked() {
       mask
       otp={false}
       placeholder="○"
-      helperText="Never share your UPI PIN, not even with CodeCPS support."
+      helperText="Never share your UPI PIN, not even with Acme support."
     />
   );
 }

@@ -33,7 +33,7 @@ export function ToastProvider({
   const toast = useCallback(
     (options) => {
       nextId.current += 1;
-      const id = options.id ?? `cps-toast-${nextId.current}`;
+      const id = options.id ?? `shelf-toast-${nextId.current}`;
       setToasts((current) =>
         [...current.filter((existing) => existing.id !== id), { ...options, id }].slice(-limit),
       );
@@ -51,7 +51,7 @@ export function ToastProvider({
         <Portal>
           <section
             aria-label={label}
-            className={cx("cps-toast-viewport", `cps-toast-viewport--${position}`)}
+            className={cx("shelf-toast-viewport", `shelf-toast-viewport--${position}`)}
           >
             {toasts.map(({ id, duration, ...options }) => (
               <Toast

@@ -1,4 +1,4 @@
-import { Button, Popover } from "@codecps/ui";
+import { Button, Popover } from "@shelf-ui/react";
 
 function InfoIcon() {
   return (

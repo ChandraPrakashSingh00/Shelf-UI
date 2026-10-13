@@ -68,7 +68,7 @@ export const Slider = forwardRef(function Slider(
   forwardedRef,
 ) {
   const generatedId = useId();
-  const inputId = id ?? `cps-slider-${generatedId}`;
+  const inputId = id ?? `shelf-slider-${generatedId}`;
   const inputRef = useRef(null);
   const ref = useMemo(() => mergeRefs(inputRef, forwardedRef), [forwardedRef]);
   const messageId = `${inputId}-message`;
@@ -111,24 +111,24 @@ export const Slider = forwardRef(function Slider(
   return (
     <div
       className={cx(
-        "cps-field",
-        "cps-slider",
-        `cps-slider--${size}`,
-        disabled && "cps-field--disabled",
+        "shelf-field",
+        "shelf-slider",
+        `shelf-slider--${size}`,
+        disabled && "shelf-field--disabled",
         className,
       )}
       style={style}
     >
       {(label != null || showValue) && (
-        <div className="cps-slider__header">
+        <div className="shelf-slider__header">
           {label != null && (
-            <label className="cps-field__label" htmlFor={inputId}>
+            <label className="shelf-field__label" htmlFor={inputId}>
               {label}
             </label>
           )}
           {/* The input already announces its value, so this copy is hidden from screen readers. */}
           {showValue && (
-            <span className="cps-slider__value" aria-hidden="true">
+            <span className="shelf-slider__value" aria-hidden="true">
               {valueText}
             </span>
           )}
@@ -147,13 +147,13 @@ export const Slider = forwardRef(function Slider(
         disabled={disabled}
         aria-valuetext={ariaValueText ?? (formatValue ? valueText : undefined)}
         aria-describedby={describedBy || undefined}
-        className="cps-slider__input"
-        style={{ "--cps-slider-fill": `${fill}%` }}
+        className="shelf-slider__input"
+        style={{ "--shelf-slider-fill": `${fill}%` }}
         onChange={composeEventHandlers(onChange, (event) => setValue(Number(event.target.value)))}
       />
 
       {helperText != null && (
-        <p id={messageId} className="cps-field__message">
+        <p id={messageId} className="shelf-field__message">
           {helperText}
         </p>
       )}

@@ -1,4 +1,4 @@
-import { Button, Progress } from "@codecps/ui";
+import { Button, Progress } from "@shelf-ui/react";
 import { useEffect, useState } from "react";
 
 const FILE_SIZE_MB = 24;

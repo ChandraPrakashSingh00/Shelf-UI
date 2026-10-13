@@ -18,7 +18,11 @@ describe("PinInput", () => {
     expect(box(1)).toHaveAttribute("inputmode", "numeric");
     expect(box(1)).toHaveAttribute("autocomplete", "one-time-code");
     expect(box(2)).toHaveAttribute("autocomplete", "off");
-    expect(container.firstChild).toHaveClass("cps-field", "cps-field--md", "cps-pin-input-field");
+    expect(container.firstChild).toHaveClass(
+      "shelf-field",
+      "shelf-field--md",
+      "shelf-pin-input-field",
+    );
   });
 
   it("keeps only the box that takes the next character in the Tab order", async () => {
@@ -266,7 +270,7 @@ describe("PinInput", () => {
 
   it("masks the characters", () => {
     render(<PinInput label="UPI PIN" length={4} mask defaultValue="12" />);
-    const inputs = document.querySelectorAll(".cps-pin-input__box");
+    const inputs = document.querySelectorAll(".shelf-pin-input__box");
     expect(inputs).toHaveLength(4);
     for (const input of inputs) expect(input).toHaveAttribute("type", "password");
   });
@@ -295,13 +299,13 @@ describe("PinInput", () => {
       expect(input).toHaveAttribute("aria-invalid", "true");
       expect(input).toHaveAccessibleDescription("Wrong OTP");
     }
-    expect(container.firstChild).toHaveClass("cps-field--invalid");
+    expect(container.firstChild).toHaveClass("shelf-field--invalid");
   });
 
   it("disables every box", () => {
     const { container } = render(<PinInput label="Enter OTP" disabled />);
     for (const input of boxes()) expect(input).toBeDisabled();
-    expect(container.firstChild).toHaveClass("cps-field--disabled");
+    expect(container.firstChild).toHaveClass("shelf-field--disabled");
   });
 
   it("focuses the next box to fill with autoFocus, and via the label", async () => {
@@ -354,7 +358,7 @@ describe("PinInput", () => {
     expect(box(2)).toHaveAttribute("id", "otp-2");
     const group = screen.getByRole("group", { name: "One-time password" });
     expect(group).toHaveAttribute("data-testid", "otp-group");
-    expect(container.firstChild).toHaveClass("custom", "cps-field--lg");
+    expect(container.firstChild).toHaveClass("custom", "shelf-field--lg");
     expect(container.firstChild).toHaveStyle({ maxWidth: "320px" });
 
     ref.current.focus();

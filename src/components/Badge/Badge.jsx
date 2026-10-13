@@ -15,7 +15,7 @@ export const Badge = forwardRef(function Badge(
     <span
       {...rest}
       ref={ref}
-      className={cx("cps-badge", `cps-badge--${variant}`, `cps-badge--${size}`, className)}
+      className={cx("shelf-badge", `shelf-badge--${variant}`, `shelf-badge--${size}`, className)}
     />
   );
 });
