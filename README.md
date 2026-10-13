@@ -4,11 +4,10 @@
 
 Off-the-shelf, accessible React components, made to fit your brand.
 
+**Documentation:** https://www.shelfui.chandradev.in
+
 `@shelf-ui/react` gives every project the same buttons, forms, overlays and navigation,
 built once, tested once, and styled with design tokens you can make your own.
-
-To browse the documentation site locally, with live previews of every component, run
-`npm install` and `npm run dev` in this repository.
 
 - **Accessible by default.** Keyboard navigation, focus management and ARIA wiring
   follow the WAI-ARIA Authoring Practices.
