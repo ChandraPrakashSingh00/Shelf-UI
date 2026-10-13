@@ -1,4 +1,4 @@
-import { Stat } from "@shelf-ui/react";
+import { Stat } from "shelf-ui-react";
 
 function Icon({ children }) {
   return (

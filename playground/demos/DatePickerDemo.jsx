@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 import { useState } from "react";
 
 // Report presets ending today, built once.

@@ -1,4 +1,4 @@
-import { FileUpload } from "@shelf-ui/react";
+import { FileUpload } from "shelf-ui-react";
 import { useState } from "react";
 
 const MAX_SIZE = 2 * 1024 * 1024;

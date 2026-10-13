@@ -1,4 +1,4 @@
-import { Alert, Button } from "@shelf-ui/react";
+import { Alert, Button } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function AlertDismissible() {

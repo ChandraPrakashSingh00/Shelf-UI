@@ -1,4 +1,4 @@
-import { Avatar } from "@shelf-ui/react";
+import { Avatar } from "shelf-ui-react";
 
 function BotIcon() {
   return (

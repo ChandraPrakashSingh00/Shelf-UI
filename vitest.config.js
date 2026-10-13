@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     // The docs import the library by its package name.
-    alias: [{ find: /^@shelf-ui\/react$/, replacement: libraryEntry }],
+    alias: [{ find: /^shelf-ui-react$/, replacement: libraryEntry }],
   },
   test: {
     environment: "jsdom",

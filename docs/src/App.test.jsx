@@ -333,7 +333,7 @@ describe("site features", () => {
 
     await user.click(screen.getByRole("button", { name: "Copy install command" }));
 
-    expect(await navigator.clipboard.readText()).toBe("npm install @shelf-ui/react");
+    expect(await navigator.clipboard.readText()).toBe("npm install shelf-ui-react");
     expect(screen.getByText("Copied to clipboard")).toBeInTheDocument();
   });
 

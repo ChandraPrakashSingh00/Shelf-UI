@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 
 export default function DatePickerBasic() {
   return (

@@ -1,4 +1,4 @@
-import { Sidebar } from "@shelf-ui/react";
+import { Sidebar } from "shelf-ui-react";
 
 const iconPaths = {
   dashboard: "M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z",

@@ -1,4 +1,4 @@
-import { Select } from "@shelf-ui/react";
+import { Select } from "shelf-ui-react";
 
 const frameworks = ["Vite", "Next.js", "Remix", "Astro", "Other"];
 

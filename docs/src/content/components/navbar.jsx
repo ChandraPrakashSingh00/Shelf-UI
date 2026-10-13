@@ -1,4 +1,4 @@
-import { Navbar } from "@shelf-ui/react";
+import { Navbar } from "shelf-ui-react";
 import Basic from "../../examples/navbar/Basic.jsx";
 import basicCode from "../../examples/navbar/Basic.jsx?raw";
 import RouterLinks from "../../examples/navbar/RouterLinks.jsx";

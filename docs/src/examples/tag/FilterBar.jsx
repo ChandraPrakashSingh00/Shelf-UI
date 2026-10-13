@@ -1,4 +1,4 @@
-import { Button, Tag } from "@shelf-ui/react";
+import { Button, Tag } from "shelf-ui-react";
 import { useEffect, useRef, useState } from "react";
 
 const appliedFilters = [

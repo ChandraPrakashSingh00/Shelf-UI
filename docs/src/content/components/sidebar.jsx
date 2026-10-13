@@ -1,4 +1,4 @@
-import { Sidebar } from "@shelf-ui/react";
+import { Sidebar } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AdminLayout from "../../examples/sidebar/AdminLayout.jsx";
 import adminLayoutCode from "../../examples/sidebar/AdminLayout.jsx?raw";
@@ -143,7 +143,7 @@ function playgroundCode(values) {
   const title = (text) => (values.sectionTitles ? ` title="${text}"` : "");
   const badge = values.badges ? " badge={12}" : "";
 
-  return `import { Sidebar } from "@shelf-ui/react";
+  return `import { Sidebar } from "shelf-ui-react";
 
 <Sidebar ${rootProps.join(" ")}>
   <Sidebar.Header>

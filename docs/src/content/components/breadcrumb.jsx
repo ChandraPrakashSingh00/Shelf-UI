@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@shelf-ui/react";
+import { Breadcrumb } from "shelf-ui-react";
 import Basic from "../../examples/breadcrumb/Basic.jsx";
 import basicCode from "../../examples/breadcrumb/Basic.jsx?raw";
 import CustomSeparator from "../../examples/breadcrumb/CustomSeparator.jsx";

@@ -1,4 +1,4 @@
-import { Avatar, Button, Drawer, Sidebar } from "@shelf-ui/react";
+import { Avatar, Button, Drawer, Sidebar } from "shelf-ui-react";
 import { useState } from "react";
 
 const iconPaths = {

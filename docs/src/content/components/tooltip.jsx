@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@shelf-ui/react";
+import { Button, Tooltip } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/tooltip/Basic.jsx";
 import basicCode from "../../examples/tooltip/Basic.jsx?raw";

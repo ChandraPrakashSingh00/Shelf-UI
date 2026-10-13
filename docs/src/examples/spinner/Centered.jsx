@@ -1,4 +1,4 @@
-import { Card, Spinner } from "@shelf-ui/react";
+import { Card, Spinner } from "shelf-ui-react";
 
 export default function SpinnerCentered() {
   return (

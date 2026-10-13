@@ -1,4 +1,4 @@
-import { Button, Card } from "@shelf-ui/react";
+import { Button, Card } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Composition from "../../examples/card/Composition.jsx";
 import compositionCode from "../../examples/card/Composition.jsx?raw";

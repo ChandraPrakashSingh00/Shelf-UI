@@ -1,4 +1,4 @@
-import { DescriptionList } from "@shelf-ui/react";
+import { DescriptionList } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Compact from "../../examples/description-list/Compact.jsx";
 import compactCode from "../../examples/description-list/Compact.jsx?raw";

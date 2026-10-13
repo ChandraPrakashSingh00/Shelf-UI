@@ -1,4 +1,4 @@
-import { Divider } from "@shelf-ui/react";
+import { Divider } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/divider/Basic.jsx";
 import basicCode from "../../examples/divider/Basic.jsx?raw";

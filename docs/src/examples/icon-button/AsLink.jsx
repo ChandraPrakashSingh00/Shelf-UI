@@ -1,4 +1,4 @@
-import { IconButton } from "@shelf-ui/react";
+import { IconButton } from "shelf-ui-react";
 import { Link } from "react-router";
 
 function UserIcon() {

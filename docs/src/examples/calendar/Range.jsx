@@ -1,4 +1,4 @@
-import { Calendar, Card } from "@shelf-ui/react";
+import { Calendar, Card } from "shelf-ui-react";
 import { useState } from "react";
 
 const formatDay = (date) => date.toLocaleDateString("en-IN", { day: "numeric", month: "short" });

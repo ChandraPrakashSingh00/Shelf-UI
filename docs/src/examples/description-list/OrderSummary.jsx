@@ -1,4 +1,4 @@
-import { Card, DescriptionList } from "@shelf-ui/react";
+import { Card, DescriptionList } from "shelf-ui-react";
 
 const rupees = new Intl.NumberFormat("en-IN", {
   style: "currency",

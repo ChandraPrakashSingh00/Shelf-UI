@@ -1,4 +1,4 @@
-import { Button, Tabs } from "@shelf-ui/react";
+import { Button, Tabs } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function TabsControlled() {

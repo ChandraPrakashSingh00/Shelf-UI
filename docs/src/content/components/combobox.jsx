@@ -1,4 +1,4 @@
-import { Combobox } from "@shelf-ui/react";
+import { Combobox } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/combobox/Basic.jsx";
 import basicCode from "../../examples/combobox/Basic.jsx?raw";

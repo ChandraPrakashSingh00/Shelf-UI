@@ -1,4 +1,4 @@
-import { Button, CommandPalette } from "@shelf-ui/react";
+import { Button, CommandPalette } from "shelf-ui-react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/command-palette/Basic.jsx";

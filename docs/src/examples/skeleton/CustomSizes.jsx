@@ -1,4 +1,4 @@
-import { Skeleton } from "@shelf-ui/react";
+import { Skeleton } from "shelf-ui-react";
 
 export default function SkeletonCustomSizes() {
   return (

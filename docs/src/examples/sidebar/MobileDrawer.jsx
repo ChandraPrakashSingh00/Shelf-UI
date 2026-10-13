@@ -1,4 +1,4 @@
-import { Button, Drawer, Sidebar } from "@shelf-ui/react";
+import { Button, Drawer, Sidebar } from "shelf-ui-react";
 import { useState } from "react";
 
 const pages = [

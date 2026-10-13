@@ -1,4 +1,4 @@
-import { Button, Popover } from "@shelf-ui/react";
+import { Button, Popover } from "shelf-ui-react";
 
 // Each button sits where its popover has room: "Right" opens from the left edge, "Left" from the right.
 const sides = [

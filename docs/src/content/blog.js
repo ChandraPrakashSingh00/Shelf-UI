@@ -22,14 +22,14 @@ export const blogPosts = [
     body: [
       {
         type: "p",
-        text: "Shelf UI 0.3.0 is out. It's the first release of the `@shelf-ui/react` package: the same 50 components, with new names for their classes and tokens and a new default look.",
+        text: "Shelf UI 0.3.0 is out. It's the first release of the `shelf-ui-react` package: the same 50 components, with new names for their classes and tokens and a new default look.",
       },
       { type: "h2", text: "Install" },
-      { type: "code", language: "bash", title: "terminal", code: "npm install @shelf-ui/react" },
+      { type: "code", language: "bash", title: "terminal", code: "npm install shelf-ui-react" },
       {
         type: "code",
         title: "main.jsx",
-        code: `import "@shelf-ui/react/styles.css";`,
+        code: `import "shelf-ui-react/styles.css";`,
       },
       { type: "h2", text: "Why Shelf" },
       {
@@ -101,7 +101,7 @@ export const blogPosts = [
       {
         type: "code",
         title: "FeedbackForm.jsx",
-        code: `import { Button, DatePicker, Rating } from "@shelf-ui/react";
+        code: `import { Button, DatePicker, Rating } from "shelf-ui-react";
 
 export function FeedbackForm() {
   return (
@@ -147,7 +147,7 @@ export function FeedbackForm() {
         title: "terminal",
         code: `npm create vite@latest my-app -- --template react
 cd my-app
-npm install @shelf-ui/react`,
+npm install shelf-ui-react`,
       },
       { type: "h2", text: "2. Load the styles and toasts" },
       {
@@ -159,8 +159,8 @@ npm install @shelf-ui/react`,
         title: "src/main.jsx",
         code: `import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ToastProvider } from "@shelf-ui/react";
-import "@shelf-ui/react/styles.css";
+import { ToastProvider } from "shelf-ui-react";
+import "shelf-ui-react/styles.css";
 import { SignIn } from "./SignIn.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -179,7 +179,7 @@ createRoot(document.getElementById("root")).render(
       {
         type: "code",
         title: "src/SignIn.jsx",
-        code: `import { Button, Card, Checkbox, Input, useToast } from "@shelf-ui/react";
+        code: `import { Button, Card, Checkbox, Input, useToast } from "shelf-ui-react";
 
 export function SignIn() {
   const { toast } = useToast();
@@ -366,7 +366,7 @@ export function SignIn() {
       { type: "h2", text: "The problem" },
       {
         type: "p",
-        text: 'Tailwind puts its utilities in a cascade layer. CSS outside any layer always beats layered CSS, whatever its specificity. So if you import `@shelf-ui/react/styles.css` normally, `<Button className="rounded-full">` keeps the button\'s own corners.',
+        text: 'Tailwind puts its utilities in a cascade layer. CSS outside any layer always beats layered CSS, whatever its specificity. So if you import `shelf-ui-react/styles.css` normally, `<Button className="rounded-full">` keeps the button\'s own corners.',
       },
       { type: "h2", text: "The fix" },
       {
@@ -378,7 +378,7 @@ export function SignIn() {
         language: "css",
         title: "src/index.css",
         code: `@import "tailwindcss";
-@import "@shelf-ui/react/styles.css" layer(components);`,
+@import "shelf-ui-react/styles.css" layer(components);`,
       },
       { type: "h2", text: "Tokens still work" },
       {
@@ -398,7 +398,7 @@ export function SignIn() {
     body: [
       {
         type: "p",
-        text: "Today we're releasing Shelf UI 0.1.0, an accessible React component library for the products we build. It's on npm as `@shelf-ui/react`.",
+        text: "Today we're releasing Shelf UI 0.1.0, an accessible React component library for the products we build. It's on npm as `shelf-ui-react`.",
       },
       { type: "h2", text: "Why we built it" },
       {
@@ -420,7 +420,7 @@ export function SignIn() {
         type: "code",
         title: "terminal",
         language: "bash",
-        code: "npm install @shelf-ui/react",
+        code: "npm install shelf-ui-react",
       },
       {
         type: "p",

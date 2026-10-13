@@ -1,4 +1,4 @@
-import { Alert, Button, PinInput } from "@shelf-ui/react";
+import { Alert, Button, PinInput } from "shelf-ui-react";
 import { useEffect, useState } from "react";
 
 // In a real app, check the code with your API. In this demo, 246810 is correct.

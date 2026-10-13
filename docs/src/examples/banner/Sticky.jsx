@@ -1,4 +1,4 @@
-import { Banner } from "@shelf-ui/react";
+import { Banner } from "shelf-ui-react";
 
 const products = [
   { name: "Cotton Kurta – Indigo", city: "Jaipur", price: "₹899" },

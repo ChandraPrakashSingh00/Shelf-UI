@@ -1,4 +1,4 @@
-import { FileUpload } from "@shelf-ui/react";
+import { FileUpload } from "shelf-ui-react";
 import { useState } from "react";
 
 export function FileUploadDemo() {

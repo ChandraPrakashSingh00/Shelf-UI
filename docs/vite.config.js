@@ -19,8 +19,8 @@ export default defineConfig(({ command }) => {
     plugins: [react()],
     resolve: {
       alias: [
-        { find: /^@shelf-ui\/react$/, replacement: libraryEntry },
-        { find: /^@shelf-ui\/react\/styles\.css$/, replacement: libraryStyles },
+        { find: /^shelf-ui-react$/, replacement: libraryEntry },
+        { find: /^shelf-ui-react\/styles\.css$/, replacement: libraryStyles },
       ],
     },
     build: {

@@ -1,4 +1,4 @@
-import { Toast } from "@shelf-ui/react";
+import { Toast } from "shelf-ui-react";
 
 export default function ToastStandalone() {
   return (

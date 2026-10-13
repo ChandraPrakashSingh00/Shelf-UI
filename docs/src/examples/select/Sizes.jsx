@@ -1,4 +1,4 @@
-import { Select } from "@shelf-ui/react";
+import { Select } from "shelf-ui-react";
 
 const branches = ["main", "develop", "release/2.4"];
 

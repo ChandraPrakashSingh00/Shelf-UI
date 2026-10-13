@@ -1,4 +1,4 @@
-import { Input } from "@shelf-ui/react";
+import { Input } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/input/Basic.jsx";
 import basicCode from "../../examples/input/Basic.jsx?raw";

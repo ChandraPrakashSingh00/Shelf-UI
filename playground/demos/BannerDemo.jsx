@@ -1,4 +1,4 @@
-import { Banner, Button } from "@shelf-ui/react";
+import { Banner, Button } from "shelf-ui-react";
 import { useState } from "react";
 
 export function BannerDemo() {

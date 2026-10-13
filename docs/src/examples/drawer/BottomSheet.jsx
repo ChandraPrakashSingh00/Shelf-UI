@@ -1,4 +1,4 @@
-import { Button, Drawer, Input } from "@shelf-ui/react";
+import { Button, Drawer, Input } from "shelf-ui-react";
 import { useState } from "react";
 
 const previewUrl = "https://storefront-web-git-checkout.example.com";

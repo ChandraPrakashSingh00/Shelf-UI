@@ -1,4 +1,4 @@
-import { Select } from "@shelf-ui/react";
+import { Select } from "shelf-ui-react";
 
 const plans = [
   { value: "starter", label: "Starter · ₹999 per month" },

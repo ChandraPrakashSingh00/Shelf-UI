@@ -1,4 +1,4 @@
-import { Spinner } from "@shelf-ui/react";
+import { Spinner } from "shelf-ui-react";
 
 export default function SpinnerInlineText() {
   return (

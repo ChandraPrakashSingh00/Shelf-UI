@@ -1,4 +1,4 @@
-import { Avatar } from "@shelf-ui/react";
+import { Avatar } from "shelf-ui-react";
 import aditi from "./aditi.svg";
 import rohan from "./rohan.svg";
 import sneha from "./sneha.svg";

@@ -1,4 +1,4 @@
-import { Button, Drawer } from "@shelf-ui/react";
+import { Button, Drawer } from "shelf-ui-react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import BottomSheet from "../../examples/drawer/BottomSheet.jsx";

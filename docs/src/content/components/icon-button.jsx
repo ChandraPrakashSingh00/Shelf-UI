@@ -1,4 +1,4 @@
-import { IconButton } from "@shelf-ui/react";
+import { IconButton } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AsLink from "../../examples/icon-button/AsLink.jsx";
 import asLinkCode from "../../examples/icon-button/AsLink.jsx?raw";

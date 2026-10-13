@@ -1,4 +1,4 @@
-import { Tabs } from "@shelf-ui/react";
+import { Tabs } from "shelf-ui-react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { CodeBlock, CopyButton } from "../components/CodeBlock.jsx";
 import { ExampleBlock, preventPlaceholderNavigation } from "../components/ExampleBlock.jsx";
@@ -130,7 +130,7 @@ export function ComponentPage() {
   const category = getCategoryByName(doc.category);
   const [firstExample] = doc.examples;
   const { Component: Preview } = firstExample;
-  const importCode = `import { ${doc.imports.join(", ")} } from "@shelf-ui/react";`;
+  const importCode = `import { ${doc.imports.join(", ")} } from "shelf-ui-react";`;
   const tab = tabForHash(hash, doc);
 
   const selectTab = (value) =>

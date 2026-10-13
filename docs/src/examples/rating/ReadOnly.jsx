@@ -1,4 +1,4 @@
-import { Rating } from "@shelf-ui/react";
+import { Rating } from "shelf-ui-react";
 
 const products = [
   { name: "boAt Rockerz 450 Headphones", price: 1499, rating: 4.3, reviews: 128400 },

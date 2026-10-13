@@ -17,12 +17,12 @@ describe("tokenize", () => {
 
   it("highlights keywords, strings, JSX tags and attributes", () => {
     const tokens = tokenize(
-      'import { Button } from "@shelf-ui/react";\n<Button variant="primary" loading>Save</Button>',
+      'import { Button } from "shelf-ui-react";\n<Button variant="primary" loading>Save</Button>',
       "jsx",
     );
 
     expect(typesOf(tokens, "import")).toEqual(["keyword"]);
-    expect(typesOf(tokens, '"@shelf-ui/react"')).toEqual(["string"]);
+    expect(typesOf(tokens, '"shelf-ui-react"')).toEqual(["string"]);
     // Imported name, opening tag, closing tag (after text).
     expect(typesOf(tokens, "Button")).toEqual(["type", "tag", "tag"]);
     expect(typesOf(tokens, "variant")).toEqual(["attr"]);
@@ -66,7 +66,7 @@ describe("tokenize", () => {
   });
 
   it("highlights package manager commands and comments in shell snippets", () => {
-    const tokens = tokenize("npm install @shelf-ui/react # add the package", "bash");
+    const tokens = tokenize("npm install shelf-ui-react # add the package", "bash");
     expect(tokens[0]).toEqual({ type: "function", value: "npm" });
     expect(tokens.at(-1)).toEqual({ type: "comment", value: "# add the package" });
   });

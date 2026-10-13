@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 
 const formatShort = (date) =>
   date.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "long" });

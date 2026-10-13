@@ -1,4 +1,4 @@
-import { Sidebar } from "@shelf-ui/react";
+import { Sidebar } from "shelf-ui-react";
 import { NavLink } from "react-router";
 
 const pages = [

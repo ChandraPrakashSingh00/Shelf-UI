@@ -1,4 +1,4 @@
-import { Divider } from "@shelf-ui/react";
+import { Divider } from "shelf-ui-react";
 
 export function DividerDemo() {
   return (

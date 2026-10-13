@@ -1,4 +1,4 @@
-import { Button, Divider, Input } from "@shelf-ui/react";
+import { Button, Divider, Input } from "shelf-ui-react";
 
 export default function DividerWithLabel() {
   return (

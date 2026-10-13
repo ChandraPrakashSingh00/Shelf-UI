@@ -1,4 +1,4 @@
-import { Tabs } from "@shelf-ui/react";
+import { Tabs } from "shelf-ui-react";
 import Basic from "../../examples/tabs/Basic.jsx";
 import basicCode from "../../examples/tabs/Basic.jsx?raw";
 import Controlled from "../../examples/tabs/Controlled.jsx";

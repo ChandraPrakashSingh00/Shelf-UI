@@ -1,4 +1,4 @@
-import { PinInput } from "@shelf-ui/react";
+import { PinInput } from "shelf-ui-react";
 import { useState } from "react";
 
 export function PinInputDemo() {

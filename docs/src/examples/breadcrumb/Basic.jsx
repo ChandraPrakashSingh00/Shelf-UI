@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@shelf-ui/react";
+import { Breadcrumb } from "shelf-ui-react";
 
 export default function BreadcrumbBasic() {
   return (

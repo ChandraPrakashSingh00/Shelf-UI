@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 import { useState } from "react";
 
 // Report ranges end today; built once, when the page opens.

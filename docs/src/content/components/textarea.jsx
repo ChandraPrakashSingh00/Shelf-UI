@@ -1,4 +1,4 @@
-import { Textarea } from "@shelf-ui/react";
+import { Textarea } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AutoResize from "../../examples/textarea/AutoResize.jsx";
 import autoResizeCode from "../../examples/textarea/AutoResize.jsx?raw";

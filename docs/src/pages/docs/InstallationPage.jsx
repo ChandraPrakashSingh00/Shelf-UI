@@ -1,4 +1,4 @@
-import { Button } from "@shelf-ui/react";
+import { Button } from "shelf-ui-react";
 import { Link, Navigate, useLocation } from "react-router";
 import { Callout } from "../../components/Callout.jsx";
 import { CodeBlock } from "../../components/CodeBlock.jsx";
@@ -24,7 +24,7 @@ const fontCode = `<link rel="preconnect" href="https://fonts.googleapis.com" />
   rel="stylesheet"
 />`;
 
-const usageCode = `import { Button, Card, Input } from "@shelf-ui/react";
+const usageCode = `import { Button, Card, Input } from "shelf-ui-react";
 
 export function StartProject() {
   return (
@@ -75,7 +75,7 @@ export function InstallationPage() {
             Add the stylesheet once, in your app's entry file (for example <code>main.jsx</code>).
             It holds the design tokens and every component's styles, about 19 kB gzipped.
           </p>
-          <CodeBlock code={'import "@shelf-ui/react/styles.css";'} />
+          <CodeBlock code={'import "shelf-ui-react/styles.css";'} />
         </li>
         <li className="docs-step">
           <h2 id="font" className="docs-step__title">

@@ -1,4 +1,4 @@
-import { Button, Input, Pagination } from "@shelf-ui/react";
+import { Button, Input, Pagination } from "shelf-ui-react";
 import { Link, useSearchParams } from "react-router";
 import { SearchIcon } from "../components/icons.jsx";
 import { PostCard } from "../components/PostCard.jsx";

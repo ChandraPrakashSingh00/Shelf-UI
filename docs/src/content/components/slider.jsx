@@ -1,4 +1,4 @@
-import { Slider } from "@shelf-ui/react";
+import { Slider } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/slider/Basic.jsx";
 import basicCode from "../../examples/slider/Basic.jsx?raw";

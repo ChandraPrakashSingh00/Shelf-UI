@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@shelf-ui/react";
+import { Breadcrumb } from "shelf-ui-react";
 import { Link } from "react-router";
 import { ArrowLeftIcon, ArrowRightIcon } from "../components/icons.jsx";
 import { InlineMarkdown } from "../components/InlineMarkdown.jsx";

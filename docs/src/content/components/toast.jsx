@@ -1,4 +1,4 @@
-import { Button, Toast, useToast } from "@shelf-ui/react";
+import { Button, Toast, useToast } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Position from "../../examples/toast/Position.jsx";
 import positionCode from "../../examples/toast/Position.jsx?raw";
@@ -72,7 +72,7 @@ export const toastDoc = {
         values.duration !== "5000" && `  duration: ${values.duration},`,
       ].filter(Boolean);
       return [
-        'import { useToast } from "@shelf-ui/react";',
+        'import { useToast } from "shelf-ui-react";',
         "",
         "const { toast } = useToast();",
         "",

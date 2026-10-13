@@ -1,4 +1,4 @@
-import { Alert } from "@shelf-ui/react";
+import { Alert } from "shelf-ui-react";
 
 export default function AlertVariants() {
   return (

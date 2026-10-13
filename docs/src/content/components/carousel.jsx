@@ -1,4 +1,4 @@
-import { Carousel } from "@shelf-ui/react";
+import { Carousel } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Announcements from "../../examples/carousel/Announcements.jsx";
 import announcementsCode from "../../examples/carousel/Announcements.jsx?raw";

@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup } from "@shelf-ui/react";
+import { Avatar, AvatarGroup } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import aditi from "../../examples/avatar/aditi.svg";
 import Fallbacks from "../../examples/avatar/Fallbacks.jsx";

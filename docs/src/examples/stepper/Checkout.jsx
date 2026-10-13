@@ -1,4 +1,4 @@
-import { Button, Stepper } from "@shelf-ui/react";
+import { Button, Stepper } from "shelf-ui-react";
 import { useRef, useState } from "react";
 
 const steps = [

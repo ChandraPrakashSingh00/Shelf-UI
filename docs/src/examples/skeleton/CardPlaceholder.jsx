@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@shelf-ui/react";
+import { Card, Skeleton } from "shelf-ui-react";
 
 export default function SkeletonCardPlaceholder() {
   return (

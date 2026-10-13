@@ -1,4 +1,4 @@
-import { Tabs } from "@shelf-ui/react";
+import { Tabs } from "shelf-ui-react";
 
 export default function TabsBasic() {
   return (

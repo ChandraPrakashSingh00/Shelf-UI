@@ -1,11 +1,11 @@
 # Changelog
 
-All notable changes to `@shelf-ui/react` are documented in this file.
+All notable changes to `shelf-ui-react` are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-0.3.0 is the first release of the `@shelf-ui/react` package. Earlier versions were published
+0.3.0 is the first release of the `shelf-ui-react` package. Earlier versions were published
 under a different package name, with a `cps` prefix for class names and tokens; their entries
 below use today's names.
 
@@ -13,7 +13,7 @@ below use today's names.
 
 ### Changed
 
-- **Breaking:** the package is now `@shelf-ui/react`. Install it with `npm install @shelf-ui/react` and import the stylesheet from `@shelf-ui/react/styles.css`.
+- **Breaking:** the package is now `shelf-ui-react`. Install it with `npm install shelf-ui-react` and import the stylesheet from `shelf-ui-react/styles.css`.
 - **Breaking:** class names, design tokens and the theme attribute use the `shelf` prefix. If you override tokens or style the library's classes, rename `--cps-` to `--shelf-`, `.cps-` to `.shelf-` and `data-cps-theme` to `data-shelf-theme`.
 - New default color palette. The primary color is now violet `#6938ef` (white text on it has a 6.2:1 contrast ratio, which meets WCAG AA; the previous `#086ffd` was 4.47:1), with violet-tinted gray text and borders, refreshed status colors and a violet-black dark theme (`--shelf-brand-dark` is now `#0d0b1a`). Apps that override `--shelf-` tokens keep their own colors.
 - The documentation site has a new design.
@@ -55,7 +55,7 @@ below use today's names.
 - Overlays: `Modal`, `Drawer`, `Popover` and `Tooltip`.
 - Navigation: `Tabs`, `Navbar`, `Accordion`, `Breadcrumb` and `Pagination`.
 - Design tokens as CSS custom properties, with light and dark themes (`data-shelf-theme="dark"`).
-- ESM build that tree-shakes, plus a single stylesheet: `@shelf-ui/react/styles.css`.
+- ESM build that tree-shakes, plus a single stylesheet: `shelf-ui-react/styles.css`.
 - `"use client"` directives for React Server Components (Next.js App Router).
 - Keyboard and screen reader support following the WAI-ARIA Authoring Practices.
 - Responsive `Navbar` that collapses based on its own width (CSS container query), so it also adapts inside narrow layouts.

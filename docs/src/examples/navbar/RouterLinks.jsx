@@ -1,4 +1,4 @@
-import { Button, Navbar } from "@shelf-ui/react";
+import { Button, Navbar } from "shelf-ui-react";
 import { Link, useLocation } from "react-router";
 
 export default function NavbarRouterLinks() {

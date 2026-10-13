@@ -1,4 +1,4 @@
-import { Button } from "@shelf-ui/react";
+import { Button } from "shelf-ui-react";
 import { Link } from "react-router";
 
 export default function ButtonAsLink() {

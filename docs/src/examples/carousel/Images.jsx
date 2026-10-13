@@ -1,4 +1,4 @@
-import { Carousel } from "@shelf-ui/react";
+import { Carousel } from "shelf-ui-react";
 import dashboard from "./dashboard.svg";
 import deployments from "./deployments.svg";
 import team from "./team.svg";

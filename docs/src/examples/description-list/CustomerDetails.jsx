@@ -1,4 +1,4 @@
-import { Avatar, Badge, Card, DescriptionList } from "@shelf-ui/react";
+import { Avatar, Badge, Card, DescriptionList } from "shelf-ui-react";
 
 export default function DescriptionListCustomerDetails() {
   return (

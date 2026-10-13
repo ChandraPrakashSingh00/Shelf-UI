@@ -1,4 +1,4 @@
-import { Button, NumberInput } from "@shelf-ui/react";
+import { Button, NumberInput } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function NumberInputForm() {

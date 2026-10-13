@@ -1,4 +1,4 @@
-import { Button, Checkbox } from "@shelf-ui/react";
+import { Button, Checkbox } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function CheckboxValidation() {

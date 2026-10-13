@@ -1,4 +1,4 @@
-import { PinInput } from "@shelf-ui/react";
+import { PinInput } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Alphanumeric from "../../examples/pin-input/Alphanumeric.jsx";
 import alphanumericCode from "../../examples/pin-input/Alphanumeric.jsx?raw";

@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 
 const orderDate = new Date(2026, 9, 6);
 

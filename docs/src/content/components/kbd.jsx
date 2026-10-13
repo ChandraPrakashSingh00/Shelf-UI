@@ -1,4 +1,4 @@
-import { Kbd } from "@shelf-ui/react";
+import { Kbd } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/kbd/Basic.jsx";
 import basicCode from "../../examples/kbd/Basic.jsx?raw";

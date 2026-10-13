@@ -1,4 +1,4 @@
-import { Rating } from "@shelf-ui/react";
+import { Rating } from "shelf-ui-react";
 import { useState } from "react";
 
 const feedback = ["Tap a star to rate", "Poor", "Fair", "Good", "Very good", "Excellent"];

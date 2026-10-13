@@ -1,4 +1,4 @@
-import { Banner, Button } from "@shelf-ui/react";
+import { Banner, Button } from "shelf-ui-react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Dismissible from "../../examples/banner/Dismissible.jsx";

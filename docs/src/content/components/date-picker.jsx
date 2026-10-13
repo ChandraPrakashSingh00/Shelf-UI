@@ -1,4 +1,4 @@
-import { DatePicker } from "@shelf-ui/react";
+import { DatePicker } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Availability from "../../examples/date-picker/Availability.jsx";
 import availabilityCode from "../../examples/date-picker/Availability.jsx?raw";

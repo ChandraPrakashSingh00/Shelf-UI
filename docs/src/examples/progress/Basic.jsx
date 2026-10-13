@@ -1,4 +1,4 @@
-import { Progress } from "@shelf-ui/react";
+import { Progress } from "shelf-ui-react";
 
 export default function ProgressBasic() {
   return (

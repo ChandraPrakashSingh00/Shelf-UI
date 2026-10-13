@@ -1,4 +1,4 @@
-import { Button } from "@shelf-ui/react";
+import { Button } from "shelf-ui-react";
 import { useState } from "react";
 import { CodeBlock } from "./CodeBlock.jsx";
 

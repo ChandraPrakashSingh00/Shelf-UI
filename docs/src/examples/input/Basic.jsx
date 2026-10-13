@@ -1,4 +1,4 @@
-import { Input } from "@shelf-ui/react";
+import { Input } from "shelf-ui-react";
 
 export default function InputBasic() {
   return (

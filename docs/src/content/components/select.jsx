@@ -1,4 +1,4 @@
-import { Select } from "@shelf-ui/react";
+import { Select } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/select/Basic.jsx";
 import basicCode from "../../examples/select/Basic.jsx?raw";

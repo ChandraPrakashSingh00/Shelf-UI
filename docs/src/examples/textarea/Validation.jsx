@@ -1,4 +1,4 @@
-import { Textarea } from "@shelf-ui/react";
+import { Textarea } from "shelf-ui-react";
 import { useState } from "react";
 
 const MIN_LENGTH = 20;

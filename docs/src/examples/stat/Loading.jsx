@@ -1,4 +1,4 @@
-import { Button, Stat } from "@shelf-ui/react";
+import { Button, Stat } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function StatLoading() {

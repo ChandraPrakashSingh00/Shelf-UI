@@ -1,4 +1,4 @@
-import { Calendar, Card } from "@shelf-ui/react";
+import { Calendar, Card } from "shelf-ui-react";
 
 export default function CalendarLocalized() {
   return (

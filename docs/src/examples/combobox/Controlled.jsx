@@ -1,4 +1,4 @@
-import { Button, Combobox } from "@shelf-ui/react";
+import { Button, Combobox } from "shelf-ui-react";
 import { useState } from "react";
 
 const warehouses = [

@@ -1,4 +1,4 @@
-import { Divider } from "@shelf-ui/react";
+import { Divider } from "shelf-ui-react";
 
 const row = { display: "flex", justifyContent: "space-between", gap: 16 };
 

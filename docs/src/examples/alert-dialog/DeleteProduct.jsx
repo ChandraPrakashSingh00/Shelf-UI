@@ -1,4 +1,4 @@
-import { AlertDialog, Button } from "@shelf-ui/react";
+import { AlertDialog, Button } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function AlertDialogDeleteProduct() {

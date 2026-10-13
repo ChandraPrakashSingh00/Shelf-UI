@@ -1,4 +1,4 @@
-import { Slider } from "@shelf-ui/react";
+import { Slider } from "shelf-ui-react";
 
 export default function SliderBasic() {
   return (

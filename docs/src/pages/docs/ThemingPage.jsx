@@ -5,7 +5,7 @@ import { themingPage } from "../../content/docsPages.js";
 import { DocsPageNav, PageHeader } from "../../layout/PageParts.jsx";
 import { useDocumentTitle } from "../../lib/document.js";
 
-const overrideCode = `/* theme.css — load it after @shelf-ui/react/styles.css */
+const overrideCode = `/* theme.css — load it after shelf-ui-react/styles.css */
 :root {
   --shelf-color-primary: #0f766e;
   --shelf-color-primary-hover: #115e59;

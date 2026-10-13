@@ -1,4 +1,4 @@
-import { Slider } from "@shelf-ui/react";
+import { Slider } from "shelf-ui-react";
 
 const formatRupees = (value) => `₹${value.toLocaleString("en-IN")}`;
 

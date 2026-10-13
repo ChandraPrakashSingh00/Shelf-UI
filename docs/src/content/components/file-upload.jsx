@@ -1,4 +1,4 @@
-import { FileUpload } from "@shelf-ui/react";
+import { FileUpload } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/file-upload/Basic.jsx";
 import basicCode from "../../examples/file-upload/Basic.jsx?raw";

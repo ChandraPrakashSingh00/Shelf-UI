@@ -1,4 +1,4 @@
-import { Button, CommandPalette } from "@shelf-ui/react";
+import { Button, CommandPalette } from "shelf-ui-react";
 import { useState } from "react";
 
 const products = [

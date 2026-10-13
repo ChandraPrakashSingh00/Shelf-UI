@@ -1,4 +1,4 @@
-import { Pagination } from "@shelf-ui/react";
+import { Pagination } from "shelf-ui-react";
 
 export default function PaginationSizes() {
   return (

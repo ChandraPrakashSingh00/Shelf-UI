@@ -1,4 +1,4 @@
-import { Pagination, Table } from "@shelf-ui/react";
+import { Pagination, Table } from "shelf-ui-react";
 import { useEffect, useState } from "react";
 
 const PAGE_SIZE = 4;

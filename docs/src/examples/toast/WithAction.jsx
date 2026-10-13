@@ -1,4 +1,4 @@
-import { Button, useToast } from "@shelf-ui/react";
+import { Button, useToast } from "shelf-ui-react";
 
 export default function ToastWithAction() {
   const { toast, dismiss } = useToast();

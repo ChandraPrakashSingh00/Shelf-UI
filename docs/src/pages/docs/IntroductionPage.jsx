@@ -19,8 +19,8 @@ const peerDependencies = Object.entries(packageJson.peerDependencies);
 const setupCode = `// main.jsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ToastProvider } from "@shelf-ui/react";
-import "@shelf-ui/react/styles.css";
+import { ToastProvider } from "shelf-ui-react";
+import "shelf-ui-react/styles.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -85,7 +85,7 @@ export function IntroductionPage() {
         Import styles
       </h2>
       <p className="docs-text">Add the stylesheet once, in your app's entry file:</p>
-      <CodeBlock code={'import "@shelf-ui/react/styles.css";'} />
+      <CodeBlock code={'import "shelf-ui-react/styles.css";'} />
 
       <h2 id="basic-setup" className="docs-h2">
         Basic setup

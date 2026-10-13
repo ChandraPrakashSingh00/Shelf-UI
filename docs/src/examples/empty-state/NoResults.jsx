@@ -1,4 +1,4 @@
-import { Button, EmptyState } from "@shelf-ui/react";
+import { Button, EmptyState } from "shelf-ui-react";
 import { useState } from "react";
 
 function SearchIcon() {

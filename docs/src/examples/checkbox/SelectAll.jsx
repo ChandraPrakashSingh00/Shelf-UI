@@ -1,4 +1,4 @@
-import { Checkbox } from "@shelf-ui/react";
+import { Checkbox } from "shelf-ui-react";
 import { useState } from "react";
 
 const environments = [

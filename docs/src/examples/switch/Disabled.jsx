@@ -1,4 +1,4 @@
-import { Switch } from "@shelf-ui/react";
+import { Switch } from "shelf-ui-react";
 
 export default function SwitchDisabled() {
   return (

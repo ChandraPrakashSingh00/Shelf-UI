@@ -30,7 +30,7 @@ import {
   ToastProvider,
   Tooltip,
   useToast,
-} from "@shelf-ui/react";
+} from "shelf-ui-react";
 import packageJson from "../package.json";
 import { AlertDialogDemo } from "./demos/AlertDialogDemo.jsx";
 import { BannerDemo } from "./demos/BannerDemo.jsx";

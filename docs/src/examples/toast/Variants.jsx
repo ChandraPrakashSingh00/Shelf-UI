@@ -1,4 +1,4 @@
-import { Button, useToast } from "@shelf-ui/react";
+import { Button, useToast } from "shelf-ui-react";
 
 // useToast() needs a <ToastProvider> above it, usually once at the root of your app.
 export default function ToastVariants() {

@@ -1,4 +1,4 @@
-import { Button, Modal } from "@shelf-ui/react";
+import { Button, Modal } from "shelf-ui-react";
 import { useState } from "react";
 
 const sizes = ["sm", "md", "lg"];

@@ -1,4 +1,4 @@
-import { Tag } from "@shelf-ui/react";
+import { Tag } from "shelf-ui-react";
 
 export default function TagVariants() {
   return (

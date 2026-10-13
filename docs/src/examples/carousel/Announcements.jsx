@@ -1,4 +1,4 @@
-import { Badge, Button, Carousel } from "@shelf-ui/react";
+import { Badge, Button, Carousel } from "shelf-ui-react";
 import { useId } from "react";
 
 const announcements = [

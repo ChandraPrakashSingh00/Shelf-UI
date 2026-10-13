@@ -1,4 +1,4 @@
-import { AlertDialog, Button, Input } from "@shelf-ui/react";
+import { AlertDialog, Button, Input } from "shelf-ui-react";
 import { useRef, useState } from "react";
 
 const CONFIRMATION = "DELETE";

@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@shelf-ui/react";
+import { ToggleGroup } from "shelf-ui-react";
 import { useState } from "react";
 
 const orders = [

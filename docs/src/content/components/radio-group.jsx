@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@shelf-ui/react";
+import { Radio, RadioGroup } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/radio-group/Basic.jsx";
 import basicCode from "../../examples/radio-group/Basic.jsx?raw";

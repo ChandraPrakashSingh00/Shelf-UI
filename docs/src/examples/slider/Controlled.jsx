@@ -1,4 +1,4 @@
-import { Button, Slider } from "@shelf-ui/react";
+import { Button, Slider } from "shelf-ui-react";
 import { useState } from "react";
 
 const PRICE_PER_BUILD = 499;

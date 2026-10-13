@@ -1,4 +1,4 @@
-import { ToggleGroup } from "@shelf-ui/react";
+import { ToggleGroup } from "shelf-ui-react";
 
 const sizes = ["sm", "md", "lg"];
 

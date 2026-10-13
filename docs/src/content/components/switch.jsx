@@ -1,4 +1,4 @@
-import { Switch } from "@shelf-ui/react";
+import { Switch } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/switch/Basic.jsx";
 import basicCode from "../../examples/switch/Basic.jsx?raw";

@@ -1,4 +1,4 @@
-import { Textarea } from "@shelf-ui/react";
+import { Textarea } from "shelf-ui-react";
 
 export default function TextareaCharacterCount() {
   return (

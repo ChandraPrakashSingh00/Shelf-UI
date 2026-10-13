@@ -1,4 +1,4 @@
-import { Badge, Switch } from "@shelf-ui/react";
+import { Badge, Switch } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function SwitchControlled() {

@@ -1,4 +1,4 @@
-import { Button, Navbar } from "@shelf-ui/react";
+import { Button, Navbar } from "shelf-ui-react";
 
 export default function NavbarBasic() {
   return (

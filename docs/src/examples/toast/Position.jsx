@@ -1,4 +1,4 @@
-import { Button, ToastProvider, useToast } from "@shelf-ui/react";
+import { Button, ToastProvider, useToast } from "shelf-ui-react";
 
 function SaveButton() {
   const { toast } = useToast();

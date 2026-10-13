@@ -1,4 +1,4 @@
-import { Button, Input, Popover } from "@shelf-ui/react";
+import { Button, Input, Popover } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function PopoverControlled() {

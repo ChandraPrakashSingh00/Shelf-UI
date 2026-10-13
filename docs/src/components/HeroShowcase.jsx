@@ -1,4 +1,4 @@
-import { Avatar, Badge, Button, Input, Progress, Stat, Switch } from "@shelf-ui/react";
+import { Avatar, Badge, Button, Input, Progress, Stat, Switch } from "shelf-ui-react";
 import aditi from "../examples/avatar/aditi.svg";
 import rohan from "../examples/avatar/rohan.svg";
 import sneha from "../examples/avatar/sneha.svg";

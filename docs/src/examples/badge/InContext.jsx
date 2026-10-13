@@ -1,4 +1,4 @@
-import { Badge } from "@shelf-ui/react";
+import { Badge } from "shelf-ui-react";
 
 const deployments = [
   { name: "storefront-web", status: "success", label: "Ready" },

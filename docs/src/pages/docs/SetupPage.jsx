@@ -6,7 +6,7 @@ import { useDocumentTitle } from "../../lib/document.js";
 const viteCode = `// src/main.jsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@shelf-ui/react/styles.css";
+import "shelf-ui-react/styles.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")).render(
 );`;
 
 const nextLayoutCode = `// app/layout.js
-import "@shelf-ui/react/styles.css";
+import "shelf-ui-react/styles.css";
 
 export default function RootLayout({ children }) {
   return (
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
 }`;
 
 const nextServerCode = `// app/page.js — a Server Component
-import { Card, CardContent, CardHeader, CardTitle } from "@shelf-ui/react";
+import { Card, CardContent, CardHeader, CardTitle } from "shelf-ui-react";
 
 export default function Page() {
   return (
@@ -41,7 +41,7 @@ export default function Page() {
   );
 }`;
 
-const toastProviderCode = `import { ToastProvider } from "@shelf-ui/react";
+const toastProviderCode = `import { ToastProvider } from "shelf-ui-react";
 
 export function Root() {
   return (
@@ -51,7 +51,7 @@ export function Root() {
   );
 }`;
 
-const toastUsageCode = `import { Button, useToast } from "@shelf-ui/react";
+const toastUsageCode = `import { Button, useToast } from "shelf-ui-react";
 
 export function SaveButton() {
   const { toast } = useToast();

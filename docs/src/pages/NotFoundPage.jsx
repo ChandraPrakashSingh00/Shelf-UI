@@ -1,4 +1,4 @@
-import { Button } from "@shelf-ui/react";
+import { Button } from "shelf-ui-react";
 import { Link, isRouteErrorResponse, useRouteError } from "react-router";
 import { Astronaut } from "../components/Astronaut.jsx";
 import { isApplePlatform, useDocumentTitle } from "../lib/document.js";

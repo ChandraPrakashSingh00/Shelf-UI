@@ -1,4 +1,4 @@
-import { Link } from "@shelf-ui/react";
+import { Link } from "shelf-ui-react";
 
 export default function LinkUnderline() {
   return (

@@ -1,4 +1,4 @@
-import { Button, Select } from "@shelf-ui/react";
+import { Button, Select } from "shelf-ui-react";
 import { useState } from "react";
 
 const roles = [

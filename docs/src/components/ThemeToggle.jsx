@@ -1,4 +1,4 @@
-import { Button } from "@shelf-ui/react";
+import { Button } from "shelf-ui-react";
 import { useTheme } from "../lib/theme.js";
 import { MoonIcon, SunIcon } from "./icons.jsx";
 

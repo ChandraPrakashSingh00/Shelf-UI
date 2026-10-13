@@ -1,4 +1,4 @@
-import { Kbd } from "@shelf-ui/react";
+import { Kbd } from "shelf-ui-react";
 
 export default function KbdSizes() {
   return (

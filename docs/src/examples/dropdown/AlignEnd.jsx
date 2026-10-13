@@ -1,4 +1,4 @@
-import { Button, Dropdown } from "@shelf-ui/react";
+import { Button, Dropdown } from "shelf-ui-react";
 
 export default function DropdownAlignEnd() {
   return (

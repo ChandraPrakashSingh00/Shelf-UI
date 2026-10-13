@@ -1,4 +1,4 @@
-import { Accordion, Button } from "@shelf-ui/react";
+import { Accordion, Button } from "shelf-ui-react";
 import { useState } from "react";
 
 const releases = [

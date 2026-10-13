@@ -1,5 +1,5 @@
 {
-  "name": "@shelf-ui/react",
+  "name": "shelf-ui-react",
   "version": "0.3.0",
   "description": "Shelf UI — off-the-shelf, accessible React components with design tokens and dark mode.",
   "keywords": [

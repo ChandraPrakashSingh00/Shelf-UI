@@ -1,4 +1,4 @@
-import { Banner } from "@shelf-ui/react";
+import { Banner } from "shelf-ui-react";
 
 export default function BannerSale() {
   return (

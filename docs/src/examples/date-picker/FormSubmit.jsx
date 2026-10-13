@@ -1,4 +1,4 @@
-import { Button, DatePicker } from "@shelf-ui/react";
+import { Button, DatePicker } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function DatePickerFormSubmit() {

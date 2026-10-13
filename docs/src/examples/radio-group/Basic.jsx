@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@shelf-ui/react";
+import { Radio, RadioGroup } from "shelf-ui-react";
 
 export default function RadioGroupBasic() {
   return (

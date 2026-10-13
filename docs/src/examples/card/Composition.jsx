@@ -1,4 +1,4 @@
-import { Button, Card } from "@shelf-ui/react";
+import { Button, Card } from "shelf-ui-react";
 
 export default function CardComposition() {
   return (

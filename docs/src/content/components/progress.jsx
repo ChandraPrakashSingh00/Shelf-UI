@@ -1,4 +1,4 @@
-import { Progress } from "@shelf-ui/react";
+import { Progress } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/progress/Basic.jsx";
 import basicCode from "../../examples/progress/Basic.jsx?raw";

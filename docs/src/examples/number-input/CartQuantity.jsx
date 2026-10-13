@@ -1,4 +1,4 @@
-import { NumberInput } from "@shelf-ui/react";
+import { NumberInput } from "shelf-ui-react";
 import { useState } from "react";
 
 const products = [

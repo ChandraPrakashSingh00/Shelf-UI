@@ -3,7 +3,7 @@ import { componentApiPage } from "../../content/docsPages.js";
 import { DocsPageNav, PageHeader } from "../../layout/PageParts.jsx";
 import { useDocumentTitle } from "../../lib/document.js";
 
-const refCode = `import { Input } from "@shelf-ui/react";
+const refCode = `import { Input } from "shelf-ui-react";
 import { useRef } from "react";
 
 export function SearchField() {
@@ -18,7 +18,7 @@ export function SearchField() {
   );
 }`;
 
-const stateCode = `import { Tabs } from "@shelf-ui/react";
+const stateCode = `import { Tabs } from "shelf-ui-react";
 import { useState } from "react";
 
 // Uncontrolled: the component keeps its own state.
@@ -43,7 +43,7 @@ const eventsCode = `<Tabs.Tab
   Billing
 </Tabs.Tab>`;
 
-const compoundCode = `import { Card, CardContent, CardHeader, CardTitle } from "@shelf-ui/react";
+const compoundCode = `import { Card, CardContent, CardHeader, CardTitle } from "shelf-ui-react";
 
 // Both are the same component:
 <Card.Header>…</Card.Header>

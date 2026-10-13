@@ -6,7 +6,7 @@ Off-the-shelf, accessible React components, made to fit your brand.
 
 **Documentation:** https://www.shelfui.chandradev.in
 
-`@shelf-ui/react` gives every project the same buttons, forms, overlays and navigation,
+`shelf-ui-react` gives every project the same buttons, forms, overlays and navigation,
 built once, tested once, and styled with design tokens you can make your own.
 
 - **Accessible by default.** Keyboard navigation, focus management and ARIA wiring
@@ -23,7 +23,7 @@ built once, tested once, and styled with design tokens you can make your own.
 ## Installation
 
 ```bash
-npm install @shelf-ui/react
+npm install shelf-ui-react
 ```
 
 React and React DOM **18 or 19** are peer dependencies.
@@ -34,7 +34,7 @@ Import the stylesheet once, in your app's entry file (for example `main.jsx`, or
 `app/layout.js` in Next.js):
 
 ```jsx
-import "@shelf-ui/react/styles.css";
+import "shelf-ui-react/styles.css";
 ```
 
 Components use the [Inter](https://fonts.google.com/specimen/Inter) font when it is
@@ -43,7 +43,7 @@ available and fall back to the system UI font. Load Inter in your app for the in
 ## Basic usage
 
 ```jsx
-import { Button, Card, Input } from "@shelf-ui/react";
+import { Button, Card, Input } from "shelf-ui-react";
 
 export function App() {
   return (
@@ -795,7 +795,7 @@ says "(opens in a new tab)" to screen readers. Use `asChild` for router links.
 ### Toast
 
 ```jsx
-import { ToastProvider, useToast } from "@shelf-ui/react";
+import { ToastProvider, useToast } from "shelf-ui-react";
 
 function Root() {
   return (

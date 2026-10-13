@@ -1,4 +1,4 @@
-import { AlertDialog, Badge, Button, Select } from "@shelf-ui/react";
+import { AlertDialog, Badge, Button, Select } from "shelf-ui-react";
 import { useState } from "react";
 
 const reasons = [

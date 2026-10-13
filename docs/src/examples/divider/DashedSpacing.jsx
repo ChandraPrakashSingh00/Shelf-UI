@@ -1,4 +1,4 @@
-import { Divider } from "@shelf-ui/react";
+import { Divider } from "shelf-ui-react";
 
 export default function DividerDashedSpacing() {
   return (

@@ -1,4 +1,4 @@
-import { Badge } from "@shelf-ui/react";
+import { Badge } from "shelf-ui-react";
 import changelogSource from "../../../CHANGELOG.md?raw";
 import { InlineMarkdown } from "../components/InlineMarkdown.jsx";
 import { changelogPage } from "../content/docsPages.js";
@@ -28,7 +28,7 @@ export function ChangelogPage() {
     <article className="docs-article">
       <PageHeader
         title="Changelog"
-        lead="Every notable change to `@shelf-ui/react`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and versions follow [Semantic Versioning](https://semver.org)."
+        lead="Every notable change to `shelf-ui-react`. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and versions follow [Semantic Versioning](https://semver.org)."
       />
       <ol className="docs-releases">
         {releases.map((release) => {

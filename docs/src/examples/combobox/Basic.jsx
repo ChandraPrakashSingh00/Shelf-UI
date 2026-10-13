@@ -1,4 +1,4 @@
-import { Combobox } from "@shelf-ui/react";
+import { Combobox } from "shelf-ui-react";
 
 const cities = [
   "Ahmedabad",

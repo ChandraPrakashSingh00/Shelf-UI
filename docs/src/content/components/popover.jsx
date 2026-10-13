@@ -1,4 +1,4 @@
-import { Button, Popover } from "@shelf-ui/react";
+import { Button, Popover } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Controlled from "../../examples/popover/Controlled.jsx";
 import controlledCode from "../../examples/popover/Controlled.jsx?raw";

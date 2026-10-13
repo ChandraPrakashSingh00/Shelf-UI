@@ -1,4 +1,4 @@
-import { Badge } from "@shelf-ui/react";
+import { Badge } from "shelf-ui-react";
 import { Link, useParams } from "react-router";
 import { BlogCover } from "../components/BlogCover.jsx";
 import { CodeBlock } from "../components/CodeBlock.jsx";

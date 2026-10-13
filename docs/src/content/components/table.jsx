@@ -1,4 +1,4 @@
-import { Badge, Table } from "@shelf-ui/react";
+import { Badge, Table } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Inventory from "../../examples/table/Inventory.jsx";
 import inventoryCode from "../../examples/table/Inventory.jsx?raw";

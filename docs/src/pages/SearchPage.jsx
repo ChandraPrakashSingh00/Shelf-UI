@@ -1,4 +1,4 @@
-import { Badge, Button } from "@shelf-ui/react";
+import { Badge, Button } from "shelf-ui-react";
 import { Link, useSearchParams } from "react-router";
 import { ComponentIcon } from "../components/componentIcons.jsx";
 import { ArrowRightIcon, BookIcon, FileTextIcon } from "../components/icons.jsx";

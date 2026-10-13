@@ -1,4 +1,4 @@
-import { AlertDialog, Button } from "@shelf-ui/react";
+import { AlertDialog, Button } from "shelf-ui-react";
 import { useState } from "react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import AsyncConfirm from "../../examples/alert-dialog/AsyncConfirm.jsx";

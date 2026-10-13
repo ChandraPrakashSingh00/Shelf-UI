@@ -1,4 +1,4 @@
-import { Accordion } from "@shelf-ui/react";
+import { Accordion } from "shelf-ui-react";
 
 export default function AccordionDisabled() {
   return (

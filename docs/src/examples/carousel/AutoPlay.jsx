@@ -1,4 +1,4 @@
-import { Carousel } from "@shelf-ui/react";
+import { Carousel } from "shelf-ui-react";
 
 const tips = [
   {

@@ -1,4 +1,4 @@
-import { IconButton } from "@shelf-ui/react";
+import { IconButton } from "shelf-ui-react";
 
 function ShareIcon() {
   return (

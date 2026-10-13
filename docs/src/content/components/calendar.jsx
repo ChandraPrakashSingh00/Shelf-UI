@@ -1,4 +1,4 @@
-import { Calendar } from "@shelf-ui/react";
+import { Calendar } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import Basic from "../../examples/calendar/Basic.jsx";
 import basicCode from "../../examples/calendar/Basic.jsx?raw";

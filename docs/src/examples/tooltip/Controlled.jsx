@@ -1,4 +1,4 @@
-import { Button, Tooltip } from "@shelf-ui/react";
+import { Button, Tooltip } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function TooltipControlled() {

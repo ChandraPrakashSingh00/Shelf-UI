@@ -1,4 +1,4 @@
-import { Divider, Link } from "@shelf-ui/react";
+import { Divider, Link } from "shelf-ui-react";
 
 const stats = [
   { label: "Orders today", value: "1,248" },

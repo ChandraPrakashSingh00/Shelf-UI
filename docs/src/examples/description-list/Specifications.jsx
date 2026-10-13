@@ -1,4 +1,4 @@
-import { DescriptionList } from "@shelf-ui/react";
+import { DescriptionList } from "shelf-ui-react";
 
 const specifications = [
   { term: "Brand", description: "Sonic Wave" },

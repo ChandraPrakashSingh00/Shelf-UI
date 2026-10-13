@@ -1,4 +1,4 @@
-import { Link } from "@shelf-ui/react";
+import { Link } from "shelf-ui-react";
 import { definePlayground } from "../../components/LivePlayground.jsx";
 import External from "../../examples/link/External.jsx";
 import externalCode from "../../examples/link/External.jsx?raw";

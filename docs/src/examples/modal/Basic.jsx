@@ -1,4 +1,4 @@
-import { Button, Modal } from "@shelf-ui/react";
+import { Button, Modal } from "shelf-ui-react";
 import { useState } from "react";
 
 export default function ModalBasic() {

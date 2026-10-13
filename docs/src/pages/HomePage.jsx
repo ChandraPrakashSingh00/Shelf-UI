@@ -1,4 +1,4 @@
-import { Button, Kbd } from "@shelf-ui/react";
+import { Button, Kbd } from "shelf-ui-react";
 import { Link } from "react-router";
 import { CodeBlock, CopyButton } from "../components/CodeBlock.jsx";
 import { ComponentCard } from "../components/ComponentCard.jsx";
